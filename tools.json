@@ -1,0 +1,2537 @@
+[
+ {
+  "name": "Claude Code",
+  "vendor": "Anthropic",
+  "type": "cli",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Claude (Anthropic own models); optionally routed via Amazon Bedrock, Google Vertex AI, or Microsoft Azure Foundry",
+  "data_handling": "zdr",
+  "data_handling_note": "Consumer tiers (Free/Pro/Max) train on data by default with opt-out. Commercial tiers (Team, Enterprise, API) do NOT train on data per commercial terms. Zero Data Retention (ZDR) is available for Enterprise and API users subject to Anthropic approval - applies to Claude Code accessed via Enterprise plans or API key. ZDR does NOT apply to Pro/Max consumer subscriptions. Free tier is highest-risk.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Requires Enterprise or API plan (no training on data by default) plus a signed DPA. Zero Data Retention addendum should be requested. Pro/Max consumer plans are not suitable without opt-out.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "ISO 27001:2022",
+   "ISO/IEC 42001:2023",
+   "HIPAA BAA (enterprise, on request)",
+   "GDPR"
+  ],
+  "pricing": "Free (limited) - Pro $20/mo - Max $100-200/mo - Team Premium $150/seat/mo - Enterprise custom; Education/university plan available for institutions (contact sales)",
+  "academic": "Education plan available for universities (students, faculty, staff) at discounted rates; academic research credit programs available - contact sales@anthropic.com",
+  "use_cases": [
+   "coding",
+   "data analysis",
+   "CI/CD automation",
+   "agentic repo-scale workflows",
+   "multi-agent orchestration"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://code.claude.com/docs/en/overview",
+   "pricing": "https://claude.com/pricing",
+   "privacy": "https://privacy.claude.com/"
+  },
+  "notes": "Terminal CLI remains the primary surface but Claude Code is now a multi-surface product (CLI, VS Code, JetBrains, desktop app, web, iOS). Official docs are now at code.claude.com. Consumer plans train on data by default - researchers must use Enterprise/API + ZDR + DPA for personal or special-category data. No self-hosting or air-gap option exists. HIPAA BAA requires qualifying and contacting sales. ISO/IEC 42001:2023 (AI management systems) is a notable addition alongside ISO 27001.",
+  "sources": [
+   "https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to",
+   "https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained",
+   "https://code.claude.com/docs/en/security"
+  ],
+  "status": "active",
+  "current_name": "Claude Code",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "Enterprise / API only"
+ },
+ {
+  "name": "OpenAI Codex",
+  "vendor": "OpenAI",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "GPT-5.x-Codex (GPT-5.4, GPT-5.5; OpenAI proprietary)",
+  "data_handling": "zdr",
+  "data_handling_note": "API, ChatGPT Business, Enterprise, and Edu do NOT train on user data by default. API data retained up to 30 days for abuse monitoring then deleted. Zero Data Retention (ZDR) available for eligible enterprise customers on supported endpoints - not self-serve, requires OpenAI account team enablement. Consumer ChatGPT Free/Plus may use data to train unless opted out. EU data residency available for eligible enterprise contracts.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Use ChatGPT Business/Enterprise or API tier (no training by default) plus sign a DPA; do not use consumer Free/Plus without opting out of data sharing. ZDR available for enterprise via account team.",
+   "special": "Cloud-only, no self-hosting or air-gap option. Even with ZDR and HIPAA BAA (enterprise), data transits OpenAI cloud infrastructure - not suitable for special-category health/genetic data under GDPR."
+  },
+  "compliance": [
+   "SOC 2 Type 2",
+   "ISO 27001 (ISO/IEC 27001:2022)",
+   "ISO 27701",
+   "GDPR (DPA available)",
+   "HIPAA BAA (enterprise eligible endpoints)",
+   "FERPA",
+   "CCPA"
+  ],
+  "pricing": "Free (limited) - Go $8/mo - Plus $20/mo - Pro 5x $100/mo - Pro 20x $200/mo - Business (pay-as-you-go, usage-based Codex seats from April 2026) - Enterprise/Edu (custom). Students (US/Canada): $100 in Codex credits via SheerID verification.",
+  "academic": "$100 in Codex credits for verified university students in US and Canada (one-time, expires 12 months). ChatGPT Edu plan for institutions (custom pricing).",
+  "use_cases": [
+   "agentic software engineering",
+   "code generation",
+   "bug fixing",
+   "code review",
+   "codebase Q&A",
+   "test writing",
+   "refactoring",
+   "security vulnerability scanning",
+   "CI/CD automation"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://developers.openai.com/codex",
+   "pricing": "https://developers.openai.com/codex/pricing",
+   "privacy": "https://openai.com/enterprise-privacy/"
+  },
+  "notes": "The legacy Codex API (2021 code-completion model, codex-mini-latest) was deprecated February 2026 - this record refers to the current Codex AI agent launched April 2025. By March 2026 it had 2M+ weekly active users. Codex CLI version 0.141.0 released June 18 2026. Codex Security (vulnerability scanning) added March 2026. Available on AWS as of June 2026.",
+  "sources": [
+   "https://developers.openai.com/api/docs/guides/your-data",
+   "https://meetily.ai/llm-privacy/openai",
+   "https://en.wikipedia.org/wiki/OpenAI_Codex_(AI_agent)"
+  ],
+  "status": "active",
+  "current_name": "OpenAI Codex",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "API / Business+ (not consumer)"
+ },
+ {
+  "name": "Gemini CLI",
+  "vendor": "Google",
+  "type": "cli",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Gemini 3.x (Google proprietary)",
+  "data_handling": "no-train",
+  "data_handling_note": "Free/consumer tier (Google Account login) collects prompts and code and may train on them - HIGH RISK by default. Paid Gemini API tier and Vertex AI do NOT train on data; inputs treated as confidential. Enterprise (Code Assist Standard/Enterprise) is also confidential, no training. The safe no-train path requires a paid API key or Vertex AI configuration. Vertex AI supports EU data residency (europe-west12, de-central1) but region pinning must be set per-call in code, not at project level.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Use paid Gemini API key or Vertex AI (no-train) + EU region pinning (Vertex). Free/consumer tier trains on data - not suitable for personal data.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2",
+   "SOC 3",
+   "ISO 27001",
+   "GDPR",
+   "EU data residency (Vertex AI)",
+   "HIPAA BAA (Google Cloud eligible services)"
+  ],
+  "pricing": "Original Gemini CLI: free tier (1,000 req/day with Google Account) or pay-per-token via Gemini API / Vertex AI. As of June 18 2026, free and consumer (AI Pro, Ultra) tiers migrated to Antigravity CLI (closed-source). Enterprise: Code Assist Standard/Enterprise seats. Antigravity CLI pricing not yet fully published.",
+  "academic": "No dedicated academic/student discount program identified; free tier (now Antigravity) available to any Google Account but carries training-data risk.",
+  "use_cases": [
+   "coding",
+   "terminal automation",
+   "multi-step agentic workflows",
+   "code review and refactoring",
+   "shell command orchestration"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://github.com/google-gemini/gemini-cli",
+   "pricing": "https://google-gemini.github.io/gemini-cli/docs/quota-and-pricing.html",
+   "privacy": "https://google-gemini.github.io/gemini-cli/docs/tos-privacy.html"
+  },
+  "notes": "The product is in active transition as of the fact-check date (June 20 2026). The original open-source Gemini CLI GitHub repo (Apache 2.0) remains available for self-build but Google has ended backend service for free and consumer tiers. Antigravity CLI is the current product but is proprietary/closed-source, which represents a significant philosophical shift. Enterprise users on Code Assist Standard/Enterprise or Vertex AI retain Gemini model access. For research use, the safest path is Vertex AI with a paid key + EU region configured per call. The GDPR/compliance posture is inherited from Google Cloud / Vertex AI, not from the CLI itself.",
+  "sources": [
+   "https://github.com/google-gemini/gemini-cli/discussions/27274",
+   "https://google-gemini.github.io/gemini-cli/docs/tos-privacy.html",
+   "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/"
+  ],
+  "status": "renamed",
+  "current_name": "Antigravity CLI",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid API / Vertex (free tier trains)"
+ },
+ {
+  "name": "Aider",
+  "vendor": "Aider-AI (open-source, Apache-2.0)",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable",
+  "model_backend": "BYO key - local model (Ollama, etc.) or any cloud API (OpenAI, Anthropic, Google, DeepSeek, xAI, etc.)",
+  "data_handling": "local",
+  "data_handling_note": "Aider itself never collects user code, chat messages, or API keys. Analytics are strictly opt-in and cover only anonymous usage stats (no code). When paired with a local model the data never leaves the machine. When paired with a cloud API, privacy follows that provider's policy. No SOC 2, HIPAA, or GDPR certifications exist for Aider itself - compliance is entirely determined by the chosen LLM backend.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "ok",
+   "special": "ok"
+  },
+  "suitability_notes": {
+   "personal": "ok when using a local model (data never leaves machine) or a cloud API that provides a DPA and no-train guarantee; cfg if using a consumer cloud API without a DPA.",
+   "special": "ok only when paired with a fully local model (e.g. Ollama); with any cloud API, data leaves the machine and no BAA or on-prem path is provided by Aider itself."
+  },
+  "compliance": [
+   "self-hosted"
+  ],
+  "pricing": "Free (open source, Apache-2.0); user pays their chosen LLM provider directly - Aider charges nothing",
+  "academic": "free",
+  "use_cases": [
+   "coding",
+   "pair programming",
+   "automated git commits",
+   "multi-model workflows",
+   "test-driven development",
+   "data analysis"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://aider.chat",
+   "pricing": "https://github.com/Aider-AI/aider",
+   "privacy": "https://aider.chat/docs/legal/privacy.html"
+  },
+  "notes": "Pair-programming CLI with 46.5k GitHub stars and 93 releases as of mid-2026. Capability tracks whichever model you connect. Architect mode allows pairing a planner model with a cheaper editor model on the same task. No vendor-provided compliance certifications - researchers must evaluate the chosen LLM backend independently.",
+  "sources": [
+   "https://aider.chat/docs/legal/privacy.html",
+   "https://aider.chat/docs/more/analytics.html",
+   "https://github.com/Aider-AI/aider"
+  ],
+  "status": "active",
+  "current_name": "Aider",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": ""
+ },
+ {
+  "name": "Goose",
+  "vendor": "AAIF / Linux Foundation (originally Block; donated to Agentic AI Foundation in Dec 2025)",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable",
+  "model_backend": "BYO key - 40+ providers: local (Ollama, LM Studio, Docker Model Runner) or cloud (Anthropic, OpenAI, Google, Azure, Bedrock, etc.)",
+  "data_handling": "local",
+  "data_handling_note": "Goose itself sends no conversations, code, or personal data to Block or AAIF. With a local model (Ollama, LM Studio, etc.) everything stays fully on-device. Anonymous usage telemetry (OS version, model provider name, token counts, error type only - no code or prompt content) is collected by default but can be disabled via Settings or GOOSE_TELEMETRY_ENABLED=false. When using cloud LLMs, data is sent to that provider under their own policies. No SOC 2 / HIPAA certifications from the project itself; compliance is inherited from the chosen model provider.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "ok",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Use a local model (Ollama/LM Studio) or a cloud provider with a DPA/no-train agreement; disable telemetry (GOOSE_TELEMETRY_ENABLED=false) before use with personal data.",
+   "special": "Must use a fully local model (Ollama etc.) so data never leaves the machine, AND disable telemetry. No BAA or clinical certifications exist at the Goose project level - compliance depends entirely on the self-hosted model provider."
+  },
+  "compliance": [
+   "self-hosted",
+   "Apache-2.0",
+   "Linux Foundation governance"
+  ],
+  "pricing": "Free (Apache 2.0 open source; no paid tiers)",
+  "academic": "free",
+  "use_cases": [
+   "coding",
+   "data analysis",
+   "multi-step automation",
+   "file editing",
+   "CLI/shell workflows",
+   "MCP extension orchestration"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://goose-docs.ai",
+   "pricing": "",
+   "privacy": "https://goose-docs.ai/docs/guides/usage-data/"
+  },
+  "notes": "Goose is both a CLI and a native desktop app (Rust-based, available for macOS/Linux/Windows). As of June 2026 it has v1.38.0, ~50k GitHub stars, and 70+ MCP extensions. The project is now under Linux Foundation/AAIF neutral governance with Block as one of many platinum members. For ELIXIR use: local model path is fully privacy-safe once telemetry is disabled; cloud path requires per-provider DPA review.",
+  "sources": [
+   "https://goose-docs.ai/docs/guides/usage-data/",
+   "https://github.com/aaif-goose/goose",
+   "https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation"
+  ],
+  "status": "active",
+  "current_name": "Goose",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Cursor",
+  "vendor": "Anysphere",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "frontier models (OpenAI, Anthropic, Google, xAI - hosted) + BYO key",
+  "data_handling": "no-train",
+  "data_handling_note": "Privacy Mode enforces no-train + ZDR agreements with all model providers (OpenAI, Anthropic, Google, xAI). Privacy Mode is OFF by default for Hobby/Pro/Pro+ - users must enable it manually (Settings). For Teams, admins can enforce it org-wide; for Enterprise it is ON by default. With Privacy Mode disabled, Cursor may use codebase data, prompts, and editor actions for training. BYO API key bypasses ZDR - data handling then follows the chosen provider's own policy. No HIPAA BAA on any tier.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Enable Privacy Mode manually (Hobby/Pro/Pro+) or enforce at org level (Teams/Enterprise); Privacy Mode activates ZDR with all providers. DPA available via subprocessors. GDPR compliance confirmed.",
+   "special": "No HIPAA BAA on any tier; all code routes through cloud subprocessors (AWS, Azure, GCP, Cloudflare) with no BAA coverage. Privacy Mode protects IP, not regulated health/genetic data. Cloud-only; no self-hosted or air-gapped option."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR"
+  ],
+  "pricing": "Hobby (free) - Pro ($20/mo) - Pro+ ($60/mo) - Ultra ($200/mo) - Teams ($40/user/mo) - Enterprise (custom). ~20% discount on annual billing. Students: 1 year of Pro free via SheerID verification.",
+  "academic": "1 year of Pro free for verified university students via SheerID (cursor.com/students).",
+  "use_cases": [
+   "coding",
+   "agentic coding",
+   "code review",
+   "MCP tool use"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://cursor.com/docs",
+   "pricing": "https://cursor.com/pricing",
+   "privacy": "https://cursor.com/privacy"
+  },
+  "notes": "AI-native editor built on VS Code fork. Privacy Mode is the critical setting: must be manually enabled for individual users (Hobby/Pro/Pro+); org-enforceable on Teams; on by default for Enterprise. No self-hosted or air-gapped deployment path exists - remains cloud-only. No HIPAA BAA on any tier; unsuitable for special-category (health/genetic) data regardless of Privacy Mode. Customer Managed Encryption Keys (CMEK) available at Enterprise tier for embeddings and Cloud Agent data. BYO API key use falls outside ZDR coverage.",
+  "sources": [
+   "https://cursor.com/data-use",
+   "https://cursor.com/docs/enterprise/privacy-and-data-governance",
+   "https://cursor.com/help/security-and-privacy/privacy"
+  ],
+  "status": "active",
+  "current_name": "Cursor",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "Privacy Mode — off by default"
+ },
+ {
+  "name": "GitHub Copilot",
+  "vendor": "GitHub / Microsoft",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "multiple frontier models selectable (GPT-5 mini, Claude Sonnet/Opus, and others; hosted by GitHub/Microsoft)",
+  "data_handling": "no-train",
+  "data_handling_note": "MAJOR POLICY CHANGE (April 24, 2026): Free, Pro, and Pro+ tiers now use interaction data (inputs, outputs, code snippets, context) for AI training BY DEFAULT - users must actively opt out in account settings. Business and Enterprise tiers remain excluded from training under the GitHub Data Protection Agreement (DPA). The no-train guarantee therefore requires Business or Enterprise. The free/individual tiers are now opt-out (risky by default). Zero-data-retention is not offered; Business/Enterprise have a DPA prohibiting training use without authorization. EU data residency now available for Enterprise (opt-in, +10% cost), covering EU member states and EFTA countries from May 1, 2026.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Requires Business or Enterprise tier plus DPA - those tiers contractually exclude code/interaction data from training. Free/Pro/Pro+ tiers now train on interaction data by default (opt-out available but not guaranteed by contract). EU data residency (Enterprise, opt-in) satisfies GDPR data-localisation needs.",
+   "special": "Cloud-only; no self-hosting or air-gapped deployment path. No HIPAA BAA confirmed for GitHub Copilot specifically. Even with Business/Enterprise and EU residency, data leaves the researcher's systems and special-category health/genetic data should not be processed."
+  },
+  "compliance": [
+   "SOC 2 Type I",
+   "ISO/IEC 27001:2013",
+   "GDPR (DPA available for Business/Enterprise)",
+   "FedRAMP Moderate (Enterprise, opt-in)"
+  ],
+  "pricing": "Free - Pro ($10/mo) - Pro+ ($39/mo) - Max ($100/mo) - Business ($19/seat/mo) - Enterprise ($39/user/mo). From June 1 2026, paid plans include monthly GitHub AI Credits; completions are free on all paid plans but chat/agent mode draws from credits.",
+  "academic": "Free student plan (GitHub Student Developer Pack) available for verified students - reduced feature set vs Pro since March 2026; verified teachers get free Copilot Pro.",
+  "use_cases": [
+   "coding",
+   "code review",
+   "agentic software development",
+   "CLI assistance",
+   "pull request summaries"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.github.com/en/copilot",
+   "pricing": "https://github.com/features/copilot/plans",
+   "privacy": "https://github.blog/news-insights/company-news/updates-to-github-copilot-interaction-data-usage-policy/"
+  },
+  "notes": "The April 24 2026 training policy change is the most critical fact for research/ELIXIR context: researchers using free or personal Pro/Pro+ accounts are now contributing interaction data to model training by default. Only Business and Enterprise have a contractual prohibition on training use. EU data residency (opt-in, Enterprise) now available and aligned to Microsoft EU Data Boundary. No confirmed HIPAA BAA for GitHub Copilot specifically.",
+  "sources": [
+   "https://github.blog/news-insights/company-news/updates-to-github-copilot-interaction-data-usage-policy/",
+   "https://github.blog/changelog/2026-04-13-copilot-data-residency-in-us-eu-and-fedramp-compliance-now-available/",
+   "https://github.blog/changelog/2024-06-03-github-copilot-compliance-soc-2-type-1-report-and-iso-iec-270012013-certification-scope/"
+  ],
+  "status": "active",
+  "current_name": "GitHub Copilot",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "Business / Enterprise"
+ },
+ {
+  "name": "Windsurf",
+  "vendor": "Cognition AI, Inc",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud / self-hostable / on-prem",
+  "model_backend": "Proprietary SWE-1.6 (default) + frontier models (OpenAI, Claude, Gemini on Pro/Max)",
+  "data_handling": "no-train",
+  "data_handling_note": "The current Cognition privacy policy (updated 2026-03-09) states user content CAN be used to train/fine-tune models under the default Terms - training is NOT off by default on the Free/Pro tiers. Zero Data Retention (ZDR) and confirmed no-training is available on Teams/Enterprise only. Enterprise also offers hybrid or fully self-hosted (VPC/on-prem) deployment where code never leaves the customer environment. SOC 2 Type II certified; FedRAMP High ATO available; HIPAA BAAs offered for enterprise. The best available option is therefore \"no-train\" but it requires the Teams or Enterprise tier to be guaranteed.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Requires Teams or Enterprise tier to enable Zero Data Retention + DPA; default Free/Pro tiers permit training on user content under current Cognition privacy policy.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (no-train). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "FedRAMP High (via Palantir FedStart / AWS GovCloud)",
+   "HIPAA BAA (enterprise)",
+   "GDPR (SCCs / UK IDTA for international transfers)",
+   "DPA available at cognition.com/legal/data-processing-statement"
+  ],
+  "pricing": "Free ($0) - Pro ($20/mo) - Max ($200/mo) - Teams ($80/mo base + $40/seat) - Enterprise (custom). Student discount ~50%+ off Pro with .edu email.",
+  "academic": "~50% student discount on Pro tier for verified .edu email holders.",
+  "use_cases": [
+   "coding",
+   "agentic coding",
+   "multi-agent orchestration"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.devin.ai/desktop/getting-started",
+   "pricing": "https://devin.ai/pricing",
+   "privacy": "https://cognition.com/legal/privacy-policy"
+  },
+  "notes": "The product is in rapid flux post-acquisition. windsurf.com 308-redirects to devin.ai/desktop; docs.windsurf.com 307-redirects to docs.devin.ai/desktop. The privacy policy data controller is now \"Cognition AI, Inc\" and explicitly permits training on user content by default - a significant regression from Codeium-era no-train claims. Researchers handling personal or special-category data MUST use the Enterprise tier with self-hosted/VPC deployment and execute a DPA. The proprietary SWE-1.6 model delivers near-frontier performance; frontier models (GPT-4o, Claude, Gemini) are accessible on Pro and above.",
+  "sources": [
+   "https://cognition.com/legal/privacy-policy",
+   "https://vibecoding.app/blog/windsurf-review",
+   "https://harini.blog/2025/07/02/windsurf-detailed-enterprise-security-readiness-report/"
+  ],
+  "status": "renamed",
+  "current_name": "Devin Desktop (formerly Windsurf)",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "Enterprise (self-host)"
+ },
+ {
+  "name": "Google Antigravity",
+  "vendor": "Google",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Gemini 3.1 Pro / 3.5 Flash (default); also supports Claude Sonnet/Opus and OpenAI GPT-OSS models",
+  "data_handling": "opt-out",
+  "data_handling_note": "Free, Pro, Ultra, and Ultra Max consumer tiers use interactions for training by default; users can opt out via settings, but Google has not confirmed that disabling telemetry fully prevents training use. True no-train protection (Google Cloud CDPA / AI/ML Privacy Commitment) requires accessing Antigravity via a Google Cloud Project (GCP) - currently restricted to an invited-team limited preview - or via Google Workspace enterprise (not yet supported as of mid-2026). Default consumer tiers are risky for any non-public data.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "no",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Consumer tiers train on data by default; opt-out is ambiguous. No-train path (GCP enterprise) is in limited preview only - not generally available. Cannot recommend for GDPR-covered personal data until GCP enterprise path opens broadly.",
+   "special": "Cloud-only, no self-hosting or on-premises option. No clinical use / HIPAA-BAA path documented. Not suitable for health, genetic, or clinical data."
+  },
+  "compliance": [
+   "GDPR (via Google Cloud CDPA, GCP enterprise path only)",
+   "Google Cloud AI/ML Privacy Commitment (GCP path only)"
+  ],
+  "pricing": "Free (rate-limited, all models) - AI Pro $20/mo - AI Ultra $100/mo - AI Ultra Max $200/mo (reduced from $249.99 at I/O 2026) - Pay-as-you-go $25/2,500 credits",
+  "academic": "No current academic pricing. A 12-month free AI Pro student promotion closed globally by April 2026. Students may use the free tier or informal cost-sharing (family plan ~$3.33/person/month).",
+  "use_cases": [
+   "coding",
+   "agentic software development",
+   "multi-agent orchestration",
+   "scheduled automation",
+   "data analysis (CLI)"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+   "pricing": "https://antigravity.google/pricing",
+   "privacy": "https://antigravity.google/terms"
+  },
+  "notes": "Product is in public preview (v2.0.1, May 2026). The enterprise/GCP no-train path exists in principle (Google Cloud CDPA covers it) but Antigravity access via GCP is still invite-only as of mid-2026. Data terms are actively contested in developer forums. Re-verify data handling before any institutional adoption. The antigravity.google domain exists but its terms and pricing pages returned empty content during fetch - cited sources are from Google Developers Blog, the Google AI Developers Forum, and Google Cloud documentation.",
+  "sources": [
+   "https://discuss.ai.google.dev/t/data-privacy-for-commercial-use-how-to-access-antigravity-with-full-protections/132828",
+   "https://antigravity.google/terms",
+   "https://docs.cloud.google.com/generative-ai-app-builder/docs/data-governance"
+  ],
+  "status": "active",
+  "current_name": "Google Antigravity",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid / enterprise"
+ },
+ {
+  "name": "JetBrains Junie",
+  "vendor": "JetBrains",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud / local-capable",
+  "model_backend": "frontier models via JetBrains subscription (Anthropic, OpenAI, Google, xAI); BYOK (Anthropic, OpenAI, Google, xAI, OpenRouter, GitHub Copilot); local runtimes (Ollama, LM Studio, LiteLLM) via Junie CLI",
+  "data_handling": "no-train",
+  "data_handling_note": "JetBrains contractually commits not to train on user inputs/outputs; AI subcontractors bound by same restriction. By default, code is sent to LLM providers without being stored on JetBrains servers (detailed data collection is opt-in only, disabled by default for orgs). 1-year retention applies only if org admin explicitly enables detailed collection. BYOK routes directly to provider, bypassing JetBrains servers. Local model option (Ollama/LM Studio via Junie CLI) means data can stay fully on-device. DPA available at jetbrains.com/legal/dpa/. Data stored in EEA (AWS/GCP EU). Free/individual tier has the same no-train guarantee but no contractual DPA by default.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Sign DPA (available at jetbrains.com/legal/dpa/) and use AI Enterprise tier; ensure detailed data collection is disabled (default for orgs). BYOK mode eliminates JetBrains data exposure.",
+   "special": "Cloud-only for AI processing. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control; confirm with DPO/IRB."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR",
+   "DPA available"
+  ],
+  "pricing": "AI Free (3 credits/30 days, no cost); AI Pro ($10/mo individual, $20/mo org); AI Ultimate ($30/mo individual, $60/mo org); AI Enterprise (custom via JetBrains IDE Services). BYOK users pay provider rates with no JetBrains markup.",
+  "academic": "Students and teachers get JetBrains IDEs free (Student Pack); AI Free tier included with educational license; AI Pro/Ultimate not included - students must pay separately. 40% graduation discount available for 2 years post-study.",
+  "use_cases": [
+   "coding",
+   "agentic debugging",
+   "PR review",
+   "CI/CD automation"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://junie.jetbrains.com/docs/",
+   "pricing": "https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html",
+   "privacy": "https://www.jetbrains.com/legal/docs/terms/jetbrains-ai-service/"
+  },
+  "notes": "Junie is a full agentic coding assistant (not just autocomplete) built into all JetBrains IDEs plus a standalone CLI. GA release June 17 2026 added agentic debugging via real IDE debugger, ACP-based IDE integration, async remote task monitoring, and local model support. The local runtime path (Ollama/LM Studio via Junie CLI) is the key unlock for special-category data use. JetBrains Trust Center is at trust-center.jetbrains.com; SOC 2 Type II confirmed, ISO 27001 not confirmed in available sources.",
+  "sources": [
+   "https://webdeveloper.com/news/jetbrains-junie-ga-agentic-debugging/",
+   "https://www.jetbrains.com/legal/docs/terms/jetbrains-ai-service/",
+   "https://www.jetbrains.com/help/ai/data-collection-and-use-policy.html"
+  ],
+  "status": "active",
+  "current_name": "JetBrains Junie",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "AI Enterprise terms"
+ },
+ {
+  "name": "Continue.dev",
+  "vendor": "Continue Dev, Inc. (acquired by Cursor / Anysphere)",
+  "type": "ide",
+  "openness": "open-source",
+  "deployment": "local-capable",
+  "model_backend": "BYO key - local model (Ollama etc.) or any cloud API; 100+ provider integrations",
+  "data_handling": "local",
+  "data_handling_note": "Final release v2.0.0 (June 19, 2026) explicitly removed anonymous telemetry. With a local model (Ollama etc.) no data leaves the machine. Cloud agents send code to the chosen LLM provider. The privacy policy (last updated Feb 5, 2026) collected IP/usage analytics from the open-source extension unless opted out; telemetry opt-out was available. No SOC 2, GDPR DPA, HIPAA-BAA, or zero-data-retention terms were documented. The repo is now read-only/frozen; no active vendor to offer compliance agreements. Self-hosting the frozen codebase remains viable for air-gapped use.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Pair with a local model (Ollama) so code never leaves the machine; avoid cloud-API backends without verifying the provider's DPA. No vendor DPA is available from Continue Dev post-acquisition.",
+   "special": "Only viable via fully local model on an air-gapped or self-hosted setup (Apache 2.0 allows this). No vendor BAA or clinical compliance certification exists. Community fork may be needed for long-term maintenance."
+  },
+  "compliance": [
+   "self-hosted",
+   "Apache-2.0"
+  ],
+  "pricing": "Free (Apache 2.0 open source, final v2.0.0). Prior paid tiers (Solo free / Team $10/dev/month / Enterprise custom) are no longer sold - pricing page redirects to acquisition notice. LLM costs borne by user via chosen provider.",
+  "academic": "free",
+  "use_cases": [
+   "coding",
+   "code review",
+   "CI/PR automation",
+   "data analysis"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.continue.dev",
+   "pricing": "https://www.continue.dev/",
+   "privacy": "https://www.continue.dev/privacy"
+  },
+  "notes": "The extension, CLI, and JetBrains plugin remain usable from VS Code Marketplace / npm / JetBrains Marketplace. Future bug-fixes and model integrations depend on community forks. For sensitive research data, pair exclusively with a local model; the frozen codebase (Apache 2.0) supports air-gapped self-hosting. Cursor itself is in the process of being acquired by SpaceX ($60B deal announced June 16, 2026), adding further vendor-continuity uncertainty.",
+  "sources": [
+   "https://www.continue.dev/",
+   "https://github.com/continuedev/continue",
+   "https://www.continue.dev/privacy"
+  ],
+  "status": "merged",
+  "current_name": "Continue (acquired by Cursor)",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": ""
+ },
+ {
+  "name": "Cline",
+  "vendor": "Cline Bot Inc.",
+  "type": "ide",
+  "openness": "open-source",
+  "deployment": "local-capable",
+  "model_backend": "BYO key - Anthropic, OpenAI, Google, AWS Bedrock, Azure, or local model via Ollama/LM Studio (30+ providers)",
+  "data_handling": "local",
+  "data_handling_note": "With BYOK (own API keys) Cline itself never receives or stores code/prompts - data goes only to your chosen provider. Free tier ToS grants Cline broad content license, but this does not apply on paid per-seat subscriptions. Enterprise tier explicitly guarantees no data exfiltration and no training on code. With a fully local model (Ollama/LM Studio), data never leaves the device. No SOC 2, HIPAA, or GDPR certifications are publicly listed. Telemetry is opt-in and never includes code or file content.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Use BYOK with a provider that offers no-training/DPA (e.g. Anthropic API with data-privacy add-on, or Azure OpenAI), or run a local model. Free tier with cloud keys risks broad Cline content license; Enterprise tier removes this risk.",
+   "special": "Run with a fully local model (Ollama/LM Studio) so data never leaves the device. Enterprise self-hosted path also provides no-exfiltration guarantee but compliance certs (HIPAA-BAA) are not publicly confirmed - verify with Cline sales before use with health/genetic data."
+  },
+  "compliance": [
+   "self-hosted"
+  ],
+  "pricing": "Free (open-source, BYOK usage-based, no subscription); Enterprise: custom pricing (contact sales). No academic/student discount listed.",
+  "academic": "free (open-source tier)",
+  "use_cases": [
+   "coding",
+   "agentic coding",
+   "file editing",
+   "terminal commands",
+   "browser automation",
+   "multi-IDE support"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.cline.bot",
+   "pricing": "https://cline.bot/pricing",
+   "privacy": "https://cline.bot/privacy"
+  },
+  "notes": "63.6k GitHub stars; 30+ model providers supported. Enterprise plan adds SSO, RBAC, centralized billing, and guarantees no code exfiltration. With a fully local model the tool is air-gapped by design. The draft listed vendor as \"open-source\" - now correctly Cline Bot Inc. The draft listed personal/special as ok - corrected to cfg given free-tier ToS content license and absence of confirmed HIPAA-BAA.",
+  "sources": [
+   "https://cline.bot/privacy",
+   "https://cline.bot/tos",
+   "https://cline.bot/blog/introducing-cline-for-enterprise"
+  ],
+  "status": "active",
+  "current_name": "Cline",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": ""
+ },
+ {
+  "name": "Tabnine",
+  "vendor": "Tabnine",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "self-hostable",
+  "model_backend": "own models + BYO LLM endpoint; air-gapped / on-prem option",
+  "data_handling": "local",
+  "data_handling_note": "No-train-no-retain policy applies across all paid tiers: code is ephemerally processed for inference then immediately discarded; never stored or used for training. On-prem and air-gapped deployments (zero outbound calls) available at both the $39 Code Assistant and $59 Agentic tiers. There is no free tier since April 2025. SaaS default is US-hosted (AWS North Virginia / GCP Iowa); EU data residency not explicitly documented.",
+  "capability": "strong",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "ok",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "No-train-no-retain policy applies at all paid tiers; on-prem deployment removes any SaaS data-transit risk. SaaS tier adequate with DPA in place.",
+   "special": "Use the on-prem or air-gapped deployment option (available at both paid tiers): code never leaves your network and inference happens on your hardware. Vendor lists HIPAA (via AWS/GCP infra) and ISO 27001/27017/27018 compliance."
+  },
+  "compliance": [
+   "SOC 2",
+   "GDPR",
+   "ISO 27001",
+   "ISO 27017",
+   "ISO 27018",
+   "HIPAA (via cloud infra)",
+   "FedRAMP (via cloud infra)",
+   "PCI DSS Level 1 (via cloud infra)"
+  ],
+  "pricing": "Code Assistant $39/user/month - Agentic Platform $59/user/month (both annual only; free tier discontinued April 2025; 14-day trial available)",
+  "academic": "None - no academic or student discount listed",
+  "use_cases": [
+   "coding",
+   "code completion",
+   "AI chat in IDE",
+   "agentic coding workflows",
+   "CI/CD headless agents"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.tabnine.com",
+   "pricing": "https://www.tabnine.com/pricing/",
+   "privacy": "https://docs.tabnine.com/main/welcome/readme/privacy"
+  },
+  "notes": "Tabnine pivoted to enterprise-only in 2025 and positions itself as the privacy-first alternative to GitHub Copilot. Both paid tiers include on-prem/air-gapped deployment, making it suitable for regulated research environments. EU data residency is not explicitly documented; contact vendor if EU-only data location is required for GDPR purposes. HIPAA/FedRAMP certifications are inherited via AWS/GCP cloud infrastructure, not independently held by Tabnine.",
+  "sources": [
+   "https://docs.tabnine.com/main/welcome/readme/privacy",
+   "https://docs.tabnine.com/main/welcome/readme/security",
+   "https://www.tabnine.com/pricing/"
+  ],
+  "status": "active",
+  "current_name": "Tabnine",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Tabby",
+  "vendor": "TabbyML",
+  "type": "ide",
+  "openness": "open-core",
+  "deployment": "self-hostable / cloud",
+  "model_backend": "self-hosted open-weights models (Community/Team self-host); BYOK for Pochi agent (cloud)",
+  "data_handling": "local",
+  "data_handling_note": "Self-hosted Community/Team plans: code never leaves your infrastructure - fully local. Pochi agent (cloud tier) uses a BYOK model (you provide your own LLM API key); cloud billing/token usage handled by TabbyML. Privacy policy mentions data transfer to the US and China for cloud services, and analytics via PostHog. No SOC 2, HIPAA-BAA, or ISO 27001 certifications found. The self-hosted path is air-gappable and remains the safest option for sensitive data.",
+  "capability": "capable",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "ok",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Safe when self-hosted (Community or Team tier on your own infrastructure) - data stays on-prem. Cloud tier (Tabby Cloud / Pochi) is not recommended for personal data without a DPA; privacy policy allows transfer to US and China.",
+   "special": "Self-hosted deployment is air-gappable and data never leaves your infrastructure, making it suitable for special-category data in principle. However, no vendor-side HIPAA-BAA or formal clinical compliance exists. Configure self-hosted (cfg) and ensure your own infrastructure compliance."
+  },
+  "compliance": [
+   "self-hosted",
+   "LDAP",
+   "SSO (GitHub/GitLab OAuth, LDAP)",
+   "GDPR (rights acknowledged in privacy policy - but data may transfer to US/China for cloud)",
+   "open-source Apache 2.0 core"
+  ],
+  "pricing": "Free (Community - self-hosted, up to 5 users, Apache 2.0 core) - Team $19/seat/month (up to 50 users, flexible deployment) - Enterprise: custom pricing (unlimited users, customised deployment) - Tabby Cloud Pochi agent: usage-based, $20 free monthly credits; tab completion always free",
+  "academic": "free (Community self-hosted tier is free with no user cap restriction documented beyond 5-user Community limit; no explicit academic discount program found)",
+  "use_cases": [
+   "coding",
+   "code completion",
+   "inline chat",
+   "answer engine",
+   "agentic coding (Pochi)"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://tabby.tabbyml.com/docs/",
+   "pricing": "https://www.tabbyml.com/pricing",
+   "privacy": "https://www.tabbyml.com/privacy"
+  },
+  "notes": "Tabby is actively maintained (21.6k GitHub stars, v0.32.0 released January 2026). Core code completion is Apache 2.0; enterprise features (SSO, LDAP, advanced team management) are under a proprietary EE license. The Pochi agentic feature (launched July 2025) is cloud-only with BYOK LLM keys and usage-based billing. For ELIXIR/research use with sensitive data, the self-hosted Community or Team plan on researcher-controlled infrastructure is the appropriate path; avoid Tabby Cloud for personal or special-category data.",
+  "sources": [
+   "https://www.tabbyml.com/pricing",
+   "https://www.tabbyml.com/privacy",
+   "https://github.com/TabbyML/tabby"
+  ],
+  "status": "active",
+  "current_name": "Tabby",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Devin",
+  "vendor": "Cognition",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud / self-hostable",
+  "model_backend": "frontier models (hosted by Cognition; Pro/Max users can choose OpenAI, Claude, Gemini)",
+  "data_handling": "no-train",
+  "data_handling_note": "Docs state \"Cognition does not train its models on customer data or code\" by default for all plans. However the main privacy policy for individual/consumer accounts mentions using User Content to \"train, fine-tune and improve models\" - the no-train guarantee is explicit and firm only at Enterprise tier. Free/Pro/Team users should verify their current plan terms. Enterprise adds VPC deployment (data stays in customer tenant). SOC 2 Type II certified. No HIPAA, ISO 27001, FedRAMP documented. DPA link (cognition.ai/legal/data-processing-addendum) returned 404 at time of check - contact vendor to confirm current DPA availability.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Enterprise tier with explicit no-train commitment and DPA required; consumer/free tiers may allow training on content per privacy policy.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (no-train). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 Type II"
+  ],
+  "pricing": "Devin Cloud (autonomous agent): Core pay-as-you-go ~$20 base at $2.25/ACU; Team $500/month (250 ACUs included, $2.00/ACU overage); Enterprise custom. Devin Desktop (IDE, formerly Windsurf): Free $0; Pro $20/month; Max $200/month; Teams $80/month base + $40/seat; Enterprise custom. ACU = ~15 min of active agent compute.",
+  "academic": "No academic or student discount program documented.",
+  "use_cases": [
+   "coding",
+   "autonomous software engineering",
+   "code review",
+   "IDE/code completion",
+   "agent orchestration"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.devin.ai",
+   "pricing": "https://devin.ai/pricing",
+   "privacy": "https://cognition.com/legal/privacy-policy"
+  },
+  "notes": "Devin is a fully autonomous cloud software engineer (Devin Cloud) and also an IDE/agent manager (Devin Desktop, formerly Windsurf). Enterprise tier includes VPC deployment. The privacy policy redirect from cognition.ai to cognition.com indicates recent domain consolidation. The DPA at the draft URL (cognition.ai/legal/data-processing-addendum) now 404s - vendors should be contacted for current DPA. No HIPAA-BAA, ISO 27001, or FedRAMP certifications found. Major enterprise customers include Goldman Sachs, Citi, Mercedes-Benz, and US Army/Navy.",
+  "sources": [
+   "https://docs.devin.ai/admin/security",
+   "https://docs.devin.ai/enterprise/security/enterprise-security",
+   "https://devin.ai/pricing"
+  ],
+  "status": "active",
+  "current_name": "Devin",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "Enterprise"
+ },
+ {
+  "name": "Replit Agent",
+  "vendor": "Replit",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Anthropic Claude (Sonnet 4.5 / Opus 4.5 as of Nov 2025); also Google Gemini 3 (Design Mode); 300+ models via OpenRouter available in AI Integrations",
+  "data_handling": "no-train",
+  "data_handling_note": "Commercial/enterprise customers: explicit no-train clause - Replit will not use Customer Content to train ML models (Commercial Agreement). Free/Core (consumer) tier: privacy policy is ambiguous - may use data \"to improve machine learning technologies.\" Default free/Core tier should be treated as risky (opt-out at best). Enterprise plan adds DPA (GDPR-compliant SCCs), SSO/SCIM, and enterprise privacy controls. No HIPAA BAA offered; not suitable for PHI. SOC 2 Type II certified (2025, zero exceptions). Data primarily hosted in US (may include India). No EU data residency guarantee. No self-hosting or on-premises option.",
+  "capability": "strong",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data requires a commercial or enterprise plan with the explicit no-train clause (Commercial Agreement) plus a signed DPA. Free and Core tiers are ambiguous on training and should be avoided for GDPR-regulated data.",
+   "special": "Not appropriate. Replit does not offer a HIPAA BAA, has no on-premises/self-hosted deployment option, and data is hosted in the US. Health, genetic, or clinical data must not be processed on this platform."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR (DPA available for EEA/UK/CH enterprise customers, SCCs)"
+  ],
+  "pricing": "Free (Starter, limited Agent credits, 1 published project) - Core $25/mo ($20/mo annual, $25 credits, 2 parallel agents) - Pro $100/mo ($95/mo annual, $100 credits, 10 parallel agents) - Enterprise (custom). Effort-based credit pricing for Agent tasks since mid-2025.",
+  "academic": "No dedicated academic discount listed on pricing page; annual billing saves 5-20%. No student plan identified.",
+  "use_cases": [
+   "coding",
+   "full-stack web app development",
+   "vibe coding / build-from-prompt",
+   "app deployment",
+   "agent-based autonomous development"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.replit.com",
+   "pricing": "https://replit.com/pricing",
+   "privacy": "https://replit.com/privacy"
+  },
+  "notes": "Agent v2 launched Feb 2025 (Claude 3.7 Sonnet); Agent 3 (Sep 2025) added self-testing and up to 200 min autonomous work; upgraded to Claude Sonnet/Opus 4.5 in Nov 2025. Agent 4 (multi-agent canvas) in development. Platform listed on GCP and Azure Marketplaces. Enterprise adds SSO/SAML, SCIM, Security Center (CVE detection, SBOM exports). No self-hosted or air-gapped option exists. Data primarily US-hosted; no EU residency guarantee even under DPA.",
+  "sources": [
+   "https://replit.com/commercial-agreement",
+   "https://replit.com/dpa",
+   "https://replit.com/blog/2025-replit-in-review"
+  ],
+  "status": "active",
+  "current_name": "Replit Agent",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": "paid / Enterprise tier; verify retention"
+ },
+ {
+  "name": "OpenHands",
+  "vendor": "All Hands AI",
+  "type": "cloud",
+  "openness": "open-core",
+  "deployment": "cloud / self-hostable / local-capable",
+  "model_backend": "BYO key (any OpenAI-compatible API) or at-cost via OpenHands LLM provider; local models supported",
+  "data_handling": "local",
+  "data_handling_note": "CRITICAL: The cloud privacy policy (updated Sep 2025) explicitly states All Hands AI MAY use content and feedback to train AI models. Cloud individual tier (free, 10 conv/day) is therefore risky for any non-public data. Self-hosted open-source (MIT) or enterprise VPC deployment (Kubernetes Helm chart, source-available Polyform license) keeps all code and conversations on your own infrastructure with nothing leaving your environment - that is the safe path. No SOC2, HIPAA-BAA, or public DPA found.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Cloud tier trains on user data by default - do NOT use for personal/pseudonymised data on cloud. Self-host open-source (local Docker/VM) or enterprise VPC and point at a local or no-train LLM API.",
+   "special": "Self-host only: deploy open-source locally with a local model so data never leaves your infrastructure. Enterprise VPC also acceptable if verified no-train LLM endpoint is used. Cloud tier is not suitable."
+  },
+  "compliance": [
+   "self-hosted-only (no SOC2/HIPAA-BAA/DPA found for cloud tier)"
+  ],
+  "pricing": "Free (open-source, local, unlimited) - Individual cloud: free, 10 conversations/day, BYOK or at-cost tokens - Enterprise: custom pricing, self-hosted VPC via Kubernetes",
+  "academic": "no explicit academic discount; open-source tier is free",
+  "use_cases": [
+   "coding",
+   "software engineering automation",
+   "agentic task execution",
+   "CI/CD integration",
+   "data analysis"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.openhands.dev/",
+   "pricing": "https://www.openhands.dev/pricing",
+   "privacy": "https://openhands.dev/privacy"
+  },
+  "notes": "Formerly OpenDevin. Active project with 77.8k GitHub stars and version 1.8.0 (June 10, 2026). Open-source core is MIT-licensed. Cloud tier is free but trains on user data per privacy policy - unsuitable for GDPR-sensitive or special-category data. Enterprise tier offers VPC self-hosting with full data isolation. No public compliance certifications (SOC2, HIPAA, GDPR) found; a Trust Center (Vanta) is linked but not publicly accessible. Enterprise Automations launched May 2026. Works with any OpenAI-compatible endpoint including local models (Ollama, LM Studio, etc.).",
+  "sources": [
+   "https://openhands.dev/privacy",
+   "https://www.openhands.dev/pricing",
+   "https://www.openhands.dev/blog/openhands-cloud-self-hosted-secure-convenient-deployment-of-ai-software-development-agents"
+  ],
+  "status": "active",
+  "current_name": "OpenHands",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Jupyter AI",
+  "vendor": "Project Jupyter (JupyterLab org)",
+  "type": "data",
+  "openness": "open-source",
+  "deployment": "local-capable",
+  "model_backend": "BYO key (OpenAI, Anthropic, Gemini, Mistral, GitHub Copilot, etc.) via ACP; or local model via Ollama, GPT4All, vLLM; v3 uses LiteLLM for 1000+ models",
+  "data_handling": "local",
+  "data_handling_note": "When a local model (Ollama, GPT4All, vLLM) is used, notebook data never leaves the machine - this is the safest configuration. With a BYO cloud API key (OpenAI, Anthropic, etc.) the chat interface explicitly sends data to the third-party provider; Jupyter AI documentation warns users to review each provider's privacy policy before sending confidential or sensitive data. Project Jupyter itself collects no telemetry by default. There is no SaaS tier and no cloud service operated by Project Jupyter - all data handling is determined by the user's chosen model backend.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Use a local model (Ollama, GPT4All, vLLM) - data stays on the machine and never reaches third-party providers. With a cloud API key, the chosen provider's data-use terms govern, which may be incompatible with GDPR obligations.",
+   "special": "Use a local model only - special-category (health/genetic/clinical) data must not be sent to cloud API endpoints. Local deployment via Ollama or GPT4All keeps data fully on-premise with no external transmission."
+  },
+  "compliance": [
+   "self-hosted"
+  ],
+  "pricing": "Free (open source, MIT/BSD licensed); users pay only their own cloud provider API costs if using a cloud backend",
+  "academic": "free",
+  "use_cases": [
+   "data analysis",
+   "coding",
+   "notebook AI assistant",
+   "agentic workflows in notebooks",
+   "multi-agent collaboration"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://jupyter-ai.readthedocs.io/en/latest/",
+   "pricing": "https://pypi.org/project/jupyter-ai/",
+   "privacy": "https://jupyter.org/privacy"
+  },
+  "notes": "v3.0.0 (April 2026) is a major architectural shift. The tool now connects AI agents via the Agent Client Protocol - users bring their own agent (Claude Code, Kiro, Goose, OpenCode, etc.) rather than configuring raw API keys directly (though the Jupyternaut persona still uses LiteLLM for direct API access). Agents request human approval before writing files or running commands. For ELIXIR researchers: local Ollama or GPT4All deployment is the recommended path for any sensitive data; cloud backends require reviewing each provider's terms separately. No SaaS component from Project Jupyter - privacy risk is entirely determined by the chosen model/agent backend.",
+  "sources": [
+   "https://github.com/jupyterlab/jupyter-ai/releases",
+   "https://jupyter-ai.readthedocs.io/en/v2/users/index.html",
+   "https://jupyter.org/privacy"
+  ],
+  "status": "active",
+  "current_name": "Jupyter AI",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": ""
+ },
+ {
+  "name": "Julius AI",
+  "vendor": "Julius",
+  "type": "data",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "frontier models (GPT-4/GPT-5, Claude Opus, Gemini; hosted by Julius)",
+  "data_handling": "no-train",
+  "data_handling_note": "Julius explicitly states user data is never used to train models internally or externally, and AI providers are contractually bound by this - this applies across all tiers including Free. Data is stored in the US. Enterprise tier adds private VPC deployment and a Data Processing Addendum (DPA) with standard contractual clauses. No HIPAA BAA is explicitly confirmed in public docs; enterprise is the path for regulated industries. Default free/paid cloud tiers: no training, but data stored on Julius servers (not zero-retention).",
+  "capability": "strong",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "No-train policy confirmed across all tiers; however, data is uploaded to and stored on Julius cloud servers in the US. For GDPR personal data, require a signed DPA (available at Enterprise tier). On lower tiers without a DPA, treat as 'no'.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR",
+   "CCPA",
+   "TX-RAMP"
+  ],
+  "pricing": "Free (15 msg/mo) - Plus $35/mo - Pro $45/mo - Max $200/mo - Ultra $500/mo - Business $375-450/mo (teams) - Enterprise (custom). Annual billing saves ~15-20%.",
+  "academic": "50% discount for students and educators on all plans",
+  "use_cases": [
+   "natural language data analysis",
+   "data visualization",
+   "reproducible notebooks",
+   "database querying (Snowflake, BigQuery, PostgreSQL)",
+   "automated reports",
+   "slide/presentation generation",
+   "Excel/CSV/PDF analysis"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://julius.ai/docs/get-started/privacy-and-data-security",
+   "pricing": "https://julius.ai/pricing",
+   "privacy": "https://julius.ai/privacy-policy"
+  },
+  "notes": "Julius AI's no-train guarantee is stated publicly and applies to all tiers, but direct access to the privacy policy and security pages was blocked (HTTP 403); claims are corroborated by multiple third-party reviews and Julius's own articles. No confirmed HIPAA BAA in public docs - Enterprise with private VPC is the path for regulated data but should be verified with Julius directly before use. All data processed and stored in the US; no EU data residency option found. Trust center is at trust.julius.ai.",
+  "sources": [
+   "https://julius.ai/security",
+   "https://coefficient.io/julius-ai-pricing",
+   "https://julius.ai/docs/get-started/privacy-and-data-security"
+  ],
+  "status": "active",
+  "current_name": "Julius AI",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid / Enterprise tier; verify retention"
+ },
+ {
+  "name": "Hex Magic",
+  "vendor": "Hex Technologies",
+  "type": "data",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "OpenAI and Anthropic (hosted; BYOK on Enterprise)",
+  "data_handling": "no-train",
+  "data_handling_note": "LLM providers (OpenAI, Anthropic) operate under zero-data-retention by default and do not train on customer data. Hex itself may use AI session data to improve its own features - admins can opt out without disabling AI entirely. BYOK (OpenAI/Anthropic) is Enterprise-only. EU multi-tenant stack available. HIPAA BAA available on HIPAA multi-tenant and single-tenant tiers (not free/Community/Professional). Free/Community tier carries the same no-train guarantee but lacks enterprise governance controls, so treat it as higher-risk for sensitive data.",
+  "capability": "strong",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "No-train by default across all tiers, but DPA requires a formal agreement (Hex will enter DPAs with customers on request). For GDPR personal data, use the EU multi-tenant stack (Team or Enterprise) and execute a DPA with Hex. Free/Community tier: no DPA path, treat as unsuitable for personal data.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "HIPAA (BAA available)",
+   "GDPR",
+   "CCPA",
+   "EU-U.S. Data Privacy Framework"
+  ],
+  "pricing": "Community (free, up to 5 notebooks) - Professional ($36/editor/month) - Team ($75/editor/month) - Enterprise (custom). Academic: Professional plan free for students and educators at universities/bootcamps (contact [email protected]). Non-profits also qualify for free access.",
+  "academic": "Professional plan free for students and educators (email [email protected]); non-profits also eligible.",
+  "use_cases": [
+   "collaborative data analysis",
+   "SQL/Python notebooks",
+   "AI-assisted code and query generation",
+   "data app publishing",
+   "warehouse-native analytics"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://learn.hex.tech",
+   "pricing": "https://hex.tech/pricing/",
+   "privacy": "https://learn.hex.tech/docs/trust/ai-data-privacy"
+  },
+  "notes": "Hex Magic is the AI assistant embedded in Hex's notebook/warehouse-native collaborative data platform. No true on-prem or air-gap option - single-tenant VPCs are fully AWS-managed by Hex. Sensitive database schema and code is passed to LLM providers as context even in zero-retention mode, so data minimisation practices are important. ISO 27001 and ISO 27701 are mentioned in Hex's aspirational compliance language but a confirmed, audited certification was not verifiable from public pages at time of review.",
+  "sources": [
+   "https://learn.hex.tech/docs/trust/ai-data-privacy",
+   "https://hex.tech/blog/HIPAA-multi-tenant/",
+   "https://hex.tech/pricing/"
+  ],
+  "status": "active",
+  "current_name": "Hex Magic",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise"
+ },
+ {
+  "name": "Kiro",
+  "vendor": "Amazon Web Services (AWS)",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Amazon Bedrock (Anthropic Claude Opus/Sonnet/Haiku 4.x variants, DeepSeek v3.2, MiniMax M2.5, GLM-5, Kimi, Qwen; \"Auto\" mode selects dynamically)",
+  "data_handling": "no-train",
+  "data_handling_note": "Free tier and individual (non-enterprise) subscribers: content MAY be used for service improvement including model training; inputs stored up to 60 days. Pro/Pro+/Pro Max/Power (individual, via social/Builder ID): no foundation model training but content storage still occurs. Enterprise (via AWS IAM Identity Center or external IdP): data is NOT stored and NOT used for service improvement; customer-managed KMS keys available. Amazon Q Developer Pro users migrating to Kiro retain no-training protections by logging in with the same credentials. Default free tier IS risky for any sensitive data.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data requires Enterprise tier (AWS IAM Identity Center auth) where data is not stored and not used for training. Individual paid tiers (Pro/Pro+/Pro Max/Power) do not train on data but do store content - insufficient for GDPR-sensitive personal data without a DPA. No self-hosting or air-gap option exists.",
+   "special": "Cloud-only for AI processing. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "HIPAA (eligible service)",
+   "AWS GovCloud (US) availability",
+   "TLS 1.2+ in transit",
+   "Customer-managed KMS keys (enterprise)",
+   "SAML/SCIM SSO (enterprise)"
+  ],
+  "pricing": "Free: 50 credits/month (Claude Sonnet 4.5 + open-weight models). Pro: $19-20/month, 1,000 credits. Pro+: $40/month, 2,000 credits. Pro Max: $100/month, 5,000 credits. Power: $200/month, 10,000 credits. Overages: $0.04/credit across paid tiers. Team/Enterprise: mirrors individual pricing with centralized billing, SSO, and governance. GovCloud pricing ~20% higher. New subscribers get $20 credit on first upgrade.",
+  "academic": "Student program: eligible university students (limited list including CMU, Georgia Tech, NYU, U Toronto, U Waterloo, UT Austin, U Chicago, and others) get 1,000 credits/month free for one year via SheerID verification; no credit card required. Startup program: up to one year of free Pro+ access. No general researcher or academic institutional discount documented.",
+  "use_cases": [
+   "Spec-driven agentic software development (requirements.md -> design.md -> tasks.md -> code)",
+   "Autonomous background coding agent (web/cloud sandboxes)",
+   "Terminal/pipeline automation via CLI",
+   "Code review integration (GitHub/GitLab)",
+   "AWS-native development (Lambda, ECS, Bedrock, CloudFormation, CDK)",
+   "Multi-tool integration (Figma, Postman, Datadog, Terraform, CI/CD)",
+   "Property-based testing and validation",
+   "Parallel agent workflows across large codebases"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://kiro.dev/docs/",
+   "pricing": "https://kiro.dev/pricing/",
+   "privacy": "https://kiro.dev/docs/privacy-and-security/data-protection/"
+  },
+  "notes": "The IDE runs locally (VS Code / Code OSS), but all AI inference is cloud-based via Amazon Bedrock - there is no local/offline inference mode. \"runs_locally\" reflects the IDE client running on the developer's machine, not local model inference. EU data residency: GA models use regional cross-region inference (EU-only for EU-region deployments), but experimental/newer models may route globally. No DPA or GDPR-specific documentation was found on kiro.dev as of June 2026; GDPR compliance likely relies on AWS's broader DPA framework. SOC 2 and ISO 27001 not explicitly listed for Kiro (only HIPAA confirmed). Mobile iOS app is in early access.",
+  "sources": [
+   "https://kiro.dev/docs/privacy-and-security/data-protection/",
+   "https://kiro.dev/docs/autonomous-agent/data-protection/",
+   "https://kiro.dev/docs/privacy-and-security/compliance-validation/"
+  ],
+  "status": "active",
+  "current_name": "Kiro",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid tier"
+ },
+ {
+  "name": "Zed",
+  "vendor": "Zed Industries",
+  "type": "ide",
+  "openness": "open-core",
+  "deployment": "local-capable",
+  "model_backend": "Claude (default, via Anthropic), GPT-4/Codex, Gemini, Amazon Bedrock, xAI Grok, Ollama (local), BYO API key for any provider, Zeta (open-weight edit-prediction model, self-hostable)",
+  "data_handling": "no-train",
+  "data_handling_note": "No training on user data by default across all tiers - codified in Terms of Service effective March 2, 2026. Zero data retention agreements with Anthropic, Google, OpenAI, and xAI for Zed-hosted models, with one exception: Anthropic Mythos-class models (e.g. Claude Fable 5) retain prompts/outputs for 30 days for safety review (not training), and this applies even with BYO Anthropic API key. Free/Personal tier is not risky for training but the Anthropic safety-retention exception applies to any tier. Business tier adds org-wide admin controls to lock data-sharing settings off by default and prevent members from opting in. DPA available upon request. BYO key or local Ollama routes data under the respective provider's or local server's terms. SOC 2 Type 1 certification in progress (not yet issued as of mid-2026).",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal (pseudonymised, GDPR-scope) data is ok only with BYO API key using a provider with a suitable DPA, or with fully local Ollama models. With Zed-hosted models, data is processed in the US with DPA available on request - this needs to be in place and a GDPR-compliant provider selected. Default free/Pro tiers send data to US servers; configure BYO key + DPA or use local Ollama to reach 'ok' status.",
+   "special": "Cloud-only for AI processing. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control; confirm with DPO/IRB."
+  },
+  "compliance": [
+   "GDPR (privacy policy covers EEA/UK rights, DPA on request, Standard Contractual Clauses for data transfers)",
+   "SOC 2 Type 1 (in progress, not yet certified as of June 2026)"
+  ],
+  "pricing": "Personal (free): 2,000 accepted edit predictions, unlimited BYO-key usage, no hosted AI model access. Pro ($10/month, was $20 before May 6 2026): unlimited edit predictions, $5/month token credits included, usage-based billing at API list price +10% beyond credits, two-week free trial. Business ($30/seat/month): adds org-wide AI model policies, Data & Privacy admin dashboard, role-based access controls, unified spend visibility, lock data-sharing settings org-wide; enterprise contracts available at 25+ seats via order form. No academic or student discounts listed.",
+  "academic": "No academic or student discount program listed on the pricing page as of June 2026. The free Personal tier is fully functional for researchers using BYO API keys and local models.",
+  "use_cases": [
+   "AI-assisted code editing with agentic multi-file editing",
+   "Parallel agent threads for simultaneous tasks across a project",
+   "Local/private coding with Ollama integration (data stays on machine)",
+   "BYO API key setup for privacy-conscious researchers",
+   "Edit prediction via open-weight Zeta model (self-hostable)",
+   "MCP server integration for extended tool access",
+   "Terminal Threads for running Claude Code or Amp as sidebar agents",
+   "Git commit message generation",
+   "Multiplayer real-time collaboration"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://zed.dev/docs/ai/overview",
+   "pricing": "https://zed.dev/pricing",
+   "privacy": "https://zed.dev/docs/ai/privacy-and-security"
+  },
+  "notes": "Zed is especially relevant for privacy-conscious researchers because: (1) the Personal tier is free and supports BYO API keys with no Zed data involvement; (2) Ollama integration enables fully local inference with zero data egress; (3) the open-weight Zeta model can be self-hosted for edit predictions; (4) the no-training commitment is now contractually binding (March 2026 ToS). The main caveats are that Anthropic Mythos-class models (including Claude Fable 5) trigger a 30-day safety retention regardless of key type, SOC 2 is still pending, no HIPAA BAA is offered, and PHI is contractually prohibited on hosted endpoints. For ELIXIR researchers: nonsensitive code is ok on any tier; GDPR-scope data needs BYO key + DPA or local mode; clinical/genomic data should use local-only Ollama configuration.",
+  "sources": [
+   "https://zed.dev/docs/ai/privacy-and-security",
+   "https://zed.dev/blog/terms-update",
+   "https://zed.dev/pricing"
+  ],
+  "status": "active",
+  "current_name": "Zed",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid / Enterprise tier"
+ },
+ {
+  "name": "Amp",
+  "vendor": "Amp Frontier Corporation (spun out of Sourcegraph December 2025)",
+  "type": "cli",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Claude Opus 4.8 (smart mode), GPT-5.5 (rush/deep modes); always uses latest frontier models - backend is non-configurable, managed by Amp",
+  "data_handling": "zdr",
+  "data_handling_note": "Zero Data Retention (ZDR) is available only on the Enterprise plan. Standard and free-tier users may have inputs retained for service purposes; the terms state Amp may retain user content \"for the sole purpose of providing the Services.\" The free tier no longer requires opting in to data training (changed Oct 2025), but ZDR is not guaranteed outside Enterprise. Data is stored in the US (Google Cloud Platform). LLM providers (Anthropic, OpenAI, Google) may cache inputs up to 24 hours even under Enterprise ZDR. No self-hosted or on-prem option exists.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal (GDPR-scope) data requires Enterprise plan to unlock Zero Data Retention and SSO/audit logging; GDPR SCCs cover EEA data transfers but data is processed in the US. A DPA-like arrangement is implicit via Enterprise terms but no explicit public DPA document was found on ampcode.com. Standard/free tier should be avoided for pseudonymised personal data.",
+   "special": "No self-hosted or air-gapped deployment option exists; the service is cloud-only with data processed in US. No HIPAA BAA is offered. Special-category (health/genetic/clinical) data must not be processed through Amp in any tier. The terms explicitly warn users not to submit 'Sensitive Data' including health information."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR (SCCs for EEA transfers, rights obligations in privacy policy)"
+  ],
+  "pricing": "Pay-as-you-go with zero markup on LLM API costs for individual/team users. Minimum credit purchase: $5. Unused credits expire after 1 year of inactivity. Free tier: ~$10/day in credits (replenished hourly), ad-supported initially then ads removed March 2026 - still offered as daily free allowance. Enterprise: +50% cost over individual pricing; unlocks ZDR, SSO/SCIM, audit logging, MCP allowlists, managed settings. Enterprise onboarding starts with a $1,000 minimum purchase.",
+  "academic": "No dedicated academic or student discount program found. The free tier ($10/day credits, no payment required) is available to all users including researchers. No evidence of institutional or academic pricing.",
+  "use_cases": [
+   "Agentic software development across entire codebases",
+   "Multi-platform agent management (CLI started, monitored via web or mobile)",
+   "Parallel subagent workloads",
+   "Code review and diff staging",
+   "MCP server integration for custom tooling",
+   "Long-running autonomous coding tasks with context compaction"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://ampcode.com/manual",
+   "pricing": "https://ampcode.com/manual#pricing",
+   "privacy": "https://ampcode.com/privacy-policy"
+  },
+  "notes": "The \"Neo\" mentioned in the lead as a rebrand was actually a temporary suffix for the rebuilt CLI architecture, not a product rename. As of May 27, 2026, it reverted to plain \"Amp.\" The Security Reference page (ampcode.com/security) is the authoritative source for compliance claims. No public DPA document was found on ampcode.com - Enterprise customers likely negotiate terms directly. Amp positions itself as a frontier coding agent, not a data analysis tool; it has no data-science-specific features.",
+  "sources": [
+   "https://ampcode.com/security",
+   "https://ampcode.com/terms",
+   "https://ampcode.com/news/drop-the-neo"
+  ],
+  "status": "active",
+  "current_name": "Amp",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise / API"
+ },
+ {
+  "name": "Sourcegraph Cody",
+  "vendor": "Sourcegraph",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud / self-hostable / on-prem",
+  "model_backend": "Anthropic Claude (Opus 4.8, Sonnet 4.6, Haiku 4.5 + Thinking variants), OpenAI GPT-5/GPT-4o/o3/o4-mini, Google Gemini 2.5/3 series, DeepSeek V2 Lite Base (autocomplete); BYOK/BYOLLM supported on Enterprise",
+  "data_handling": "zdr",
+  "data_handling_note": "Zero data retention (ZDR) is guaranteed on Enterprise: partner LLMs discard prompts and outputs immediately after generating a response, and Sourcegraph itself does not use code to train models. On the discontinued free/pro tiers, prompts were collected for service improvement (though not for training). For self-hosted Enterprise deployments with BYOK/BYOLLM, Sourcegraph does not receive prompts or responses at all - they stay entirely inside the customer perimeter. The default cloud Enterprise tier still routes through Sourcegraph's gateway to third-party LLM APIs (Anthropic, OpenAI, Google), but with contractual ZDR and no-training guarantees.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Cloud Enterprise tier has contractual no-train + ZDR guarantees and SOC 2 Type II / GDPR compliance, which satisfies most GDPR-pseudonymised data requirements under a DPA - but only on the Enterprise plan. Self-hosted deployment with BYOK keeps data fully inside the organisation perimeter and is the stronger option for GDPR-sensitive research data.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (zdr). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR",
+   "CCPA",
+   "ISO/IEC 27001:2022",
+   "EU AI Act"
+  ],
+  "pricing": "Enterprise only (as of July 23 2025): ~$59/user/month (annual contract); platform starting at $16K/year includes AI-feature credits. Free, Pro, and Enterprise Starter plans discontinued July 23 2025. No public academic or research discount tier - contact sales.",
+  "academic": "No published academic or student discount. Free and Pro tiers were discontinued in July 2025. Researchers must purchase Enterprise ($59/user/month, annual). Contact sales for possible institutional pricing.",
+  "use_cases": [
+   "Multi-repo codebase understanding and architecture queries",
+   "AI chat, inline edit, and autocomplete in VS Code, JetBrains, Visual Studio (experimental)",
+   "Context-aware code generation drawing on millions of lines across repositories",
+   "Automated prompt workflows (custom Prompts feature)",
+   "Debug, explain, and refactor code with enterprise codebase context",
+   "Terminal command execution from chat",
+   "Large-scale research or bioinformatics pipelines with complex cross-repo dependencies"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://sourcegraph.com/docs/cody",
+   "pricing": "https://sourcegraph.com/pricing",
+   "privacy": "https://sourcegraph.com/terms/cody-notice"
+  },
+  "notes": "Cody uniquely leverages Sourcegraph's multi-repo code search index to surface context at scale - a differentiator from file-scoped tools like Copilot or Cursor. As of mid-2026 the product is enterprise-only with no free tier, making it costly for small research groups. The self-hosted path (Docker/Kubernetes, BYOK, context filters) is the recommended route for ELIXIR or other research environments handling sensitive data. HIPAA-BAA availability is not publicly confirmed - requires direct sales engagement. 'runs_locally' is false because even self-hosted deployments route LLM inference to external provider APIs by default (unless a self-hosted/private model endpoint is configured via BYOLLM).",
+  "sources": [
+   "https://sourcegraph.com/terms/cody-notice",
+   "https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans",
+   "https://sourcegraph.com/blog/cody-is-enterprise-ready"
+  ],
+  "status": "active",
+  "current_name": "Sourcegraph Cody",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise / self-hosted"
+ },
+ {
+  "name": "OpenCode",
+  "vendor": "OpenCode (opencode.ai / anomalyco)",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable / cloud",
+  "model_backend": "BYO-key (75+ providers via Models.dev: Claude, GPT, Gemini, AWS Bedrock, Groq, Azure, OpenRouter, Ollama, LM Studio, llama.cpp and others); optional hosted gateway (Zen pay-as-you-go, Go $10/mo, Black enterprise)",
+  "data_handling": "local",
+  "data_handling_note": "Core tool is a local MIT-licensed CLI/TUI - no code or context data is sent to OpenCode servers when using BYO-key mode; data goes only to the chosen LLM provider and is subject to that provider's policy. The optional Zen hosted gateway states providers follow a zero-retention policy and do not train on data, EXCEPT free/trial models (Big Pickle, DeepSeek V4 Flash Free, etc.) where data may be used to improve the model. The /share feature optionally sends conversation data to OpenCode's CDN - disableable in enterprise config. Free account ToS allows OpenCode to use content to improve services. A past privacy issue (session titles sent to cloud even when using local models) was flagged and reportedly resolved. No SOC 2, HIPAA, GDPR, or ISO 27001 certifications found. Default/free Zen models are risky for sensitive data.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Safe in fully local mode (BYO-key + local model via Ollama/llama.cpp/LM Studio) - data never leaves the machine. With hosted Zen/Go tiers using paid models (zero-retention policy), acceptable if the provider's no-training guarantee is verified per provider. Free Zen models explicitly allow data use for improvement - avoid for personal data. Enterprise Internal AI Gateway mode routes all requests through org infrastructure and disables external providers, making it suitable with appropriate org-level controls.",
+   "special": "Safe only if deployed fully locally: run opencode with a local model endpoint (Ollama, llama.cpp) and disable the /share feature and session-title cloud call. Enterprise Internal Gateway mode with self-hosted LLM also qualifies. No BAA, HIPAA, or clinical compliance certifications exist. Avoid all cloud/Zen tiers for special-category data."
+  },
+  "compliance": [],
+  "pricing": "Free (BYOK, full features, MIT open source); Zen pay-as-you-go ($20 pre-paid balance, zero markup, curated models); Go $5 first month then $10/month (curated open models, $60/month usage cap); Black enterprise per-seat custom pricing ($20/$100/$200 monthly tiers mentioned). No academic or student discount found. Claude Pro / ChatGPT Plus accounts can be connected at no extra OpenCode fee.",
+  "academic": "No academic or student discount found as of June 2026. The free BYOK tier is available to all users.",
+  "use_cases": [
+   "Terminal-first AI coding agent (TUI)",
+   "Multi-provider LLM coding assistant",
+   "Local/offline AI coding with Ollama or llama.cpp",
+   "Multi-session parallel agents on same codebase",
+   "Enterprise coding agent with internal LLM gateway",
+   "LSP-integrated code editing with AI",
+   "MCP tool integration for coding agents",
+   "GitHub Copilot / ChatGPT Plus account integration"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://opencode.ai/docs/enterprise/",
+   "pricing": "https://opencode.ai/zen",
+   "privacy": "https://opencode.ai/legal/privacy-policy"
+  },
+  "notes": "The GitHub repository was previously at sst/opencode (SST team) and now lives at opencode-ai/opencode (anomalyco). An earlier archived project at the same name (a Go CLI tool archived September 2025) is a different/predecessor project - the active opencode.ai product launched in early 2026 and reached 172K GitHub stars by June 2026. The /share feature sends conversation data to OpenCode CDN and should be disabled for any sensitive use. Confidence is medium because: no direct enterprise DPA page was found, compliance certifications are absent from all official docs, and the exact data handling of the Zen Black enterprise tier could not be verified from public pages.",
+  "sources": [
+   "https://opencode.ai/legal/privacy-policy",
+   "https://opencode.ai/docs/zen/",
+   "https://opencode.ai/legal/terms-of-service"
+  ],
+  "status": "active",
+  "current_name": "OpenCode",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Crush",
+  "vendor": "Charmbracelet (Charm)",
+  "type": "cli",
+  "openness": "open-core",
+  "deployment": "local-capable",
+  "model_backend": "BYOK: Anthropic, OpenAI, Google Gemini, Groq, AWS Bedrock, Azure OpenAI, Vertex AI, OpenRouter, Hugging Face, Cerebras, Fireworks, and any OpenAI-compatible or Anthropic-compatible endpoint; also local via Ollama, LM Studio, LiteLLM, MLX",
+  "data_handling": "local",
+  "data_handling_note": "Crush is a local CLI (BYOK) - the tool itself only collects pseudonymous usage metrics tied to a device hash; prompts and responses are explicitly never collected by Charmbracelet. Opt-out via CRUSH_DISABLE_METRICS=1 or DO_NOT_TRACK=1. Supports fully air-gapped operation with local models (Ollama, LM Studio, LiteLLM, MLX). When using cloud LLM providers, data handling is governed by those providers. The optional managed Charm Hyper backend (free: 100 credits/month; $20/month: 250 daily credits) has its own privacy policy: prompts/outputs never used to train models, content not stored by default (max 30 days if retained for debugging), DPA available on request for EEA/UK/Swiss users, GDPR-compliant via Standard Contractual Clauses. No SOC 2, ISO 27001, or HIPAA BAA found for Hyper. Default free tier of Hyper routes content through cloud; local-only deployment is the safest path for sensitive data.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Use local models (Ollama, LM Studio) or air-gapped mode to keep GDPR-regulated data fully on-device - no data leaves the machine. If using cloud providers (Anthropic, OpenAI, etc.) or Charm Hyper, review each provider's DPA; Hyper offers a DPA on request for EEA/UK/Swiss users but has no SOC 2 or HIPAA BAA. Local deployment with CRUSH_DISABLE_METRICS=1 is the recommended configuration.",
+   "special": "Run exclusively with local models (Ollama + Qwen Coder, DeepSeek Coder, etc.) in fully air-gapped mode. Crush supports air-gapped operation with offline provider snapshots (crush update-providers embedded). No data leaves the machine in this configuration. Cloud-provider or Charm Hyper backends must not be used for health/genetic/clinical data as no BAA or clinical compliance certification is available."
+  },
+  "compliance": [
+   "GDPR (Charm Hyper backend, via SCCs; DPA on request for EEA/UK/CH)",
+   "CCPA (Charm Hyper backend)",
+   "DO_NOT_TRACK convention respected"
+  ],
+  "pricing": "Crush CLI is free and open source (FSL-1.1-MIT). No charge from Charmbracelet; you pay your chosen LLM provider's API rates. Optional Charm Hyper managed backend: free tier (100 Hypercredits/month), $20/month subscription (250 daily refreshing credits), prepaid bundles ($5=100 credits, $10=500 credits, $20=2000 credits; 1 Hypercredit = $0.05). Local model use (Ollama etc.) has zero ongoing cost.",
+  "academic": "No academic or student pricing exists for Crush itself. The CLI is free to all users. Academic discounts on LLM API costs depend on individual provider programs (e.g., Google, Anthropic, OpenAI). Local model use is free and suitable for academic environments.",
+  "use_cases": [
+   "Agentic code generation and editing in the terminal",
+   "Multi-file codebase exploration and refactoring",
+   "LSP-enhanced code context for AI prompting",
+   "MCP-extensible tool workflows",
+   "Local/offline coding with privacy-sensitive code via Ollama",
+   "Multi-model mid-session switching for cost/quality tradeoffs",
+   "Shared backend workspaces via crush serve (experimental)",
+   "Air-gapped or restricted-network deployments"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://charmbracelet-crush.mintlify.app/",
+   "pricing": "https://hyper.charm.land",
+   "privacy": "https://hyper.charm.land/privacy"
+  },
+  "notes": "FSL-1.1-MIT is a time-limited source-available license (not OSI-approved open source) that converts to MIT after 2 years; commercial use has restrictions during the FSL period. The crush serve shared backend is marked experimental. Model capability is entirely backend-dependent - with frontier models (Claude 3.7 Sonnet, GPT-4o, Gemini 2.5 Pro) it is frontier-class; with smaller local models it may be basic. Classified as frontier to reflect the ceiling with BYOK. The rebranding controversy (summer 2025) resulted in two divergent projects: Crush (Charmbracelet) and the community-maintained OpenCode; both are active as of June 2026.",
+  "sources": [
+   "https://github.com/charmbracelet/crush",
+   "https://hyper.charm.land/privacy",
+   "https://charmbracelet-crush.mintlify.app/advanced/air-gapped"
+  ],
+  "status": "active",
+  "current_name": "Crush",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Mistral Vibe",
+  "vendor": "Mistral AI",
+  "type": "cli",
+  "openness": "open-core",
+  "deployment": "cloud / local-capable / self-hostable",
+  "model_backend": "Devstral 2 (123B, open-weight, modified MIT) and Devstral Small 2 (24B, Apache 2.0) by default; Mistral Medium 3.5 for remote agents; any OpenAI-compatible local endpoint configurable (Ollama, vLLM, llama.cpp, LM Studio)",
+  "data_handling": "local",
+  "data_handling_note": "Local/self-host is the best available option: Vibe CLI can be fully pointed at a local Ollama/vLLM endpoint running Devstral Small 2 (24B, Apache 2.0), with telemetry disabled, so no data ever leaves the machine. When using Mistral's cloud API: free-tier users may have prompts used for model training (opt-out available in account settings); paid API and Le Chat Pro/Team/Enterprise users are excluded from training by default; Zero Data Retention (ZDR) is available on the Scale/API tier for stateless calls only - it does NOT apply to Vibe's agentic/stateful sessions; cloud API logs are kept 30 rolling days for abuse monitoring unless ZDR is active. EU data residency by default (Mistral is Paris-headquartered, data stored in EU). The free (cloud) default is risky for sensitive data - training opt-out is not automatic on the free tier.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Run fully locally with Devstral Small 2 via Ollama/vLLM (telemetry disabled) for automatic ok; OR use paid API tier (Pro/Team/Enterprise) which excludes data from training and has a DPA available - still cloud-transit risk. Free cloud tier is risky by default.",
+   "special": "Run fully locally with Devstral Small 2 (24B, Apache 2.0) via Ollama/vLLM with telemetry disabled - data never leaves the machine. Self-hosted Devstral (open-weight) on institutional infrastructure also qualifies. Cloud tiers (including Enterprise) are not suitable for special-category data without explicit contractual guarantees; no HIPAA BAA or clinical-use commitment is documented."
+  },
+  "compliance": [
+   "GDPR",
+   "SOC 2 Type II",
+   "ISO 27001",
+   "ISO 27701",
+   "DPA available for commercial customers"
+  ],
+  "pricing": "Free: basic access, ~25 msgs/day, may train on data; Pro: $14.99/month (includes Vibe coding, remote agents, no-telemetry mode, excluded from training); Team: $24.99/user/month (shared workspace, 30GB storage, admin controls); Enterprise: custom (private deployment, SAML SSO, audit logs, model fine-tuning); API: pay-per-token (Devstral 2: $0.40/$2.00 per M tokens in/out; Devstral Small 2: $0.10/$0.30 per M tokens); Student: 5.99/month (60% off Pro, verified students at accredited HEI, up to 12 months, new accounts only, no API credits included)",
+  "academic": "Student plan at 5.99/month (vs. 14.99 standard Pro), valid up to 12 months for verified students at accredited higher education institutions. Requires institutional email and ID verification. New accounts only. Does not include API token credits - IDE/script use billed separately. Additionally, Devstral Small 2 (Apache 2.0) can be downloaded and self-hosted for free with no subscription required.",
+  "use_cases": [
+   "Multi-file code refactoring",
+   "Automated test generation",
+   "Pull request review and creation",
+   "Legacy code migration",
+   "Agentic terminal coding (long-running autonomous tasks)",
+   "IDE-integrated coding assistance (VS Code, JetBrains, Zed)",
+   "Codebase-wide context and search",
+   "GitHub/GitLab/Jira/Linear integration",
+   "Local/air-gapped coding with self-hosted Devstral Small 2",
+   "Research software engineering and scripting",
+   "API documentation generation"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.mistral.ai/mistral-vibe/local",
+   "pricing": "https://mistral.ai/products/vibe/code/",
+   "privacy": "https://legal.mistral.ai/terms/privacy-policy"
+  },
+  "notes": "Mistral Vibe is open-core: the CLI itself is Apache 2.0 (github.com/mistralai/mistral-vibe, v2.17.1 as of June 2026, 4.5k stars); Devstral Small 2 (24B) is Apache 2.0 and the recommended local model; Devstral 2 (123B) uses a modified MIT license. The tool was previously known as part of the Le Chat ecosystem and rebranded/expanded as Mistral Vibe in 2026, unifying work and coding agents. EU-headquartered vendor (Paris) with data stored in EU by default - a meaningful differentiator for GDPR-regulated research environments. Compliance: SOC 2 Type II and ISO 27001/27701 confirmed; HIPAA compliance is claimed by some third-party sources but not confirmed in Mistral's own help center article on certifications. FedRAMP is similarly unconfirmed from primary sources.",
+  "sources": [
+   "https://mistral.ai/news/devstral-2-vibe-cli/",
+   "https://docs.mistral.ai/mistral-vibe/local",
+   "https://help.mistral.ai/en/articles/347612-can-i-activate-zero-data-retention-zdr"
+  ],
+  "status": "active",
+  "current_name": "Mistral Vibe",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid API / self-host"
+ },
+ {
+  "name": "Kiro CLI",
+  "vendor": "AWS (Amazon Web Services)",
+  "type": "cli",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Amazon Bedrock (Anthropic Claude Opus 4.8/4.7/4.6/4.5, Sonnet 4.6/4.5/4.0, Haiku 4.5; open-weight models: MiniMax M2.5/M2.1, GLM-5, DeepSeek 3.2, Qwen3 Coder Next; Auto router default)",
+  "data_handling": "no-train",
+  "data_handling_note": "Free tier and individual social-login users: content (prompts, responses, code) may be used for service improvement with opt-out available; data stored up to 60 days in US East (N. Virginia). Pro/Pro+/Pro Max/Power users authenticated via AWS IAM Identity Center or external IdP (Okta, Entra ID): content NOT used for service improvement. AWS GovCloud regions: service-improvement content collection is disabled by default for all users. Enterprise (team) tier: data reportedly not stored. The safe no-train option therefore requires a paid individual tier with IAM Identity Center auth, or enterprise/GovCloud deployment - the free-tier default is risky (content used for improvement).",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Requires paid tier (Pro or above) with authentication via AWS IAM Identity Center or an external IdP (Okta, Microsoft Entra ID) to disable content use for service improvement. Free-tier and social-login users are not protected by default. GDPR compliance is not explicitly certified, but AWS-standard data protections apply and a no-train path exists at enterprise tier.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "HIPAA (explicitly listed for Kiro IDE and CLI)",
+   "FedRAMP High (in progress, GovCloud)",
+   "AWS shared-responsibility model (SOC 2/ISO 27001 via AWS infrastructure - confirm scope via AWS Artifact)",
+   "TLS 1.2+ in transit",
+   "AWS KMS at rest (customer-managed keys available for enterprise)"
+  ],
+  "pricing": "Free: 50 credits/month (Claude Sonnet 4.5-class, open-weight models, no training only if IAM IdP auth); Pro: $20/month (1,000 credits); Pro+: $40/month (2,000 credits); Pro Max: $100/month (5,000 credits); Power: $200/month (10,000 credits). Overage: $0.04/credit across all paid tiers. GovCloud pricing ~20% higher; free tier unavailable there. Startup program: up to 1 year of free Pro+. Enterprise: custom/contact sales with centralized billing and organizational dashboard.",
+  "academic": "Students from 11 eligible universities (including Arizona State, Carnegie Mellon, Georgia Tech, NYU, University of Waterloo) receive 1,000 credits/month free for one year via the Kiro for Students program; verified through SheerID with a university email (.edu/.ca); no credit card required; converts to free tier after one year. See kiro.dev/students/.",
+  "use_cases": [
+   "Terminal-based AI-assisted coding and chat (spec-driven development)",
+   "Custom agentic workflows via hooks and custom agents",
+   "MCP (Model Context Protocol) integration with external tools and data sources",
+   "CI/CD pipeline automation with headless API-key auth",
+   "Context-aware shell autocomplete",
+   "AWS-native development with IAM/SSO auth",
+   "Regulated/government workloads via GovCloud deployment",
+   "Migration path from Amazon Q Developer CLI (backward-compatible q and q chat entry points)"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://kiro.dev/docs/cli/",
+   "pricing": "https://kiro.dev/pricing/",
+   "privacy": "https://kiro.dev/docs/cli/privacy-and-security/data-protection/"
+  },
+  "notes": "Kiro CLI installs via curl on macOS/Linux/Windows and is backward-compatible with the q and q chat entry points from Amazon Q Developer CLI. It uses spec-driven agentic development (requirements.md, design.md, tasks.md generated before coding), supports parallel agents, property-based testing, custom hooks, MCP integration, and CI/CD headless automation. The Auto router selects the optimal model per task; free tier gets Sonnet-class routing, paid tiers get Opus-class. The tool is cloud-only - inference runs on Amazon Bedrock, no local model execution. AWS Artifact can be used to access third-party audit reports. Data residency: free/individual in US East (N. Virginia); GovCloud stays within GovCloud regions; EU-region support via AWS Frankfurt for enterprise IAM Identity Center.",
+  "sources": [
+   "https://kiro.dev/docs/cli/privacy-and-security/data-protection/",
+   "https://kiro.dev/docs/cli/privacy-and-security/compliance-validation/",
+   "https://kiro.dev/faq/"
+  ],
+  "status": "active",
+  "current_name": "Kiro CLI",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid tier"
+ },
+ {
+  "name": "Warp",
+  "vendor": "Warp (warpdotdev)",
+  "type": "cli",
+  "openness": "open-core",
+  "deployment": "cloud / self-hostable (execution layer only; orchestration remains Warp-cloud)",
+  "model_backend": "OpenAI, Anthropic, Google Gemini, Amazon Bedrock, LiteLLM, OpenRouter, custom inference; BYOK supported; Enterprise allows BYOLLM",
+  "data_handling": "zdr",
+  "data_handling_note": "Zero Data Retention (ZDR) with Warp's LLM providers (Anthropic, OpenAI, Google) is available on the Enterprise plan only. On the Business plan, team-wide ZDR enforcement is mentioned for Warp AI. Free tier users can opt out of telemetry in Settings but AI features may require data to be sent to Warp servers; the privacy page notes telemetry is required for AI features on the free tier. The default free/Build plan routes AI prompts through Warp's proxy to US-hosted LLM APIs without guaranteed ZDR - this is the risky default. Paid Business plan ($50/user/month) unlocks team-wide ZDR enforcement; Enterprise adds self-hosted execution and BYOLLM. The privacy policy explicitly states Warp may train/fine-tune models on user data unless ZDR is in effect.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data (GDPR-sensitive) requires Business plan ($50/user/month) or Enterprise for team-wide Zero Data Retention enforcement and a signed DPA (GDPR SCCs available via Data Processing Addendum). Default free/Build tier routes prompts through Warp servers to US-based LLMs without ZDR - do not use with personal data at those tiers.",
+   "special": "Cloud-only for AI processing. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2 Type 2",
+   "GDPR (SCCs via DPA)",
+   "UK GDPR Addendum"
+  ],
+  "pricing": "Free ($0, limited AI credits, limited cloud agents); Build ($20/month or $18/month annual, 1,500 AI credits, BYOK, full model access); Max ($200/month or $180/month annual, 18,000 credits); Business ($50/user/month or $45/user/month annual, up to 50 seats, team ZDR, SAML SSO); Enterprise (custom pricing, self-hosted execution, BYOLLM, white-glove onboarding). No documented academic or student discount; a Campus Lead ambassador program exists but provides no direct pricing benefit.",
+  "academic": "No formal academic or student discount. Free tier includes full terminal features and limited AI. A Campus Lead program exists for student evangelists but does not reduce pricing. No evidence of educational institution deals.",
+  "use_cases": [
+   "Terminal-native agentic coding and code generation",
+   "Multi-agent orchestration via Oz platform (webhook/CI-triggered cloud agents)",
+   "Codebase indexing and search across large codebases",
+   "Running and orchestrating external CLI agents (Claude Code, Codex, Gemini CLI)",
+   "Automated PR creation, issue triage, spec writing via cloud agents",
+   "Team-wide AI-assisted terminal workflows with centralized governance",
+   "BYOK / BYOLLM enterprise deployments with self-hosted execution"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.warp.dev",
+   "pricing": "https://www.warp.dev/pricing",
+   "privacy": "https://www.warp.dev/privacy"
+  },
+  "notes": "Warp went open source (client) in April/May 2026 under AGPL v3 (backend/orchestration remains proprietary cloud). The terminal itself is free and runs locally on macOS and Linux. AI/agent features require cloud connectivity to Warp's proxy for LLM routing - there is no fully offline/air-gapped mode even for Enterprise (orchestration still touches Warp cloud). Self-hosted execution (Enterprise) keeps code and workspaces on customer infrastructure but orchestration goes through Warp. The privacy policy explicitly reserves the right to fine-tune models on user data absent ZDR. Data is stored on Google Cloud Platform (US). No EU data residency option documented. The product reportedly processed 3.2 billion lines of code in 2025 via cloud agents.",
+  "sources": [
+   "https://www.warp.dev/legal/security",
+   "https://www.warp.dev/legal/privacy-policy",
+   "https://www.warp.dev/legal/data-processing-addendum"
+  ],
+  "status": "active",
+  "current_name": "Warp",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise (ZDR)"
+ },
+ {
+  "name": "Augment Code",
+  "vendor": "Augment Inc.",
+  "type": "cli",
+  "openness": "commercial",
+  "deployment": "cloud / self-hostable / on-prem",
+  "model_backend": "Proprietary multi-model routing (Augment Context Engine + Claude Opus/Sonnet, GPT-5.5, Gemini Flash, Kimi K2 via configurable \"Prism\" router); BYO-key (BYOK) supported in Enterprise",
+  "data_handling": "zdr",
+  "data_handling_note": "Zero data retention (ZDR) with all contracted LLM providers is enforced on Business and Enterprise tiers; Enterprise also adds CMEK encryption, SSO/SCIM, ISO 42001, and HIPAA BAA. The free Trial tier and Indie plan ($20/mo) do NOT carry explicit ZDR guarantees and should be considered risky for any sensitive data. The vendor explicitly states customer code is never used for AI training across all tiers, but ZDR (log-level retention) requires Business or Enterprise. On-premises / VPC / single-tenant and self-hosted deployment are available as Enterprise options, removing cloud exposure entirely.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "GDPR-compliant with DPA and Standard Contractual Clauses available; ZDR requires Business or Enterprise tier. On-premises/VPC deployment (Enterprise) keeps data fully in-house. Default Trial/Indie tier lacks explicit retention controls and should not be used for pseudonymised personal data without verifying DPA terms.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (zdr). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "ISO/IEC 42001",
+   "HIPAA BAA available",
+   "GDPR",
+   "CCPA",
+   "CMEK",
+   "BYOK"
+  ],
+  "pricing": "Free trial (30,000 credits, credit card required, one-time); Indie $20/mo (40,000 credits, 1 user); Standard $60/dev/mo (130,000 credits, up to 20 users, Slack, PR reviews); Max $200/dev/mo (450,000 credits, up to 20 users); Enterprise: custom pricing, unlimited users, SSO/SCIM/OIDC, CMEK, ISO 42001, VPC/on-prem, dedicated SLA. Auto top-up: $15 per 24,000 credits (valid 12 months). No permanent free tier; no academic discount publicly listed (open-source maintainers may qualify for free access).",
+  "academic": "No dedicated academic or student discount is publicly listed. Open-source contributors/maintainers may qualify for complimentary access. Researchers should contact Augment sales to inquire about research or institutional pricing.",
+  "use_cases": [
+   "Agentic codebase-aware code generation and editing via terminal",
+   "Large codebase indexing (400k+ files) with semantic Context Engine",
+   "CI/CD automation and headless PR review in GitHub Actions / Jenkins",
+   "Multi-agent coordination (triage, implementation, PR authoring, code review)",
+   "MCP-based integration with GitHub, Linear, Jira, and external tools",
+   "Parallel sub-agent workflows for security audits and test generation",
+   "Enterprise software development at scale with compliance requirements"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.augmentcode.com/cli/overview",
+   "pricing": "https://www.augmentcode.com/pricing",
+   "privacy": "https://www.augmentcode.com/legal/privacy-policy"
+  },
+  "notes": "Auggie CLI (npm: @augmentcode/auggie) is the terminal/CLI face of the Augment Code platform, which also includes the Cosmos multi-agent cloud platform and IDE extensions (VS Code, JetBrains, Zed). It requires Node.js 20+ and an Augment account (OAuth login). The CLI itself runs locally but routes all AI inference to Augment's cloud. The Context Engine indexes codebases semantically (not grep-based) and can handle 400k+ file repos. Multi-model routing via \"Prism\" selects among Claude, GPT, Gemini, and Kimi depending on task. BYOK is an Enterprise feature enabling use of the organisation's own API keys with their own DPAs. The GitHub repo (github.com/augmentcode/auggie) appears to be source-available or proprietary - not confirmed open-source. Non-interactive/headless CI mode is an Enterprise-tier feature. Trust center URL is https://trust.augmentcode.com (returned 404 at time of check; security page at /security was accessible and confirmed HIPAA/GDPR/SOC2/ISO42001).",
+  "sources": [
+   "https://www.augmentcode.com/security",
+   "https://www.augmentcode.com/blog/augment-code-achieves-soc2-type-ii",
+   "https://www.augmentcode.com/product/cli"
+  ],
+  "status": "active",
+  "current_name": "Augment Code (Auggie CLI)",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise"
+ },
+ {
+  "name": "Plandex",
+  "vendor": "plandex-ai (MIT open-source; Plandex Cloud wound down November 2025)",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable / self-hostable",
+  "model_backend": "BYO-key: Anthropic, OpenAI, Google, Ollama (local), OpenRouter, any OpenAI-compatible provider",
+  "data_handling": "local",
+  "data_handling_note": "In self-hosted/local mode (the only mode now that Plandex Cloud is shut down), no data is sent to Plandex infrastructure. Data goes only to the user-chosen model provider (e.g., Anthropic, OpenAI, Ollama locally). With Ollama and local open-source models, nothing leaves the machine at all. Former Plandex Cloud DID retain user data and stated it might be used for model training - but the cloud is gone. The default self-hosted path is private by design; the DEFAULT IS SAFE.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Self-hosted with a cloud model provider (Anthropic, OpenAI, Google) requires verifying that provider's DPA/no-train terms before using GDPR personal data. With local Ollama models, data never leaves the machine - fully ok for personal data.",
+   "special": "Fully local mode (self-hosted Plandex server + Ollama with a capable local model) keeps all data on-premises and is suitable for special-category data. Using cloud model providers with special-category data requires a DPA with that provider. No vendor-level HIPAA-BAA or compliance certifications exist for Plandex itself."
+  },
+  "compliance": [],
+  "pricing": "Free and open-source (MIT). No Plandex subscription fee. Users pay only their own model provider API costs (e.g., Anthropic, OpenAI). Typical heavy usage: $20-$100/month in API costs depending on model choice. Ollama with local models is cost-free beyond hardware.",
+  "academic": "No dedicated academic tier or discount. The tool itself is free (MIT); academic researchers benefit from BYO institutional API keys and from the zero-cost fully-local Ollama path.",
+  "use_cases": [
+   "Long multi-file coding tasks spanning dozens of files",
+   "Autonomous code generation and refactoring for large research codebases",
+   "Terminal-based agentic coding with diff-review sandbox for change approval",
+   "Self-hosted/air-gapped coding agent using local models via Ollama",
+   "Multi-step autonomous debugging of build/test/linter pipelines",
+   "Reproducible plan-based development with branching and version control"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://github.com/plandex-ai/plandex/blob/main/docs/docs/quick-start.md",
+   "pricing": "https://github.com/plandex-ai/plandex",
+   "privacy": "https://github.com/Ericsongyl/plandex/blob/main/guides/PRIVACY.md"
+  },
+  "notes": "Plandex v2.2.1 (July 2025) is the latest release. Key differentiator for researchers: up to 2M token effective context window, tree-sitter project maps supporting codebases with 20M+ tokens, a diff-review sandbox that keeps all AI changes pending until explicitly approved, configurable autonomy levels (step-by-step to fully autonomous), plan branching and version control, and native Ollama support for fully local operation. No IDE plugin yet (VS Code integration in development). No MCP support as of latest release. MIT license - code can be freely inspected, modified, and deployed in institutional infrastructure.",
+  "sources": [
+   "https://github.com/plandex-ai/plandex",
+   "https://github.com/Ericsongyl/plandex/blob/main/guides/PRIVACY.md",
+   "https://github.com/plandex-ai/plandex/releases"
+  ],
+  "status": "active",
+  "current_name": "Plandex",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Jules",
+  "vendor": "Google (Google Labs)",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Gemini 2.5 Pro (fixed; some sources note Gemini 3 Pro in newer releases)",
+  "data_handling": "no-train",
+  "data_handling_note": "Google states private code is not used to train models; tasks run in isolated Google Cloud VMs destroyed after completion. Public repositories may be used for training. This no-train commitment applies to all tiers including free, but it is a policy statement rather than a contractual DPA. Data retention periods for cloned repos and execution logs are not publicly documented. No Jules-specific SOC 2, ISO 27001, HIPAA BAA, or GDPR DPA are published; formal compliance documentation must be requested via enterprise channels. The free/consumer tier is therefore still risky for sensitive data despite the no-train claim.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Google states private code is not used for training and VMs are destroyed after tasks, but no Jules-specific DPA, GDPR data processing agreement, or documented data retention SLA is publicly available. Processing occurs in Google Cloud (US by default, no published EU residency option for Jules). Suitable only if your institution can accept Google's general privacy terms and you treat it as a no-train cloud processor; enterprise customers should request a formal DPA.",
+   "special": "No self-hosting or on-premises deployment option exists; all code is cloned to Google Cloud VMs. No HIPAA BAA specific to Jules is published. Health/genetic/clinical data must not be processed in Jules in any tier."
+  },
+  "compliance": [
+   "No Jules-specific compliance certifications published",
+   "Google Cloud holds SOC 2, ISO 27001, and HIPAA BAA but Jules is a Google Labs product not explicitly covered",
+   "GDPR DPA must be requested via enterprise channels"
+  ],
+  "pricing": "Free: 15 tasks/day, 3 concurrent (no cost). Google AI Pro: $19.99/month, 100 tasks/day, 15 concurrent. Google AI Ultra: $124.99/month, 300 tasks/day, 60 concurrent. Jules is bundled into Google AI Pro and Ultra subscription plans.",
+  "academic": "College students in eligible countries (US, Japan, Indonesia, South Korea, Brazil and expanding) can get Google AI Pro free for 12 months via a student verification program, which includes Jules with higher task limits. After 12 months, standard pricing applies.",
+  "use_cases": [
+   "Automated bug fixing",
+   "Multi-file code changes via pull requests",
+   "Writing and running tests",
+   "Dependency version bumping",
+   "Feature implementation from issue descriptions",
+   "CI/CD integration via GitHub Actions",
+   "Async coding tasks in background while developer works on other things",
+   "Audio changelog generation"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://jules.google/docs/api/reference",
+   "pricing": "https://jules.google.com/",
+   "privacy": "https://cloud.google.com/terms/cloud-privacy-notice"
+  },
+  "notes": "Jules is a pure-cloud asynchronous coding agent: it clones a GitHub repo into a Google Cloud VM, executes multi-file changes, and opens a PR. It is not an IDE plugin and does not run locally. The CLI (npm install -g @google/jules) and REST API (alpha) allow automation and CI/CD integration. The GitHub Action (google-labs-code/jules-action) enables triggering Jules from workflows including on CI failures. Capability is rated frontier due to Gemini 2.5 Pro backend and ~51.8% SWE-bench Verified score. The main privacy concern for ELIXIR researchers is the lack of published Jules-specific DPA, GDPR data processing agreement, data retention SLA, and EU data residency controls. Do not process personal or special-category data without a formal contractual arrangement with Google.",
+  "sources": [
+   "https://blog.google/technology/google-labs/jules-now-available/",
+   "https://hothardware.com/news/googles-jules-ai-coding-agent-pricing-features",
+   "https://blog.google/products-and-platforms/products/gemini/google-ai-pro-students-learning/"
+  ],
+  "status": "active",
+  "current_name": "Jules",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid / Enterprise tier"
+ },
+ {
+  "name": "SWE-agent",
+  "vendor": "Princeton NLP / Stanford (academic open-source project)",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable",
+  "model_backend": "Any LLM via litellm (OpenAI, Anthropic, Gemini, DeepSeek, Ollama local models, OpenAI-compatible endpoints, OpenRouter, Portkey); BYO API key",
+  "data_handling": "local",
+  "data_handling_note": "SWE-agent itself collects no data - it is a local CLI tool with no cloud backend. Data handling depends entirely on the LLM provider chosen. With local models (e.g., Ollama), data never leaves the machine. With cloud providers (OpenAI, Anthropic), data is subject to that provider's privacy terms. The default free tier is safe only if using a local/self-hosted LLM; using cloud APIs routes code through third-party servers. Princeton/Stanford operate no SaaS and have no privacy policy for the tool itself. Note: as of 2025-2026, the project is in maintenance-only mode; active development has shifted to mini-SWE-agent.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Safe when configured to use a local model (Ollama + open-weight LLM) so no data transits external APIs. If using cloud LLM backends (OpenAI, Anthropic), personal/pseudonymised data would be processed under those providers' terms - requires verifying no-training opt-out or enterprise DPA with the chosen provider.",
+   "special": "Safe only when running with a fully local/self-hosted LLM (e.g., Ollama on-prem) - the tool itself imposes no external data transfer. Cloud LLM backends are not acceptable for special-category data without explicit BAA/DPA and no-training guarantees from that provider. Self-host path exists out of the box with Ollama/litellm."
+  },
+  "compliance": [],
+  "pricing": "Free and open-source (MIT). No SaaS tier. Users pay only for the LLM API they configure (e.g., Anthropic, OpenAI tokens). Local model use incurs no API cost.",
+  "academic": "Developed by academic researchers at Princeton University (and collaborators from Stanford, Tel Aviv University, NYU). Published at NeurIPS 2024 (Yang et al., \"SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering\", arXiv:2405.15793). Designed explicitly for research use; batch benchmarking mode supports SWE-bench evaluation. No dedicated academic discount needed - fully free.",
+  "use_cases": [
+   "Autonomous GitHub issue resolution",
+   "SWE-bench benchmarking and research",
+   "Offensive cybersecurity / CTF challenges (EnIGMA mode)",
+   "Competitive coding automation",
+   "Parallelized cloud code execution via SWE-ReX",
+   "Customizable agent harness via YAML for research experimentation",
+   "Training trajectory generation (SWE-smith integration)"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://swe-agent.com/latest/",
+   "pricing": "https://github.com/SWE-agent/SWE-agent",
+   "privacy": "https://swe-agent.com/latest/installation/keys/"
+  },
+  "notes": "SWE-agent is now superseded by mini-SWE-agent (https://mini-swe-agent.com) for most use cases - the original SWE-agent remains better for experimenting with diverse tool sets and custom history processors. The tool achieved 12.29% on SWE-bench full at launch; with Claude 3.7, v1.0 achieved SOTA on SWE-bench full and verified. EnIGMA mode (cybersecurity) developed with Tel Aviv University and NYU. SWE-ReX enables parallelized cloud execution on Modal, AWS Fargate, and similar services. Wiki entry should note maintenance-only status and point to mini-SWE-agent as the active successor.",
+  "sources": [
+   "https://swe-agent.com/latest/",
+   "https://swe-agent.com/latest/installation/changelog/",
+   "https://github.com/SWE-agent/SWE-agent"
+  ],
+  "status": "active",
+  "current_name": "SWE-agent",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "gptme",
+  "vendor": "Erik Bjare / gptme open-source community",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable / self-hostable",
+  "model_backend": "Anthropic (Claude), OpenAI (GPT), Google (Gemini), xAI (Grok), DeepSeek, OpenRouter (100+ models), Azure, local via Ollama / llama-cpp-python",
+  "data_handling": "local",
+  "data_handling_note": "gptme itself stores no data remotely - all conversations are written to local directories (~/.local/share/gptme) or self-hosted Docker volumes. Data sent to LLM providers depends entirely on which provider the user configures and that provider's own policies. With local models (Ollama, llama-cpp-python) nothing leaves the machine. With cloud providers (Anthropic, OpenAI, etc.) the user's prompts travel to those vendors under their own privacy terms. The tool itself has no telemetry, no SaaS tier, no vendor data collection. OpenRouter defaults to data_collection=deny, blocking provider training. No compliance certifications exist for the tool itself (MIT open-source project, not a SaaS vendor).",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Safe when run with a local model (Ollama/llama-cpp-python) or an enterprise API provider configured with a DPA and no-train terms (e.g. Anthropic API default does not train; OpenAI API no-train by default). Cloud provider keys must be reviewed individually. The tool itself does not retain or share data.",
+   "special": "Can handle special-category data only when running fully locally with a local model backend - data never leaves the machine in that configuration. Cloud provider backends are not suitable without a sector-specific agreement (BAA for health data etc.) from the chosen provider, which gptme itself cannot guarantee."
+  },
+  "compliance": [],
+  "pricing": "Free and open-source (MIT). No subscription tiers. API costs are paid directly to whichever LLM provider the user chooses. Running with local models (Ollama, llama-cpp-python) incurs no API costs at all.",
+  "academic": "No academic discount program exists - the tool itself is free. Researchers at institutions with cloud LLM credits (e.g. Anthropic research access, Azure academic agreements) can apply those directly.",
+  "use_cases": [
+   "Autonomous coding agent in the terminal",
+   "Literature review and web research automation (built-in researcher subagent profile)",
+   "Data pipeline scripting and execution",
+   "File editing and patching via shell or Python",
+   "Multi-step autonomous agent loops (gptme-agent-template)",
+   "Self-hosted LLM orchestration on laptops, HPC login nodes, or CI/CD",
+   "Vision tasks (screenshots, image analysis)",
+   "MCP tool integration and multi-agent orchestration"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://gptme.org/docs/index.html",
+   "pricing": "https://gptme.org/",
+   "privacy": "https://gptme.org/docs/security.html"
+  },
+  "notes": "gptme is the most privacy-friendly category of tool for ELIXIR researchers: the software itself is open-source with no telemetry or vendor lock-in. The critical privacy variable is which LLM provider API key the researcher uses. For sensitive data, the recommended configuration is local model inference (Ollama or llama-cpp-python via the local/ provider prefix), in which case no data leaves the machine at all. The built-in 'researcher' subagent profile (tools: browser, read) supports automated literature review without modifying files. The gptme-agent-template v0.4 supports persistent autonomous agents with safety guardrails (GREEN/YELLOW/RED operation classification).",
+  "sources": [
+   "https://github.com/gptme/gptme",
+   "https://gptme.org/docs/providers.html",
+   "https://gptme.org/docs/security.html"
+  ],
+  "status": "active",
+  "current_name": "gptme",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Open Interpreter",
+  "vendor": "Open Interpreter, Inc.",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable / self-hostable / cloud (hosted Pro/Business tiers)",
+  "model_backend": "BYO: OpenAI, Anthropic, Google Vertex AI, Azure OpenAI, AWS SageMaker; local: Ollama, LM Studio, LlamaFile, Jan.ai; + 15+ hosted via LiteLLM (Groq, OpenRouter, DeepSeek, Qwen, etc.)",
+  "data_handling": "local",
+  "data_handling_note": "When running with local models (Ollama, LM Studio, LlamaFile) and `interpreter.offline = True`, no data leaves the machine - this is the safest path. Default anonymous usage telemetry (version, run mode, exceptions - NOT prompts or code) is sent to PostHog; disable with `--disable_telemetry` flag or env var. For hosted Pro/Business tiers, prompts and attachments are forwarded to the chosen AI provider under their own privacy terms; Open Interpreter retains hosted request logs up to 30 days for safety/debugging then deletes them. The privacy policy (last updated Oct 25, 2024) states conversations are anonymized before being used to improve their AI model, but no explicit opt-out for this hosted-tier training use was found. No DPA, SOC 2, ISO 27001, HIPAA-BAA, or GDPR certification documented. Default free tier (BYO key, local model) is safe; hosted tiers carry provider-dependent risks.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Safe only in local mode: set `interpreter.offline = True` with an Ollama/LM Studio backend - no data leaves the machine. Hosted Pro/Business tiers forward prompts to AI providers and retain logs 30 days; no DPA or GDPR-compliant data processing agreement found for hosted tiers. Do not use hosted tier for GDPR-scoped personal data.",
+   "special": "Safe only in fully local/air-gapped configuration: Ollama + `interpreter.offline = True` keeps health/genetic data on-premise. No vendor BAA, HIPAA compliance, or clinical-use certification exists. Docker sandboxing is available (experimental) for additional isolation. E2B sandboxing is cloud-based and not suitable. For special-category data, the self-hosted local-model path is required and must be explicitly configured."
+  },
+  "compliance": [],
+  "pricing": "Free: open-source CLI, BYO API keys or Ollama local models (pip install). Pro: $20/month (hosted models, 4x usage, document editing, priority support). Business: $60/month (team management, 3x usage over Pro). No academic or student discount found.",
+  "academic": "No academic or student discount programme found as of June 2026. The open-source CLI is freely available to all users with BYO API keys or local models at no cost.",
+  "use_cases": [
+   "Local code execution and automation via natural language",
+   "Reading, editing, and creating files (Python, Word, Excel, PDF)",
+   "Data analysis and plotting on local datasets",
+   "Browser automation and web research",
+   "Batch file operations and folder organisation",
+   "Running shell commands and scripts under LLM guidance",
+   "Embedding an LLM agent in custom Python scripts (headless/API mode)",
+   "Computer/OS control (mouse, keyboard, screen) via interpreter --os"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.openinterpreter.com",
+   "pricing": "https://www.openinterpreter.com/cli",
+   "privacy": "https://www.openinterpreter.com/legal/privacy"
+  },
+  "notes": "The vendor website (openinterpreter.com) renders as a single-page React app that WebFetch cannot parse beyond the title, so privacy policy content was reconstructed from Google snippet text and cached search results. The claim that conversations are anonymized before AI model improvement comes from search snippets referencing the Oct 2024 policy; the full policy text was not directly readable. Telemetry details come from official docs at docs.openinterpreter.com which were accessible. There are two active GitHub repos: openinterpreter/open-interpreter (main, Apache-2.0, ~60k stars) and the newer openinterpreter/openinterpreter (lightweight agent for open models like DeepSeek/Kimi/Qwen). The lead description's claim of 'Apache 2.0' is confirmed; some third-party reviews incorrectly list AGPL. No evidence of acquisition, rebrand, or discontinuation.",
+  "sources": [
+   "https://github.com/openinterpreter/open-interpreter",
+   "https://www.openinterpreter.com/legal/privacy",
+   "https://docs.openinterpreter.com/telemetry/telemetry.md"
+  ],
+  "status": "active",
+  "current_name": "Open Interpreter",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Kilo Code",
+  "vendor": "Kilo Code, Inc. (Amsterdam)",
+  "type": "ide",
+  "openness": "open-source",
+  "deployment": "cloud / local-capable",
+  "model_backend": "BYOK (500+ models via OpenRouter / direct providers: Anthropic, OpenAI, Google, etc.) or local via Ollama / LM Studio / Atomic Chat; optional Kilo Gateway (pay-as-you-go, no markup)",
+  "data_handling": "local",
+  "data_handling_note": "Best option is fully local: with Ollama/LM Studio code never leaves the machine and Kilo itself processes nothing. For cloud-API paths (BYOK or Kilo Gateway): Kilo's own privacy doc says it does not store or process prompts/code, but the underlying AI provider may retain data per their own policies. Zero Data Retention (ZDR) routing via OpenRouter is available but currently requires a Teams plan ($15/user/month) or Enterprise - it was removed from individual/Kilo Pass tiers (regression confirmed in GitHub discussion #6015). The Terms of Service grant Kilo a broad licence to use Customer Data \"to provide and improve the Service\"; model-training opt-out is available but may restrict model choices. The free/individual tier is therefore moderately risky for sensitive data in cloud-API mode; local-model mode is safe at any tier. SOC 2 Type I is claimed (landing page) but no audit report or trust portal URL was found. No HIPAA BAA, no ISO 27001; ToS explicitly prohibits sending HIPAA/PCI/GLBA-regulated data via the cloud service.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Safe if configured to use fully local models (Ollama/LM Studio - code never leaves the machine). In cloud-API mode, ZDR routing requires Teams ($15/user/month) or Enterprise plan; the free and Kilo Pass tiers do not provide ZDR. A DPA can apparently be obtained on request (privacy policy references SCCs) but is not self-service.",
+   "special": "cfg path requires running entirely with local models (Ollama + LanceDB local vector store) so data never reaches any external server, including Kilo's own. Cloud paths are prohibited by ToS for HIPAA/clinical data. No HIPAA BAA is available. Full local setup is technically feasible but requires capable hardware and manual configuration."
+  },
+  "compliance": [
+   "GDPR (SCCs referenced, DPA on request)",
+   "SOC 2 Type I (claimed on landing page, no public report found)"
+  ],
+  "pricing": "Free (open-source extension + CLI, BYOK); $20 free credits on signup; Kilo Gateway pay-as-you-go at exact provider rates (zero markup); Kilo Pass subscription $19/month (Starter), $49/month (Pro), $199/month (Expert); Teams $15/user/month (14-day trial); Enterprise custom pricing. KiloClaw (managed cloud agent hosting) $55/month separately.",
+  "academic": "No academic or student discount programme found on the pricing page. The free tier (BYOK + $20 credits) and open-source nature make it accessible without a special discount.",
+  "use_cases": [
+   "Agentic code generation and multi-file editing in VS Code and JetBrains",
+   "Automated code review with inline line-level comments",
+   "Multi-agent parallel task execution via Agent Manager and git worktrees",
+   "Local/air-gap coding with Ollama or LM Studio for privacy-sensitive work",
+   "CLI-based agentic coding and automation pipelines",
+   "Cloud agents and Slack-integrated agents for 24/7 autonomous tasks",
+   "Codebase understanding and context-aware refactoring",
+   "Model comparison and cost benchmarking across 500+ providers"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://kilo.ai/docs/getting-started",
+   "pricing": "https://kilo.ai/pricing",
+   "privacy": "https://kilo.ai/privacy"
+  },
+  "notes": "SOC 2 Type I claim appears only on the marketing landing page; no public trust portal (e.g. trust.kilo.ai) was accessible during research. The terms-of-service broad licence clause and removal of ZDR from individual tiers are the two primary risk signals for researchers handling personal or special-category data. The fully local path (Ollama + LanceDB) is well-documented and is the recommended configuration for ELIXIR-sensitive workloads. The CLI is built on OpenCode (MIT). A 'legacy' repo (kilocode-legacy) exists on GitHub, suggesting an architecture migration occurred.",
+  "sources": [
+   "https://kilo.ai/privacy",
+   "https://kilo.ai/terms",
+   "https://github.com/Kilo-Org/kilocode/discussions/6015"
+  ],
+  "status": "active",
+  "current_name": "Kilo Code",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Google Colab (Data Science Agent)",
+  "vendor": "Google",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Gemini 2.0 (Google-hosted; not user-selectable)",
+  "data_handling": "no-train",
+  "data_handling_note": "Critical tier split. FREE Colab: AI feature prompts, outputs, and related data ARE used to improve Google products and machine learning models; human reviewers may read submissions; data retained anonymised for up to 18 months with no deletion possible. PAID Colab Pro/Pro+: same consumer privacy terms apply - no explicit contractual no-train guarantee. COLAB ENTERPRISE (Google Cloud): governed by Gemini for Google Cloud data governance - Google explicitly does NOT use prompts or responses to train models; data encrypted in transit and at rest; Data Processing Addendum available; VPC Service Controls, CMEK, and Access Transparency available. The 'no-train' rating reflects the Enterprise/Cloud tier; the free tier is risky for any research data.",
+  "capability": "strong",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data (GDPR) requires Colab Enterprise tier under a Google Cloud DPA. Free and paid consumer tiers (Pro/Pro+) use AI feature data for product improvement and permit human review - not suitable for GDPR-regulated personal data by default. Unlock: use Colab Enterprise with an active Google Cloud Data Processing Addendum and VPC Service Controls.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 1",
+   "SOC 2 Type II",
+   "SOC 3",
+   "ISO 27001",
+   "ISO 27017",
+   "ISO 27018",
+   "ISO 27701",
+   "HIPAA BAA (via Google Cloud, Enterprise tier)",
+   "FedRAMP (Vertex AI platform)",
+   "PCI DSS",
+   "GDPR DPA (Google Cloud Data Processing Addendum)",
+   "BSI C5:2020"
+  ],
+  "pricing": "Free tier: hosted Jupyter notebooks, limited GPU/TPU, 12-hour runtime, Data Science Agent available (consumer privacy terms apply). Colab Pro: ~$10-12/month, priority GPU (T4/P100), 24-hour runtime, 100 GB Drive. Colab Pro+: ~$50/month, A100/V100 GPU, high priority, background execution. Colab Pro free for students and teachers (1-year subscription introduced late 2025). Colab Enterprise (Google Cloud): pay-as-you-go; Data Science Agent billed per input/output tokens at BigQuery Agents pricing; underlying compute billed separately via GCP. $300 free GCP trial credit available.",
+  "academic": "Google introduced a free 1-year Colab Pro subscription for students and educators (announced 2025). University partnerships expanded at Google I/O 2025. Free tier remains available to all. Institutional Google Workspace education accounts may have different data handling under Workspace EDU terms.",
+  "use_cases": [
+   "Automated EDA (exploratory data analysis) from natural language prompts",
+   "Full Python notebook generation for data cleaning, visualisation, predictive modelling",
+   "Statistical analysis and feature engineering",
+   "BigQuery-scale data processing with DataFrames and BigQuery ML",
+   "Distributed computing via Apache Spark 4.0",
+   "Interactive chart generation (histogram, scatter, box plots)",
+   "NLP Q&A over uploaded datasets",
+   "Reproducible research notebooks with Gemini-generated code",
+   "Model training and evaluation within notebook environment"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.cloud.google.com/colab/docs/use-data-science-agent",
+   "pricing": "https://cloud.google.com/vertex-ai/pricing",
+   "privacy": "https://docs.cloud.google.com/gemini/docs/discover/data-governance"
+  },
+  "notes": "The product exists in two distinct deployment contexts that have very different privacy profiles: (1) consumer Google Colab (free/Pro/Pro+) accessed via colab.research.google.com - Gemini AI features are subject to consumer data-usage terms including potential training and human review; (2) Colab Enterprise accessed via Google Cloud Console - governed by Google Cloud enterprise terms with explicit no-train commitment, DPA, and compliance certifications. The Data Science Agent is available in both but under markedly different data governance regimes. For ELIXIR researchers: free Colab is unsuitable for any GDPR-regulated or special-category data; Colab Enterprise with a signed DPA and BAA is the minimum baseline for personal data and the only viable path for clinical/health data (still cloud-only, no air-gap). The tool does not run locally under any configuration.",
+  "sources": [
+   "https://docs.cloud.google.com/gemini/docs/discover/data-governance",
+   "https://research.google.com/colaboratory/faq.html",
+   "https://docs.cloud.google.com/gemini/enterprise/docs/compliance-security-controls"
+  ],
+  "status": "active",
+  "current_name": "Google Colab (Data Science Agent)",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid / enterprise"
+ },
+ {
+  "name": "Deepnote",
+  "vendor": "Deepnote",
+  "type": "cloud",
+  "openness": "open-core",
+  "deployment": "cloud / self-hostable (single-tenancy enterprise option; local IDE extensions available)",
+  "model_backend": "OpenAI (GPT-5), Anthropic (Sonnet 4.6); BYO-LLM on Enterprise tier",
+  "data_handling": "no-train",
+  "data_handling_note": "Deepnote explicitly states processed content is not used for model-training purposes across all tiers. AI providers (OpenAI, Anthropic) are used under enterprise API agreements that prohibit training on customer data. OpenAI may retain context up to 30 days for safety monitoring; Anthropic operates under zero-data-retention agreements for real-time suggestions. Block execution outputs are NOT sent to AI providers by default - users must explicitly enable that toggle. The free tier shares this no-train guarantee but has limited AI access. Enterprise tier adds BYO-LLM support (bring your own API key). DEFAULT free tier is lower risk than typical cloud tools because outputs are opt-in, but data still transits to US-based AI providers.",
+  "capability": "frontier",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data (GDPR): DPA is available to all customer tiers (not enterprise-only), incorporates EU Standard Contractual Clauses (2021/914), and covers GDPR/UK GDPR/Swiss FADP. No-train policy is stated. However, data is stored and processed in the US (no EU data residency guarantee by default). cfg = use with a signed DPA, disable block-output sharing, and confirm your team plan includes DPA coverage. Enterprise single-tenancy with possible EU residency (contact sales) would upgrade this to closer to ok.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (no-train). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR (DPA with SCCs, all tiers)",
+   "UK GDPR",
+   "CPRA",
+   "HIPAA (Enterprise tier with BAA)"
+  ],
+  "pricing": "Free tier: up to 3 editors, 5 projects, limited AI, unlimited basic compute (5 GB RAM/2 vCPU), 7-day revision history. Team: $39/editor/month (annual billing, 20% discount); unlimited editors/viewers/notebooks, GPT-5 + Sonnet 4.6 AI access, premium DB integrations (BigQuery, Snowflake, Redshift), scheduled runs, 30-day revision history, bundled compute credits. Enterprise: custom pricing; all Team features plus SSO, audit logs, HIPAA compliance, single-tenancy, BYO-LLM, dedicated success manager, volume discounts.",
+  "academic": "No formal academic/student discount program listed on pricing page. GitHub README mentions free access for students and educators - likely available via application; not surfaced in main pricing UI. No dedicated academic tier confirmed.",
+  "use_cases": [
+   "Collaborative data science notebooks (Python, R, SQL)",
+   "AI-assisted data analysis and code generation (Deepnote Agent / Auto AI)",
+   "Data team workflows with real-time multiplayer editing",
+   "Database querying and exploration (100+ native integrations)",
+   "Scheduled notebook execution and background jobs",
+   "Deploying data apps and API endpoints from notebooks",
+   "Version-controlled notebooks with YAML format (.deepnote) for git workflows",
+   "Local notebook development with VS Code/Cursor/Windsurf extensions"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://deepnote.com/docs",
+   "pricing": "https://deepnote.com/pricing",
+   "privacy": "https://deepnote.com/docs/ai-data-privacy"
+  },
+  "notes": "The .deepnote open-source layer (Apache 2.0) covers the YAML notebook format, block type definitions (@deepnote/blocks), bidirectional conversion tooling (@deepnote/convert), and IDE extensions for VS Code, Cursor, and Windsurf. The cloud collaboration platform, Deepnote Agent, compute, and data integrations remain proprietary. runs_locally=true refers to local IDE extensions and the open-source format/tooling; full platform features require cloud. Block execution outputs are not sent to AI providers by default - this is a meaningful privacy control vs. most competing cloud notebook tools. Single-tenancy enterprise deployment exists but EU-region guarantee must be confirmed with sales. ISO 27001 and FedRAMP not mentioned in any vendor documentation reviewed.",
+  "sources": [
+   "https://deepnote.com/docs/ai-data-privacy",
+   "https://deepnote.com/data-processing-addendum",
+   "https://deepnote.com/docs/security-overview"
+  ],
+  "status": "active",
+  "current_name": "Deepnote",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise"
+ },
+ {
+  "name": "Databricks Genie Code",
+  "vendor": "Databricks",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Azure OpenAI / OpenAI (via \"partner-powered AI features\") and Anthropic (Claude) on Databricks; falls back to Databricks-hosted open-source models (e.g. OpenAI GPT OSS variants) when partner-powered features are disabled by admin. Backend is Databricks-managed; users cannot swap models themselves.",
+  "data_handling": "no-train",
+  "data_handling_note": "Databricks explicitly states it does not train foundation models on customer prompts or responses, and partner model providers use zero-data-retention endpoints (no retention even for abuse monitoring). This applies by default to all paid workspace tiers - no special tier needed to unlock no-train. However, Genie Code runs fully in Databricks' cloud (AWS/Azure/GCP); there is no self-hosted or air-gapped deployment of Genie Code itself. Data residency is managed via Databricks Geos (Designated Services). Regulated workloads (PHI, PCI, FedRAMP, IRAP) require enabling the Compliance Security Profile in workspace settings. The default free monthly allowance (150 DBUs/user) carries the same no-train guarantee.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "No-train + zero-retention is the default, and Databricks has GDPR/ISO 27701 coverage, but data is processed in Databricks cloud. A DPA must be in place (contact Databricks account team). EU data residency requires selecting an EU geo region. For pseudonymised research data under GDPR, this is workable with a signed DPA and EU geo; cfg reflects the need for those contractual/config steps.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "ISO 27001",
+   "ISO 27701",
+   "HIPAA (with Compliance Security Profile + BAA)",
+   "GDPR",
+   "FedRAMP High (AWS GovCloud; Azure Commercial expected summer 2026)",
+   "PCI DSS",
+   "HITRUST",
+   "ISMAP"
+  ],
+  "pricing": "Free monthly allowance: 150 DBUs per user per month (approx. $10.50 in US East), covering Genie LLM usage across Genie, Genie Spaces, and Genie Code. Pay-as-you-go beyond that at ~$0.07/DBU (varies by cloud/region), effective July 6, 2026. Genie compute (SQL Serverless, etc.) billed separately. Service principals pay for all LLM usage with no free allowance. Enterprise pricing negotiated via account team.",
+  "academic": "No dedicated academic discount program documented publicly. Databricks University Alliance exists for institutions and research groups, but academic pricing requires direct engagement with the Databricks sales team. A free $400 trial credit is available for new accounts.",
+  "use_cases": [
+   "Autonomous multi-step data pipeline engineering (Lakeflow)",
+   "ML model training, experiment tracking (MLflow integration), and model deployment",
+   "AI/BI dashboard generation and analysis",
+   "SQL query building and optimization in SQL Editor",
+   "Notebook-based data science and EDA automation",
+   "Agentic debugging of pipeline failures and errors",
+   "Scheduled autonomous data operations (overnight jobs, pipeline summarization)",
+   "GenAI application development and debugging"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.databricks.com/aws/en/genie-code/",
+   "pricing": "https://www.databricks.com/product/pricing/genie",
+   "privacy": "https://docs.databricks.com/aws/en/databricks-ai/databricks-ai-trust"
+  },
+  "notes": "Genie Code is an agentic AI coding assistant embedded in Databricks notebooks, SQL Editor, Lakeflow Pipelines Editor, AI/BI dashboards, and MLflow. It replaced Databricks Assistant in March 2026. Agent mode allows autonomous multi-step task execution with user-confirmable code execution. Governed by Unity Catalog permissions - it can only access data the user is authorized for. MCP server support added (connect external tools). Quotient AI acquired simultaneously to embed continuous RL-based evaluation. As of June 2026, used by 90% of Databricks customers. Genie products grew 10x over the prior year. A separate product (Genie One) was announced in June 2026 as an agentic coworker for non-technical users, distinct from Genie Code which targets data engineers and data scientists.",
+  "sources": [
+   "https://learn.microsoft.com/en-us/azure/databricks/databricks-ai/databricks-ai-trust",
+   "https://docs.databricks.com/aws/en/genie-code/",
+   "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-genie-code-bringing-agentic-engineering-data"
+  ],
+  "status": "active",
+  "current_name": "Databricks Genie Code",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "workspace governance"
+ },
+ {
+  "name": "Posit AI / Posit Assistant",
+  "vendor": "Posit PBC",
+  "type": "ide",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "Anthropic Claude (sole provider for managed Posit AI subscription; Positron and Posit Workbench also support BYOK with AWS Bedrock, Azure Foundry, Google Vertex, OpenAI, GitHub Copilot, custom providers)",
+  "data_handling": "zdr",
+  "data_handling_note": "Zero Data Retention (ZDR) agreement with Anthropic is in effect for all Posit AI subscribers: prompts and outputs are processed in real-time and immediately discarded, never stored or used for model training. The DEFAULT is opt-OUT of trace data sharing (only basic operational metadata kept 30 days). Users who opt IN allow Posit to retain trace data up to 5 years for improvement. Posit itself does not store prompts or code. On Posit Workbench (enterprise self-hosted), BYOK enables routing traffic through an organization's own cloud boundary (Azure Foundry, AWS Bedrock, Google Vertex, etc.), giving stricter data governance. No EU data residency option noted on the managed cloud tier.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "The default managed Posit AI cloud tier uses ZDR with Anthropic (data not retained or trained on) and Posit does not store prompts. This makes it usable for pseudonymised/GDPR-adjacent data with care, but there is no explicit DPA or EU data residency for the cloud tier, and data transits to US servers. For formal GDPR compliance, the enterprise BYOK path via Posit Workbench (self-hosted) with an approved EU-cloud provider is the safer route.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "GDPR (EU-US Data Privacy Framework certified by Posit)",
+   "CCPA",
+   "ZDR with Anthropic (all tiers)",
+   "No SOC 2 / ISO 27001 / HIPAA BAA documented for managed cloud tier"
+  ],
+  "pricing": "$20/month per user (no free tier; free trial with credits available, no credit card required). Includes ~$15 API credits for Posit Assistant chat (Claude Haiku 4.5 / higher models) plus unlimited Next Edit Suggestions. Optional auto top-up for heavy users. No academic/student discount currently; Posit states they are 'actively exploring' academic pricing. RStudio and Positron IDEs themselves remain free and open-source. Posit Workbench (enterprise self-hosted) has separate licensing; BYOK path for AI is included in Workbench but enterprise AI pricing not published.",
+  "academic": "No academic discount exists for Posit AI as of June 2026. Posit acknowledges cost barriers and is exploring options but has not launched a program. Posit Cloud (separate product) has a free educational tier (25 project hours/month) but that does not include Posit AI. Posit Workbench has academic/research server pricing available via sales.",
+  "use_cases": [
+   "R and Python code writing and debugging in RStudio and Positron",
+   "Exploratory data analysis with live session context (DataFrames, variables, plots)",
+   "ggplot2/tidymodels/Shiny/Streamlit scaffolding",
+   "Next Edit Suggestions (inline code completions)",
+   "Multi-step agentic tasks via Plan Mode",
+   "Codebase understanding and refactoring",
+   "Console auditing and reproducible research workflows (Workbench enterprise)"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://docs.posit.co/posit-ai/",
+   "pricing": "https://posit.co/products/ai",
+   "privacy": "https://posit.co/about/privacy-policy"
+  },
+  "notes": "Posit AI (the managed $20/month subscription) is distinct from the Positron IDE's open BYOK assistant (free, user supplies own API keys). The lead URL posit.co/products/ai correctly points to the managed subscription. The 'posit.ai' domain exists but appears to be a minimal landing page. Posit Workbench BYOK is the enterprise self-hosted path for regulated-data environments. The ZDR agreement is Posit-level (covering all paying subscribers), not a negotiated enterprise add-on - this is a meaningful distinction versus competitors. No EU data residency is available on the managed cloud tier as of June 2026.",
+  "sources": [
+   "https://docs.posit.co/posit-ai/user/faq/",
+   "https://posit.co/blog/posit-ai-now-available-all",
+   "https://posit.co/blog/posit-ai-priced-long-run"
+  ],
+  "status": "active",
+  "current_name": "Posit AI (Posit Assistant)",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise / Workbench"
+ },
+ {
+  "name": "marimo",
+  "vendor": "marimo (open-source, Apache-2.0)",
+  "type": "data",
+  "openness": "open-source",
+  "deployment": "local-capable / self-hostable / cloud (molab, free beta on CoreWeave)",
+  "model_backend": "BYO key: OpenAI, Anthropic, Google AI, AWS Bedrock, Ollama, LM Studio, GitHub Copilot, any OpenAI-compatible provider; no built-in hosted model",
+  "data_handling": "local",
+  "data_handling_note": "The core marimo package runs entirely locally (pip install, no cloud account required); no data leaves the machine unless the user configures an AI backend that calls an external API, or uploads notebooks to molab (the cloud-hosted service). For the local install with Ollama/LM Studio, all computation and AI inference stays on-device. molab (free cloud beta) stores notebooks in Cloudflare R2 and runs on CoreWeave; the terms state marimo acts as a CCPA \"service provider,\" does not sell or use data for other commercial purposes, and does not train on user notebooks, but molab is NOT suitable for sensitive research data because notebooks are public by default (undiscoverable but publicly accessible) and no HIPAA BAA or SOC 2 certification has been disclosed. No EU data residency guarantee for molab.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Local install with Ollama or no AI features: data never leaves machine, fully suitable. If using molab cloud or an external AI API (OpenAI, Anthropic, etc.) the notebook contents and variable context are sent to the configured provider; suitability then depends on that provider's data handling. Configure local-only mode to unlock safe use with personal data.",
+   "special": "Self-hosted or local install only, with all AI completions routed to local models (Ollama/LM Studio). molab explicitly prohibits uploading protected health information in its terms. No SOC 2 or HIPAA BAA has been announced; until such certifications exist, cloud molab is unsuitable for special-category data. Local deployment on own infrastructure is the compliant path."
+  },
+  "compliance": [
+   "GDPR (terms reference EU Regulation 2016/679; CCPA service-provider status)",
+   "No SOC 2 disclosed",
+   "No HIPAA BAA disclosed",
+   "No ISO 27001 disclosed"
+  ],
+  "pricing": "Free and open-source (Apache-2.0). molab cloud is free during beta (4 CPU / 32 GB RAM; optional NVIDIA RTX Pro 6000 GPU; 12-hour sessions; limited persistent storage). No paid tiers announced as of June 2026; marimo cloud was listed as \"closed beta\" on the cloud subdomain. Enterprise/commercial arrangements via demo request.",
+  "academic": "No dedicated academic pricing; core tool is fully open-source and free. marimo has run notebook competitions for researchers (molab Notebook Competition). Trusted by Stanford, UC Berkeley, Johns Hopkins, SLAC - no special license needed.",
+  "use_cases": [
+   "Reactive Python notebook with auto-rerunning cells on dependency change",
+   "SQL querying of dataframes (Polars, Pandas, DuckDB, SQLite, Postgres, MySQL)",
+   "Interactive data exploration with sliders, plots, tables (no callbacks needed)",
+   "Deployment of notebooks as web apps or WebAssembly HTML files",
+   "Git-friendly reproducible research (stored as pure .py files)",
+   "AI-assisted coding with BYO model key (local or cloud)",
+   "Agent-driven notebook sessions via Agent Client Protocol (Claude Code, Codex, Gemini, OpenCode)",
+   "JupyterHub/JupyterLab integration via marimo-jupyter-extension",
+   "Kubernetes deployment of notebook clusters"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.marimo.io/",
+   "pricing": "https://molab.marimo.io/notebooks",
+   "privacy": "https://marimo.io/pages/legal/privacy"
+  },
+  "notes": "Privacy policy page (marimo.io/pages/legal/privacy) redirects to CoreWeave's privacy policy, suggesting molab infrastructure is fully on CoreWeave. The terms page (marimo.io/pages/legal/terms) confirms CCPA service-provider status and no secondary commercial use of data, but no SOC 2 / HIPAA / ISO 27001 certifications are disclosed anywhere in current public documentation. Telemetry settings for the local editor were not found in public docs; no evidence of phone-home analytics in the local install. molab notebooks are public-but-undiscoverable by default (like unlisted GitHub gists) - a known security concern flagged by the community (robots.txt crawling issue, July 2025). For ELIXIR-CZ research: local install with Ollama backend is the recommended privacy-safe configuration for personal or special-category data.",
+  "sources": [
+   "https://pypi.org/project/marimo/",
+   "https://marimo.io/pages/legal/terms",
+   "https://docs.marimo.io/guides/molab/"
+  ],
+  "status": "active",
+  "current_name": "marimo",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": ""
+ },
+ {
+  "name": "Runcell",
+  "vendor": "Kanaries Data Inc.",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "GPT (OpenAI), Claude (Anthropic), Gemini (Google) - accessed via Runcell subscription, no BYO key required; higher tiers unlock access to more advanced models",
+  "data_handling": "no-train",
+  "data_handling_note": "Paid plans (Pro/Pro+/Team) enable Privacy Mode by default: prompts, context, and model outputs are not used to train or fine-tune models. The free/Hobby tier does NOT have Privacy Mode - data may be retained and used to improve Runcell. Raw notebook/file contents stay on the user's machine; only prompts and relevant code snippets are sent to cloud LLM APIs. The vendor instructs third-party LLM providers not to train on user data where available. No SOC 2, ISO 27001, HIPAA-BAA, or GDPR compliance certifications are documented publicly. No self-hosting or on-prem option is publicly available (enterprise contact suggested).",
+  "capability": "strong",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data requires a paid plan (Pro or higher) to activate Privacy Mode, which disables training on user inputs. Even then, code snippets and prompts are transmitted to cloud LLM APIs, and no DPA or GDPR compliance documentation is publicly available. Use only on paid tier with careful data minimisation; cfg = must upgrade to paid plan.",
+   "special": "No self-hosting, air-gapped, or on-prem deployment is available. Special-category health/genetic/clinical data should not be sent to this cloud service - no BAA, no on-prem, no documented GDPR-compliant processing agreement."
+  },
+  "compliance": [],
+  "pricing": "Free/Hobby: 50 credits/month (plus 50 bonus credits during beta). Pro: $20/month (500 credits/month, unlimited code completions, priority support). Pro+: $60/month. Team: $40/user/month. Credits consumed by Ask/Chat and Agent features; code completions unlimited on paid plans.",
+  "academic": "No dedicated academic or student discount plan found. Tool is used in academic data science teaching contexts but offers no institutional pricing or academic tier as of June 2026.",
+  "use_cases": [
+   "Autonomous multi-step data analysis in JupyterLab",
+   "Long-running ML training jobs (multi-hour, end-to-end)",
+   "Cross-session project memory for iterative research workflows",
+   "Output-aware reasoning (reads charts, plots, DataFrame previews)",
+   "Automated cell execution, debugging, and error recovery",
+   "Life-science ML and risk modelling workflows",
+   "Interactive learning and algorithm explanation in notebooks",
+   "EDA, data cleaning, visualisation, and feature engineering automation"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://www.runcell.dev/docs",
+   "pricing": "https://www.runcell.dev/pricing",
+   "privacy": "https://www.runcell.dev/privacy"
+  },
+  "notes": "Runcell is a JupyterLab extension + Python package (pip install runcell; requires Python 3.10+, JupyterLab 4.4+). Also supports VS Code Notebooks and Classic Notebook. Classified as type=cloud because its core value is the cloud-connected autonomous agent - raw notebooks remain local but all reasoning/inference is routed through cloud LLM APIs. The privacy policy explicitly states free plan data may be used for model improvement. No DPA template, GDPR Article 28 processor agreement, or compliance certifications (SOC 2, ISO 27001, HIPAA) were found in public documentation. Enterprise/custom deployment enquiries directed to vendor contact. Confidence is medium: the pricing page did not fully render and some plan details (Pro+, Team price) were sourced from third-party listings; Privacy Mode guarantee is vendor-stated, not audited.",
+  "sources": [
+   "https://www.runcell.dev/privacy",
+   "https://www.runcell.dev/terms",
+   "https://docs.kanaries.net/articles/jupyter-ai-runcell"
+  ],
+  "status": "active",
+  "current_name": "Runcell",
+  "confidence": "medium",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "paid / Enterprise tier"
+ },
+ {
+  "name": "JetBrains Datalore",
+  "vendor": "JetBrains",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud / self-hostable",
+  "model_backend": "JetBrains AI (default); BYOK: OpenAI, Azure OpenAI, or OpenAI-compatible self-hosted models (on-prem, from 2026.1)",
+  "data_handling": "zdr",
+  "data_handling_note": "JetBrains AI Terms explicitly commit to not training on user inputs/outputs/code by any provider. For Cloud paid tier, detailed code-related data requires explicit opt-in consent from organization admins (disabled by default for commercial users). The Cloud Free tier collects analytics by default on legitimate interest with opt-out available. On-Premises deployment: JetBrains states \"We do not see or have access to Your Data,\" giving zero data egress by design. DPA (GDPR) is available for all customers. Default Cloud Free tier carries higher risk; Cloud paid tier is safer with org-level consent controls; On-Premises is the gold standard for data governance.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "On Cloud paid tier, ensure organizational admin has not opted in to detailed code data collection; DPA must be signed. On-Premises deployment avoids data egress entirely and is the recommended path for GDPR-sensitive personal data. Cloud Free is not suitable due to default analytics collection.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (zdr). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 (JetBrains-wide, 2024, scope includes Datalore)",
+   "GDPR (DPA available for all customers, Czech Republic controller, SCCs for international transfers)",
+   "Data residency: EU default for cloud; on-prem removes cloud dependency entirely"
+  ],
+  "pricing": "Cloud Free: free (120 CPU S hours/month, 10 GB storage, 2 parallel notebooks, 1 workspace). Cloud paid: $35/user/month ($420/user/year; 750 CPU L hours/month, 20 GB, unlimited parallel notebooks, Datalore AI, team management). On-Premises: $1,800/user/year (self-hosted or JetBrains-managed dedicated instance, all features unlimited). 14-day free trial available. No dedicated academic discount for Datalore (excluded from JetBrains educational IDE license program).",
+  "academic": "No dedicated academic pricing; Datalore is classified as a \"Team Tool\" and excluded from JetBrains' free student/teacher IDE pack. Students and researchers must use the Cloud Free tier or purchase paid plans. On-Premises pricing ($1,800/user/year) may be negotiated for institutions.",
+  "use_cases": [
+   "Jupyter-compatible Python/R/SQL notebooks for data science and research",
+   "Collaborative real-time notebook editing for teams",
+   "AI-assisted code generation, error fixing, and explanation in notebooks",
+   "No-code DataFrame exploration via Data Explorer Cells (2026.1)",
+   "Interactive data reports and dashboards shareable without code exposure",
+   "Scheduled notebook runs and automation",
+   "On-premises deployment for regulated data environments with BYOK AI"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://www.jetbrains.com/help/datalore/",
+   "pricing": "https://www.jetbrains.com/datalore/buy/",
+   "privacy": "https://www.jetbrains.com/legal/docs/privacy/privacy/"
+  },
+  "notes": "BYOK in 2026.1 is specifically for On-Premises deployments (instance-wide admin configuration); Cloud users use JetBrains AI by default. ISO 27001 certification not found in public documentation - only SOC 2 is confirmed. HIPAA BAA not publicly documented. The JetBrains DPA is available to all paying customers without requiring a specific enterprise tier. \"runs_locally\" is false because Datalore is a cloud/server product; On-Premises still requires a server infrastructure, not a local laptop install.",
+  "sources": [
+   "https://blog.jetbrains.com/datalore/2026/03/13/datalore-2026-1/",
+   "https://www.jetbrains.com/legal/docs/terms/jetbrains-ai-service/",
+   "https://www.jetbrains.com/help/ai/data-collection-and-use-policy.html"
+  ],
+  "status": "active",
+  "current_name": "JetBrains Datalore",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Enterprise / on-prem"
+ },
+ {
+  "name": "ChatGPT Advanced Data Analysis",
+  "vendor": "OpenAI",
+  "type": "cloud",
+  "openness": "commercial",
+  "deployment": "cloud",
+  "model_backend": "GPT-5 / GPT-5.5 (flagship as of 2026; previously GPT-4o). Feature is built into the ChatGPT interface - not BYO-key.",
+  "data_handling": "no-train",
+  "data_handling_note": "No-train is the default ONLY for ChatGPT Team, Business, Enterprise (and the API). For Free, Go, Plus, and Pro personal accounts the \"Improve the model for everyone\" toggle is ON by default - users must manually disable it in Settings -> Data Controls. Even with opt-out on personal tiers, there is no DPA and no contractual guarantee. Team/Business/Enterprise include a DPA, and Enterprise + Edu can add EU data residency (configurable, not default) and configure zero-data retention. A HIPAA BAA is available only for sales-managed Enterprise/Edu and the ChatGPT for Healthcare product. EU data residency available for Enterprise/Edu since early 2025; in-region inference in Europe from January 2026.",
+  "capability": "frontier",
+  "backend_dependent": false,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised (GDPR) data requires at minimum ChatGPT Team or Business tier with a signed DPA and training disabled by default. On Free/Plus/Pro the default trains on data and there is no DPA - not suitable. With Enterprise + signed DPA + EU data residency configured: usable for GDPR personal data.",
+   "special": "Cloud-only. ZDR / HIPAA-BAA is a contractual assurance, but data still leaves your environment — not appropriate for identifiable or controlled-access (DUA) health/genetic data. Use a tool that runs on infrastructure you control, and confirm with your DPO / IRB."
+  },
+  "compliance": [
+   "SOC 2 Type 2",
+   "ISO 27001:2022",
+   "ISO 27017",
+   "ISO 27018",
+   "ISO 27701",
+   "ISO 42001",
+   "GDPR (DPA available for business tiers)",
+   "HIPAA BAA (Enterprise/Edu/Healthcare only)",
+   "CCPA",
+   "FedRAMP 20x",
+   "PCI DSS v4.0.1"
+  ],
+  "pricing": "Free ($0/mo, limited); Go ($8/mo); Plus ($20/mo); Pro $100 ($100/mo); Pro $200 ($200/mo); Business ($25/user/mo annual or $30/mo); Enterprise (custom, ~$40-75/seat/mo, ~150-seat minimum). No current official student discount (a 2-month free Plus promotion for US/Canada students ran March-May 2025 and has ended). ChatGPT Edu is available for universities via campus licensing.",
+  "academic": "No standing academic or student discount as of June 2026. A limited 2-month free Plus promotion for US/Canada university students ran in early 2025 but ended May 31, 2025. Universities can negotiate ChatGPT Edu campus licenses. Individual researchers pay the same rates as all users.",
+  "use_cases": [
+   "Exploratory data analysis (EDA) on CSV/Excel/PDF uploads",
+   "Automated Python code generation and execution in a sandboxed environment",
+   "Statistical analysis and regression",
+   "Data visualisation (bar, line, pie, scatter; interactive and downloadable charts)",
+   "Light machine learning tasks",
+   "Data cleaning and merging",
+   "Conversational iteration on analysis results",
+   "File import from Google Drive and Microsoft OneDrive"
+  ],
+  "runs_locally": false,
+  "links": {
+   "docs": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+   "pricing": "https://openai.com/chatgpt/pricing/",
+   "privacy": "https://openai.com/enterprise-privacy/"
+  },
+  "notes": "The tool is purely cloud-based with no self-hosted or local option, making it unsuitable for air-gapped research environments. The Python sandbox runs server-side on OpenAI infrastructure. Results (code, charts, processed files) can be downloaded. The \"Advanced Data Analysis\" brand name is largely legacy - current UI simply calls it \"data analysis\" or the \"Data Analyst\" custom GPT. Researchers on personal plans (including Plus) should explicitly opt out of model training before uploading any research data. For ELIXIR-CZ use, Team-tier minimum is recommended for any GDPR-scoped data; Enterprise with BAA is required for any clinical/health/genetic data.",
+  "sources": [
+   "https://openai.com/index/improvements-to-data-analysis-in-chatgpt/",
+   "https://openai.com/index/expanding-data-residency-access-to-business-customers-worldwide/",
+   "https://trust.openai.com/"
+  ],
+  "status": "renamed",
+  "current_name": "ChatGPT Data Analysis (also surfaced as the \"Data Analyst\" GPT)",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Business / Enterprise (not consumer)"
+ },
+ {
+  "name": "Qodo",
+  "vendor": "Qodo (formerly CodiumAI)",
+  "type": "ide",
+  "openness": "open-core",
+  "deployment": "cloud / self-hostable / on-prem",
+  "model_backend": "Anthropic Claude, OpenAI GPT, Google Gemini, DeepSeek, NVIDIA models (BYO key); local models via Ollama also supported in self-hosted PR-Agent",
+  "data_handling": "no-train",
+  "data_handling_note": "Paid subscribers (Teams and Enterprise): no training on customer code, explicit contractual prohibition in Business ToS. Data deleted from all Qodo storage within 48 hours (troubleshooting window only); immediate deletion on request. Third-party LLM providers (e.g., OpenAI) are also contractually bound to zero data retention for paid Qodo users. Free/trial tier: Qodo does use data to improve models (opt-out available in account portal). Enterprise tier additionally offers single-tenant SaaS, on-premises (Kubernetes-based), and air-gapped deployment - in those cases data never leaves customer infrastructure. EU data residency available: GCP (US or EU) and AWS (US, EU, or Australia) at customer's choice. DPA available with SCCs for EEA/UK transfers. Default cloud free tier is risky for any sensitive research data.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "cfg",
+   "special": "no"
+  },
+  "suitability_notes": {
+   "personal": "Requires paid tier (Teams or Enterprise) + signed DPA to avoid training and ensure 48-hour deletion; EU data residency selectable on Teams/Enterprise. Free tier must not be used for personal data.",
+   "special": "Cloud-first: the AI runs in the vendor cloud by default (no-train). Only an enterprise on-prem / self-hosted deployment on infrastructure you control could suit special-category data — and only with DPO/IRB approval; the default cloud product is not suitable."
+  },
+  "compliance": [
+   "SOC 2 Type II",
+   "GDPR (DPA + SCCs available)",
+   "EU data residency selectable"
+  ],
+  "pricing": "Free 14-day trial (no CC required). Teams: $30/user/month (credit-based, ~$0.012/credit; up to 30 users). Enterprise: custom pricing, annual contract, for 30+ users. Open-source PR-Agent: free, self-hostable.",
+  "academic": "No dedicated academic or student discount found on the public pricing page. Free tier for qualified open-source projects via Qodo for Open Source program. Researchers on open-source projects may qualify; otherwise Teams pricing applies.",
+  "use_cases": [
+   "AI-powered pull request code review (automated, agentic)",
+   "IDE-integrated real-time code review (VS Code, JetBrains)",
+   "Test generation and code quality enforcement",
+   "Multi-repository context-aware code analysis",
+   "Self-hosted / air-gapped code review via PR-Agent open-source",
+   "BYO-LLM enterprise code quality platform"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://docs.qodo.ai/",
+   "pricing": "https://www.qodo.ai/pricing/",
+   "privacy": "https://www.qodo.ai/data-processing-addendum/"
+  },
+  "notes": "The open-source PR-Agent (Apache 2.0 licensed, github.com/qodo-ai/pr-agent) is the fully free self-hosted path: deploy via Docker, bring your own LLM keys or point at a local Ollama instance, zero data egress. This is the lowest-risk option for ELIXIR researchers handling sensitive code. The commercial Qodo platform (IDE plugin + cloud PR review) requires Teams or Enterprise tier for privacy-safe use with GDPR-scoped data. Air-gapped on-prem (Kubernetes) is an Enterprise feature and requires contacting Qodo sales. No HIPAA-BAA or ISO 27001 certification was found in public documentation - researchers working with clinical or health data should confirm these with Qodo before procurement.",
+  "sources": [
+   "https://www.qodo.ai/blog/qodo-security-our-commitment-to-data-privacy-and-security/",
+   "https://www.qodo.ai/business-terms-of-service/",
+   "https://www.qodo.ai/data-processing-addendum/"
+  ],
+  "status": "renamed",
+  "current_name": "Qodo",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": false,
+  "tier_gate": "Teams / Enterprise"
+ },
+ {
+  "name": "Ollama",
+  "vendor": "Ollama (ollama.com)",
+  "type": "cli",
+  "openness": "open-source",
+  "deployment": "local-capable / self-hostable / cloud",
+  "model_backend": "Open-weight models run locally (Llama 4, Qwen Coder, DeepSeek Coder, Granite, Mistral, Gemma, GLM, MiniMax, Kimi-K2, NVIDIA Nemotron, and 100+ others pulled from the Ollama registry); Ollama Cloud (optional) hosts these same models on Ollama-managed GPU infrastructure",
+  "data_handling": "local",
+  "data_handling_note": "Local install (all tiers): prompts, responses, and model interactions never leave the user's machine - Ollama explicitly states it does not collect, store, transmit, or have access to locally processed content. No training on user data at any tier. Cloud models (Free/Pro/Max): content is processed transiently with technical measures to minimise retention and is never used for training; no persistent storage beyond request fulfilment. No SOC 2, ISO 27001, HIPAA BAA, or formal DPA is publicly documented - for regulated PHI/clinical data, the fully local/air-gapped path is the only validated route. Default Free tier with local-only use is safe; cloud tiers carry standard cloud-service caveats.",
+  "capability": "strong",
+  "backend_dependent": true,
+  "suitability": {
+   "nonsensitive": "ok",
+   "personal": "ok",
+   "special": "cfg"
+  },
+  "suitability_notes": {
+   "personal": "Personal/pseudonymised data is safe when Ollama runs locally (default install): no data ever leaves the machine, no vendor processing, no training. Avoid routing personal data through Ollama Cloud tiers unless a DPA is in place (none currently published).",
+   "special": "Special-category data (health, genetic, clinical) is suitable only when Ollama runs fully on-premises or air-gapped - the data never leaves the controlled environment and no third-party processor is involved. The cloud tiers (Free/Pro/Max) must not be used for special-category data: no HIPAA BAA, no formal DPA, and no SOC 2 are currently documented. Run locally to unlock this use case."
+  },
+  "compliance": [
+   "GDPR (local run: no processor involved; cloud: transient processing, no training, GDPR rights acknowledged but no formal DPA published)",
+   "CCPA/CPRA (acknowledged)",
+   "No SOC 2 Type II",
+   "No ISO 27001",
+   "No HIPAA BAA (local air-gap is the HIPAA path)",
+   "No FedRAMP"
+  ],
+  "pricing": "Free: $0 - unlimited local models, 1 concurrent cloud model, light cloud usage; Pro: $20/month or $200/year - 50x more cloud usage, 3 concurrent cloud models, private model sharing; Max: $100/month - 5x more than Pro, 10 concurrent cloud models, continuous agent tasks; Team: coming soon (SSO, MDM, centralised billing). Local execution is unlimited and free across all tiers.",
+  "academic": "No dedicated academic or research discount is publicly listed. The core runtime (local) is MIT-licensed and free; researchers can self-host at zero cost with no usage caps.",
+  "use_cases": [
+   "Local/air-gapped LLM inference for privacy-sensitive research",
+   "Code completion and generation via Continue.dev, GitHub Copilot (local agent mode), JetBrains AI, Sourcegraph Cody, Qudo",
+   "Bioinformatics and scientific data analysis with open-weight models on-prem",
+   "Enterprise GDPR/HIPAA-governed AI workflows without cloud data egress",
+   "Rapid prototyping and model evaluation (100+ models available via one-command pull)",
+   "Agentic workflows and multi-model pipelines on private infrastructure"
+  ],
+  "runs_locally": true,
+  "links": {
+   "docs": "https://github.com/ollama/ollama",
+   "pricing": "https://ollama.com/pricing",
+   "privacy": "https://ollama.com/privacy"
+  },
+  "notes": "GitHub Copilot agent mode integration with local Ollama launched March 2026. Ollama 0.30 (June 2026) added MLX engine support for Apple Silicon and broader GGUF hardware compatibility. The Team tier (SSO, MDM installers) is listed as coming soon as of June 2026. No enterprise DPA or BAA contact process is documented on the public site - researchers needing formal agreements should contact hello@ollama.com directly.",
+  "sources": [
+   "https://ollama.com/privacy",
+   "https://ollama.com/pricing",
+   "https://github.com/ollama/ollama"
+  ],
+  "status": "active",
+  "current_name": "Ollama",
+  "confidence": "high",
+  "verified": "2026-06-20",
+  "established": true,
+  "tier_gate": ""
+ }
+]
