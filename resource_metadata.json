@@ -1,0 +1,54 @@
+{
+  "identifier": "https://michalie.github.io/research-coding-agents-wiki/",
+  "profile": "coding-agents",
+  "title": "AI Coding and Data Agents for Researchers",
+  "description": "A curated, privacy-first decision-support catalog of AI coding and data-analysis tools for researchers, including deployment, data-handling, and data-sensitivity suitability information.",
+  "resource_version": "2.0.0",
+  "issued": "2026-06-21",
+  "modified": "2026-07-14",
+  "data_file": "tools.json",
+  "schema_file": "schema.json",
+  "repository": "https://github.com/MichaLie/research-coding-agents-wiki",
+  "baseline_commit": "f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f",
+  "baseline_commit_url": "https://github.com/MichaLie/research-coding-agents-wiki/commit/f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f",
+  "release_ref": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.0.0",
+  "legacy_snapshot_commit": "f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f",
+  "legacy_snapshot_date": "2026-06-21",
+  "baseline_data_date": "2026-06-21",
+  "id_prefix": "rca",
+  "creator": {
+    "type": "Person",
+    "name": "Michaela Liegertová",
+    "url": "https://github.com/MichaLie",
+    "email": "michaela.liegertova@img.cas.cz",
+    "affiliation": {
+      "name": "Institute of Molecular Genetics of the Czech Academy of Sciences",
+      "url": "https://www.img.cas.cz/en/"
+    }
+  },
+  "publisher": {
+    "type": "Person",
+    "name": "Michaela Liegertová",
+    "url": "https://github.com/MichaLie",
+    "email": "michaela.liegertova@img.cas.cz",
+    "affiliation": {
+      "name": "Institute of Molecular Genetics of the Czech Academy of Sciences",
+      "url": "https://www.img.cas.cz/en/"
+    }
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "code_license": "https://spdx.org/licenses/MIT.html",
+  "rights_statement": "Catalog data, metadata, and original documentation are licensed under CC BY 4.0; maintenance and build software are licensed under MIT. Third-party vendor materials, external software, services, logos, and trademarks remain under their own terms. IMG CAS is the curator's affiliation, not the publisher or an endorsement.",
+  "provenance": "Curated from current first-party vendor documentation, privacy and trust material, pricing pages, and official repositories; generated from the canonical JSON source with a deterministic local build. Privacy classifications remain decision support, not legal advice.",
+  "is_part_of": "https://michalie.github.io/",
+  "keywords": [
+    "coding agents",
+    "data analysis agents",
+    "research software",
+    "data protection",
+    "privacy",
+    "GDPR",
+    "ELIXIR"
+  ],
+  "evidence_statement": "Catalog version 2.0.0 modified 2026-07-14; all 43 records carry an explicit 2026-07-13 evidence-check date, with provisional or conditional claims labelled conservatively."
+}

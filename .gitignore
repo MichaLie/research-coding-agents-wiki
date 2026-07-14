@@ -1,5 +1,6 @@
 .DS_Store
 __pycache__/
 *.pyc
+.maintenance-output/
 # local-only provenance (verification logs) — kept off the public repo
 CHANGELOG_2026-06-20.md

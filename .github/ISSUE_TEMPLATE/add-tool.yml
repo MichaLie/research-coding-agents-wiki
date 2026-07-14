@@ -1,0 +1,44 @@
+name: "Suggest / correct a tool"
+description: "Suggest a research coding or data-analysis tool, or report a correction to an existing record."
+title: "[tool] <name>"
+labels: ["catalog-review"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+    validations:
+      required: true
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor or project
+  - type: dropdown
+    id: type
+    attributes:
+      label: Tool type
+      options: [IDE/editor, terminal/CLI, cloud/autonomous, local/self-hosted, data/notebook]
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested addition or correction
+      description: Describe the research use case and the claim that should be added or changed.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: First-party evidence
+      description: Link current official product, deployment, privacy, retention, training, pricing or licence documentation.
+    validations:
+      required: true
+  - type: dropdown
+    id: data_scope
+    attributes:
+      label: Intended data sensitivity
+      options: [Non-sensitive only, Personal or pseudonymised, Special-category health/genetic/clinical, Unsure]
+  - type: markdown
+    attributes:
+      value: "Submissions are re-verified against current first-party evidence and the catalog's conservative data-safety policy before any change. Inclusion is not automatic and does not constitute institutional approval."

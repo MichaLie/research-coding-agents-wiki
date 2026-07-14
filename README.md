@@ -1,35 +1,54 @@
-# AI Coding & Data Agents for Researchers
+# AI Coding and Data Agents for Researchers
 
-A **privacy-first** guide to AI coding and data-analysis tools for scientific work. Start from **your data**, see which tools are appropriate, and what each costs in capability.
+A privacy-first guide to AI coding and data-analysis tools for scientific work. Start with the sensitivity of your data, then compare suitable operating modes, access requirements, and capabilities.
 
-**▶ Live site:** https://michalie.github.io/research-coding-agents-wiki/
+**[Open the interactive index](https://michalie.github.io/research-coding-agents-wiki/)**
 
-> *As open as possible, as closed as necessary.* — guiding principle (ELIXIR)
+![AI Coding and Data Agents index](assets/readme-preview.png)
 
-## Why this exists
-General "best AI coding tool" round-ups ignore the question that actually gates adoption in research: **where does my data go, and can I trust this tool with unpublished, personal, or special-category data?** This wiki puts that question first.
+## What the index provides
 
-## How to read it
-1. **Pick your data class** — non-sensitive · personal (pseudonymised, GDPR) · special-category (health / genetic / clinical, GDPR Art. 9). The table then shows a suitability verdict per class: ✓ suitable · ⚠ only with a specific tier/config · ✗ not appropriate.
-2. **Check the data-handling pill** — the best privacy option a tool offers (Local · Zero-retention · No-train · Opt-out · Trains by default). The small **▸ line beneath** is the plan/tier or setting required to get it — the default or free plan is usually less private.
-3. **Weigh capability** — frontier / strong / capable / basic. **↔ model** means capability depends on the LLM you connect (bring-your-own-model tools).
-4. **★ established** marks the widely-adopted choice within each lane.
+- Data-sensitivity filters for non-sensitive, personal or pseudonymised, and special-category research data.
+- Suitability labels tied to specific deployment modes, plans, or configurations.
+- Data-handling summaries, capability tiers, access links, and evidence dates.
+- Stable record identifiers, provenance, and machine-readable distributions.
 
-## Principles
-- **Special-category data → infrastructure you control only.** Local / self-host / on-prem are ✓/⚠; cloud services — *even with zero data retention or a HIPAA BAA* — are ✗, because the data still leaves your environment and most data-use agreements and ethics boards forbid it.
-- **Curated, not exhaustive.** A useful shortlist, not a complete catalogue; niche, enterprise-only, and single-purpose tools are intentionally omitted for clarity.
-- **Decision-support, not legal advice.** Classify your data with the [ELIXIR RDMkit](https://rdmkit.elixir-europe.org/data_sensitivity), and **confirm with your DPO / data steward and each vendor's own terms** before using sensitive or regulated data. Privacy and pricing change quickly — each row shows when it was last verified.
+The displayed catalog is generated deterministically from [`tools.json`](tools.json). Privacy, security, pricing, and product terms change frequently; every entry is a dated evidence summary rather than a permanent guarantee.
 
-## Repository
-| File | Purpose |
-|------|---------|
-| `tools.json` | Source of truth — **the only file edited by hand** |
-| `build_html.py` | Generates the self-contained site (`python3 build_html.py tools.json docs/index.html`; Python 3, no dependencies) |
-| `docs/index.html` | The published page (GitHub Pages, served from `main:/docs`) |
-| `CLAUDE.md` / `AGENTS.md` | Operating guide for AI agents maintaining the wiki |
-| `.claude/skills/update-coding-agents-wiki/` | Invocable skill for the discover + re-verify maintenance loop |
+## Safety boundary
 
-Never hand-edit the generated HTML — edit `tools.json` and rebuild.
+The index is decision support, not legal, ethics, security, procurement, or data-protection approval. Classify data with the [ELIXIR RDMkit guidance on data sensitivity](https://rdmkit.elixir-europe.org/data_sensitivity), consult your data steward or DPO, and verify current vendor and institutional terms before processing sensitive data.
 
-## Dedicated to ELIXIR-CZ
-This resource is dedicated to **[ELIXIR-CZ](https://www.elixir-czech.cz/)**, the Czech national node of **[ELIXIR](https://elixir-europe.org/)**, the European research infrastructure for life-science data.
+As a conservative catalog policy, special-category data should remain in infrastructure under the research institution's control unless the institution has explicitly approved another arrangement. A cloud provider's contractual or technical safeguards do not by themselves establish permission for a particular dataset.
+
+## Machine-readable access
+
+- [Catalog JSON](https://michalie.github.io/research-coding-agents-wiki/tools.json)
+- [JSON Schema](https://michalie.github.io/research-coding-agents-wiki/schema.json)
+- [JSON-LD metadata](https://michalie.github.io/research-coding-agents-wiki/metadata.jsonld)
+
+## Contribute
+
+Suggest a tool or correction through the [structured issue form](https://github.com/MichaLie/research-coding-agents-wiki/issues/new?template=add-tool.yml). Contributions should point to current first-party documentation for data handling, deployment, access, and pricing claims.
+
+## Maintain or fork
+
+This repository includes its own reproducible maintenance system:
+
+- [`MAINTENANCE.md`](MAINTENANCE.md) is the canonical safety-critical update, validation, and release protocol.
+- [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md) map coding agents to that protocol.
+- [`build.py`](build.py) creates synchronized public distributions.
+- [`validate_catalog.py`](validate_catalog.py) enforces schema, provenance, licence, and release checks.
+- [`.github/workflows/quality.yml`](.github/workflows/quality.yml) runs the deterministic quality gate on GitHub.
+
+Forks should replace the resource identity, creator, publisher, licence, and provenance metadata with claims they are authorized to make.
+
+## Stewardship and licences
+
+Curated and published by **Michaela Liegertová** ([michaela.liegertova@img.cas.cz](mailto:michaela.liegertova@img.cas.cz)), affiliated with the [Institute of Molecular Genetics of the Czech Academy of Sciences](https://www.img.cas.cz/en/). Dedicated to the [ELIXIR-CZ](https://www.elixir-czech.cz/) community.
+
+IMG affiliation and the ELIXIR-CZ dedication provide context; they do not imply institutional publication authority or endorsement.
+
+Catalog data, metadata, and original documentation are licensed under [CC BY 4.0](LICENSE-CONTENT.md). Maintenance and build software are licensed under the [MIT License](LICENSE-CODE). Vendor materials, software, services, logos, and trademarks retain their own terms.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for version history.
