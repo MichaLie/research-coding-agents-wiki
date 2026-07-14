@@ -20,6 +20,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-maintenance.txt
       - run: python3 -m pip install -r requirements-maintenance.txt
       - name: Deterministic build, FAIR schema, and semantic gates
         run: python3 maintenance/run_maintenance.py --mode release --skip-links
@@ -41,6 +42,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-maintenance.txt
       - run: python3 -m pip install -r requirements-maintenance.txt
       - name: Audit every external catalogue URL
         run: python3 maintenance/run_maintenance.py --mode full
