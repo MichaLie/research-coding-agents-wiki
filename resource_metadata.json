@@ -3,7 +3,7 @@
   "profile": "coding-agents",
   "title": "AI Coding and Data Agents for Researchers",
   "description": "A curated, privacy-first decision-support catalog of AI coding and data-analysis tools for researchers, including deployment, data-handling, and data-sensitivity suitability information.",
-  "resource_version": "2.0.0",
+  "resource_version": "2.0.1",
   "issued": "2026-06-21",
   "modified": "2026-07-14",
   "data_file": "tools.json",
@@ -11,7 +11,7 @@
   "repository": "https://github.com/MichaLie/research-coding-agents-wiki",
   "baseline_commit": "f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f",
   "baseline_commit_url": "https://github.com/MichaLie/research-coding-agents-wiki/commit/f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f",
-  "release_ref": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.0.0",
+  "release_ref": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.0.1",
   "legacy_snapshot_commit": "f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f",
   "legacy_snapshot_date": "2026-06-21",
   "baseline_data_date": "2026-06-21",
@@ -50,5 +50,5 @@
     "GDPR",
     "ELIXIR"
   ],
-  "evidence_statement": "Catalog version 2.0.0 modified 2026-07-14; all 43 records carry an explicit 2026-07-13 evidence-check date, with provisional or conditional claims labelled conservatively."
+  "evidence_statement": "Catalog version 2.0.1 modified 2026-07-14; all 43 records carry an explicit 2026-07-13 evidence-check date, with provisional or conditional claims labelled conservatively."
 }

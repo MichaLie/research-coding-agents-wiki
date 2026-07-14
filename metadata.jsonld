@@ -157,7 +157,7 @@
     "@id": "https://github.com/MichaLie/research-coding-agents-wiki/commit/f18471ac45ee8bec5cdb0bb63c32a6cfe8d5722f"
   },
   "prov:wasGeneratedBy": {
-    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.0.0",
+    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.0.1",
     "@type": "prov:Activity",
     "dct:type": "Versioned release build",
     "prov:endedAtTime": {
@@ -199,5 +199,5 @@
   "schema:url": {
     "@id": "https://michalie.github.io/research-coding-agents-wiki/"
   },
-  "schema:version": "2.0.0"
+  "schema:version": "2.0.1"
 }

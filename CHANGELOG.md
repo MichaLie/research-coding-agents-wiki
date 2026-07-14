@@ -2,6 +2,11 @@
 
 All notable public changes to this resource are documented here.
 
+## 2.0.1 — 2026-07-14
+
+- Increased the index's main reading text, explanatory details, and column headings for more comfortable use while preserving the compact research-table layout.
+- Kept badges, filters, metadata, catalog records, and evidence classifications unchanged.
+
 ## 2.0.0 — 2026-07-14
 
 - Refreshed coding and data-agent records against current first-party evidence through separate delegated review lanes with adversarial coordinator cross-checking.
