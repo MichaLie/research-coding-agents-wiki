@@ -163,7 +163,7 @@ body{background:linear-gradient(180deg,#f1f6fa 0,#fff 340px);font:13.5px/1.52 "S
 header.top{position:relative;align-items:center;gap:24px;padding:23px 25px 22px 28px;border:1px solid #d7e3eb;border-left:4px solid #3c7fac;border-radius:12px;background:rgba(255,255,255,.88);box-shadow:0 8px 28px rgba(36,74,99,.045)}
 header.top::before{content:"Research coding & data tools index";display:block;position:absolute;top:15px;left:28px;color:#286d98;font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 .htext{padding-top:15px}h1{margin:0 0 7px;color:#172d3b;font-size:25px;line-height:1.12;font-weight:650;letter-spacing:-.025em}
-.sub{max-width:920px;color:#586d7b;font-size:13px;line-height:1.58}.sub b,.maxim{color:#314b5a;font-weight:650}
+.sub{max-width:920px;color:#586d7b;font-size:14px;line-height:1.58}.sub b,.maxim{color:#314b5a;font-weight:650}
 .hright{gap:9px}.dedi{gap:10px}.elixir-logo svg{height:53px}.dedi-cap{color:#607482}.dedi-cap b{color:#203744}
 .draftbar{margin:12px 0 0;padding:8px 13px;border-color:#cfe0ea;border-radius:8px;background:#f1f7fb;color:#315e7b}
 .disclaimer{margin:9px 0 2px;padding:9px 13px;border-color:#ead9a9;border-radius:8px;background:#fff9e9;color:#685516}
@@ -177,11 +177,11 @@ header.top::before{content:"Research coding & data tools index";display:block;po
 .chip{padding:4px 9px;border-color:#d5e0e6;border-radius:7px;background:#f4f7f9;font-family:inherit;font-size:11.5px}.chip:hover{border-color:#aebfc8;background:#edf3f5}.chip.on{border-color:#286d98;background:#286d98}.chip.tog.on{border-color:#176d48;background:#176d48}
 .countpill{margin-top:8px;color:#526978;font-weight:600;font-variant-numeric:tabular-nums}
 details.qc{margin:11px 0 15px;border-color:#d8e3e9;border-radius:8px;background:#fff}details.qc summary{color:#284653;font-weight:650}.qcbtn{border-color:#d5e0e6;border-radius:6px;background:#f4f7f9;color:#286d98}
-.tablewrap{border:1px solid #d8e3e9;border-radius:8px;background:#fff}table.main{background:#fff;font-size:12.8px}
-table.main thead th{padding:9px 8px;border-bottom:1px solid #cfdde4;background:#f3f7f9;color:#526978;font-size:10px;font-weight:800;letter-spacing:.075em}
+.tablewrap{border:1px solid #d8e3e9;border-radius:8px;background:#fff}table.main{background:#fff;font-size:14px}
+table.main thead th{padding:9px 8px;border-bottom:1px solid #cfdde4;background:#f3f7f9;color:#526978;font-size:10.5px;font-weight:800;letter-spacing:.075em}
 table.main tbody td{padding:9px 8px;border-bottom-color:#e4ebef}tr.row:hover{background:#f2f7fa}.nm{color:#1c2d39;font-weight:650}
 .pill,.cap{font-size:10.5px;font-weight:650}.exp{color:#69808d}.exp:hover{color:#286d98}td.lnk a{filter:saturate(.65);opacity:.82}td.lnk a:hover{filter:none;opacity:1}
-tr.detailrow td{background:#f5f9fb}.detail .kv b{color:#526978}.detail .links a{border-color:#d3e0e6;border-radius:6px;background:#fff;color:#286d98}
+tr.detailrow td{background:#f5f9fb}.detail .kv{font-size:13.5px}.detail .kv b{color:#526978}.detail .links a{border-color:#d3e0e6;border-radius:6px;background:#fff;color:#286d98}
 .grouprow td{padding:16px 9px 6px;border-bottom-color:#d4e1e7;background:#edf4f8;color:#315e7b;font-size:10px;letter-spacing:.09em}
 footer{margin-top:26px;padding:17px 18px;border:1px solid #d8e3e9;border-radius:9px;background:#f7fafb;color:#586d7b}.legend{color:#586d7b}.legend b{color:#294453}
 @media(max-width:900px){body{background:#fff}.wrap{padding-top:12px}.controls{position:static;box-shadow:none}header.top{align-items:flex-start}.hright{align-items:flex-start;padding-top:4px}.dedi-cap{text-align:left}}
