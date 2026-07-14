@@ -3,12 +3,19 @@
 Usage: python3 build_html.py [tools.json] [out.html]
 Privacy-first: data-sensitivity suitability matrix + capability/protection signals.
 """
-import json, sys, html, datetime
+import json, sys, html
 from collections import Counter
+from fair_metadata import (
+    build_jsonld,
+    fair_head,
+    load_resource_metadata,
+    publish_fair_artifacts,
+)
 
 SRC = sys.argv[1] if len(sys.argv) > 1 else 'tools.json'
 OUT = sys.argv[2] if len(sys.argv) > 2 else 'docs/index.html'
 tools = json.load(open(SRC))
+resource_meta = load_resource_metadata()
 
 TYPE_LABELS = {'ide':'IDE / editor','cli':'Terminal / CLI','cloud':'Cloud / autonomous','data':'Data analysis / notebook'}
 TYPE_ORDER  = ['ide','cli','cloud','data']
@@ -19,7 +26,9 @@ OPEN_ORDER  = ['open-source','open-core','commercial']
 norm=[]
 for t in tools:
     rec=dict(t)
-    rec['_s']=' '.join([t.get('name',''),t.get('vendor',''),t.get('notes',''),
+    rec['_display_name']=t.get('current_name') or t.get('name','')
+    rec['_former_name']=t.get('name','') if rec['_display_name'].casefold()!=t.get('name','').casefold() else ''
+    rec['_s']=' '.join([t.get('name',''),t.get('current_name',''),' '.join(t.get('aliases',[])),t.get('vendor',''),t.get('notes',''),
                         ' '.join(t.get('use_cases',[])),t.get('model_backend',''),
                         TYPE_LABELS.get(t.get('type',''),'')]).lower()
     rec['runs_locally']=bool(t.get('runs_locally',False))
@@ -33,14 +42,17 @@ def sort_key(m):
     return (TYPE_ORDER.index(m.get('type','')) if m.get('type','') in TYPE_ORDER else 99,
             0 if m.get('established') else 1,
             DH_ORDER.index(m.get('data_handling','')) if m.get('data_handling','') in DH_ORDER else 99,
-            m.get('name','').lower())
+            m.get('_display_name','').lower())
 norm.sort(key=sort_key)
 
-today=datetime.date.today().isoformat()
+today=resource_meta['modified']
 total=len(norm)
 n_local=sum(1 for m in norm if m['runs_locally'])
 n_open=sum(1 for m in norm if m.get('openness')=='open-source')
-n_special=sum(1 for m in norm if m.get('suitability',{}).get('special')=='ok')
+n_special_ready=sum(1 for m in norm if m.get('suitability',{}).get('special')=='ok')
+n_special_config=sum(1 for m in norm if m.get('suitability',{}).get('special')=='cfg')
+fair_jsonld=build_jsonld(resource_meta,SRC,total)
+fair_head_html=fair_head(resource_meta,fair_jsonld)
 
 try:
     _elixir_svg=open('assets/elixir-cz-logo.svg').read()
@@ -51,8 +63,11 @@ except FileNotFoundError:
 
 TPL = r"""<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
 <title>AI Coding &amp; Data Agents for Researchers</title>
+__FAIR_HEAD__
 <style>
+@font-face{font-family:"Source Sans 3";src:url("assets/fonts/SourceSans3-Variable.ttf") format("truetype");font-style:normal;font-weight:200 900;font-display:swap}
 :root{
  --bg:#f6f7f9;--panel:#fff;--ink:#1a1d24;--muted:#5b6472;--line:#e3e7ee;--accent:#2563eb;
  --chip:#eef1f6;--chipline:#dce1ea;--rowhover:#f0f4fb;--detail:#f8fafc;
@@ -78,7 +93,7 @@ h1{font-size:21px;margin:0 0 4px}
 .ask{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin:14px 0 0}
 .ask .q{font-size:13px;font-weight:600;margin-bottom:7px}
 .dcbtns{display:flex;gap:7px;flex-wrap:wrap}
-.dc{border:1px solid var(--chipline);background:var(--chip);border-radius:999px;padding:6px 13px;font-size:12.5px;cursor:pointer;user-select:none}
+.dc{border:1px solid var(--chipline);background:var(--chip);color:var(--ink);border-radius:999px;padding:6px 13px;font:inherit;font-size:12.5px;cursor:pointer;user-select:none}
 .dc.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .dc small{display:block;font-size:10.5px;opacity:.7;font-weight:400}
 .dcexpl{font-size:11.5px;color:var(--muted);margin-top:9px}
@@ -92,7 +107,7 @@ h1{font-size:21px;margin:0 0 4px}
 .toolbtn{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 11px;cursor:pointer;font-size:13px}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;align-items:center}
 .chips .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-right:2px}
-.chip{background:var(--chip);border:1px solid var(--chipline);border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer;user-select:none}
+.chip{background:var(--chip);border:1px solid var(--chipline);color:var(--ink);border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer;user-select:none}
 .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .chip .c{opacity:.6;margin-left:5px;font-size:10.5px}
 .chip.tog.on{background:var(--dhlocal);border-color:var(--dhlocal)}
@@ -102,14 +117,17 @@ details.qc summary{cursor:pointer;font-weight:600;padding:7px 0}
 .qcrow{display:flex;flex-wrap:wrap;gap:7px;padding:6px 0 10px}
 .qcbtn{background:var(--chip);border:1px solid var(--chipline);border-radius:8px;color:var(--accent);font-size:12px;padding:5px 11px;cursor:pointer}
 table.main{width:100%;border-collapse:collapse;font-size:13px}
+.tablewrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tablewrap:focus{outline:2px solid var(--accent);outline-offset:2px}
 table.main thead th{text-align:left;padding:8px 7px;border-bottom:2px solid var(--line);font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);white-space:nowrap}
 th.suit{text-align:center;cursor:pointer;width:62px}
 th.suit.act{color:var(--ink);background:var(--detail)}
 table.main tbody td{padding:9px 7px;border-bottom:1px solid var(--line);vertical-align:top}
 tr.row{cursor:pointer}tr.row:hover{background:var(--rowhover)}
 tr.dim{opacity:.4}
-.exp{color:var(--muted);width:14px;display:inline-block;transition:transform .12s}tr.open .exp{transform:rotate(90deg)}
+.exp{color:var(--muted);width:14px;display:inline-block;transition:transform .12s;border:0;background:transparent;padding:0;font:inherit;cursor:pointer}tr.open .exp{transform:rotate(90deg)}
 .nm{font-weight:700}.vend{color:var(--muted);font-size:11.5px;margin-left:5px}
+.former{color:var(--muted);font-size:11.5px;margin-left:5px}
 .estar{color:var(--star);margin-left:4px}
 .pill{font-size:11px;padding:2px 9px;border-radius:999px;font-weight:600;white-space:nowrap;display:inline-block}
 .dh-local{background:var(--dhlocalbg);color:var(--dhlocal)}.dh-zdr{background:var(--dhzdrbg);color:var(--dhzdr)}
@@ -131,6 +149,43 @@ tr.detailrow td{background:var(--detail);padding:2px 8px 14px 28px}
 footer{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:11.5px}
 .ver{font-size:10.5px;color:var(--muted)}
+
+/* Shared crisp research-infrastructure design system. */
+:root{
+ --bg:#fff;--panel:#fff;--ink:#182532;--muted:#586a79;--line:#dce5eb;--accent:#286d98;
+ --chip:#f3f7f9;--chipline:#d8e3e9;--rowhover:#f2f7fa;--detail:#f5f9fb;
+ --dhlocal:#176d48;--dhlocalbg:#e5f4ec;--dhzdr:#567419;--dhzdrbg:#edf4df;
+ --dhnotrain:#23648c;--dhnotrainbg:#e7f1f8;--dhoptout:#93610d;--dhoptoutbg:#fbefd7;
+ --dhtrains:#9a4646;--dhtrainsbg:#f8e9e9;--ok:#176d48;--cfg:#93610d;--no:#9a4646;--star:#d89a00;
+}
+body{background:linear-gradient(180deg,#f1f6fa 0,#fff 340px);font:13.5px/1.52 "Source Sans 3","Segoe UI",sans-serif;color:var(--ink)}
+.wrap{max-width:1420px;padding:18px 22px 88px}
+header.top{position:relative;align-items:center;gap:24px;padding:23px 25px 22px 28px;border:1px solid #d7e3eb;border-left:4px solid #3c7fac;border-radius:12px;background:rgba(255,255,255,.88);box-shadow:0 8px 28px rgba(36,74,99,.045)}
+header.top::before{content:"Research coding & data tools index";display:block;position:absolute;top:15px;left:28px;color:#286d98;font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.htext{padding-top:15px}h1{margin:0 0 7px;color:#172d3b;font-size:25px;line-height:1.12;font-weight:650;letter-spacing:-.025em}
+.sub{max-width:920px;color:#586d7b;font-size:13px;line-height:1.58}.sub b,.maxim{color:#314b5a;font-weight:650}
+.hright{gap:9px}.dedi{gap:10px}.elixir-logo svg{height:53px}.dedi-cap{color:#607482}.dedi-cap b{color:#203744}
+.draftbar{margin:12px 0 0;padding:8px 13px;border-color:#cfe0ea;border-radius:8px;background:#f1f7fb;color:#315e7b}
+.disclaimer{margin:9px 0 2px;padding:9px 13px;border-color:#ead9a9;border-radius:8px;background:#fff9e9;color:#685516}
+.ask{margin:14px 0 0;padding:13px 14px;border-color:#d8e3e9;border-radius:9px;box-shadow:0 3px 12px rgba(36,74,99,.025)}.ask .q{color:#294453;font-weight:650}
+.dc{border-color:#d5e0e6;border-radius:7px;background:#f4f7f9;font-family:inherit}.dc:hover{border-color:#aebfc8;background:#edf3f5}.dc.on{border-color:#286d98;background:#286d98}
+.dhkey{border-top-color:#dce5eb}.dhkeylbl{color:#526978;font-size:9.5px;font-weight:800;letter-spacing:.09em}
+.controls{top:0;margin:13px 0 8px;padding:12px 13px 11px;border:1px solid #d4e1e7;border-radius:10px;background:rgba(255,255,255,.97);box-shadow:0 7px 22px rgba(27,60,74,.07);backdrop-filter:blur(12px)}
+.searchrow{gap:8px}#q{padding:10px 12px;border-color:#cbd9e1;border-radius:7px;background:#fff;font-family:inherit}#q:focus{outline:3px solid rgba(40,109,152,.17);border-color:#6c9bb8}
+.toolbtn{border-color:#cbd9e1;border-radius:7px;font-family:inherit;font-weight:600}.toolbtn:hover{background:#f2f7f8}
+.chips{gap:5px;margin-top:8px}.chips .lbl{min-width:76px;color:#526978;font-size:9.5px;font-weight:800;letter-spacing:.1em}
+.chip{padding:4px 9px;border-color:#d5e0e6;border-radius:7px;background:#f4f7f9;font-family:inherit;font-size:11.5px}.chip:hover{border-color:#aebfc8;background:#edf3f5}.chip.on{border-color:#286d98;background:#286d98}.chip.tog.on{border-color:#176d48;background:#176d48}
+.countpill{margin-top:8px;color:#526978;font-weight:600;font-variant-numeric:tabular-nums}
+details.qc{margin:11px 0 15px;border-color:#d8e3e9;border-radius:8px;background:#fff}details.qc summary{color:#284653;font-weight:650}.qcbtn{border-color:#d5e0e6;border-radius:6px;background:#f4f7f9;color:#286d98}
+.tablewrap{border:1px solid #d8e3e9;border-radius:8px;background:#fff}table.main{background:#fff;font-size:12.8px}
+table.main thead th{padding:9px 8px;border-bottom:1px solid #cfdde4;background:#f3f7f9;color:#526978;font-size:10px;font-weight:800;letter-spacing:.075em}
+table.main tbody td{padding:9px 8px;border-bottom-color:#e4ebef}tr.row:hover{background:#f2f7fa}.nm{color:#1c2d39;font-weight:650}
+.pill,.cap{font-size:10.5px;font-weight:650}.exp{color:#69808d}.exp:hover{color:#286d98}td.lnk a{filter:saturate(.65);opacity:.82}td.lnk a:hover{filter:none;opacity:1}
+tr.detailrow td{background:#f5f9fb}.detail .kv b{color:#526978}.detail .links a{border-color:#d3e0e6;border-radius:6px;background:#fff;color:#286d98}
+.grouprow td{padding:16px 9px 6px;border-bottom-color:#d4e1e7;background:#edf4f8;color:#315e7b;font-size:10px;letter-spacing:.09em}
+footer{margin-top:26px;padding:17px 18px;border:1px solid #d8e3e9;border-radius:9px;background:#f7fafb;color:#586d7b}.legend{color:#586d7b}.legend b{color:#294453}
+@media(max-width:900px){body{background:#fff}.wrap{padding-top:12px}.controls{position:static;box-shadow:none}header.top{align-items:flex-start}.hright{align-items:flex-start;padding-top:4px}.dedi-cap{text-align:left}}
+@media(max-width:640px){.wrap{padding:12px 12px 64px}header.top{padding:21px 17px 18px 19px}header.top::before{top:13px;left:19px}h1{font-size:22px}.controls{padding:10px}.chips .lbl{width:100%;min-width:100%;margin-top:3px}.chip{font-size:11px}}
 </style></head><body><div class="wrap">
 <header class="top"><div class="htext">
 <h1>AI Coding &amp; Data Agents for Researchers</h1>
@@ -142,15 +197,16 @@ footer{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid va
 <span class="elixir-logo">__ELIXIRSVG__</span>
 <span class="dedi-cap">Dedicated to <b>ELIXIR-CZ</b><br>Czech national node of ELIXIR</span></a>
 </div></header>
-<div class="draftbar">Web-verified against vendor docs &amp; privacy pages on 2026-06-20. Privacy and pricing change fast — confirm your exact plan/tier and region before relying on any row.</div>
+<main>
+<div class="draftbar">__EVIDENCE_STATEMENT__ Privacy and pricing change fast — confirm your exact plan/tier and region before relying on any row.</div>
 <div class="disclaimer"><b>Classify your data first</b> (ELIXIR <a href="https://rdmkit.elixir-europe.org/data_sensitivity" target="_blank" rel="noopener">RDMkit · Data sensitivity</a>). This is decision-support, not legal advice — <b>confirm with your DPO / data steward and the vendor's own terms before using sensitive or regulated data.</b> Privacy &amp; pricing change often; each row shows when it was last checked.</div>
 
 <div class="ask">
  <div class="q">What data will you put into the tool?</div>
  <div class="dcbtns" id="dcb">
-  <div class="dc" data-dc="nonsensitive">Non-sensitive<small>public · anonymised · synthetic</small></div>
-  <div class="dc" data-dc="personal">Personal<small>pseudonymised · GDPR</small></div>
-  <div class="dc" data-dc="special">Special-category<small>health · genetic · clinical</small></div>
+  <button type="button" class="dc" data-dc="nonsensitive">Non-sensitive<small>public · anonymised · synthetic</small></button>
+  <button type="button" class="dc" data-dc="personal">Personal<small>pseudonymised · GDPR</small></button>
+  <button type="button" class="dc" data-dc="special">Special-category<small>health · genetic · clinical</small></button>
  </div>
  <div class="dcexpl">Non-sensitive = public / anonymised / synthetic &nbsp;·&nbsp; Personal = pseudonymised (GDPR) &nbsp;·&nbsp; Special-category = health / genetic / clinical (GDPR Art.&nbsp;9)</div>
  <div class="dchint" id="dchint">Pick your data class to see what's suitable — or browse all below.</div>
@@ -165,7 +221,7 @@ footer{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid va
 
 <div class="controls">
  <div class="searchrow">
-  <input id="q" type="search" placeholder="Search tool, vendor, use case…  space = AND  (e.g. local notebook, self-host)">
+  <input id="q" type="search" aria-label="Search coding and data agents" placeholder="Search tool, vendor, use case…  space = AND  (e.g. local notebook, self-host)">
   <button class="toolbtn" id="reset">Reset</button>
  </div>
  <div class="chips" id="typechips"><span class="lbl">Type</span></div>
@@ -178,16 +234,17 @@ footer{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid va
 <details class="qc"><summary>⚡ Best starting points — by need</summary>
 <div class="qcrow" id="qc"></div></details>
 
-<table class="main"><thead><tr>
+<div class="tablewrap" role="region" aria-label="Scrollable coding and data agents table" tabindex="0"><table class="main"><thead><tr>
 <th class="nosort"></th><th>Tool</th><th>Type</th><th>Data handling</th><th>Capability</th>
 <th class="suit" data-dc="nonsensitive" title="Non-sensitive: public / anonymised / synthetic">Non-sens.</th>
 <th class="suit" data-dc="personal" title="Personal (pseudonymised) — GDPR">Personal</th>
 <th class="suit" data-dc="special" title="Special-category — health / genetic / clinical (GDPR Art. 9)">Special</th>
 <th class="nosort">Links</th>
-</tr></thead><tbody id="tb"></tbody></table><div id="empty"></div>
+</tr></thead><tbody id="tb"></tbody></table></div><div id="empty"></div>
+</main>
 
 <footer>
-<b>__TOTAL__</b> tools · __NLOCAL__ run locally · __NOPEN__ open-source · __NSPECIAL__ usable for special-category data. Updated __TODAY__.
+<b>__TOTAL__</b> tools · __NLOCAL__ run locally · __NOPEN__ open-source · __NSPECIALREADY__ ready without configuration · __NSPECIALCONFIG__ configurable controlled routes for special-category data. Evidence reviewed __TODAY__.
 <div class="legend"><span>The pill shows the <b>best</b> data option; the <span style="color:var(--cfg)">▸ line beneath</span> is the plan/tier or setting you must use to get it — the default or free plan is usually less private. No line = applies on the default plan (local / self-host).</span></div>
 <div class="legend">
 <span><b>Suitability:</b></span><span class="s-ok">✓ suitable</span><span class="s-cfg">⚠ only with config/tier</span><span class="s-no">✗ not appropriate</span>
@@ -196,6 +253,8 @@ footer{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid va
 <div class="legend"><span><span class="bdep">↔ model</span> capability depends on the model you connect (bring-your-own-model tools): a frontier API gives top capability, a local model keeps data private but lower.</span></div>
 <div style="margin-top:10px"><b>Curated, not exhaustive</b> — this is a useful shortlist, not a complete catalogue. Some niche, enterprise-only, or single-purpose tools (e.g. code-review bots) are intentionally omitted for clarity and to keep the privacy data maintainable.</div>
 <div style="margin-top:8px">Data classes follow ELIXIR <a href="https://rdmkit.elixir-europe.org/data_sensitivity" target="_blank" rel="noopener">RDMkit</a>. A discovery aid — verify each tool's current terms with the vendor and your institution before relying on it.</div>
+<div style="margin-top:8px"><b>Machine-readable:</b> <a href="tools.json">JSON catalog</a> · <a href="metadata.jsonld">JSON-LD metadata</a> · <a href="schema.json">JSON Schema</a> · <a href="https://github.com/MichaLie/research-coding-agents-wiki">source and provenance</a></div>
+<div style="margin-top:8px">Catalog content: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. External resources and logos retain their own terms; affiliation and dedication do not imply endorsement.</div>
 </footer>
 </div>
 <script>
@@ -213,11 +272,11 @@ const st={q:'',types:new Set(),dh:new Set(),cap:new Set(),tog:new Set(),dc:null}
 
 function counts(f,order){const c={};order.forEach(k=>c[k]=0);DATA.forEach(m=>{if(c[m[f]]!==undefined)c[m[f]]++});return c}
 const typeC=counts('type',TYPE_ORDER),dhC=counts('data_handling',DH_ORDER),capC=counts('capability',CAP_ORDER);
-function chips(el,order,labels,cnts,set){order.forEach(k=>{if(cnts&&!cnts[k])return;const d=document.createElement('div');d.className='chip';d.dataset.k=k;d.innerHTML=labels[k]+(cnts?'<span class="c">'+cnts[k]+'</span>':'');d.onclick=()=>{set.has(k)?set.delete(k):set.add(k);d.classList.toggle('on');render()};el.appendChild(d)})}
+function chips(el,order,labels,cnts,set){order.forEach(k=>{if(cnts&&!cnts[k])return;const d=document.createElement('button');d.type='button';d.className='chip';d.dataset.k=k;d.innerHTML=labels[k]+(cnts?'<span class="c">'+cnts[k]+'</span>':'');d.onclick=()=>{set.has(k)?set.delete(k):set.add(k);d.classList.toggle('on');d.setAttribute('aria-pressed',set.has(k));render()};d.setAttribute('aria-pressed','false');el.appendChild(d)})}
 chips(document.getElementById('typechips'),TYPE_ORDER,TYPE_LABELS,typeC,st.types);
 chips(document.getElementById('dhchips'),DH_ORDER,DH_LABELS,dhC,st.dh);
 chips(document.getElementById('capchips'),CAP_ORDER,CAP_LABELS,capC,st.cap);
-[['established','Widely used ★'],['runsLocal','Runs locally'],['selfHost','Self-hostable'],['freeAcad','Free / academic']].forEach(([k,lab])=>{const d=document.createElement('div');d.className='chip tog';d.innerHTML=lab;d.onclick=()=>{st.tog.has(k)?st.tog.delete(k):st.tog.add(k);d.classList.toggle('on');render()};document.getElementById('togchips').appendChild(d)});
+[['established','Widely used ★'],['runsLocal','Runs locally'],['selfHost','Self-hostable'],['freeAcad','Free / academic']].forEach(([k,lab])=>{const d=document.createElement('button');d.type='button';d.className='chip tog';d.innerHTML=lab;d.setAttribute('aria-pressed','false');d.onclick=()=>{st.tog.has(k)?st.tog.delete(k):st.tog.add(k);d.classList.toggle('on');d.setAttribute('aria-pressed',st.tog.has(k));render()};document.getElementById('togchips').appendChild(d)});
 
 const QC=[
  {t:'I have clinical / special-category data',f:()=>{setDC('special')}},
@@ -232,11 +291,11 @@ const qEl=document.getElementById('q');
 qEl.addEventListener('input',e=>{st.q=e.target.value.toLowerCase();render()});
 document.getElementById('reset').onclick=()=>{clearAll();qEl.value='';render()};
 function clearAll(){st.q='';st.types.clear();st.dh.clear();st.cap.clear();st.tog.clear();st.dc=null;syncChips();syncTog();syncDC()}
-function syncChips(){document.querySelectorAll('#typechips .chip').forEach(c=>c.classList.toggle('on',st.types.has(c.dataset.k)));document.querySelectorAll('#dhchips .chip').forEach(c=>c.classList.toggle('on',st.dh.has(c.dataset.k)));document.querySelectorAll('#capchips .chip').forEach(c=>c.classList.toggle('on',st.cap.has(c.dataset.k)))}
-function syncTog(){const map={established:'Widely used ★',runsLocal:'Runs locally',selfHost:'Self-hostable',freeAcad:'Free / academic'};document.querySelectorAll('#togchips .chip').forEach(c=>c.classList.toggle('on',st.tog.has(Object.keys(map).find(k=>map[k]===c.textContent))))}
+function syncChips(){document.querySelectorAll('#typechips .chip').forEach(c=>{const on=st.types.has(c.dataset.k);c.classList.toggle('on',on);c.setAttribute('aria-pressed',on)});document.querySelectorAll('#dhchips .chip').forEach(c=>{const on=st.dh.has(c.dataset.k);c.classList.toggle('on',on);c.setAttribute('aria-pressed',on)});document.querySelectorAll('#capchips .chip').forEach(c=>{const on=st.cap.has(c.dataset.k);c.classList.toggle('on',on);c.setAttribute('aria-pressed',on)})}
+function syncTog(){const map={established:'Widely used ★',runsLocal:'Runs locally',selfHost:'Self-hostable',freeAcad:'Free / academic'};document.querySelectorAll('#togchips .chip').forEach(c=>{const on=st.tog.has(Object.keys(map).find(k=>map[k]===c.textContent));c.classList.toggle('on',on);c.setAttribute('aria-pressed',on)})}
 
 function setDC(v){st.dc=st.dc===v?null:v;syncDC()}
-function syncDC(){document.querySelectorAll('#dcb .dc').forEach(d=>d.classList.toggle('on',d.dataset.dc===st.dc));
+function syncDC(){document.querySelectorAll('#dcb .dc').forEach(d=>{const on=d.dataset.dc===st.dc;d.classList.toggle('on',on);d.setAttribute('aria-pressed',on)});
  document.querySelectorAll('th.suit').forEach(th=>th.classList.toggle('act',th.dataset.dc===st.dc))}
 document.querySelectorAll('#dcb .dc').forEach(d=>d.onclick=()=>{setDC(d.dataset.dc);render()});
 document.querySelectorAll('th.suit').forEach(th=>th.onclick=()=>{setDC(th.dataset.dc);render()});
@@ -249,10 +308,10 @@ function dhPill(m){return '<span class="pill dh-'+m.data_handling+'" title="'+es
 function capPill(m){return '<span class="cap cap-'+m.capability+'">'+(CAP_LABELS[m.capability]||m.capability)+'</span>'+(m.backend_dependent?'<span class="bdep" title="Bring-your-own-model tool: capability depends on the model you connect — a frontier API gives frontier capability, a local model keeps it private but lower">↔ model</span>':'')}
 function links(m,all){const L=m.links||{};let o=[];const add=(u,ic,lab)=>{if(u)o.push('<a href="'+u+'" target="_blank" rel="noopener" title="'+lab+'">'+(all?ic+' '+lab:ic)+'</a>')};add(L.docs,'📄','Docs');add(L.pricing,'💲','Pricing');add(L.privacy,'🔒','Privacy');return o.join(all?'':' ')}
 
-function rowHtml(m){const open=st.openset.has(m.name);const dim=st.dc&&(m.suitability||{})[st.dc]==='no';
- let h='<tr class="row'+(open?' open':'')+(dim?' dim':'')+'" data-n="'+esc(m.name)+'">'
- +'<td><span class="exp">▸</span></td>'
- +'<td><span class="nm">'+esc(m.name)+'</span>'+(m.established?'<span class="estar" title="widely adopted / established choice">★</span>':'')+'<span class="vend">'+esc(m.vendor)+'</span></td>'
+function rowHtml(m){const open=st.openset.has(m.id);const dim=st.dc&&(m.suitability||{})[st.dc]==='no';
+ let h='<tr class="row'+(open?' open':'')+(dim?' dim':'')+'" data-n="'+esc(m.id)+'">'
+ +'<td><button class="exp" type="button" aria-expanded="'+(open?'true':'false')+'" aria-label="Toggle details for '+esc(m._display_name)+'">▸</button></td>'
+ +'<td><span class="nm">'+esc(m._display_name)+'</span>'+(m.established?'<span class="estar" title="widely adopted / established choice">★</span>':'')+(m._former_name?'<span class="former">formerly '+esc(m._former_name)+'</span>':'')+'<span class="vend">'+esc(m.vendor)+'</span></td>'
  +'<td title="'+esc(TYPE_LABELS[m.type]||'')+'">'+esc(TYPE_SHORT[m.type]||m.type)+'</td>'
  +'<td>'+dhPill(m)+(m.tier_gate?'<div class="gate"><i style="font-style:normal">▸ </i>'+esc(m.tier_gate)+'</div>':'')+'</td>'
  +'<td>'+capPill(m)+'</td>'
@@ -290,18 +349,22 @@ render();
 
 out=(TPL
  .replace('__ELIXIRSVG__',_elixir_svg)
+ .replace('__FAIR_HEAD__',fair_head_html)
+ .replace('__EVIDENCE_STATEMENT__',resource_meta['evidence_statement'])
  .replace('__DATA__',json.dumps(norm))
  .replace('__TYPELABELS__',json.dumps(TYPE_LABELS))
  .replace('__TYPEORDER__',json.dumps(TYPE_ORDER))
  .replace('__DHORDER__',json.dumps(DH_ORDER))
  .replace('__CAPORDER__',json.dumps(CAP_ORDER))
  .replace('__TODAY__',today).replace('__TOTAL__',str(total))
- .replace('__NLOCAL__',str(n_local)).replace('__NOPEN__',str(n_open)).replace('__NSPECIAL__',str(n_special)))
+ .replace('__NLOCAL__',str(n_local)).replace('__NOPEN__',str(n_open))
+ .replace('__NSPECIALREADY__',str(n_special_ready)).replace('__NSPECIALCONFIG__',str(n_special_config)))
 
 import os
 os.makedirs(os.path.dirname(OUT) or '.',exist_ok=True)
 open(OUT,'w').write(out)
-print(f'Wrote {OUT}  ({total} tools, {n_local} local, {n_open} open-source, {n_special} special-category-ok)')
+publish_fair_artifacts(resource_meta,fair_jsonld,data_path=SRC,output_path=OUT)
+print(f'Wrote {OUT}  ({total} tools, {n_local} local, {n_open} open-source, {n_special_ready} special-ready, {n_special_config} special-configurable)')
 print('type:',dict(Counter(m["type"] for m in norm)))
 print('data_handling:',dict(Counter(m["data_handling"] for m in norm)))
 print('capability:',dict(Counter(m["capability"] for m in norm)))

@@ -1,0 +1,130 @@
+record_id	claim	status	source	verified	note
+rca-claude-code	deployment_and_privacy	current-review	https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained	2026-07-13	See data_handling_note and special_route
+rca-claude-code	pricing	current-review	https://claude.com/pricing	2026-07-13	Volatile; recheck before release
+rca-claude-code	software_license	proprietary	https://code.claude.com/docs/en/data-usage	2026-07-13	Licence not yet confirmed at record level
+rca-openai-codex	deployment_and_privacy	current-review	https://developers.openai.com/api/docs/guides/your-data	2026-07-13	See data_handling_note and special_route
+rca-openai-codex	pricing	current-review	https://learn.chatgpt.com/docs/pricing	2026-07-13	Volatile; recheck before release
+rca-openai-codex	software_license	proprietary	https://developers.openai.com/api/docs/guides/your-data	2026-07-13	Licence not yet confirmed at record level
+rca-gemini-cli	deployment_and_privacy	current-review	https://google-gemini.github.io/gemini-cli/docs/tos-privacy.html	2026-07-13	See data_handling_note and special_route
+rca-gemini-cli	pricing	current-review	https://google-gemini.github.io/gemini-cli/docs/quota-and-pricing.html	2026-07-13	Volatile; recheck before release
+rca-gemini-cli	software_license	confirmed	https://github.com/google-gemini/gemini-cli/discussions/27274	2026-07-13	Apache-2.0
+rca-aider	deployment_and_privacy	current-review	https://aider.chat/docs/legal/privacy.html	2026-07-13	See data_handling_note and special_route
+rca-aider	pricing	current-review	https://github.com/Aider-AI/aider	2026-07-13	Volatile; recheck before release
+rca-aider	software_license	confirmed	https://github.com/Aider-AI/aider	2026-07-13	Apache-2.0
+rca-goose	deployment_and_privacy	current-review	https://goose-docs.ai/docs/guides/usage-data/	2026-07-13	See data_handling_note and special_route
+rca-goose	pricing	current-review	https://github.com/aaif-goose/goose	2026-07-13	Open-source software has no separate catalogue price; model-provider and infrastructure costs vary and must be checked separately
+rca-goose	software_license	confirmed	https://github.com/aaif-goose/goose	2026-07-13	Apache-2.0
+rca-cursor	deployment_and_privacy	current-review	https://cursor.com/privacy	2026-07-13	See data_handling_note and special_route
+rca-cursor	pricing	current-review	https://cursor.com/pricing	2026-07-13	Volatile; recheck before release
+rca-cursor	software_license	proprietary	https://cursor.com/data-use	2026-07-13	Licence not yet confirmed at record level
+rca-github-copilot	deployment_and_privacy	current-review	https://github.com/features/copilot/plans	2026-07-13	See data_handling_note and special_route
+rca-github-copilot	pricing	current-review	https://github.com/features/copilot/plans	2026-07-13	Volatile; recheck before release
+rca-github-copilot	software_license	proprietary	https://github.com/features/copilot/plans	2026-07-13	Licence not yet confirmed at record level
+rca-windsurf	deployment_and_privacy	current-review	https://cognition.com/legal/privacy-policy	2026-07-13	See data_handling_note and special_route
+rca-windsurf	pricing	current-review	https://devin.ai/pricing	2026-07-13	Volatile; recheck before release
+rca-windsurf	software_license	proprietary	https://cognition.com/blog/introducing-devin-desktop	2026-07-13	Licence not yet confirmed at record level
+rca-google-antigravity	deployment_and_privacy	current-review	https://antigravity.google/terms	2026-07-13	See data_handling_note and special_route
+rca-google-antigravity	pricing	current-review	https://antigravity.google/pricing	2026-07-13	Volatile; recheck before release
+rca-google-antigravity	software_license	proprietary	https://antigravity.google/terms	2026-07-13	Licence not yet confirmed at record level
+rca-jetbrains-junie	deployment_and_privacy	current-review	https://junie.jetbrains.com/docs/custom-llm-ollama.html	2026-07-13	See data_handling_note and special_route
+rca-jetbrains-junie	pricing	current-review	https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html	2026-07-13	Volatile; recheck before release
+rca-jetbrains-junie	software_license	proprietary	https://junie.jetbrains.com/docs/custom-llm-ollama.html	2026-07-13	Licence not yet confirmed at record level
+rca-cline	deployment_and_privacy	current-review	https://cline.bot/privacy	2026-07-13	See data_handling_note and special_route
+rca-cline	pricing	current-review	https://cline.bot/pricing	2026-07-13	Volatile; recheck before release
+rca-cline	software_license	confirmed	https://github.com/cline/cline	2026-07-13	Apache-2.0
+rca-tabnine	deployment_and_privacy	current-review	https://docs.tabnine.com/main/administering-tabnine/managing-your-team	2026-07-13	See data_handling_note and special_route
+rca-tabnine	pricing	current-review	https://www.tabnine.com/pricing/	2026-07-13	Volatile; recheck before release
+rca-tabnine	software_license	proprietary	https://docs.tabnine.com/main/administering-tabnine/managing-your-team	2026-07-13	Licence not yet confirmed at record level
+rca-tabby	deployment_and_privacy	current-review	https://www.tabbyml.com/privacy	2026-07-13	See data_handling_note and special_route
+rca-tabby	pricing	current-review	https://www.tabbyml.com/pricing	2026-07-13	Volatile; recheck before release
+rca-tabby	software_license	unconfirmed	https://github.com/TabbyML/pochi	2026-07-13	Licence not yet confirmed at record level
+rca-devin	deployment_and_privacy	current-review	https://cognition.com/legal/platform-terms-of-service	2026-07-13	See data_handling_note and special_route
+rca-devin	pricing	current-review	https://devin.ai/pricing	2026-07-13	Volatile; recheck before release
+rca-devin	software_license	proprietary	https://cognition.com/legal/platform-terms-of-service	2026-07-13	Licence not yet confirmed at record level
+rca-replit-agent	deployment_and_privacy	current-review	https://replit.com/privacy-policy/	2026-07-13	See data_handling_note and special_route
+rca-replit-agent	pricing	current-review	https://replit.com/pricing	2026-07-13	Volatile; recheck before release
+rca-replit-agent	software_license	proprietary	https://replit.com/commercial-agreement	2026-07-13	Licence not yet confirmed at record level
+rca-openhands	deployment_and_privacy	current-review	https://www.openhands.dev/privacy	2026-07-13	See data_handling_note and special_route
+rca-openhands	pricing	current-review	https://www.openhands.dev/pricing	2026-07-13	Volatile; recheck before release
+rca-openhands	software_license	unconfirmed	https://github.com/All-Hands-AI/OpenHands/releases	2026-07-13	Licence not yet confirmed at record level
+rca-jupyter-ai	deployment_and_privacy	current-review	https://jupyter.org/privacy	2026-07-13	See data_handling_note and special_route
+rca-jupyter-ai	pricing	current-review	https://github.com/jupyterlab/jupyter-ai	2026-07-13	Volatile; recheck before release
+rca-jupyter-ai	software_license	confirmed	https://github.com/jupyterlab/jupyter-ai	2026-07-13	BSD-3-Clause
+rca-julius-ai	deployment_and_privacy	current-review	https://julius.ai/privacy-policy	2026-07-13	See data_handling_note and special_route
+rca-julius-ai	pricing	current-review	https://julius.ai/pricing	2026-07-13	Volatile; recheck before release
+rca-julius-ai	software_license	proprietary	https://julius.ai/privacy-policy	2026-07-13	Licence not yet confirmed at record level
+rca-hex-magic	deployment_and_privacy	current-review	https://learn.hex.tech/docs/trust/ai-data-privacy	2026-07-13	See data_handling_note and special_route
+rca-hex-magic	pricing	current-review	https://hex.tech/pricing/	2026-07-13	Volatile; recheck before release
+rca-hex-magic	software_license	proprietary	https://learn.hex.tech/docs/trust/ai-data-privacy	2026-07-13	Licence not yet confirmed at record level
+rca-kiro	deployment_and_privacy	current-review	https://kiro.dev/docs/privacy-and-security/data-protection/	2026-07-13	See data_handling_note and special_route
+rca-kiro	pricing	current-review	https://kiro.dev/pricing/	2026-07-13	Volatile; recheck before release
+rca-kiro	software_license	proprietary	https://kiro.dev/docs/privacy-and-security/data-protection/	2026-07-13	Licence not yet confirmed at record level
+rca-zed	deployment_and_privacy	current-review	https://zed.dev/docs/ai/privacy-and-security	2026-07-13	See data_handling_note and special_route
+rca-zed	pricing	current-review	https://zed.dev/pricing	2026-07-13	Volatile; recheck before release
+rca-zed	software_license	unconfirmed	https://github.com/zed-industries/zed	2026-07-13	Licence not yet confirmed at record level
+rca-amp	deployment_and_privacy	current-review	https://ampcode.com/privacy-policy	2026-07-13	See data_handling_note and special_route
+rca-amp	pricing	current-review	https://ampcode.com/manual#pricing	2026-07-13	Volatile; recheck before release
+rca-amp	software_license	proprietary	https://ampcode.com/security	2026-07-13	Licence not yet confirmed at record level
+rca-sourcegraph-cody	deployment_and_privacy	current-review	https://sourcegraph.com/terms/cody-notice	2026-07-13	See data_handling_note and special_route
+rca-sourcegraph-cody	pricing	current-review	https://sourcegraph.com/pricing	2026-07-13	Volatile; recheck before release
+rca-sourcegraph-cody	software_license	proprietary	https://sourcegraph.com/terms/cody-notice	2026-07-13	Licence not yet confirmed at record level
+rca-opencode	deployment_and_privacy	current-review	https://opencode.ai/legal/privacy-policy	2026-07-13	See data_handling_note and special_route
+rca-opencode	pricing	current-review	https://opencode.ai/zen	2026-07-13	Volatile; recheck before release
+rca-opencode	software_license	confirmed	https://github.com/anomalyco/opencode	2026-07-13	MIT
+rca-crush	deployment_and_privacy	current-review	https://hyper.charm.land/privacy	2026-07-13	See data_handling_note and special_route
+rca-crush	pricing	current-review	https://hyper.charm.land	2026-07-13	Volatile; recheck before release
+rca-crush	software_license	source-available	https://github.com/charmbracelet/crush	2026-07-13	FSL-1.1-MIT
+rca-mistral-vibe	deployment_and_privacy	current-review	https://legal.mistral.ai/terms/privacy-policy	2026-07-13	See data_handling_note and special_route
+rca-mistral-vibe	pricing	current-review	https://mistral.ai/products/vibe/code/	2026-07-13	Volatile; recheck before release
+rca-mistral-vibe	software_license	unconfirmed	https://github.com/mistralai/mistral-vibe	2026-07-13	Licence not yet confirmed at record level
+rca-kiro-cli	deployment_and_privacy	current-review	https://kiro.dev/docs/cli/privacy-and-security/data-protection/	2026-07-13	See data_handling_note and special_route
+rca-kiro-cli	pricing	current-review	https://kiro.dev/pricing/	2026-07-13	Volatile; recheck before release
+rca-kiro-cli	software_license	proprietary	https://kiro.dev/docs/cli/privacy-and-security/data-protection/	2026-07-13	Licence not yet confirmed at record level
+rca-warp	deployment_and_privacy	current-review	https://docs.warp.dev/support-and-community/privacy-and-security/privacy	2026-07-13	See data_handling_note and special_route
+rca-warp	pricing	current-review	https://www.warp.dev/pricing	2026-07-13	Volatile; recheck before release
+rca-warp	software_license	unconfirmed	https://docs.warp.dev/support-and-community/privacy-and-security/privacy	2026-07-13	Licence not yet confirmed at record level
+rca-augment-code	deployment_and_privacy	current-review	https://www.augmentcode.com/legal/privacy-policy	2026-07-13	See data_handling_note and special_route
+rca-augment-code	pricing	current-review	https://www.augmentcode.com/pricing	2026-07-13	Volatile; recheck before release
+rca-augment-code	software_license	proprietary	https://www.augmentcode.com/security	2026-07-13	Licence not yet confirmed at record level
+rca-jules	deployment_and_privacy	current-review	https://jules.google/docs/usage-limits	2026-07-13	See data_handling_note and special_route
+rca-jules	pricing	current-review	https://jules.google.com/	2026-07-13	Volatile; recheck before release
+rca-jules	software_license	proprietary	https://jules.google/docs/usage-limits	2026-07-13	Licence not yet confirmed at record level
+rca-mini-swe-agent	deployment_and_privacy	current-review	https://mini-swe-agent.com/latest/quickstart/	2026-07-13	See data_handling_note and special_route
+rca-mini-swe-agent	pricing	current-review	https://github.com/SWE-agent/mini-swe-agent	2026-07-13	Volatile; recheck before release
+rca-mini-swe-agent	software_license	confirmed	https://github.com/SWE-agent/mini-swe-agent/releases	2026-07-13	MIT
+rca-gptme	deployment_and_privacy	current-review	https://gptme.org/docs/providers.html	2026-07-13	See data_handling_note and special_route
+rca-gptme	pricing	current-review	https://gptme.org/	2026-07-13	Volatile; recheck before release
+rca-gptme	software_license	confirmed	https://gptme.org/docs/providers.html	2026-07-13	MIT
+rca-open-interpreter	deployment_and_privacy	current-review	https://www.openinterpreter.com/privacy	2026-07-13	See data_handling_note and special_route
+rca-open-interpreter	pricing	current-review	https://www.openinterpreter.com/	2026-07-13	Volatile; recheck before release
+rca-open-interpreter	software_license	confirmed	https://github.com/openinterpreter/openinterpreter	2026-07-13	Apache-2.0
+rca-kilo-code	deployment_and_privacy	current-review	https://kilo.ai/privacy	2026-07-13	See data_handling_note and special_route
+rca-kilo-code	pricing	current-review	https://kilo.ai/pricing	2026-07-13	Volatile; recheck before release
+rca-kilo-code	software_license	confirmed	https://github.com/Kilo-Org/kilocode	2026-07-13	MIT
+rca-google-colab-data-science-agent	deployment_and_privacy	current-review	https://research.google.com/colaboratory/faq.html	2026-07-13	See data_handling_note and special_route
+rca-google-colab-data-science-agent	pricing	current-review	https://cloud.google.com/vertex-ai/pricing	2026-07-13	Volatile; recheck before release
+rca-google-colab-data-science-agent	software_license	proprietary	https://research.google.com/colaboratory/faq.html	2026-07-13	Licence not yet confirmed at record level
+rca-deepnote	deployment_and_privacy	current-review	https://deepnote.com/docs/ai-data-privacy	2026-07-13	See data_handling_note and special_route
+rca-deepnote	pricing	current-review	https://deepnote.com/pricing	2026-07-13	Volatile; recheck before release
+rca-deepnote	software_license	unconfirmed	https://deepnote.com/docs/ai-data-privacy	2026-07-13	Licence not yet confirmed at record level
+rca-databricks-genie-code	deployment_and_privacy	current-review	https://docs.databricks.com/aws/en/security/privacy/hipaa	2026-07-13	See data_handling_note and special_route
+rca-databricks-genie-code	pricing	current-review	https://www.databricks.com/product/pricing/genie	2026-07-13	Volatile; recheck before release
+rca-databricks-genie-code	software_license	proprietary	https://docs.databricks.com/aws/en/genie-code	2026-07-13	Licence not yet confirmed at record level
+rca-posit-ai-posit-assistant	deployment_and_privacy	current-review	https://docs.posit.co/posit-ai/user/faq/	2026-07-13	See data_handling_note and special_route
+rca-posit-ai-posit-assistant	pricing	current-review	https://posit.co/products/ai	2026-07-13	Volatile; recheck before release
+rca-posit-ai-posit-assistant	software_license	proprietary	https://docs.posit.co/posit-ai/user/faq/	2026-07-13	Licence not yet confirmed at record level
+rca-marimo	deployment_and_privacy	current-review	https://marimo.io/pages/legal/privacy	2026-07-13	See data_handling_note and special_route
+rca-marimo	pricing	current-review	https://molab.marimo.io/notebooks	2026-07-13	Volatile; recheck before release
+rca-marimo	software_license	confirmed	https://github.com/marimo-team/marimo	2026-07-13	Apache-2.0
+rca-runcell	deployment_and_privacy	current-review	https://www.runcell.dev/privacy	2026-07-13	See data_handling_note and special_route
+rca-runcell	pricing	current-review	https://www.runcell.dev/pricing	2026-07-13	Volatile; recheck before release
+rca-runcell	software_license	proprietary	https://www.runcell.dev/pricing	2026-07-13	Licence not yet confirmed at record level
+rca-jetbrains-datalore	deployment_and_privacy	current-review	https://www.jetbrains.com/datalore/buy/	2026-07-13	See data_handling_note and special_route
+rca-jetbrains-datalore	pricing	current-review	https://www.jetbrains.com/datalore/buy/	2026-07-13	Volatile; recheck before release
+rca-jetbrains-datalore	software_license	proprietary	https://www.jetbrains.com/datalore/buy/	2026-07-13	Licence not yet confirmed at record level
+rca-chatgpt-advanced-data-analysis	deployment_and_privacy	current-review	https://help.openai.com/en/articles/8437071-advanced-data-analysis-chatgpt	2026-07-13	See data_handling_note and special_route
+rca-chatgpt-advanced-data-analysis	pricing	current-review	https://openai.com/chatgpt/pricing	2026-07-13	Volatile; recheck before release
+rca-chatgpt-advanced-data-analysis	software_license	proprietary	https://help.openai.com/en/articles/8437071-advanced-data-analysis-chatgpt	2026-07-13	Licence not yet confirmed at record level
+rca-ollama	deployment_and_privacy	current-review	https://ollama.com/privacy	2026-07-13	See data_handling_note and special_route
+rca-ollama	pricing	current-review	https://ollama.com/pricing	2026-07-13	Volatile; recheck before release
+rca-ollama	software_license	confirmed	https://github.com/ollama/ollama	2026-07-13	MIT

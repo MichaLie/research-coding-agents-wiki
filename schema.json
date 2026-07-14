@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://michalie.github.io/research-coding-agents-wiki/schema.json",
+  "title": "AI Coding and Data Agents for Researchers catalog",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id", "date_added", "name", "vendor", "type", "openness", "deployment", "model_backend",
+      "data_handling", "data_handling_note", "capability", "backend_dependent",
+      "suitability", "suitability_notes", "compliance", "pricing", "academic",
+      "use_cases", "runs_locally", "links", "notes", "sources", "status",
+      "current_name", "confidence", "verified", "established", "tier_gate",
+      "software_license", "license_status", "special_route"
+    ],
+    "properties": {
+      "id": {"type": "string", "pattern": "^rca-[a-z0-9]+(?:-[a-z0-9]+)*$"},
+      "date_added": {"type": "string", "format": "date"},
+      "date_modified": {"type": "string", "format": "date"},
+      "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+      "name": {"type": "string", "minLength": 1},
+      "vendor": {"type": "string", "minLength": 1},
+      "type": {"enum": ["ide", "cli", "cloud", "data"]},
+      "openness": {"enum": ["open-source", "open-core", "commercial"]},
+      "software_license": {"type": ["string", "null"], "minLength": 1},
+      "license_status": {"enum": ["confirmed", "source-available", "proprietary", "unconfirmed"]},
+      "deployment": {"type": "string", "minLength": 1},
+      "model_backend": {"type": "string", "minLength": 1},
+      "data_handling": {"enum": ["local", "zdr", "no-train", "opt-out", "trains"]},
+      "data_handling_note": {"type": "string", "minLength": 1},
+      "capability": {"enum": ["frontier", "strong", "capable", "basic"]},
+      "backend_dependent": {"type": "boolean"},
+      "suitability": {"$ref": "#/$defs/suitability"},
+      "suitability_notes": {"type": "object", "additionalProperties": {"type": "string"}},
+      "compliance": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+      "pricing": {"type": "string", "minLength": 1},
+      "academic": {"type": "string", "minLength": 1},
+      "use_cases": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+      "runs_locally": {"type": "boolean"},
+      "links": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["docs", "pricing", "privacy"],
+        "properties": {
+          "docs": {"type": "string", "pattern": "^https?://"},
+          "pricing": {"type": "string", "pattern": "^(?:|https?://)"},
+          "privacy": {"type": "string", "pattern": "^https?://"}
+        }
+      },
+      "notes": {"type": "string", "minLength": 1},
+      "sources": {"type": "array", "items": {"type": "string", "pattern": "^https?://"}, "minItems": 1, "uniqueItems": true},
+      "status": {"enum": ["active", "renamed", "merged", "discontinued"]},
+      "current_name": {"type": "string", "minLength": 1},
+      "confidence": {"enum": ["high", "medium", "low"]},
+      "verified": {"type": "string", "format": "date"},
+      "established": {"type": "boolean"},
+      "tier_gate": {"type": "string"}
+      ,"special_route": {"$ref": "#/$defs/special_route"}
+    }
+  },
+  "$defs": {
+    "suitability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nonsensitive", "personal", "special"],
+      "properties": {
+        "nonsensitive": {"enum": ["ok", "cfg", "no"]},
+        "personal": {"enum": ["ok", "cfg", "no"]},
+        "special": {"enum": ["ok", "cfg", "no"]}
+      }
+    },
+    "special_route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "boundary", "inference", "required_controls", "residual_risks"],
+      "properties": {
+        "status": {"enum": ["not-appropriate", "config-required", "ready"]},
+        "boundary": {"enum": ["none", "customer-controlled"]},
+        "inference": {"enum": ["none", "local-only", "customer-controlled-endpoint"]},
+        "required_controls": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "residual_risks": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    }
+  }
+}
