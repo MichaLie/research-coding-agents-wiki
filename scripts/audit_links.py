@@ -14,6 +14,7 @@ import json
 import re
 import ssl
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -148,13 +149,31 @@ def _fetch_once(url: str, timeout: float) -> dict:
         }
 
 
+HOST_CONCURRENCY = 2
+_host_semaphores: dict[str, threading.Semaphore] = {}
+_host_semaphores_lock = threading.Lock()
+
+
+def _host_gate(url: str) -> threading.Semaphore:
+    """At most HOST_CONCURRENCY concurrent probes per host, so burst-induced
+    429/5xx responses cannot masquerade as availability findings."""
+    host = urllib.parse.urlsplit(url).netloc.casefold()
+    with _host_semaphores_lock:
+        gate = _host_semaphores.get(host)
+        if gate is None:
+            gate = threading.Semaphore(HOST_CONCURRENCY)
+            _host_semaphores[host] = gate
+    return gate
+
+
 def fetch(url: str, timeout: float) -> dict:
     """Retry one transient network failure; never retry or soften HTTP outcomes."""
-    first = _fetch_once(url, timeout)
-    if first["outcome"] != "network_error":
-        return first
-    time.sleep(0.5)
-    second = _fetch_once(url, timeout)
+    with _host_gate(url):
+        first = _fetch_once(url, timeout)
+        if first["outcome"] != "network_error":
+            return first
+        time.sleep(0.5)
+        second = _fetch_once(url, timeout)
     if second["outcome"] == "network_error":
         second["error"] = f"attempt 1: {first['error']}; attempt 2: {second['error']}"
     return second
