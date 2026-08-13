@@ -1,0 +1,210 @@
+[
+  {
+    "name": "Ada (Automated Data Analyst)",
+    "verdict": "accept",
+    "reason": "Verified first-party from GitHub: MIT license, real and active (latest commit 2026-07-31), genuinely privacy-first design (deterministic pandas core, no API key required, raw rows never enter model prompts). Caveat: single maintainer, 22 stars, 3 forks - tiny adoption; flag as niche.",
+    "record": {
+      "name": "Ada (Automated Data Analyst)",
+      "vendor": "saineshnakra (independent open-source project)",
+      "type": "local",
+      "openness": "open-source",
+      "deployment": "local",
+      "model_backend": "None required (deterministic pandas calculations); optional OpenAI API layer for query planning and strategic synthesis only",
+      "data_handling": "local-first; optional cloud LLM receives derived metadata only",
+      "data_handling_note": "Core runs with no LLM at all: the dashboard 'does not require an API key, execute generated code, or intentionally persist uploaded datasets' and files are processed within 'the active Streamlit session' (SECURITY.md). When the optional OpenAI layer is enabled, it sends 'only computed schema roles, summaries, evidence, deterministic recommendations, and context typed by the user'; 'Raw uploaded rows are not included in the model prompt' and 'request storage is disabled' for model API calls. Vendor's own SECURITY.md warns the boundary 'does not turn a public hosted app into an approved environment for regulated data'. No explicit telemetry statement found in repo docs; Streamlit framework-level telemetry defaults are not addressed there (unverified).",
+      "capability": "Zero-config EDA on CSV/Excel: automatic exploratory analysis, dashboards, anomaly detection, forecasts, and natural-language Q&A answered by transparent deterministic pandas calculations with an evidence ledger; optional LLM layer adds query planning and narrative synthesis.",
+      "backend_dependent": true,
+      "suitability": {
+        "nonsensitive": "ok",
+        "personal": "cfg",
+        "special": "cfg"
+      },
+      "suitability_notes": {
+        "personal": "Run locally (streamlit run app.py) on researcher-controlled hardware; do not use the public Streamlit Cloud demo. With the optional OpenAI layer enabled, only schema roles and computed summaries leave the machine - still avoid enabling it for identifiable data, since derived summaries can themselves be personal data.",
+        "special": "Only fully local with the optional OpenAI layer disabled (no API key configured = default). The vendor explicitly states the hosted app is not 'an approved environment for regulated data'. Single-maintainer project: no vendor security program, no DPA - institution assumes all operational responsibility."
+      },
+      "compliance": [],
+      "pricing": "Free (MIT-licensed open source). Optional OpenAI API usage billed by the user's own OpenAI account.",
+      "academic": "Not applicable (free open source).",
+      "use_cases": [
+        "Quick exploratory analysis of tabular research data without sending anything to an LLM",
+        "Natural-language questions over CSV/Excel with auditable deterministic calculations",
+        "Teaching example of a privacy-first LLM-optional analysis architecture"
+      ],
+      "links": {
+        "docs": "https://github.com/saineshnakra/automated-data-analyst",
+        "pricing": "https://github.com/saineshnakra/automated-data-analyst",
+        "privacy": "https://github.com/saineshnakra/automated-data-analyst/blob/main/SECURITY.md"
+      },
+      "sources": [
+        "https://github.com/saineshnakra/automated-data-analyst",
+        "https://github.com/saineshnakra/automated-data-analyst/commits/main",
+        "https://github.com/saineshnakra/automated-data-analyst/blob/main/SECURITY.md"
+      ]
+    },
+    "fetched": [
+      "https://github.com/saineshnakra/automated-data-analyst",
+      "https://github.com/saineshnakra/automated-data-analyst/commits/main",
+      "https://github.com/saineshnakra/automated-data-analyst/blob/main/SECURITY.md"
+    ]
+  },
+  {
+    "name": "Microsoft 365 Copilot Analyst agent",
+    "verdict": "accept",
+    "reason": "Fully verified from current Microsoft first-party sources (Learn docs updated 2026-05-18 and 2026-07-09, live pricing page). Tenant-boundary claim confirmed verbatim. Pre-window addition (launched 2025-03-25): accept only under the catalog's older-notable-miss rule. Pure vendor cloud, so special-category data is 'no' despite HIPAA/GDPR claims.",
+    "record": {
+      "name": "Microsoft 365 Copilot Analyst agent",
+      "vendor": "Microsoft",
+      "type": "cloud",
+      "openness": "commercial",
+      "deployment": "cloud",
+      "model_backend": "OpenAI o3-mini reasoning model at launch (2025-03-25 announcement), 'optimized to do advanced data analysis at work'; models are regularly updated and M365 Copilot now offers admin-selectable OpenAI and Anthropic models as Microsoft subprocessors (Learn privacy doc, 2026-07-09). Current exact Analyst model not separately documented.",
+      "data_handling": "vendor cloud within M365 tenant service boundary; prompts/responses stored in tenant, admin-controlled retention",
+      "data_handling_note": "Learn (2026-05-18): 'Researcher and Analyst are first-party Microsoft experiences built on the same foundation as Microsoft 365 Copilot, operating entirely within the Microsoft 365 commercial data processing boundary' and 'inherit all existing security, privacy, and compliance commitments' of Microsoft 365. Learn privacy doc (2026-07-09): 'Prompts, responses, and data accessed through Microsoft Graph aren't used to train foundation LLMs'; interactions ARE stored as Copilot activity history 'encrypted' in the tenant, with Purview retention policies and user deletion; M365 Copilot services 'have opted out' of Azure OpenAI abuse-monitoring human review; EU Data Boundary applies for EU users, but 'Models provided by Anthropic as a subprocessor are currently excluded from the EU Data Boundary'. Analyst runs Python visibly: 'run Python to tackle your most complex data queries - and you can view the code it's running in real time' (announcement). Python-sandbox data handling specifics are not separately documented (unverified).",
+      "capability": "Reasoning-model data analyst inside Microsoft 365 Copilot Chat (under Tools): chain-of-thought iterative analysis over tenant work data and uploaded files, with visible real-time Python execution for complex data queries.",
+      "backend_dependent": false,
+      "suitability": {
+        "nonsensitive": "ok",
+        "personal": "cfg",
+        "special": "no"
+      },
+      "suitability_notes": {
+        "personal": "Only within an institutional M365 tenant under the organization's existing Microsoft 365 DPA, GDPR and (for EU) EU Data Boundary commitments, with Purview retention configured. Not for personal accounts. If admins enable Anthropic models, note those are currently excluded from the EU Data Boundary.",
+        "special": "No. Microsoft-operated cloud is not researcher/institution-controlled infrastructure; HIPAA/GDPR/ISO claims and the tenant service boundary do not change that under this catalog's rules. No local or self-hosted option exists."
+      },
+      "compliance": ["GDPR", "EU Data Boundary (EU users; Anthropic models excluded)", "ISO 27001", "ISO 42001", "HIPAA", "ISO/IEC 27018"],
+      "pricing": "Microsoft 365 Copilot Business add-on: $21.00/user/month, promotional $18.00/user/month through 2026-09-30 (annual commitment, USD); bundles from $23.50/user/month (Business Standard with Copilot). Analyst listed among included 'Pre-built Microsoft agents, including Researcher, Analyst, and Facilitator'. Enterprise pricing not fetched this session.",
+      "academic": "No education/academic pricing mentioned on the fetched pricing page; EDU-tenant availability unverified this session.",
+      "use_cases": [
+        "Statistical analysis of institutional spreadsheets and uploaded datasets inside the university M365 tenant",
+        "Chain-of-thought data exploration with inspectable Python code",
+        "Report/insight generation grounded in tenant documents under existing M365 governance"
+      ],
+      "links": {
+        "docs": "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-copilot-agents-integrated-apps",
+        "pricing": "https://www.microsoft.com/en-us/microsoft-365/copilot/business",
+        "privacy": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy"
+      },
+      "sources": [
+        "https://www.microsoft.com/en-us/microsoft-365/blog/2025/03/25/introducing-researcher-and-analyst-in-microsoft-365-copilot/",
+        "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+        "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-copilot-agents-integrated-apps",
+        "https://www.microsoft.com/en-us/microsoft-365/copilot/business"
+      ]
+    },
+    "fetched": [
+      "https://www.microsoft.com/en-us/microsoft-365/blog/2025/03/25/introducing-researcher-and-analyst-in-microsoft-365-copilot/",
+      "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+      "https://learn.microsoft.com/api/search?search=Analyst%20agent%20Copilot&locale=en-us&%24top=10",
+      "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-copilot-agents-integrated-apps",
+      "https://www.microsoft.com/en-us/microsoft-365/copilot/business"
+    ]
+  },
+  {
+    "name": "Zerve",
+    "verdict": "accept",
+    "reason": "Self-hosted (AWS/GCP/Azure, customer's own cloud) and Enterprise on-prem air-gapped options verified on first-party pricing page and docs index - the privacy justification holds. Caveats: privacy policy (effective 2024-01-22) contains NO statement on training with customer data, US-hosted SaaS, account-lifetime retention, no named compliance certifications (only an unspecified ISMS/ISO badge). Pre-window addition (older-notable-miss rule). Classified conservatively.",
+    "record": {
+      "name": "Zerve",
+      "vendor": "Zerve AI",
+      "type": "notebook",
+      "openness": "commercial",
+      "deployment": "hybrid",
+      "model_backend": "Not disclosed for the managed service; privacy policy lists AI subprocessors 'Exafunction, Inc., (Codeium)' and 'OpenAI OpCo, LLC (OpenAI)' (both USA); BYOK for OpenAI and Anthropic on Pro and Team plans",
+      "data_handling": "SaaS: US-hosted, account-lifetime retention, no training statement; self-hosted/on-prem: data stays in customer environment",
+      "data_handling_note": "SaaS: 'The Services are hosted and operated in the United States'; retention 'for as long as you have an open account with us'; the privacy policy (effective 2024-01-22) does NOT address whether customer data trains AI/ML models - treat as no commitment. Analytics cookies used. Self-hosting: Pro+ self-serve deployments into the customer's own AWS (Quick Start/CloudFormation), GCP (GKE) or Azure (AKS) - docs state 'Bring your own cloud - Data stays in your environment'; Enterprise adds 'on-premise air-gapped'. UNVERIFIED: whether the agent's LLM calls remain inside the boundary in self-hosted mode (OpenAI/Codeium are cloud subprocessors; air-gapped model provisioning is not documented in fetched pages). Compliance page absent; only an unlabelled ISMS/ISO badge shown.",
+      "capability": "Agentic AI data-science platform: NL agent that 'understands your schema, models, and prior work', agentic notebooks with live results and institutional memory, data-estate discovery with schema/lineage/quality mapping, auto-generated always-current reports, and deployment of APIs/apps/dashboards from notebooks.",
+      "backend_dependent": true,
+      "suitability": {
+        "nonsensitive": "ok",
+        "personal": "cfg",
+        "special": "cfg"
+      },
+      "suitability_notes": {
+        "personal": "Managed SaaS is US-hosted with account-lifetime retention and no model-training commitment - avoid for identifiable data. Use the self-hosted deployment (Pro+, own AWS/GCP/Azure account) so data stays in the institution's environment; verify where the agent's LLM calls route before onboarding personal data.",
+        "special": "Only the Enterprise on-premise air-gapped deployment qualifies as institution-controlled infrastructure. Even then, confirm with the vendor how LLM inference is provided air-gapped (undocumented in fetched pages) - the cloud agent depends on OpenAI/Codeium subprocessors. Never on the managed SaaS."
+      },
+      "compliance": [],
+      "pricing": "Pay As You Go free tier ($0, 150 credits, up to 4 editors); Pro $18.75/user/month (250 credits/mo, self-hosting, private projects, GPU compute); Team $37.50/user/month (500 credits/mo, SSO, BYOK); Enterprise custom (multi-cloud, on-prem air-gapped). Add-on credits: $25/250 (Pro), $50/500 (Team), non-expiring. Annual billing prices.",
+      "academic": "None mentioned on pricing page.",
+      "use_cases": [
+        "AI-assisted notebook analysis with institutional memory for research data teams",
+        "Self-hosted data-science workspace inside the institution's own cloud account",
+        "Auto-generated, continuously synced data reports and deployed analysis apps"
+      ],
+      "links": {
+        "docs": "https://docs.zerve.ai/guide/",
+        "pricing": "https://www.zerve.ai/pricing",
+        "privacy": "https://docs.zerve.ai/privacy-policy"
+      },
+      "sources": [
+        "https://www.zerve.ai/",
+        "https://www.zerve.ai/pricing",
+        "https://docs.zerve.ai/privacy-policy",
+        "https://docs.zerve.ai/guide/",
+        "https://docs.zerve.ai/guide/llms.txt"
+      ]
+    },
+    "fetched": [
+      "https://www.zerve.ai/",
+      "https://www.zerve.ai/pricing",
+      "https://docs.zerve.ai/privacy-policy",
+      "https://docs.zerve.ai/guide/",
+      "https://docs.zerve.ai/guide/llms.txt"
+    ]
+  },
+  {
+    "name": "LM Studio Bionic",
+    "verdict": "accept",
+    "reason": "Verified across five first-party lmstudio.ai pages. Clean local/cloud separation: free tier is fully on-device ('No data ever leaves your device'), no app telemetry, optional Secure Cloud is pay-as-you-go with vendor ZDR claims. In-window launch (2026-07-16). Hybrid design flagged; ZDR does not make the cloud path suitable for special-category data.",
+    "record": {
+      "name": "LM Studio Bionic",
+      "vendor": "LM Studio (lmstudio.ai)",
+      "type": "local",
+      "openness": "commercial",
+      "deployment": "hybrid",
+      "model_backend": "Local open-weight models via the LM Studio runtime (llama.cpp and MLX under the hood), e.g. GLM 5.2, Kimi K2.7 Code; offline voice via Mistral Voxtral; optional LM Studio Secure Cloud hosting frontier open models (DeepSeek V4 Flash/Pro, GLM-5.2, Kimi K2.6/K2.7-Code/K3); LM Link relays models from the user's other devices (up to 5 on free tier)",
+      "data_handling": "local by default, no telemetry; optional vendor cloud with ZDR (US servers)",
+      "data_handling_note": "Local path: 'LM Studio can run entirely on your device. If you download and run models locally, none of your messages, chat histories, and documents are ever transmitted from your system'; 'the application does not include telemetry or user-specific tracking'; network requests occur only for update checks and model search/download (device info + IP via CDN). Voice: 'Your voice and audio data is processed locally and never leaves your device.' Cloud path: 'Our cloud services are Zero Data Retention (ZDR) across the board'; 'your requests are processed transiently and are not retained after the request completes'; launch post commits to 'Zero Data Retention and never training on your data'; cloud inference on US servers. Native web search sends queries off-device when used. Bionic is a separate desktop app from LM Studio (Windows and macOS builds offered).",
+      "capability": "Agent for open models: inspects local codebases, explains code, makes changes with inline diff review and checkpoints; works on documents, PDFs, decks and spreadsheets in sandboxed projects; native web search; offline multilingual voice transcription; per-task choice of local, LM Link remote, or Secure Cloud models.",
+      "backend_dependent": true,
+      "suitability": {
+        "nonsensitive": "ok",
+        "personal": "cfg",
+        "special": "cfg"
+      },
+      "suitability_notes": {
+        "personal": "Fine when using local models only (default free tier is fully on-device, no telemetry). If Secure Cloud is used, requests go to vendor US servers under ZDR - acceptable for personal data only with institutional review; web search also sends queries off-device.",
+        "special": "Local models only, on researcher-controlled hardware, with Secure Cloud and web search left unused - that configuration is fully on-device. The Secure Cloud path is vendor cloud and remains unsuitable for special-category data despite ZDR."
+      },
+      "compliance": [],
+      "pricing": "Free tier $0 (Bionic agent, local models, offline voice, web search, LM Link up to 5 devices). Secure Cloud pay-as-you-go per 1M tokens, e.g. DeepSeek V4 Flash $0.13 in/$0.26 out; GLM-5.2 $1.50 in/$4.50 out; Kimi K3 $3.00 in/$15.00 out. 'Bionic Pass': 'Pricing and plan details coming soon.' Enterprise referenced without details.",
+      "academic": "No academic discounts mentioned on pricing page.",
+      "use_cases": [
+        "Fully offline coding agent over local repositories with diff review",
+        "Local document/PDF/spreadsheet processing with open-weight models",
+        "Offline multilingual voice transcription for interviews and notes",
+        "Occasional burst to larger open models via ZDR cloud for non-sensitive tasks"
+      ],
+      "links": {
+        "docs": "https://lmstudio.ai/docs/bionic",
+        "pricing": "https://lmstudio.ai/pricing",
+        "privacy": "https://lmstudio.ai/app-privacy"
+      },
+      "sources": [
+        "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
+        "https://lmstudio.ai/bionic",
+        "https://lmstudio.ai/app-privacy",
+        "https://lmstudio.ai/pricing",
+        "https://lmstudio.ai/docs/bionic"
+      ]
+    },
+    "fetched": [
+      "https://lmstudio.ai/blog/introducing-lm-studio-bionic",
+      "https://lmstudio.ai/bionic",
+      "https://lmstudio.ai/app-privacy",
+      "https://lmstudio.ai/pricing",
+      "https://lmstudio.ai/docs/bionic"
+    ]
+  }
+]

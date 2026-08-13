@@ -1,0 +1,192 @@
+[
+ {
+  "name": "shai",
+  "verdict": "reject",
+  "reason": "Fails the open-source maintenance-health gate: latest commit 2025-12-18 and latest stable release v0.1.10 (2025-11-13), with no commits or releases in 2026 as of 2026-08-13 (verified on both github.com/ovh/shai/commits/main and /releases) — ~8 months dormant for a young tool in a fast-moving category. Licence (Apache-2.0), vendor (OVH), and modes verified, and the OVHcloud AI Endpoints backend has strong stated guarantees ('Your data will never be used to train or improve our AI models'; 'Zero data retention: We keep only the data required for billing purposes'), but the repo's anonymous no-account default could not be reconciled with the AI Endpoints product page (which describes account activation via the OVHcloud manager and lists 'Worldwide availability (non-EU)' options), so the EU-sovereignty/anonymous-mode selling point is only partially supported. Re-evaluate if the repo resumes activity.",
+  "record": null,
+  "fetched": [
+   "https://github.com/ovh/shai",
+   "https://github.com/ovh/shai/commits/main",
+   "https://github.com/ovh/shai/releases",
+   "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/"
+  ]
+ },
+ {
+  "name": "Qwen Code",
+  "verdict": "accept",
+  "reason": "Fork-exclusion adjudication: the thin-fork objection no longer holds. The repo states it 'was originally based on Google Gemini CLI v0.8.2' but 'starting from Qwen Code v0.1, we stopped syncing with upstream and began independent development' — and the divergence is substantive: multi-protocol provider layer (OpenAI-compatible, Anthropic, Google GenAI, Vertex AI), desktop app, Agent Plugins, own daily release cadence (stable v0.21.10 on 2026-08-11, preview + Desktop v0.2.1 on 2026-08-12), ~27k stars, 8,476 commits. Apache-2.0 confirmed on the repo; maintenance health excellent. Accepted as an independent open-source CLI agent, not a Gemini CLI mirror.",
+  "record": {
+   "name": "Qwen Code",
+   "vendor": "Alibaba (QwenLM)",
+   "type": "cli",
+   "openness": "open-source (Apache-2.0)",
+   "deployment": "local (CLI on researcher machine; inference backend cloud or local/self-hosted)",
+   "model_backend": "Multi-provider: Alibaba ModelStudio Coding Plan / API key (regional endpoints Beijing coding.dashscope.aliyuncs.com and international coding-intl.dashscope.aliyuncs.com); built-in DeepSeek, MiniMax, Z.AI, OpenRouter; any OpenAI-compatible, Anthropic, Google GenAI, or Vertex AI protocol endpoint; custom/local endpoints incl. Ollama and vLLM (per repo README). Qwen OAuth free tier discontinued 2026-04-15 (per auth docs).",
+   "data_handling": "backend-dependent; product itself does not train on user content",
+   "data_handling_note": "Docs (tos-privacy): 'Qwen Code itself does not use your prompts, code, or responses for model training'; training/retention is governed by the chosen backend ('Data usage depends entirely on your chosen API provider' for API-key mode; Qwen OAuth under Qwen's Privacy Policy; ModelStudio under Alibaba Cloud's privacy policy). Telemetry: 'Qwen Code may collect anonymous usage statistics' (commands run, performance metrics, error reports); docs state it does NOT collect 'Your code content, Prompts sent to AI models, Responses from AI models, Personal information'; opt-out via Qwen Code configuration settings — default on/off state not explicitly stated in fetched docs (unverified; assume enabled and disable explicitly).",
+   "capability": "Terminal coding agent: interactive, headless, and daemon modes; multi-protocol agent framework; MCP support; desktop app variant",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Only with a self-hosted/local inference endpoint (Ollama, vLLM, institutional OpenAI-compatible server) or a provider under an institutional DPA; default Alibaba ModelStudio backend sends code to Alibaba Cloud (Beijing or international region) under Alibaba's policies — not assessed here. Disable anonymous usage statistics in settings.",
+    "special": "Only in fully researcher/institution-controlled configuration: local CLI + local or institution-hosted inference endpoint (Ollama/vLLM/self-hosted OpenAI-compatible), telemetry disabled. Any commercial cloud backend (incl. Alibaba, DeepSeek, OpenRouter) = no for special-category health/genetic/clinical data."
+   },
+   "compliance": [],
+   "pricing": "Tool free and open-source (Apache-2.0). Inference billed by chosen backend: Alibaba ModelStudio Coding Plan/Token Plan/API key (prices not published on fetched docs pages — unverified), third-party API keys, or free with local models. Qwen OAuth free tier discontinued 2026-04-15.",
+   "academic": "None found on fetched pages.",
+   "use_cases": [
+    "Terminal-based agentic coding with local open-weight models (Ollama/vLLM) for data-sensitive environments",
+    "Scriptable headless code automation in pipelines",
+    "Qwen/Alibaba-ecosystem coding with the ModelStudio Coding Plan"
+   ],
+   "links": {
+    "docs": "https://qwenlm.github.io/qwen-code-docs/en/users/overview",
+    "pricing": "https://github.com/QwenLM/qwen-code",
+    "privacy": "https://qwenlm.github.io/qwen-code-docs/en/users/support/tos-privacy/"
+   },
+   "sources": [
+    "https://github.com/QwenLM/qwen-code",
+    "https://github.com/QwenLM/qwen-code/releases",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/overview",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/",
+    "https://qwenlm.github.io/qwen-code-docs/en/users/support/tos-privacy/"
+   ]
+  },
+  "fetched": [
+   "https://github.com/QwenLM/qwen-code",
+   "https://github.com/QwenLM/qwen-code/releases",
+   "https://qwenlm.github.io/qwen-code-docs/en/users/overview",
+   "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/",
+   "https://qwenlm.github.io/qwen-code-docs/en/users/support/tos-privacy/"
+  ]
+ },
+ {
+  "name": "Factory (Droids / Factory 2.0)",
+  "verdict": "accept",
+  "reason": "All headline claims verified first-party. Factory 2.0 (announced 2026-06-15, factory.ai/news/software-factory) offers deployment 'fully hosted in the cloud, bring-your-own-key, self-hosted data plane, EU-specific, or completely air-gapped with no external network access'. docs.factory.ai/docs/enterprise/network-and-deployment confirms three canonical patterns incl. Hybrid ('Droid runs entirely within your infrastructure') and Fully Airgapped ('Droid runs in an isolated network with no outbound internet connectivity'; 'Factory cloud is unreachable at runtime'). factory.ai/news confirms 2026-08-11 on-prem option on NVIDIA DGX Spark with Nemotron 3.5 Lightning. Training exclusion and SOC 2 Type I / ISO 42001 claims on factory.ai/security. Product-level session-content retention remains undocumented on fetched pages — classified conservatively.",
+  "record": {
+   "name": "Factory (Droids)",
+   "vendor": "Factory (factory.ai)",
+   "type": "cloud",
+   "openness": "commercial",
+   "deployment": "hybrid (cloud-managed; hybrid with Droid entirely in customer infrastructure; fully air-gapped on-prem incl. NVIDIA DGX Spark + Nemotron 3.5 Lightning; EU-specific deployment with session content in a managed database instance in Europe — enterprise tiers)",
+   "model_backend": "Multi-model with router and 'Model Independence': Anthropic Claude (Fable 5, Opus/Sonnet/Haiku), OpenAI GPT-5.x, Google Gemini 3.x, xAI Grok 4.5, open-weight models via Droid Core (GLM, Kimi, DeepSeek, Nemotron, MiniMax), custom endpoints/BYOK. In cloud-managed pattern 'LLM traffic routes through customer gateways; Factory doesn't broker model access' (docs).",
+   "data_handling": "no training on customer code (stated); product-level session-content retention not clearly documented — conservative",
+   "data_handling_note": "factory.ai/security: 'we build products that protect your IP at all costs, and that means not using your code as training data'; AES-256 at rest, TLS 1.2+ in transit; 'sandboxed single-tenant environment with its own VPC'. Retention: no session-content retention period published on fetched pages (unverified); privacy policy covers personal data only ('We will delete your personal data from our archives no later than 10 years from the last time you used Factory'), with US processing ('We process all data in the United States') except the EU deployment option where 'session content ... lives in a managed database instance in Europe' while organization/billing records remain in US systems. Model-level pass-through: docs/models notes 'Anthropic requires all Mythos-class models comply with 30 day data retention for trust and safety' (org admins opt in). Trust center (trust.factory.ai) exists but content was not retrievable this session.",
+   "capability": "Autonomous coding agents (Droids) across the development lifecycle: task-to-PR work, long-running Missions, code review, incident response via Slack, QA automation, documentation (AutoWiki); surfaces: web/desktop app, Droid CLI, SDK, cloud 'Droid Computers'",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "cfg only via enterprise deployments (hybrid in own infrastructure, EU-specific, or air-gapped) or cloud-managed with LLM traffic through a customer-monitored gateway and an institutional DPA. Standard Pro/Plus/Max cloud tiers: US-hosted, session-content retention undocumented — treat as not suitable for personal data without contractual review.",
+    "special": "cfg ONLY under the documented customer-controlled patterns: Hybrid ('Droid runs entirely within your infrastructure') or Fully Airgapped on-prem (incl. DGX Spark + Nemotron local execution), where models and collectors remain on-premises. These are enterprise contact-sales tiers. Any Factory-hosted cloud tier = no for special-category health/genetic/clinical data, regardless of vendor VPC/single-tenant claims."
+   },
+   "compliance": ["SOC 2 Type I (claimed)", "ISO 42001 (adoption claimed)", "GDPR (claimed)", "CCPA (claimed)"],
+   "pricing": "Pro $20/mo; Plus $100/mo (~5x Pro usage, Factory-managed cloud computers); Max $200/mo (~10x Pro usage); Business custom (up to 150 seats, SSO/SAML/SCIM, audit logging); Enterprise custom (on-premise deployment options, dedicated compute with partitioned inference pool, customer-managed encryption keys). No free tier listed on the fetched pricing page.",
+   "academic": "None mentioned on fetched pricing page.",
+   "use_cases": [
+    "Hosted asynchronous coding agents opening PRs from chat-assigned tasks",
+    "Air-gapped/on-prem autonomous coding for security-sensitive institutional codebases",
+    "Enterprise-governed multi-agent software maintenance (code review, QA, incident response)"
+   ],
+   "links": {
+    "docs": "https://docs.factory.ai",
+    "pricing": "https://factory.ai/pricing",
+    "privacy": "https://factory.ai/privacy-policy"
+   },
+   "sources": [
+    "https://factory.ai/news/software-factory",
+    "https://factory.ai/news",
+    "https://factory.ai/pricing",
+    "https://factory.ai/security",
+    "https://factory.ai/privacy-policy",
+    "https://docs.factory.ai",
+    "https://docs.factory.ai/docs/enterprise/network-and-deployment",
+    "https://docs.factory.ai/docs/models",
+    "https://trust.factory.ai"
+   ]
+  },
+  "fetched": [
+   "https://factory.ai/news/software-factory",
+   "https://factory.ai/news",
+   "https://factory.ai/pricing",
+   "https://factory.ai/security",
+   "https://factory.ai/privacy-policy",
+   "https://factory.ai/privacy",
+   "https://docs.factory.ai",
+   "https://docs.factory.ai/docs/enterprise/network-and-deployment",
+   "https://docs.factory.ai/docs/models",
+   "https://trust.factory.ai"
+  ]
+ },
+ {
+  "name": "Roomote (formerly Roo Code)",
+  "verdict": "accept",
+  "reason": "Self-hosted Docker route verified first-party as required: docs.roomote.dev/self-hosting.md documents the one-command installer (curl -fsSL https://get.roomote.dev | bash), Docker Compose production stack, Ubuntu/Debian 4GB+ RAM; docs.roomote.dev/compute.md confirms the default Docker sandbox runs 'a worker container on the same host', so task execution stays on the researcher's server (hosted sandbox backends optionally move it off). Licence (Fair Core License FCL-1.0-ALv2, converting to Apache-2.0 two years post-release), free self-host up to 10 users, cloud pricing, cloud DPA/retention/no-training, and self-hosted telemetry defaults all verified on roomote.dev, docs.roomote.dev, and the GitHub repo. Active maintenance (v0.31.0 2026-08-03 to v0.38.0 2026-08-12). Classified source-available, not open-source.",
+  "record": {
+   "name": "Roomote",
+   "vendor": "Roo Code, Inc. (RooCodeInc)",
+   "type": "cloud",
+   "openness": "source-available (Fair Core License FCL-1.0-ALv2, converts to Apache-2.0 two years post-release)",
+   "deployment": "hybrid (Roomote Cloud, US-hosted; or self-hosted via Docker on own Ubuntu/Debian server with local Docker task sandboxes by default; optional hosted sandbox backends move execution to provider infrastructure)",
+   "model_backend": "Model-agnostic BYOK: OpenRouter, Anthropic, OpenAI, xAI, Google Gemini, Amazon Bedrock and others; direct ChatGPT Plus/Pro subscription connection; homepage claims 'Frontier, open-weight, huge, or local' model support",
+   "data_handling": "cloud: processor under DPA, no training on customer content; self-hosted: data stays on own server (default Docker sandboxes), anonymous telemetry on by default",
+   "data_handling_note": "Cloud privacy policy (roomote.dev/legal/cloud-privacy): Customer Content = 'repositories, prompts, tasks, model outputs, integration credentials, logs, artifacts', processed under a DPA; 'We never use Customer Content to train AI models'; on workspace deletion 'the entire deployment is permanently destroyed'; trial deployments deleted 7 days after trial expiration; account metadata up to 30 days; billing up to 7 years; 'Roomote Cloud is currently hosted in the United States' with SCCs in the DPA; subprocessors incl. Railway (hosting), Modal (sandboxes), Vercel, Resend, Stripe, Google, PostHog, Intercom. Self-hosted: anonymous telemetry is enabled by default — daily instance report and usage events that contain no 'names, emails, repository names, task contents, prompts, code, tokens, or credentials'; admins can disable it during setup or via Settings > Deployment, after which 'no usage events or daily reports leave your servers'. Default Docker compute: 'The controller starts a worker container on the same host'.",
+   "capability": "Background/asynchronous coding agent: tasks assigned via Slack, Teams, Discord, or Telegram; clones repo into an isolated sandbox, writes code, runs tests, takes screenshots/previews, opens PRs; GitHub, GitLab, Azure DevOps, Gitea, Bitbucket support; Goal Mode for long-running work (v0.38.0)",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Prefer self-hosted (free up to 10 users): code and tasks stay on institutional infrastructure with default local Docker sandboxes; disable the on-by-default anonymous telemetry and choose an inference provider under institutional terms. Roomote Cloud is US-hosted (Railway/Modal subprocessors) with DPA+SCCs — usable for personal data only after institutional DPA review.",
+    "special": "cfg ONLY as: self-hosted deployment + default local Docker sandbox (not hosted sandbox backends) + local or institution-controlled inference endpoint + telemetry disabled. Roomote Cloud and any hosted sandbox/commercial model API = no for special-category health/genetic/clinical data. Note the homepage's 'local' model claim; a dedicated local-provider configuration page was not verified this session."
+   },
+   "compliance": [],
+   "pricing": "Cloud: $49/mo up to 10 users, $249/mo up to 50, $499/mo up to 100; 7-day free trial, no card. Self-hosted: free up to 10 registered users; $249/mo 11-50 users; $499/mo 51-100 users (license key via Roomote Cloud). Inference costs separate (BYOK).",
+   "academic": "None found on fetched pages.",
+   "use_cases": [
+    "Chat-assigned background coding tasks that return as reviewable PRs",
+    "Self-hosted institutional coding agent where repositories never leave the university server",
+    "Team-shared agent fleet with cost analytics across BYOK inference providers"
+   ],
+   "links": {
+    "docs": "https://docs.roomote.dev",
+    "pricing": "https://roomote.dev/",
+    "privacy": "https://roomote.dev/legal/cloud-privacy"
+   },
+   "sources": [
+    "https://roomote.dev/",
+    "https://roomote.dev/privacy",
+    "https://roomote.dev/legal/cloud-privacy",
+    "https://docs.roomote.dev",
+    "https://docs.roomote.dev/llms.txt",
+    "https://docs.roomote.dev/self-hosting.md",
+    "https://docs.roomote.dev/compute.md",
+    "https://docs.roomote.dev/anonymous-analytics.md",
+    "https://github.com/RooCodeInc/Roomote",
+    "https://github.com/RooCodeInc/Roomote/releases"
+   ]
+  },
+  "fetched": [
+   "https://roomote.dev/",
+   "https://roomote.dev/privacy",
+   "https://roomote.dev/legal/cloud-privacy",
+   "https://docs.roomote.dev",
+   "https://docs.roomote.dev/llms.txt",
+   "https://docs.roomote.dev/self-hosting.md",
+   "https://docs.roomote.dev/compute.md",
+   "https://docs.roomote.dev/anonymous-analytics.md",
+   "https://github.com/RooCodeInc/Roomote",
+   "https://github.com/RooCodeInc/Roomote/releases"
+  ]
+ }
+]

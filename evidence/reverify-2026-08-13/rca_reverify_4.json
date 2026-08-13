@@ -1,0 +1,211 @@
+[
+  {
+    "id": "rca-sourcegraph-cody",
+    "name": "Sourcegraph Cody",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend",
+        "old": "Anthropic Claude (Opus 4.8, Sonnet 4.6, Haiku 4.5 + Thinking variants), OpenAI GPT-5/GPT-4o/o3/o4-mini, Google Gemini 2.5/3 series, DeepSeek V2 Lite Base (autocomplete)",
+        "new": "Catalog expanded: adds Claude Opus 5, Claude Sonnet 5 (plus retained Opus 4.8-4.6, Sonnet 4.6/4.5, Haiku 4.5 incl. Thinking variants); OpenAI now GPT-5.6 Sol/Terra/Luna, GPT-5.4/mini/nano, GPT-5.2, GPT-5.1, GPT-5/mini/nano, GPT-4o/-mini, o3 (o4-mini not listed); Google Gemini 2.5 Flash/Pro, Gemini 3.1 Flash Lite/Pro, Gemini 3.5 Flash; Fireworks DeepSeek V2 Lite Base retained",
+        "url": "https://sourcegraph.com/docs/cody/capabilities/supported-models",
+        "quote": "\"Claude Opus 5\" ... \"Claude Sonnet 5\" ... \"GPT-5.6 Sol\", \"GPT-5.6 Terra\", \"GPT-5.6 Luna\" ... \"Gemini 3.5 Flash\" ... \"DeepSeek V2 Lite Base\""
+      },
+      {
+        "field": "academic",
+        "old": "Researchers must purchase Enterprise ($59/user/month, annual)",
+        "new": "No per-user/per-seat price is published on the current pricing page; only 'Starting at $16K' Enterprise pricing with contact-sales. The $59/user/month figure no longer appears.",
+        "url": "https://sourcegraph.com/pricing",
+        "quote": "Starting at $16K ... scales with team size"
+      }
+    ],
+    "fetched": [
+      "https://sourcegraph.com/pricing",
+      "https://sourcegraph.com/terms/cody-notice",
+      "https://sourcegraph.com/docs/cody",
+      "https://sourcegraph.com/docs/model-provider",
+      "https://sourcegraph.com/docs/cody/capabilities/supported-models",
+      "https://sourcegraph.com/changelog/releases"
+    ],
+    "notes": "Cody still exists in docs ('Cody is an AI coding assistant...', 'Supported on Sourcegraph Enterprise'); no rename/deprecation notice found. ZDR and no-training claims re-confirmed on the Cody notice: 'Sourcegraph Partner LLMs will not retain any input or output from the model... beyond the time it takes to generate the output' and 'Sourcegraph and Sourcegraph Partner LLMs do not use code from Cody Enterprise or Cody Pro teams to train models.' Caveat observed: the cody-notice page is the Cody Enterprise Terms of Use last modified 2024-02-15 and scopes itself to Cody licenses granted before 2025-01-29; current enterprise contracts may supersede it. Cody is not mentioned anywhere on the current pricing page (which markets integrations with 'Claude Code, Cursor, Codex, Amp, and more'); enterprise-only framing and $16K starting price confirmed. Self-hosted deployment confirmed alive via changelog ('Sourcegraph self-hosted 7.6.0', Aug 06 2026). NOT checked: cody FAQ page, the 2025 plan-retirement blog post (historical claim, consistent with current pricing page showing no Free/Pro/Starter). Suitability classifications (personal cfg, special no) remain appropriate; no evidence loosening or tightening the boundary."
+  },
+  {
+    "id": "rca-opencode",
+    "name": "OpenCode",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend / pricing (Zen plans)",
+        "old": "optional hosted gateway (Zen pay-as-you-go, Go $10/mo, Black enterprise)",
+        "new": "Zen is documented as pay-as-you-go only (per-1M-token prices); no 'Go' or 'Black' tiers appear in the Zen docs; team workspaces are currently free in beta with pricing to be announced",
+        "url": "https://opencode.ai/docs/zen/",
+        "quote": "We support a pay-as-you-go model. Below are the prices per 1M tokens. ... Managing your workspace is currently free for teams as a part of the beta."
+      }
+    ],
+    "fetched": [
+      "https://opencode.ai/docs/zen/",
+      "https://opencode.ai/legal/privacy-policy",
+      "https://opencode.ai/zen",
+      "https://opencode.ai/docs/providers/",
+      "https://github.com/anomalyco/opencode"
+    ],
+    "notes": "Core privacy claims re-confirmed: Zen docs state 'Requests are retained for 30 days in accordance with OpenAI's Data Policies' and identically for Anthropic; baseline providers 'do not use your data for model training' with exceptions for experimental free models (currently Big Pickle, DeepSeek V4 Flash Free, MiMo-V2.5 Free, Hy3 Free, Laguna S 2.1 Free, Ling-3.0-tiny Free, Nemotron variants) where 'collected data may be used to improve the model' - so the record's 'Zen is not uniformly ZDR' stance still holds exactly. /zen marketing page claims 'Providers follow a zero-retention policy... with the following exceptions' while docs show 30-day retention for OpenAI/Anthropic - the record's conservative reading remains correct. Auto-reload confirmed: 'when your balance reaches $5 we'll automatically add $20'. Vendor entity confirmed as Anomaly (San Francisco) in privacy policy. GitHub repo anomalyco/opencode exists, active, MIT license, 196.7k stars, no archive/transfer notice. '75+ LLM providers' via 'the AI SDK and Models.dev' confirmed in providers docs (Claude, GPT, Gemini, Bedrock, Groq, Azure, OpenRouter, Ollama, LM Studio, llama.cpp all listed). New since last check: a desktop app in beta (not load-bearing). Suitability (personal cfg, special cfg local-only) unaffected. NOT checked: terms-of-service page, share docs page."
+  },
+  {
+    "id": "rca-crush",
+    "name": "Crush",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://github.com/charmbracelet/crush",
+      "https://hyper.charm.land",
+      "https://hyper.charm.land/privacy"
+    ],
+    "notes": "Every load-bearing claim re-confirmed. Repo active (27.3k stars), license FSL-1.1-MIT. Telemetry: 'Crush records pseudonymous usage metrics (tied to a device-specific hash)' and 'prompts and responses are NEVER collected'; opt-out CRUSH_DISABLE_METRICS=1 or DO_NOT_TRACK=1. Providers list matches (Anthropic, OpenAI, Gemini, OpenRouter, Groq, Cerebras, Bedrock, Azure OpenAI, Ollama, llama.cpp, LM Studio, custom OpenAI/Anthropic-compatible). Hyper pricing exactly matches record: free 100 Hypercredits/month, $20/month with 250 daily refreshing credits, bundles $5=100 / $10=500 / $20=2,000, 1 Hypercredit = 5 cents. Hyper privacy: 'Your prompts and outputs are never used to train AI models. Period.', default no retention with 'up to 30 days if temporarily retained' for debugging/abuse/legal, 'A Data Processing Agreement (DPA) is available upon request by contacting legal@charm.land', SCCs for transfers, and no SOC 2 / ISO 27001 / HIPAA mentioned - all as recorded. Hyper homepage now markets 'zero data retention'; the privacy policy's up-to-30-day debug carve-out means the record's conservative note should stand as written. NOT checked: crush releases page (record pins no version)."
+  },
+  {
+    "id": "rca-mistral-vibe",
+    "name": "Mistral Vibe",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "data_handling_note / tier_gate (ZDR eligibility)",
+        "old": "Approved Scale customers may receive ZDR; Vibe CLI stateless API calls can use that scope",
+        "new": "ZDR is framed as available only with pay-as-you-go API usage, on a request Mistral approves at its discretion; it applies only to stateless API endpoints and is explicitly NOT available for Vibe Work or Chat on any plan; Vibe CLI stateless calls follow the org's API ZDR if enabled ('Scale' wording no longer used)",
+        "url": "https://help.mistral.ai/en/articles/347612-can-i-activate-zero-data-retention-zdr",
+        "quote": "Zero Data Retention (ZDR) is available only with pay-as-you-go ... ZDR is not available for Vibe Work or Chat, regardless of your subscription plan"
+      },
+      {
+        "field": "pricing (Team minimum)",
+        "old": "Team: $24.99/user/month",
+        "new": "Team: $24.99/user/month with a stated minimum of $50/month",
+        "url": "https://mistral.ai/pricing/",
+        "quote": "$24.99/user/month (minimum $50/month)"
+      },
+      {
+        "field": "notes (version)",
+        "old": "Current stable release v2.19.1 (2026-07-09)",
+        "new": "Latest release v2.24.1 (2026-08-11)",
+        "url": "https://github.com/mistralai/mistral-vibe/releases",
+        "quote": "v2.24.1 ... released ... 11 Aug 13:29"
+      }
+    ],
+    "fetched": [
+      "https://mistral.ai/products/vibe/code/",
+      "https://mistral.ai/pricing/",
+      "https://help.mistral.ai/en/articles/347617-do-you-use-my-user-data-to-train-your-artificial-intelligence-models",
+      "https://help.mistral.ai/en/articles/347612-can-i-activate-zero-data-retention-zdr",
+      "https://docs.mistral.ai/vibe/code/cli/offline-models",
+      "https://github.com/mistralai/mistral-vibe/releases"
+    ],
+    "notes": "Product alive (CLI + VS Code/JetBrains/Zed + web). Training defaults re-confirmed verbatim: 'Input and output data are used by default to train our artificial intelligence models, unless you opt-out' (Free/Pro/Education) and 'Input and output training is not applicable to Team and Enterprise plans. We do not use your data to train our models.' Prices confirmed: Free $0, Pro $14.99/month, Student $5.99/month for verified students, Team $24.99/user/month, Enterprise custom. Offline-models docs page exists and confirms 'The Vibe Code CLI supports any model served behind an OpenAI-compatible API' with vLLM (recommended), llama.cpp, LM Studio, Ollama, plus telemetry/auto-update disabling for fully offline operation - the local special-category route stands. Product page now names Mistral Medium, Devstral 2 and Codestral without version numbers; record's Devstral 2 123B / Devstral Small 2 24B / Medium 3.5 specifics were not contradicted but also not re-confirmed on the pages fetched. The ZDR change tightens, not loosens: cloud ZDR is discretionary, API-only, and never covers Vibe Work/Chat - keep special=cfg local-only. Free-tier '~25 messages/day' not confirmed (page says only 'Limited messages'). NOT checked: legal.mistral.ai privacy policy full text."
+  },
+  {
+    "id": "rca-kiro-cli",
+    "name": "Kiro CLI",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend",
+        "old": "Amazon Bedrock (Anthropic Claude Opus 4.8/4.7/4.6/4.5, Sonnet 4.6/4.5/4.0, Haiku 4.5; open-weight models: MiniMax M2.5/M2.1, GLM-5, DeepSeek 3.2, Qwen3 Coder Next; Auto router default)",
+        "new": "Adds Claude Opus 5 (1M context) and Claude Sonnet 5, and now also OpenAI GPT-5.6 Sol/Terra/Luna (272K context); prior Claude and open-weight lineup retained (Opus 4.8-4.5, Sonnet 4.6/4.5/4.0, Haiku 4.5, MiniMax M2.5/M2.1, GLM-5, DeepSeek 3.2, Qwen3 Coder Next); Auto routing retained. The models page does not state the Bedrock routing for the OpenAI models, so the 'Amazon Bedrock (...)' framing is no longer fully verifiable as written.",
+        "url": "https://kiro.dev/docs/models/",
+        "quote": "\"Claude Opus 5\" (1M context) ... \"Claude Sonnet 5\" ... \"GPT-5.6 Sol,\" \"GPT-5.6 Terra,\" and \"GPT-5.6 Luna\" (272K context each)"
+      },
+      {
+        "field": "compliance (FedRAMP)",
+        "old": "FedRAMP High (in progress, GovCloud)",
+        "new": "No FedRAMP claim found on the current compliance-validation page; HIPAA remains the only named regulation, with other programs deferred to AWS Artifact under the shared-responsibility model",
+        "url": "https://kiro.dev/docs/privacy-and-security/compliance-validation/",
+        "quote": "Kiro (IDE and CLI) is compliant with the following: Health Insurance Portability and Accountability Act (HIPAA)"
+      },
+      {
+        "field": "links.privacy / sources (doc URLs moved)",
+        "old": "https://kiro.dev/docs/cli/privacy-and-security/data-protection/ and .../compliance-validation/",
+        "new": "Both now redirect: privacy/security docs live at https://kiro.dev/docs/privacy-and-security/data-protection/ and https://kiro.dev/docs/privacy-and-security/compliance-validation/ (no longer under /docs/cli/); /docs/cli/models/ likewise moved to /docs/models/",
+        "url": "https://kiro.dev/docs/cli/privacy-and-security/data-protection/",
+        "quote": "This page has moved to /docs/privacy-and-security/data-protection/"
+      },
+      {
+        "field": "pricing note (free-tier no-training condition)",
+        "old": "Free: 50 credits/month (... no training only if IAM IdP auth)",
+        "new": "Current page ties the service-improvement exclusion for individuals to accessing Kiro through an AWS account with an Amazon Q Developer Pro subscription; social-login and AWS Builder ID users are 'individual subscribers' whose content may be used unless they opt out in Settings; enterprise users are always excluded. Also newly documented: free-tier inputs retained up to 60 days for abuse detection (not for training).",
+        "url": "https://kiro.dev/docs/privacy-and-security/data-protection/",
+        "quote": "If you have an Amazon Q Developer Pro subscription and access Kiro through your AWS account with the Amazon Q Developer Pro subscription, then Kiro will not use your content for service improvement."
+      }
+    ],
+    "fetched": [
+      "https://kiro.dev/pricing/",
+      "https://kiro.dev/docs/cli/",
+      "https://kiro.dev/docs/cli/privacy-and-security/data-protection/",
+      "https://kiro.dev/docs/cli/privacy-and-security/compliance-validation/",
+      "https://kiro.dev/docs/privacy-and-security/data-protection/",
+      "https://kiro.dev/docs/privacy-and-security/compliance-validation/",
+      "https://kiro.dev/docs/cli/models/",
+      "https://kiro.dev/docs/models/",
+      "https://kiro.dev/students/"
+    ],
+    "notes": "Product alive; CLI docs include 'Migrating from Q Developer' and 'Upgrading from Q CLI'. Pricing fully re-confirmed: Free 50 credits, Pro $20, Pro+ $40, Pro Max $100, Power $200 per user/month; overage/add-on $0.04/credit; GovCloud ~20% higher with no free tier and IAM Identity Center required. New: $20 sign-up credit for social-login/Builder ID upgrades. Data protection re-confirmed: 'We may use certain content from Kiro Free Tier and Kiro individual subscribers for service improvement', 'We do not use content from Kiro enterprise users for service improvement', TLS 1.2+, AWS KMS at rest with customer-managed keys for enterprise. Students program matches record exactly: 11 universities, 1,000 credits/month for one year, SheerID, no credit card. The enterprise-boundary classification (personal cfg via Enterprise, special no - cloud inference only) is unaffected; the FedRAMP removal makes the record's compliance list stale in the conservative direction."
+  },
+  {
+    "id": "rca-warp",
+    "name": "Warp",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "pricing (Business seat cap)",
+        "old": "Business ($50/user/month or $45/user/month annual, up to 50 seats, team ZDR, SAML SSO)",
+        "new": "Business $50/user/month, up to 25 seats; 1,500 credits per seat; annual billing is stated as 10% off",
+        "url": "https://www.warp.dev/pricing",
+        "quote": "Business: $50/user/month (up to 25 seats) ... 1,500 credits per seat"
+      },
+      {
+        "field": "software_license / license_status",
+        "old": "software_license: null; license_status: unconfirmed",
+        "new": "Warp's enterprise security docs state the client code is published under AGPL v3 (server/control plane remains proprietary cloud)",
+        "url": "https://docs.warp.dev/enterprise/security-and-compliance/security-overview",
+        "quote": "Warp's client code is published under AGPL v3"
+      }
+    ],
+    "fetched": [
+      "https://www.warp.dev/pricing",
+      "https://docs.warp.dev/support-and-community/privacy-and-security/privacy",
+      "https://docs.warp.dev/enterprise/security-and-compliance/security-overview"
+    ],
+    "notes": "All other load-bearing claims re-confirmed. Plans: Free $0; Build $20/month with '1,500 credits ($20 of included agent usage at API rates)'; Max $200/month with '18,000 credits (12x the included usage of Build)'; Enterprise custom. Provider ZDR: 'Zero Data Retention policies with all contracted LLM providers: no customer data is retained, stored, or used for training' and 'Zero Data Retention (ZDR) agreements with its contracted LLM providers (Anthropic, OpenAI, Google)'. Warp's own collection remains a separate control exactly as the record says: Business/Enterprise 'No AI interaction or console data is ever collected'; 'Telemetry must be enabled to use AI features on the Free plan'; 'Paid plans can opt out at any time and continue using Warp, including AI.' Deployment boundary re-confirmed and unchanged: customer-hosted execution layer ('Repository clones, build artifacts, runtime secrets, and container filesystem state stay on your infrastructure') while 'Session transcripts (which include code context from agent interactions), orchestration metadata, and LLM inference route through Warp's servers under Zero Data Retention (ZDR) agreements' - so special=no (cloud control plane) stands; this is vendor-cloud orchestration, not customer-controlled on-prem. SOC 2 Type II confirmed. BYOLLM confirmed ('route agent inference through your own cloud infrastructure'). BYOK now also advertised on the Free tier ('Bring your own AI inference') in addition to Business/Enterprise; Build-tier BYOK not explicitly shown in the fetched summary - minor, not classified as a change. NOT checked: warp.dev/legal/privacy-policy, /legal/security, /legal/data-processing-addendum full texts."
+  },
+  {
+    "id": "rca-augment-code",
+    "name": "Augment Code",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend",
+        "old": "Proprietary multi-model routing (Augment Context Engine + Claude Opus/Sonnet, GPT-5.5, Gemini Flash, Kimi K2 via configurable \"Prism\" router)",
+        "new": "Available models now: Claude Fable 5, Claude Opus 5/4.8/4.7/4.6/4.5, Claude Sonnet 5/4.6/4.5, Claude Haiku 4.5; OpenAI GPT-5.6 Sol/Terra/Luna, GPT-5.5/5.4/5.2/5.1; Gemini 3.1 Pro; GLM 5.2 (Zhipu); Kimi K3 and K2.6. Prism router now has two documented variants: 'Prism (Claude + Gemini)' routing Claude Opus 5 / Claude Sonnet 5 / Gemini 3.0 Flash, and 'Prism (GPT)' routing GPT-5.6 Sol / GPT-5.6 Luna / a Luna solver tier.",
+        "url": "https://docs.augmentcode.com/models/available-models.md",
+        "quote": "Prism (Claude + Gemini): routes between Claude Opus 5, Claude Sonnet 5, and Gemini 3.0 Flash. ... Prism (GPT): routes among GPT-5.6 Sol, GPT-5.6 Luna, and a GPT-5.6 Luna solver tier."
+      },
+      {
+        "field": "deployment / data_handling_note (VPC/on-prem advertising)",
+        "old": "deployment: cloud / self-hostable / on-prem; note: 'Public documentation advertises VPC, single-tenant, on-prem, BYOK, CMEK, and residency options'",
+        "new": "No VPC, single-tenant, on-prem, or self-hosted deployment statement could be located on current public pages: the security page does not detail them, the docs index (llms.txt) contains no deployment pages beyond Cosmos cloud environments and CI daemons, augmentcode.com/enterprise returns HTTP 404, and the trust center page did not render content. Treat self-hostable/on-prem as unverified pending an enterprise contract; only vendor-cloud deployment (cosmos.augmentcode.com, CLI running in customer CI) is currently documented.",
+        "url": "https://www.augmentcode.com/security",
+        "quote": "The page doesn't explicitly detail VPC, single-tenant, or on-premises deployment options (reviewer observation of fetched page; customer-managed encryption keys still referenced)"
+      }
+    ],
+    "fetched": [
+      "https://www.augmentcode.com/pricing",
+      "https://www.augmentcode.com/security",
+      "https://docs.augmentcode.com/cli/overview",
+      "https://www.augmentcode.com/product/cli",
+      "https://docs.augmentcode.com/",
+      "https://docs.augmentcode.com/llms.txt",
+      "https://docs.augmentcode.com/models/available-models.md",
+      "https://www.augmentcode.com/legal/privacy-policy",
+      "https://trust.augmentcode.com",
+      "https://www.augmentcode.com/enterprise"
+    ],
+    "notes": "Product alive; CLI still named Auggie ('Auggie CLI ... All the power of Augment's agent, context engine, and tools in your terminal'); new 'Cosmos' automation product sits alongside it. Pricing re-confirmed exactly: Business '$100/month flat - no per-seat charge', 'Up to 50 seats included', '$100/mo of usage across LLM, Context Engine & compute', 'No AI training allowed'; Enterprise custom with 'No AI training allowed'; no Indie/Trial/Developer tiers listed. Security page re-confirms: 'SOC 2 TYPE II Attested', 'ISO/IEC 42001 Certified', 'GDPR Compliant', 'CCPA Compliant', 'HIPAA Compliant', 'BAA Available', and 'We never train on our customer's proprietary data.' Privacy policy v1.2 effective 2025-08-28, SCCs for transfers, DPA via privacy@augmentcode.com. Could not verify: trust.augmentcode.com body (JS-rendered, only the title 'Augment Computing, Inc.'s Cyberbase Trust Center' returned) and the /enterprise page (404). The deployment weakening does not loosen safety: record already classifies special=no with on-prem only as a hypothetical negotiated route; recommend keeping special=no and downgrading the 'self-hostable / on-prem' deployment string to enterprise-contract-only/unverified. BYOK weakly supported by product page 'Choose your model. Claude, GPT-4, or bring your own.' but not documented in docs index."
+  }
+]

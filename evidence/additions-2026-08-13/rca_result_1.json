@@ -1,0 +1,209 @@
+[
+ {
+  "name": "Grok Build",
+  "verdict": "accept",
+  "reason": "Real, in-scope major-vendor CLI coding agent. Existence, Apache-2.0 license, config/telemetry surface, enterprise ZDR, and model pricing all verified first-party. Privacy evidence is incomplete (xAI legal pages 403; product retention/training default not documented in fetched sources) — accepted with conservative classifications and explicit caveats.",
+  "record": {
+   "name": "Grok Build",
+   "vendor": "xAI",
+   "type": "cli",
+   "openness": "open-source",
+   "openness_note": "Apache-2.0 confirmed in repo (github.com/xai-org/grok-build, 24.9k stars). Source-published but vendor-only development: CONTRIBUTING.md states external contributions are not accepted.",
+   "deployment": "hybrid",
+   "deployment_note": "Local Rust CLI/TUI client; inference via xAI cloud by default. Custom model endpoints (incl. self-hosted, BYO base_url + api_key) documented in ~/.grok/config.toml. Vendor cloud is NOT customer-controlled infrastructure.",
+   "model_backend": "xAI Grok (grok-4.6 default, 500k context); custom OpenAI-style endpoints via ~/.grok/config.toml (base_url, api_key, env_key)",
+   "data_handling": "unclear",
+   "data_handling_note": "Telemetry is ON by default: user-guide config docs show '[features] telemetry' (default enabled), Mixpanel product analytics ('mixpanel_enabled = false' to disable), session trace upload, and a feedback system default-enabled; opt-outs via config.toml or GROK_TELEMETRY_ENABLED. A separate '/privacy' settings screen governs 'Coding data, retention, and training' — its DEFAULT is not documented in any source fetched this session (unverified). Enterprise: 'no prompts, code, or responses are persisted at the inference layer for ZDR organizations'; 'ZDR is enforced at the team level' (docs.x.ai/build/enterprise) — inference-layer ZDR does not establish product-level zero retention. Org admins can enforce policy incl. disabling telemetry via /etc/grok/requirements.toml. Context (press, UNVERIFIED first-party): July 2026 incident in which Grok Build reportedly uploaded full repos with a non-functional 'Improve the model' opt-out; xAI reportedly disabled uploads server-side 2026-07-13 and open-sourced the client 2026-07-15. xAI privacy policy pages returned 403 this session, so current retention/training defaults could not be confirmed.",
+   "capability": "frontier",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Only with team-level enterprise ZDR enforced, or a self-hosted model endpoint via config.toml, AND all telemetry/analytics/trace-upload/feedback toggles disabled (ideally enforced via /etc/grok/requirements.toml). Default individual setup (xAI cloud, telemetry on, undocumented retention default) is not appropriate for personal data.",
+    "special": "cfg strictly means: institution-controlled inference only — self-hosted/local endpoint via config.toml — plus organization-enforced telemetry disable via requirements.toml; verify no egress at the network level given the press-reported July 2026 upload incident with a non-functional opt-out. Default xAI-cloud operation = no, ZDR notwithstanding."
+   },
+   "compliance": ["ZDR (enterprise, team-level, inference layer only)"],
+   "pricing": "Product/plan pricing unverified — no first-party Grok Build pricing page found (docs.x.ai/build/pricing 404). Underlying grok-4.6 API: $2.00/M input, $6.00/M output, $0.50/M cached (<200k ctx; doubles above 200k); auth via browser sign-in or API key.",
+   "academic": "none found",
+   "use_cases": ["terminal-native agentic coding on large codebases", "headless/CI scripting and long-running tasks", "Agent Client Protocol integration into third-party editors", "BYO/self-hosted model endpoint workflows for controlled environments"],
+   "links": {
+    "docs": "https://docs.x.ai/build/overview",
+    "pricing": "https://docs.x.ai/developers/models/grok-4.6",
+    "privacy": "https://docs.x.ai/build/enterprise"
+   },
+   "sources": [
+    "https://github.com/xai-org/grok-build",
+    "https://raw.githubusercontent.com/xai-org/grok-build/main/README.md",
+    "https://github.com/xai-org/grok-build/tree/main/crates/codegen/xai-grok-pager/docs/user-guide",
+    "https://raw.githubusercontent.com/xai-org/grok-build/main/crates/codegen/xai-grok-pager/docs/user-guide/05-configuration.md",
+    "https://docs.x.ai/build/overview",
+    "https://docs.x.ai/build/enterprise",
+    "https://docs.x.ai/developers/models/grok-4.6"
+   ]
+  },
+  "fetched": [
+   "https://github.com/xai-org/grok-build (ok)",
+   "https://raw.githubusercontent.com/xai-org/grok-build/main/README.md (ok)",
+   "https://github.com/xai-org/grok-build/tree/main/crates/codegen/xai-grok-pager/docs/user-guide (ok)",
+   "https://raw.githubusercontent.com/xai-org/grok-build/main/crates/codegen/xai-grok-pager/docs/user-guide/05-configuration.md (ok)",
+   "https://docs.x.ai/build/overview (ok)",
+   "https://docs.x.ai/build/enterprise (ok)",
+   "https://docs.x.ai/developers/models/grok-4.6 (ok)",
+   "https://x.ai/legal/privacy-policy (403)",
+   "https://x.ai/legal/privacy (403)",
+   "https://docs.x.ai/build/privacy (404)",
+   "https://docs.x.ai/build/pricing (404)",
+   "https://docs.x.ai/build (404)",
+   "https://github.com/xai-org/grok-build/tree/main/docs (404)"
+  ]
+ },
+ {
+  "name": "Muse Code",
+  "verdict": "accept",
+  "reason": "Real, in-scope major-vendor terminal/CI coding agent, launched 2026-08-05 (press-dated; docs undated). Product shape, sandbox/approval defaults, exact tier pricing, and per-tier training statements all verified on dev.meta.ai first-party docs. No retention documentation, no DPA/compliance page, no telemetry statement anywhere in the docs nav — accepted with conservative (no) sensitive-data classifications and a prominent Contributor-tier caveat.",
+  "record": {
+   "name": "Muse Code",
+   "vendor": "Meta (Meta Superintelligence Labs)",
+   "type": "cli",
+   "openness": "commercial",
+   "openness_note": "Native binary via one-line installer from dev.meta.ai; no source repository or license found in fetched docs.",
+   "deployment": "cloud",
+   "deployment_note": "Local CLI client for macOS/Linux; inference exclusively via Meta-hosted Muse Spark models (Meta Model API). No custom/self-hosted endpoint support found in fetched docs (models.md documents only the three Muse Spark variants). Not customer-controlled infrastructure.",
+   "model_backend": "Meta Muse Spark (muse-spark-1.2 default; muse-spark-1.1; muse-spark-1.2-contributor; 1,048,576-token context; multimodal input)",
+   "data_handling": "unclear",
+   "data_handling_note": "Training default (standard tier), first-party quote: 'your prompts and completions are not used to train Meta models' (dev.meta.ai/docs/pricing-rate-limits.md). Contributor tier is opt-in training-for-discount: ~10-20x cheaper 'in exchange for permission to use your prompts and completions to train future Meta models' — researchers must not select muse-spark-1.2-contributor for any non-public code or data. RETENTION: no retention statement found on any fetched page and no privacy/data-use page exists in the docs navigation — retention posture unverified. Telemetry defaults: not documented (unverified). Safety posture is strong client-side: approvals and OS sandbox (Seatbelt/bubblewrap) on by default, network 'proxy-only' by default with per-destination approval, workspace-scoped write access.",
+   "capability": "frontier",
+   "backend_dependent": false,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "no",
+    "special": "no"
+   },
+   "suitability_notes": {
+    "personal": "Conservative 'no' pending evidence: pure Meta-cloud inference with no published retention policy, no DPA/enterprise data terms, and no compliance certifications found in the developer docs 8 days post-launch. Standard tier's no-training default is verified but does not substitute for retention/DPA evidence. Revisit if Meta publishes a trust/DPA page.",
+    "special": "Pure vendor cloud with no self-hosted or customer-controlled deployment option = no, per catalog rule, regardless of the no-training default."
+   },
+   "compliance": [],
+   "pricing": "Usage-based Meta Model API. Standard (muse-spark-1.2): $1.25/M input, $4.25/M output, $0.15/M cached input; 3,000 RPM / 4M TPM. Contributor tier: $0.10/M input, $0.20/M output, $0.002/M cached — in exchange for training permission; 100 RPM / 3M TPM.",
+   "academic": "none found",
+   "use_cases": ["agentic coding on large codebases (1M-token context)", "CI/headless automation", "parallel sub-agents in isolated Git worktrees", "sandboxed command execution with staged shell review"],
+   "links": {
+    "docs": "https://dev.meta.ai/docs/muse-code",
+    "pricing": "https://dev.meta.ai/docs/pricing-rate-limits.md",
+    "privacy": "https://dev.meta.ai/docs/pricing-rate-limits.md"
+   },
+   "links_note": "No dedicated privacy/data-use page exists in the dev.meta.ai docs navigation; the pricing page carries the only first-party training statements.",
+   "sources": [
+    "https://dev.meta.ai/docs/muse-code",
+    "https://dev.meta.ai/docs/pricing-rate-limits.md",
+    "https://dev.meta.ai/docs/muse-code/permissions.md",
+    "https://dev.meta.ai/docs/muse-code/auth.md",
+    "https://dev.meta.ai/docs/models.md",
+    "https://dev.meta.ai/docs"
+   ]
+  },
+  "fetched": [
+   "https://dev.meta.ai/docs/muse-code (ok)",
+   "https://dev.meta.ai/docs/pricing-rate-limits.md (ok)",
+   "https://dev.meta.ai/docs/muse-code/permissions.md (ok)",
+   "https://dev.meta.ai/docs/muse-code/auth.md (ok)",
+   "https://dev.meta.ai/docs/models.md (ok)",
+   "https://dev.meta.ai/docs (ok)"
+  ]
+ },
+ {
+  "name": "Ante",
+  "verdict": "accept",
+  "reason": "Real, in-scope single-binary CLI coding agent with the lane's strongest documented offline/air-gap story. Apache-2.0 source, Binary Preview Terms, offline llama.cpp/GGUF support, provider presets, and default-on opt-out telemetry all verified first-party on the repo. Alpha maturity and default-on telemetry flagged prominently.",
+  "record": {
+   "name": "Ante",
+   "vendor": "Antigma Labs",
+   "type": "cli",
+   "openness": "open-source",
+   "openness_note": "Source Apache-2.0 (confirmed on repo); prebuilt binary ships under separate 'Binary Preview Terms' (free incl. commercial use during preview; redistribution of unmodified copies allowed; no data-collection clauses). Alpha preview: v0.preview.71, 1.4k stars, 345 commits, active continuous-eval releases — maintained but expect breaking changes.",
+   "deployment": "hybrid",
+   "deployment_note": "Local ~15 MB single Rust binary, zero runtime dependencies. Fully offline operation via embedded llama.cpp on local GGUF models (no API key, no internet) — researcher-controlled end to end when used this way. Optionally BYO cloud APIs via 17 provider presets or custom endpoints (catalog.json).",
+   "model_backend": "BYO: built-in llama.cpp for local GGUF (offline); 17 presets incl. Anthropic, OpenAI, Google Gemini, Grok, DeepSeek, OpenRouter; custom OpenAI-compatible endpoints",
+   "data_handling": "none-local",
+   "data_handling_note": "No vendor inference service; product-level data stays local. CAVEAT — telemetry is ON by default, first-party quote: 'Yes, and it is opt-out: set ANTE_TELEMETRY=off to disable export entirely'; described as anonymous, 'a random installation label you can delete and re-mint, never your username, hostname, or machine id.' A privacy-positioned tool with default-on telemetry: disable it explicitly for sensitive work. Binary Preview Terms contain no data-collection clauses. When cloud presets are used, data handling is governed by the chosen provider's terms, not Ante's.",
+   "capability": "strong",
+   "capability_note": "Self-reported Terminal-Bench 2.1 score of 82.7% (repo, unaudited); effective capability tracks the chosen backend — local GGUF models will trail frontier APIs.",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Use local GGUF inference (or an institution-approved endpoint) and set ANTE_TELEMETRY=off. With cloud presets, the selected provider's retention/training terms govern.",
+    "special": "cfg means fully offline only: embedded llama.cpp + local GGUF model + ANTE_TELEMETRY=off gives a documented researcher-controlled, air-gappable boundary — the qualifying configuration under catalog rules. Any cloud preset = treat as that provider's cloud (no by default). Alpha maturity: validate outputs."
+   },
+   "compliance": [],
+   "pricing": "Free: Apache-2.0 source; prebuilt binary free (incl. commercial use) during alpha preview under Binary Preview Terms; costs are BYO API usage, or zero with local GGUF models.",
+   "academic": "none found",
+   "use_cases": ["fully offline/air-gapped coding assistance on sensitive or pre-publication code", "single-binary install on locked-down or HPC-adjacent machines", "BYO-key multi-provider terminal agent", "headless scripting"],
+   "links": {
+    "docs": "https://github.com/AntigmaLabs/ante",
+    "pricing": "https://github.com/AntigmaLabs/ante/blob/main/BINARY-TERMS.md",
+    "privacy": "https://github.com/AntigmaLabs/ante"
+   },
+   "sources": [
+    "https://github.com/AntigmaLabs/ante",
+    "https://github.com/AntigmaLabs/ante/blob/main/BINARY-TERMS.md"
+   ]
+  },
+  "fetched": [
+   "https://github.com/AntigmaLabs/ante (ok)",
+   "https://github.com/AntigmaLabs/ante/blob/main/BINARY-TERMS.md (ok)"
+  ]
+ },
+ {
+  "name": "Nanocoder",
+  "verdict": "accept",
+  "reason": "Real, in-scope community-governed local-first CLI coding agent. MIT license now first-party confirmed (raw LICENSE.md: 'MIT License / Copyright (c) 2026 Nano Collective'), healthy maintenance (2,812 commits, 2.3k stars, active issues/PRs), explicit no-telemetry commitment verified on repo. Fills a niche no vendor tool covers: no vendor data pipeline at all.",
+  "record": {
+   "name": "Nanocoder",
+   "vendor": "Nano Collective (non-profit community organization)",
+   "type": "cli",
+   "openness": "open-source",
+   "openness_note": "MIT (confirmed via raw LICENSE.md: 'MIT License / Copyright (c) 2026 Nano Collective'). Community-governed with CONTRIBUTING.md and an Economics Charter for paid bounties; 2,812 commits, 2.3k stars, 256 forks, active issue/PR flow.",
+   "deployment": "hybrid",
+   "deployment_note": "Local Node.js CLI (npm, Homebrew, Nix). Local-first inference via Ollama; optional BYO cloud via OpenAI-compatible APIs (OpenRouter, Anthropic, Google, Atlas Cloud sponsor preset). No vendor-run service — there is no vendor-side data plane.",
+   "model_backend": "BYO: Ollama (local models); OpenAI-compatible APIs (OpenRouter, Anthropic, Google, others); Atlas Cloud",
+   "data_handling": "none-local",
+   "data_handling_note": "First-party repo commitments: 'no telemetry quietly shipping your prompts somewhere'; 'no closed-source features and no paid tiers gating the useful parts: privacy-respecting, local-first, and open for all.' No product-level retention exists because no product service exists. When cloud APIs are configured, the chosen provider's retention/training terms govern.",
+   "capability": "basic",
+   "capability_note": "No benchmark evidence found; agent scaffold is community-maintained and lighter than vendor agents. Ceiling depends on the configured backend.",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Use local inference via Ollama (code never leaves the machine). With cloud APIs, the selected provider's terms govern — assess that provider, not Nanocoder.",
+    "special": "cfg means local-only configuration: Ollama (or other local runtime) on institution-controlled hardware gives a researcher-controlled boundary with no telemetry — the qualifying configuration under catalog rules. Any cloud API backend = that provider's cloud (no by default)."
+   },
+   "compliance": [],
+   "pricing": "Free, MIT-licensed, explicitly no paid tiers; costs are BYO API usage, or zero with local Ollama models.",
+   "academic": "none found",
+   "use_cases": ["local-first coding assistance where code must stay on-machine", "zero-telemetry environments", "teaching/demonstrating agentic coding without vendor lock-in", "BYO-key multi-provider terminal agent"],
+   "links": {
+    "docs": "https://github.com/nano-collective/nanocoder",
+    "pricing": "https://github.com/nano-collective/nanocoder",
+    "privacy": "https://github.com/nano-collective/nanocoder"
+   },
+   "sources": [
+    "https://github.com/nano-collective/nanocoder",
+    "https://raw.githubusercontent.com/nano-collective/nanocoder/main/LICENSE.md"
+   ]
+  },
+  "fetched": [
+   "https://github.com/nano-collective/nanocoder (ok)",
+   "https://raw.githubusercontent.com/nano-collective/nanocoder/main/LICENSE.md (ok)"
+  ]
+ }
+]

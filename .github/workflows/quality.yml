@@ -32,6 +32,7 @@ jobs:
         with:
           name: maintenance-reports
           path: .maintenance-output/
+          include-hidden-files: true
 
   live-links:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -52,3 +53,4 @@ jobs:
         with:
           name: live-link-audit
           path: .maintenance-output/
+          include-hidden-files: true

@@ -1,0 +1,125 @@
+[
+ {
+  "name": "Juggler",
+  "verdict": "accept",
+  "reason": "Verified first-party: open-source (AGPL-3.0 app / Apache-2.0 extension SDK, LICENSING.md fetched), actively maintained (created 2026-06-19, pushed 2026-08-12, 562 stars, 418 commits), local desktop app + self-hostable headless server, localhost-only by default, BYO model backends incl. Ollama for fully local operation. Author confirmed first-party on juggler.studio as Julian Storer (JUCE creator). No telemetry mentioned in README or website, but also no formal privacy policy exists; classified conservatively with caveats (young single-maintainer project, unauthenticated LAN mode, official binaries may include proprietary components).",
+  "record": {
+   "name": "Juggler",
+   "vendor": "juggler-ai (Julian Storer)",
+   "type": "local",
+   "openness": "open-source",
+   "deployment": "local/self-hosted",
+   "model_backend": "BYO: Claude Code (CLI or API), OpenAI (Codex plan or API), GitHub Copilot, Gemini, Mistral, Z.AI, DeepSeek, OpenRouter, Ollama (local)",
+   "data_handling": "Local-only product layer: sessions stored as documents on disk; server localhost-only by default; prompts/code go only to the user-configured model backend; no vendor cloud, no account",
+   "data_handling_note": "README (fetched 2026-08-13): \"The server is localhost-only by default — nothing off your machine can reach it.\" Sessions persist locally: \"a session is a document on disk.\" No telemetry, analytics, or crash reporting mentioned anywhere in first-party sources — but no formal privacy policy exists either, so absence of telemetry is inferred, not policy-guaranteed. Opt-in LAN mode is unauthenticated: \"LAN access has no password: anyone who can reach the address can drive the agent, so only enable it on networks you trust.\" WAN access exists only in official juggler.studio binaries, which per LICENSING.md \"may include proprietary components layered on the extension interface.\" With Ollama as backend, code never leaves the machine; with hosted backends, the backend provider's retention/training policies govern.",
+   "capability": "Agentic coding via a GUI workbench: visible/editable tool calls, branching conversation trees, editable context, persistent on-disk sessions; multi-client browser access to a self-hosted headless server",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Local app with no vendor cloud; exposure is determined entirely by the chosen model backend. Use Ollama (or an institution-controlled endpoint) to keep personal data on-machine; keep the server in its default localhost-only mode. No formal privacy policy — verify build behaviour if policy documentation is required.",
+    "special": "Config-dependent and only on researcher-controlled infrastructure: open-source build, local models via Ollama or institution-hosted backends, default localhost-only mode. Never enable the passwordless LAN mode on shared networks. Caveats: ~2-month-old single-maintainer project (self-described one-man side-hustle), no privacy policy, official binaries may include proprietary components — prefer building from source for air-gapped/clinical environments."
+   },
+   "compliance": [],
+   "pricing": "Free, open source (AGPL-3.0 application; Apache-2.0 extension SDK). Commercial licensing available on contact for uses the AGPL does not permit (LICENSING.md). No paid tiers found.",
+   "academic": "None found",
+   "use_cases": [
+    "Inspectable, steerable agentic coding on a researcher's own machine (every tool call visible and editable before execution)",
+    "Running coding agents against sensitive codebases with local models via Ollama — nothing leaves the machine",
+    "Self-hosted headless server on lab hardware with browser clients (localhost-only by default)",
+    "Teaching/demonstrating how agent tool-calling works (branching, editable context trees)"
+   ],
+   "links": {
+    "docs": "https://github.com/juggler-ai/juggler",
+    "pricing": null,
+    "privacy": null
+   },
+   "sources": [
+    "https://github.com/juggler-ai/juggler",
+    "https://raw.githubusercontent.com/juggler-ai/juggler/develop/README.md",
+    "https://raw.githubusercontent.com/juggler-ai/juggler/develop/LICENSING.md",
+    "https://juggler.studio",
+    "gh api repos/juggler-ai/juggler (license AGPL-3.0, created 2026-06-19, pushed 2026-08-12, 562 stars)"
+   ]
+  },
+  "fetched": [
+   "https://github.com/juggler-ai/juggler",
+   "https://raw.githubusercontent.com/juggler-ai/juggler/develop/README.md",
+   "https://raw.githubusercontent.com/juggler-ai/juggler/develop/LICENSING.md",
+   "https://juggler.studio",
+   "gh api repos/juggler-ai/juggler"
+  ]
+ },
+ {
+  "name": "Rowboat",
+  "verdict": "reject",
+  "reason": "Out of catalog scope. First-party sources confirm Rowboat is a general-purpose desktop 'AI coworker' — knowledge graph over email/meetings/Slack, built-in email client with auto-drafting, meeting transcription, notes, browser — where coding is one mode. The README states: \"Code mode lets you spin up parallel coding agents with Claude Code or Codex\" — i.e. code mode delegates to external coding agents already covered by the catalog, and their (not Rowboat's) data policies govern the coding traffic; local models (Ollama/LM Studio) are documented for the assistant/memory surfaces, not as a coding-agent backend. It therefore does not uniquely fill a researcher coding/data privacy need beyond tools already catalogued. Secondary concern: no discoverable privacy policy (rowboatlabs.com/privacy returns no policy content; no telemetry statement in README), so even on an accept path the privacy fields would be largely unverified. Facts verified: Apache-2.0 (LICENSE fetched), very active (17.2k stars, pushed 2026-08-13), genuinely local-first Markdown storage — a fine tool, but a general assistant per the catalog boundary.",
+  "record": null,
+  "fetched": [
+   "https://github.com/rowboatlabs/rowboat",
+   "https://raw.githubusercontent.com/rowboatlabs/rowboat/main/README.md",
+   "https://raw.githubusercontent.com/rowboatlabs/rowboat/main/LICENSE",
+   "https://www.rowboatlabs.com (JS-only shell, title text only)",
+   "https://www.rowboatlabs.com/privacy (no policy content found)",
+   "gh api repos/rowboatlabs/rowboat"
+  ]
+ },
+ {
+  "name": "OpenSquilla",
+  "verdict": "accept",
+  "reason": "Verified first-party: open-source Apache-2.0 (LICENSE fetched), very active (created 2026-05-06, pushed 2026-08-13, 6.6k stars, 1,210 commits), self-hostable CLI/gateway runtime with layered sandboxing and 20+ providers incl. local Ollama/vLLM/LM Studio. Telemetry default captured exactly from PRIVACY.md: pseudonymous install telemetry plus daily aggregate token counts are ON by default, content-free per policy, disableable via OPENSQUILLA_PRIVACY_DISABLE_NETWORK_OBSERVABILITY=true. Accepted with conservative caveats: vendor legal entity/jurisdiction not identified in first-party sources (opensquilla.ai 301-redirects to opensquilla.cn; associated commercial TokenRhythm service priced in CNY), telemetry endpoint domain undisclosed in policy, project only ~3 months old.",
+  "record": {
+   "name": "OpenSquilla",
+   "vendor": "OpenSquilla project (no legal entity identified in first-party sources; primary web domain opensquilla.ai redirects to opensquilla.cn; associated commercial API service TokenRhythm, tokenrhythm.studio)",
+   "type": "cli",
+   "openness": "open-source",
+   "deployment": "local/self-hosted",
+   "model_backend": "BYO multi-provider (20+): Anthropic, OpenAI, Gemini, OpenRouter, DeepSeek, DashScope/Qwen, Moonshot, Mistral, Groq, Zhipu, SiliconFlow, and optional TokenRhythm hosted service; local models via Ollama, vLLM, LM Studio",
+   "data_handling": "Self-hosted runtime: config, sessions, logs, memory and cache stored locally under ~/.opensquilla; prompts/code go only to the user-configured provider. TELEMETRY ON BY DEFAULT: pseudonymous install telemetry + daily aggregate token-usage counts to a project endpoint; content-free per PRIVACY.md; opt-out available",
+   "data_handling_note": "PRIVACY.md (fetched 2026-08-13): \"Telemetry is sent on first gateway startup and once per OpenSquilla version\"; the install_id is \"a local one-way SHA-256 digest derived from usable MAC addresses, then local IP addresses when no MAC is available, with a random persisted fallback.\" Daily usage payloads carry aggregate input/output/cached token counts and conversation counts. Policy explicitly excludes content: \"Telemetry does not include usernames, hostnames, local paths, API keys, provider configuration, chat content, session content, memory content, agent content, file names, or file contents.\" Disable with OPENSQUILLA_PRIVACY_DISABLE_NETWORK_OBSERVABILITY=true or [privacy] disable_network_observability = true (also disables passive/automatic update checks); legacy OPENSQUILLA_TELEMETRY_DISABLED=true still honoured. Gaps: telemetry endpoint domain and retention period are not disclosed in the policy, and no data controller/legal entity is named. Requests to the optional TokenRhythm service may carry a pseudonymous X-OpenSquilla-Install-Id header. Provider-bound content: \"OpenSquilla sends prompts, messages, tool results, selected files, or generated context to third-party AI providers only when the user configures a provider and starts a workflow that uses that provider.\"",
+   "capability": "Self-hostable agent runtime: CLI REPL and one-shot agent mode, gateway server (default 127.0.0.1:18791), Docker/Compose self-host, autonomous file edits and shell execution under three-tier sandboxing (Bubblewrap on Linux, Seatbelt on macOS, Windows native), persistent memory, token-efficiency routing",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Run self-hosted with local providers (Ollama/vLLM/LM Studio) and set OPENSQUILLA_PRIVACY_DISABLE_NETWORK_OBSERVABILITY=true — installer/runtime telemetry is on by default (content-free per PRIVACY.md, but defaults matter and the receiving endpoint/operator is not disclosed). With hosted providers, the provider's retention/training policies govern the content.",
+    "special": "Config-dependent and only on institution-controlled infrastructure: fully self-hosted (local or institutional hardware, air-gap possible since offline deployment is supported), local model backends only, telemetry and update checks disabled, TokenRhythm and hosted providers avoided. Caveats requiring governance review: no legal entity or jurisdiction identified for the project (China nexus suggested by opensquilla.cn primary domain and CNY-priced TokenRhythm service — UNVERIFIED as to entity), telemetry endpoint undisclosed, project ~3 months old with unproven maintenance durability."
+   },
+   "compliance": [],
+   "pricing": "Free, open source (Apache-2.0). No paid tiers for the software found. Optional associated TokenRhythm API service runs a CNY-denominated pilot (referral credits of CNY 68, CNY 200 experience cards); no standard price list published.",
+   "academic": "None found",
+   "use_cases": [
+    "Self-hosted agent runtime on lab or institutional hardware (Docker/Compose, gateway bound to localhost by default)",
+    "Local-model agentic coding and data tasks via Ollama/vLLM/LM Studio with sandboxed shell and file tools",
+    "Token-budget-constrained agent workflows (routing/ensembles aimed at reducing token spend)",
+    "Offline/air-gapped deployment with on-device ONNX embeddings"
+   ],
+   "links": {
+    "docs": "https://github.com/opensquilla/opensquilla",
+    "pricing": null,
+    "privacy": "https://raw.githubusercontent.com/opensquilla/opensquilla/main/PRIVACY.md"
+   },
+   "sources": [
+    "https://github.com/opensquilla/opensquilla",
+    "https://raw.githubusercontent.com/opensquilla/opensquilla/main/PRIVACY.md",
+    "https://raw.githubusercontent.com/opensquilla/opensquilla/main/LICENSE",
+    "https://opensquilla.cn/ (via 301 from https://opensquilla.ai)",
+    "gh api repos/opensquilla/opensquilla (license Apache-2.0, created 2026-05-06, pushed 2026-08-13, 6567 stars)"
+   ]
+  },
+  "fetched": [
+   "https://github.com/opensquilla/opensquilla",
+   "https://raw.githubusercontent.com/opensquilla/opensquilla/main/PRIVACY.md",
+   "https://raw.githubusercontent.com/opensquilla/opensquilla/main/LICENSE",
+   "https://opensquilla.ai (301 -> opensquilla.cn)",
+   "https://opensquilla.cn/",
+   "gh api repos/opensquilla/opensquilla"
+  ]
+ }
+]

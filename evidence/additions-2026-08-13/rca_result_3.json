@@ -1,0 +1,194 @@
+[
+ {
+  "name": "GitLab Duo Agent Platform",
+  "verdict": "accept",
+  "reason": "Fully verified first-party: GA on GitLab.com, Self-Managed and Dedicated (18.8, 2026-01-15); no-training policy, retention, self-hosted-model/air-gap boundary, pricing/credits, education program and compliance all confirmed on gitlab.com/docs.gitlab.com/trust.gitlab.com. Single record covers both deployment routes as instructed. Third-party '$299/seat/mo Self-Hosted' price NOT found on any first-party page - recorded as unverified; first-party says flat-fee ELA, contact sales.",
+  "record": {
+   "name": "GitLab Duo Agent Platform",
+   "vendor": "GitLab Inc.",
+   "type": "cloud",
+   "openness": "commercial",
+   "deployment": "cloud/self-hosted",
+   "model_backend": "Default Anthropic Claude Sonnet 4; admin LLM selection incl. OpenAI GPT-5 variants, Mistral, Meta Llama, Anthropic Claude; on Self-Managed, self-hosted models via GitLab AI Gateway (incl. fully offline licenses)",
+   "data_handling": "no-training; product-level chat/workflow history retained (user-deletable); vendor-side model retention varies by provider on cloud route; fully in-boundary on Self-Managed + self-hosted models",
+   "data_handling_note": "Training: 'GitLab does not train generative AI models' and 'All GitLab AI model sub-processors are restricted from using model input and output to train models' (docs.gitlab.com/user/gitlab_duo/data_usage/). Retention: 'GitLab Duo Chat and GitLab Duo Agent Platform retain chat and workflow history' (user-deletable); on GitLab.com 'GitLab retains chat and workflow history for anti-abuse purposes'; Fireworks AI (Codestral) is zero-retention, but 'Certain Anthropic and OpenAI models... are subject to limited vendor-side data retention' - model-provider ZDR does not erase this product-level retention. Self-hosted route: 'Inference data, including code inputs, model prompts, and model responses, does not leave the customer network'; offline licenses do not connect to external GitLab components (docs.gitlab.com/administration/gitlab_duo_self_hosted/). GitLab Dedicated is vendor-operated single-tenant cloud, NOT customer-controlled on-prem.",
+   "capability": "Agentic software-lifecycle platform inside GitLab: foundational agents (Planner, Data Analyst, Security Analyst), custom agents via AI Catalog, multi-step flows (issue-to-MR Developer flow, Code Review, Fix CI/CD Pipeline, Convert to CI/CD), agentic chat in Web UI and IDEs (VS Code, JetBrains, Cursor, Windsurf), external agent support (Claude Code, Codex CLI), MCP client for Jira/Slack/Confluence",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Cloud route (GitLab.com/Dedicated): defensible with DPA + no-training policy + SOC 2/ISO 27001/27701-family certs, but limited vendor-side retention applies to certain Anthropic/OpenAI models and GitLab.com retains workflow history for anti-abuse - review under institutional GDPR assessment. Self-Managed with self-hosted models: data stays in institutional boundary.",
+    "special": "cfg ONLY on the Self-Managed route with self-hosted models (or offline/air-gapped license), where first-party docs establish that inference data does not leave the customer network. Pure GitLab.com or GitLab Dedicated (vendor-operated) = no for special-category health/genetic/clinical data despite certifications."
+   },
+   "compliance": ["SOC 2 (GitLab.com and Dedicated)", "ISO/IEC 27001", "ISO/IEC 27017", "ISO/IEC 27018", "ISO/IEC 42001 (AI management)", "GDPR (DPA available)", "CCPA", "TISAX", "CSA STAR", "Data Privacy Framework certified"],
+   "pricing": "Premium $29/user/mo (billed annually); Ultimate custom. Agent Platform billed via GitLab Credits at $1/credit; Premium includes 12 and Ultimate 24 credits/user/mo ('for a limited time', subject to change). Duo Pro/Enterprise seats via sales. Duo Agent Platform Self-Hosted (offline licenses): flat-fee Enterprise License Agreement, contact sales - the third-party '$299/seat/mo' figure is UNVERIFIED and absent from first-party pages.",
+   "academic": "GitLab for Education: free Ultimate licenses + 50K compute minutes/mo for qualifying educational institutions (per about.gitlab.com/pricing/)",
+   "use_cases": ["Automating issue-to-merge-request development flows on institutional GitLab instances", "Code review and CI/CD pipeline repair agents on research software repositories", "Air-gapped agentic coding on Self-Managed GitLab with self-hosted models for sensitive codebases"],
+   "links": {
+    "docs": "https://docs.gitlab.com/user/duo_agent_platform/",
+    "pricing": "https://about.gitlab.com/pricing/",
+    "privacy": "https://docs.gitlab.com/user/gitlab_duo/data_usage/"
+   },
+   "sources": [
+    "https://about.gitlab.com/blog/gitlab-duo-agent-platform-is-generally-available/",
+    "https://docs.gitlab.com/user/duo_agent_platform/",
+    "https://docs.gitlab.com/user/gitlab_duo/data_usage/",
+    "https://docs.gitlab.com/administration/gitlab_duo_self_hosted/",
+    "https://about.gitlab.com/pricing/",
+    "https://docs.gitlab.com/subscriptions/subscription-add-ons/",
+    "https://trust.gitlab.com"
+   ]
+  },
+  "fetched": [
+   "https://about.gitlab.com/blog/gitlab-duo-agent-platform-is-generally-available/",
+   "https://docs.gitlab.com/user/duo_agent_platform/",
+   "https://docs.gitlab.com/user/gitlab_duo/data_usage/",
+   "https://docs.gitlab.com/administration/gitlab_duo_self_hosted/",
+   "https://about.gitlab.com/pricing/",
+   "https://docs.gitlab.com/subscriptions/subscription-add-ons/",
+   "https://trust.gitlab.com"
+  ]
+ },
+ {
+  "name": "Clusy",
+  "verdict": "accept",
+  "reason": "Product, pricing, privacy policy, security page and terms all verified first-party. Real agentic cloud notebook with clear tiers. However: no statement anywhere on training with customer content, no retention specifics, no compliance certifications, subprocessor list only under NDA, US-based transfers - accepted with conservative privacy classification.",
+  "record": {
+   "name": "Clusy",
+   "vendor": "Clusy Inc. (Claymont, DE, USA)",
+   "type": "notebook",
+   "openness": "commercial",
+   "deployment": "cloud",
+   "model_backend": "Tiered: Free/Plus - 'Auto' model plus open-source models (DeepSeek V4 Pro, Kimi K3, Qwen3.8 Max); Pro/Max - every model incl. Anthropic Claude (Sonnet, Opus) and OpenAI GPT. Inference hosting location for open-source models unverified.",
+   "data_handling": "cloud-only managed sandboxes; training-on-customer-data not addressed in any policy (treat as no contractual protection); retention unspecified",
+   "data_handling_note": "'Every plan runs on managed cloud sandboxes' (clusy.io). Privacy policy and security page contain NO statement on whether notebook/dataset content is used to train models - unverified, classified conservatively. Retention: only 'for as long as it is needed for the purposes outlined in this policy'; security page does not specify retention or deletion procedures. 'Customer datasets, training artifacts, and logs are logically separated by workspace'; TLS in transit, encryption at rest via cloud providers. Subprocessor detail 'available under NDA'. Terms: 'You retain ownership of the content you submit, but grant us a limited license to use that content solely to provide and secure the Services.' US-based; 'may transfer personal information to other countries.'",
+   "capability": "Agent-native cloud notebook for data science and ML: describe outcomes in plain language, agent plans workflows, writes and executes notebook cells, sources data (uploads, Hugging Face, Databricks/Snowflake live tables), selects model architectures, branches parallel experiments; GPU sandboxes up to H100/H200",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "no",
+    "special": "no"
+   },
+   "suitability_notes": {
+    "personal": "Not recommended for GDPR personal data: no published training-on-content commitment, no retention specifics, no SOC 2/ISO certification, subprocessor list NDA-only, US data transfers. Enterprise tier (SSO, custom terms) might change this - would need contract review.",
+    "special": "Pure cloud with unresolved training/retention posture - no for special-category health/genetic/clinical data. No self-hosted option exists."
+   },
+   "compliance": [],
+   "pricing": "Free $0 (Auto model, 8 vCPU/8 GB CPU sandbox); Plus $30/mo (open-source models, T4/L4/A10 GPUs, 32 GB RAM); Pro $90/mo (all models incl. Claude/GPT, L40S/A100, 64 GB RAM); Max $200/mo (H100/H200, 128 GB RAM, priority capacity); Enterprise custom (dedicated capacity, SSO). Pay-as-you-go overages on paid tiers.",
+   "academic": "None mentioned on pricing or product pages.",
+   "use_cases": ["Exploratory ML experiments on public or non-sensitive datasets with agent-driven notebook execution", "Parallel branched model-architecture comparisons on rented GPUs", "Agentic analysis over non-sensitive Databricks/Snowflake tables"],
+   "links": {
+    "docs": "https://docs.clusy.io",
+    "pricing": "https://clusy.io/pricing",
+    "privacy": "https://clusy.io/privacy-policy"
+   },
+   "sources": [
+    "https://www.clusy.io",
+    "https://clusy.io/pricing",
+    "https://clusy.io/privacy-policy",
+    "https://clusy.io/security",
+    "https://clusy.io/terms-of-use"
+   ]
+  },
+  "fetched": [
+   "https://www.clusy.io",
+   "https://clusy.io/pricing",
+   "https://clusy.io/privacy-policy",
+   "https://clusy.io/security",
+   "https://clusy.io/terms-of-use"
+  ]
+ },
+ {
+  "name": "DataFoundry",
+  "verdict": "accept",
+  "reason": "Open source confirmed: Apache 2.0 LICENSE fetched from repo ('Copyright 2026 DataFoundry contributors'); active development (689 stars, 119 commits, v0.2.0 released, repo created 2026-06-18). Self-hosted-only deployment and governance guardrails verified on repo and docs site. Young project - maturity caveat carried in record; self-declared 'early but usable'.",
+  "record": {
+   "name": "DataFoundry",
+   "vendor": "datagallery-lab (open-source community project)",
+   "type": "local",
+   "openness": "open-source",
+   "deployment": "self-hosted",
+   "model_backend": "Any OpenAI-compatible provider (Qwen, DeepSeek, GPT, etc.) via configurable LLM_BASE_URL - including self-hosted/local models",
+   "data_handling": "self-hosted, data stays in institutional boundary; prompts go only to the LLM endpoint the operator configures; no vendor telemetry documented",
+   "data_handling_note": "Self-hosted only; 'runs complex multi-table, multi-step analysis inside read-only boundaries, and keeps every step auditable and replayable.' Guardrails by default: 'Read-only queries, credential isolation, field masking, row limits, and timeouts by default'; SQL audit logs, tool-call records and event streams persisted; 'Datasource credentials, model API keys, and MCP tokens never enter messages, context, or forwardedProps.' No product-level retention or training question arises (no vendor cloud); the configured LLM endpoint's policy governs prompt data - use a self-hosted model to keep everything in-boundary.",
+   "capability": "Conversational data-analysis agent workbench over structured data: natural-language questions become multi-table, multi-step SQL analyses via unified semantics layer; 28 datasource types (PostgreSQL, MySQL, Snowflake, BigQuery, ClickHouse, MongoDB, DuckDB, SQLite, CSV, Excel, ...); three interfaces - web workbench, TUI for SSH/terminal, REST/AG-UI agent runtime",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Self-hosted with read-only guardrails, masking and full audit trail - suitable when the configured LLM endpoint is itself compliant (self-hosted model or provider under institutional DPA). Row-level data can enter prompts during analysis.",
+    "special": "cfg: institution-controlled infrastructure (self-hosted) qualifies, but ONLY with a self-hosted/in-boundary model backend; pointing it at a commercial cloud LLM API sends query results off-boundary. Early-stage software (v0.2.0, repo ~2 months old) - validate guardrails before production use on clinical/genetic data."
+   },
+   "compliance": [],
+   "pricing": "Free, open source (Apache 2.0). No commercial tier documented.",
+   "academic": "n/a - free open source",
+   "use_cases": ["In-boundary natural-language analysis over institutional research databases", "Governed multi-step SQL analyses with audit/replay for reproducibility", "Embedding a data-analysis agent runtime into institutional tools via REST/AG-UI"],
+   "links": {
+    "docs": "https://datagallery-lab.github.io/datafoundry/",
+    "pricing": null,
+    "privacy": null
+   },
+   "sources": [
+    "https://github.com/datagallery-lab/datafoundry",
+    "https://raw.githubusercontent.com/datagallery-lab/datafoundry/main/LICENSE",
+    "https://datagallery-lab.github.io/datafoundry/"
+   ]
+  },
+  "fetched": [
+   "https://github.com/datagallery-lab/datafoundry",
+   "https://raw.githubusercontent.com/datagallery-lab/datafoundry/main/LICENSE",
+   "https://datagallery-lab.github.io/datafoundry/"
+  ]
+ },
+ {
+  "name": "Nobie",
+  "verdict": "accept",
+  "reason": "Product page, privacy policy and CLI repo verified first-party. Local-first claim is explicit and first-party, but the privacy policy documents PostHog/Sentry tracking without stating defaults and is silent on spreadsheet data and AI-provider flows - marketing claim and policy are not fully reconciled, so classified conservatively with the gap named. Proprietary despite GitHub presence; very early beta (CLI repo 8 stars/3 commits).",
+  "record": {
+   "name": "Nobie",
+   "vendor": "Nobie, Inc.",
+   "type": "local",
+   "openness": "commercial",
+   "deployment": "local",
+   "model_backend": "None built in - bring-your-own coding agent (Claude, Codex, Gemini) connects to the local Excel-compatible engine via nobie-cli and agent skills; spreadsheet content flows to whichever agent/model the user connects",
+   "data_handling": "local-only spreadsheet processing (first-party claim); telemetry via PostHog/Sentry per privacy policy with undocumented defaults; connected AI agent's provider policy governs any content it reads",
+   "data_handling_note": "Product page: 'Your data never leaves your Mac', 'Nobie is local-only. We don't collect, process, or transmit your data', 'No servers, no uploads, no exceptions.' However the privacy policy discloses use of 'Posthog and Sentry' for activity/diagnostic data (device data, IP, pages/screens viewed) without stating opt-in/opt-out defaults, and contains NO section on spreadsheet-file handling or AI-provider data flows - the local-only marketing claim is not restated in the policy. When a coding agent (Claude/Codex/Gemini) is connected, spreadsheet content it reads is governed by that provider's retention/training policy, not Nobie's. Retention: 'as long as it is reasonably needed', no timeframes.",
+   "capability": "Native macOS Excel-compatible spreadsheet app + engine with full formula recalculation on standard .xlsx (no proprietary format); nobie-cli (macOS/Linux, ARM64/x86-64) exposes the engine in the terminal - pipe data in, compute formulas, style cells, query with SQL, render PNG/PDF; 'nobie skill' publishes the command set so coding agents can read/edit/recalculate workbooks locally",
+   "backend_dependent": true,
+   "suitability": {
+    "nonsensitive": "ok",
+    "personal": "cfg",
+    "special": "cfg"
+   },
+   "suitability_notes": {
+    "personal": "Local engine keeps files on-device, but (1) telemetry defaults are undocumented and (2) any connected cloud agent (Claude/Codex/Gemini) reads spreadsheet content under that provider's terms - acceptable only with a vetted agent backend and telemetry addressed.",
+    "special": "cfg on the narrow condition of researcher-controlled use: local engine only, with a local/institution-controlled agent backend (no cloud agent connected) and telemetry blocked or verified off. The privacy policy does not document spreadsheet-data handling, so verify before use on clinical/genetic spreadsheets. Beta software (CLI repo: 3 commits, 8 stars; editing features partly 'coming soon') - maturity risk."
+   },
+   "compliance": [],
+   "pricing": "Free during beta ('Free forever' claim on product page); proprietary Desktop App License Terms ('licensed, not sold'). No paid tiers disclosed.",
+   "academic": "None mentioned.",
+   "use_cases": ["Letting Claude Code or other CLI agents analyze and recalculate sensitive .xlsx files without uploading them", "Local formula-preserving programmatic editing of Excel workbooks from the terminal", "Rendering spreadsheet outputs to PNG/PDF in local pipelines"],
+   "links": {
+    "docs": "https://github.com/nobie-org/nobie-cli",
+    "pricing": "https://nobie.com",
+    "privacy": "https://nobie.com/privacy"
+   },
+   "sources": [
+    "https://nobie.com",
+    "https://nobie.com/privacy",
+    "https://github.com/nobie-org/nobie-cli"
+   ]
+  },
+  "fetched": [
+   "https://nobie.com",
+   "https://nobie.com/privacy",
+   "https://github.com/nobie-org/nobie-cli"
+  ]
+ }
+]
