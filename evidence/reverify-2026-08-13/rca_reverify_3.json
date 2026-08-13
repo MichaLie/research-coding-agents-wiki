@@ -1,0 +1,205 @@
+[
+ {
+  "id": "rca-openhands",
+  "name": "OpenHands",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "sources / repository",
+    "old": "https://github.com/All-Hands-AI/OpenHands/releases (All-Hands-AI org)",
+    "new": "Repository moved to OpenHands/OpenHands (GitHub API 301 redirect from All-Hands-AI/OpenHands; repo active, not archived, MIT license; new active SDK repo OpenHands/software-agent-sdk)",
+    "url": "https://api.github.com/repos/All-Hands-AI/OpenHands",
+    "quote": "\"full_name\": \"OpenHands/OpenHands\", \"archived\": false"
+   },
+   {
+    "field": "notes / product architecture",
+    "old": "Open-source/self-hostable coding agent with a separate cloud service (GUI/CLI framing)",
+    "new": "Docs now describe a re-architected stack: Agent Canvas (browser client), Software Agent SDK, Agent Server, Sandbox Server; legacy Local GUI deprecated with an archived legacy repository referenced",
+    "url": "https://docs.openhands.dev/overview/introduction",
+    "quote": "Agent Canvas represents active browser development, while the legacy Local GUI is deprecated (docs overview; page also references an archived legacy repository)"
+   },
+   {
+    "field": "software_license / license_status",
+    "old": "null / unconfirmed",
+    "new": "MIT (main repo, per GitHub API)",
+    "url": "https://api.github.com/repositories/771302083",
+    "quote": "license: MIT"
+   }
+  ],
+  "fetched": [
+   "https://www.openhands.dev/pricing",
+   "https://www.openhands.dev/privacy",
+   "https://docs.openhands.dev/overview/introduction",
+   "https://docs.openhands.dev/enterprise",
+   "https://api.github.com/repos/All-Hands-AI/OpenHands",
+   "https://api.github.com/repositories/771302083"
+  ],
+  "notes": "Load-bearing privacy claims re-confirmed: privacy policy (effective 2025-09-03) still says 'we may use content and feedback from your use of the Services to train and tune our AI models to improve the capabilities of our Services' - cloud tier training use stands. Pricing tiers unchanged: Open Source free; Individual SaaS free with 10 max daily conversations, BYOK or at-cost models; Enterprise custom, SaaS or self-hosted. Enterprise docs confirm customer-controlled boundary: 'Deploy OpenHands on your own infrastructure-whether on-premises, in your private cloud, or in your VPC.' No SOC2/HIPAA/DPA found for cloud tier (privacy policy mentions none), matching record. Suitability (special=cfg via self-hosted + fully local model only) remains correct. Vendor entity still appears to be All Hands AI (privacy contact contact@all-hands.dev) despite the GitHub org rename to 'OpenHands'."
+ },
+ {
+  "id": "rca-jupyter-ai",
+  "name": "Jupyter AI",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://jupyter-ai.readthedocs.io/en/latest/",
+   "https://jupyter-ai.readthedocs.io/en/latest/users/index.html",
+   "https://github.com/jupyterlab/jupyter-ai",
+   "https://github.com/jupyterlab/jupyter-ai/releases",
+   "https://api.github.com/repos/jupyterlab/jupyter-ai"
+  ],
+  "notes": "All checked claims hold: BSD-3-Clause confirmed via GitHub API; repo active (pushed 2026-08-12); ACP (Agent Client Protocol) is the center of v3 as recorded ('Jupyter AI acts as an ACP client when it connects an external ACP agent to the chat'); no SaaS tier, deployment remains local; docs reference vLLM ('Jupyternaut with vLLM') consistent with local-model route. Version drift only: latest release is now v3.1.2 (2026-07-30) vs v3.0.1 mentioned in record notes - volatile version info, not a policy change. Not re-verified this pass: the exact wording of the docs privacy warning about third-party providers (not surfaced on fetched pages, nothing contradicts it). Suitability (special=cfg local-model-only) unaffected."
+ },
+ {
+  "id": "rca-julius-ai",
+  "name": "Julius AI",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "model_backend",
+    "old": "frontier models (GPT-4/GPT-5, Claude Opus, Gemini; hosted by Julius)",
+    "new": "Julius Lite/Julius models plus GPT-5.6, Claude Sonnet 5 (Plus), Claude Fable 5 (Pro and up); Gemini no longer advertised on pricing page",
+    "url": "https://julius.ai/pricing",
+    "quote": "Julius models, GPT-5.6, Claude Sonnet 5 ... All models, including Claude Fable 5"
+   },
+   {
+    "field": "pricing (tier lineup)",
+    "old": "Free; Plus $20/$16; Pro $45/$37; Max $200/$166; Ultra $500/$416; Business $450/$375; Enterprise custom",
+    "new": "Free; Plus $20 mo / $16 yr; Pro $45/$37; Max $200/$166; Business $450/$375; Enterprise (Contact Us). Ultra no longer shown as a tier (only residual text 'Everything in Ultra, plus:' on the Business card). Credit allowances now explicit: Plus 2,000, Pro 5,000, Max 25,000, Business 60,000 credits/month",
+    "url": "https://julius.ai/pricing",
+    "quote": "Business ... $450 / month ... 60,000 credits / month ... Everything in Ultra, plus:"
+   },
+   {
+    "field": "product positioning / use_cases",
+    "old": "Cloud data-analysis service (natural language data analysis, notebooks, reports)",
+    "new": "Repositioned as 'Your AI Workspace': data analysis plus presentations, reports, websites/web apps, image generation, and video generation",
+    "url": "https://julius.ai/pricing",
+    "quote": "Analyze data and research, create presentations and reports, build websites, and generate images and video."
+   },
+   {
+    "field": "sources / DPA URL",
+    "old": "https://julius.ai/legal/dpa (live DPA document)",
+    "new": "https://julius.ai/legal/dpa now returns 404 ('Page not found'). DPA itself is still offered per privacy policy (updated July 1, 2026)",
+    "url": "https://julius.ai/legal/dpa",
+    "quote": "404 Page not found (at /legal/dpa); privacy policy: 'the ability to enter into a Data Processing Addendum (DPA) that contains standard contractual clauses'"
+   }
+  ],
+  "fetched": [
+   "https://julius.ai/pricing (via browser; julius.ai returns 403 to non-browser fetchers)",
+   "https://julius.ai/docs/get-started/privacy-and-data-security (via browser, FAQ accordions expanded)",
+   "https://julius.ai/privacy-policy (via browser)",
+   "https://julius.ai/legal/dpa (via browser, 404)",
+   "https://julius.ai/use-case/education (via browser)",
+   "https://trust.julius.ai (WebFetch; JS-only trust center, no content extractable)"
+  ],
+  "notes": "Core privacy claims re-confirmed with exact quotes: docs FAQ 'Never. Your data is not used to train any models, internally or externally. Our AI providers are contractually bound by this.'; privacy policy (updated 2026-07-01) 'we do not use your Personal Information to train our artificial intelligence models'; US processing/storage confirmed ('All data is stored and processed in the United States'); SOC 2 Type 2 Certified stated in site footer and pricing table. NOT re-confirmed: TX-RAMP and GDPR compliance claims (trust.julius.ai is an unreadable SPA; no mention on fetched pages) and the 50% student/educator discount (absent from current pricing and education pages) - treat both as unverified rather than removed. Cloud-only deployment unchanged; special=no classification stands; personal=cfg (DPA still offered, Enterprise path) stands."
+ },
+ {
+  "id": "rca-hex-magic",
+  "name": "Hex Magic",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "name / current_name / AI branding",
+    "old": "AI features branded 'Magic'",
+    "new": "'Magic' branding gone from homepage and pricing; AI features are now named agents - Notebook Agent (Professional+), Threads Agent (Team+), Semantic Model Agent (Team+), App Agent - under an 'AI Analytics Platform' positioning ('Magic' survives only in a docs image filename)",
+    "url": "https://hex.tech/",
+    "quote": "With Hex's Notebook Agent, I never have to build another chart again"
+   }
+  ],
+  "fetched": [
+   "https://hex.tech/pricing/",
+   "https://learn.hex.tech/docs/trust/ai-data-privacy",
+   "https://hex.tech/security/",
+   "https://hex.tech/",
+   "https://trust.hex.tech (Conveyor SPA, no content extractable)",
+   "https://hex.tech/blog/hipaa-multi-tenant/"
+  ],
+  "notes": "Load-bearing claims re-confirmed: model providers OpenAI + Anthropic; LLM providers operate under zero-data-retention by default with an admin-controllable exception for models requiring safety retention (e.g. Claude Fable 5) via 'Allow Data Retention For Specific Models'; Hex may use AI-session data to improve AI features with workspace opt-out in Settings > AI & agents (matches record's caveat that Hex-side use is distinct from provider ZDR); BYOK is Enterprise-only. Pricing unchanged: Community free, Professional $36/editor/mo, Team $75/editor/mo, Enterprise custom; students/educators get Professional free (contact support@hex.tech); non-profit program exists. SOC 2 Type II confirmed on security page. HIPAA BAA via dedicated multi-tenant stack still published (Oct 2023 blog, sales contact required). NOT re-confirmed: CCPA and EU-US DPF claims and the 'up to 5 notebooks' Community limit (trust center unreadable; not contradicted). Cloud-only unchanged; special=no stands; catalog display name should be revisited since 'Magic' is no longer the vendor's branding."
+ },
+ {
+  "id": "rca-kiro",
+  "name": "Kiro",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "model_backend",
+    "old": "Amazon Bedrock (Anthropic Claude Opus/Sonnet/Haiku 4.x variants, DeepSeek v3.2, MiniMax M2.5, GLM-5, Kimi, Qwen; Auto mode)",
+    "new": "Now also OpenAI GPT-5.6 series (Sol 2.4x, Terra 1.0x, Luna 0.1x credit multipliers, experimental) and newer Anthropic models (Opus 5 2.2x experimental, Sonnet 5 1.3x) alongside Opus 4.5-4.8, Sonnet 4.0-4.6, Haiku 4.5; open-weight lineup now MiniMax M2.5/M2.1, GLM-5, DeepSeek 3.2, Qwen3 Coder Next - Kimi no longer listed. Auto routing still available to all tiers",
+    "url": "https://kiro.dev/docs/models/available-models/",
+    "quote": "Auto ... automatically choosing the optimal model for each task"
+   }
+  ],
+  "fetched": [
+   "https://kiro.dev/pricing/",
+   "https://kiro.dev/docs/privacy-and-security/data-protection/",
+   "https://kiro.dev/docs/privacy-and-security/compliance-validation/",
+   "https://kiro.dev/students/",
+   "https://kiro.dev/docs/",
+   "https://kiro.dev/docs/models/available-models/"
+  ],
+  "notes": "Pricing unchanged: Free 50 credits/mo, Pro $20, Pro+ $40, Pro Max $100, Power $200/user/mo; overage $0.04/credit; $20 first-upgrade credit; team/enterprise with centralized billing/SSO. Data protection defaults unchanged and quoted: 'We may use certain content from Kiro Free Tier and Kiro individual subscribers for service improvement' with opt-out via Settings > Application > Telemetry and Content, and 'We do not use content from Kiro enterprise users for service improvement'; storage US East (N. Virginia) for free/individual. Bedrock backbone confirmed ('Kiro is powered by Amazon Bedrock'). Compliance page still scopes HIPAA to Kiro IDE and CLI (reports via AWS Artifact). Student program confirmed: 1,000 credits/mo free for one year via SheerID, no credit card, now 11 universities including Arizona State (roster drifted slightly from record's list; 'expanding to more universities soon'). Enterprise-only no-improvement route and special=no classification stand."
+ },
+ {
+  "id": "rca-zed",
+  "name": "Zed",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "academic (Student plan model exclusions)",
+    "old": "Student plan free for one year, with Pro features except Claude Opus and $10 monthly credits",
+    "new": "Student plan (12 months, all Pro features, $10/month token credits, unlimited edit predictions) now excludes Claude Fable, Claude Opus, AND GPT Pro models; verification via GitHub account + university email against JetBrains' university domain database",
+    "url": "https://zed.dev/education",
+    "quote": "The Zed Student plan does not include Claude Fable, Claude Opus, or GPT Pro models"
+   }
+  ],
+  "fetched": [
+   "https://zed.dev/pricing",
+   "https://zed.dev/docs/ai/privacy-and-security",
+   "https://zed.dev/docs/business/privacy",
+   "https://zed.dev/education",
+   "https://zed.dev/privacy-policy",
+   "https://zed.dev/security (404)",
+   "https://zed.dev/docs/ai/business/privacy (404)"
+  ],
+  "notes": "Core privacy claims re-confirmed: no training ('We don't sell your data and we don't allow AI providers to train on it', privacy policy effective 2026-06-09); ZDR with Anthropic, Google, OpenAI for Zed-hosted models; Anthropic Covered Models exception intact - 'retains prompts and outputs for models it designates as Covered Models...for at least 30 days for trust and safety purposes' and 'Switching to your own API key...does not avoid this retention for covered models'; Business admin controls enforced server-side; DPA 'available upon request' (privacy policy). Pricing unchanged: Personal free (2,000 accepted edit predictions, unlimited BYOK), Pro $10/mo ($5 monthly token credits), Business $30/seat/mo. NOT re-confirmed: SOC 2 Type 1 'in progress' status - zed.dev/security 404s and no fetched page mentions SOC 2; treat as unverified, do not present as achieved. Special=cfg (fully local endpoint only) stands."
+ },
+ {
+  "id": "rca-amp",
+  "name": "Amp",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "model_backend / modes",
+    "old": "Claude Opus 4.8 (smart mode), GPT-5.5 (rush/deep modes); non-configurable",
+    "new": "Modes renamed Low/Medium/High/Ultra plus Puck (navigation): Low = Agent GLM-5.2 + Oracle GPT-5.6 Sol; Medium = Agent GPT-5.6 Sol; High = Agent GPT-5.6 Sol + Oracle Fable 5; Ultra = Agent Fable 5 + Oracle GPT-5.6 Sol; Puck = GPT-5.6 Terra. Still managed by Amp, not user-configurable",
+    "url": "https://ampcode.com/modes",
+    "quote": "Low: Agent GLM-5.2 / Oracle GPT-5.6 Sol ... Ultra: Agent Fable 5 / Oracle GPT-5.6 Sol (modes page listing)"
+   },
+   {
+    "field": "pricing (structure)",
+    "old": "Pure pay-as-you-go, zero markup, $5 minimum credit purchase; free tier ~$10/day replenished hourly; credits expire after 1 year of inactivity; Enterprise +50%, $1,000 minimum",
+    "new": "Subscription plans added: Megawatt $20/month (750 hrs small orbs, $20 agent usage, low & medium modes only) and Gigawatt $200/month (1,000 hrs extra-large orbs, $200 agent usage, all modes); paid credit top-ups; linked third-party subscriptions (e.g. ChatGPT) incur no per-token fees; zero markup retained for non-enterprise ('there is zero markup on the providers' API pricing'); 'Purchased credits expire twelve months after purchase'; Enterprise still +50% with one-time $1,000 purchase. $5 minimum and $10/day free-credit figures no longer found",
+    "url": "https://ampcode.com/pricing",
+    "quote": "Megawatt ($20/month) ... Gigawatt ($200/month) ... We give at least the subscription cost per month in agent usage"
+   },
+   {
+    "field": "data_handling (ZDR framing)",
+    "old": "Enterprise 'unlocks ZDR'; provider caches may last up to 24 hours",
+    "new": "Enterprise feature is now called 'Minimal Data Retention' - 'commercially reasonable efforts to minimize how long third-party LLM providers retain prompts'; providers do not train but 'may retain safety monitoring information for up to 30 days'. The 24-hour cache figure no longer appears; explicit thread deletion still completes within 30 days; enterprise workspace threads persist with the organization",
+    "url": "https://ampcode.com/security",
+    "quote": "Minimal Data Retention feature available on Enterprise plans ... may retain safety monitoring information for up to 30 days"
+   }
+  ],
+  "fetched": [
+   "https://ampcode.com/security",
+   "https://ampcode.com/manual",
+   "https://ampcode.com/manual#pricing",
+   "https://ampcode.com/pricing",
+   "https://ampcode.com/privacy-policy",
+   "https://ampcode.com/terms",
+   "https://ampcode.com/modes"
+  ],
+  "notes": "Vendor confirmed: Terms of Service name 'Amp Frontier Corporation' as the provider - but the privacy policy still names 'Sourcegraph, Inc.' as data controller (stale or not yet migrated; discrepancy worth recording). SOC 2 Type II re-confirmed (security page). Sensitive-data prohibition re-confirmed in terms: 'the Services are not designed to store Sensitive Data' / 'you will not use the Services to store Sensitive Data' (includes HIPAA PHI) - special=no stands. Amp-side storage confirmed: threads on Google Cloud Platform, AES-256 at rest, deletion within 30 days; provider ZDR/MDR is not end-to-end deletion, matching record's caveat. Free tier: manual references 'Amp Free is ad-free' but neither manual nor pricing page documents the $10/day credit amount - treat that figure as unverified. GDPR SCCs re-confirmed in privacy policy. No public DPA found (Security Trust Portal / security@ampcode.com for enterprise agreements), matching record."
+ }
+]

@@ -1,0 +1,137 @@
+[
+ {
+  "id": "rca-google-antigravity",
+  "name": "Google Antigravity",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "model_backend",
+    "old": "Gemini 3.1 Pro / 3.5 Flash (default); also supports Claude Sonnet/Opus and OpenAI GPT-OSS models",
+    "new": "Gemini lineup now includes Gemini 3.6 Flash (announced 2026-07-21, after last verification), alongside Gemini 3.1 Pro and 3.5 Flash. Non-Google models remain supported (terms name Anthropic as an example third-party model provider). GPT-OSS support was NOT re-confirmed on any fetched first-party page this round - treat as UNVERIFIED.",
+    "url": "https://antigravity.google/blog",
+    "quote": "Gemini 3.6 Flash in Google Antigravity (21 Jul 2026)"
+   },
+   {
+    "field": "notes / product surfaces",
+    "old": "Record describes Antigravity as an IDE-type agentic development platform; no mention of Antigravity 2.0, Antigravity CLI, or SDK as shipped surfaces",
+    "new": "Antigravity 2.0 (agent command center), Antigravity CLI (terminal-first surface), and Antigravity SDK are live product surfaces (all announced 2026-05-19); the Organization plan via Google Cloud grants access to 2.0 and CLI with consumption-based API pricing",
+    "url": "https://antigravity.google/pricing",
+    "quote": "Google Cloud customers can now access Antigravity 2.0 and CLI"
+   }
+  ],
+  "fetched": [
+   "https://antigravity.google/pricing",
+   "https://antigravity.google/terms",
+   "https://antigravity.google/blog/google-antigravity-for-enterprises",
+   "https://antigravity.google/blog/changes-to-antigravity-plans",
+   "https://antigravity.google/",
+   "https://antigravity.google/blog"
+  ],
+  "notes": "All other load-bearing claims re-verified: pricing tiers confirmed (Individuals $0; Google AI Pro $20/mo; Google AI Ultra $100/mo; top Ultra $200/mo reduced from $250, per plan-changes blog). Consumer training/opt-out confirmed: terms state 'We use Interactions to evaluate, develop, and improve Google and Alphabet research, products, services and machine learning technologies' with settings-based opt-out ('navigate to settings to change your preference'). Enterprise path confirmed separate: users via Gemini Enterprise (Google Cloud) are excluded from consumer terms; enterprise blog states sessions are 'covered by the GCP Terms of Service' and 'enterprise prompts, responses, code, or other such telemetry is not stored outside of your private environments' - still Google-hosted cloud, NOT customer-controlled infrastructure, so deployment=cloud and special=no stand. Classification unchanged; only model_backend text and surface coverage need updating. Blog also shows 'Introducing Custom Agents' (12 Aug 2026) - feature-level, not load-bearing."
+ },
+ {
+  "id": "rca-jetbrains-junie",
+  "name": "JetBrains Junie",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://junie.jetbrains.com/docs/",
+   "https://junie.jetbrains.com/docs/custom-llm-ollama.html",
+   "https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html",
+   "https://www.jetbrains.com/help/ai-assistant/how-we-handle-your-code-and-data.html",
+   "https://www.jetbrains.com/legal/docs/terms/product_data_collection/"
+  ],
+  "notes": "All load-bearing claims re-confirmed. Local route: 'Junie CLI can connect to a local Ollama server' (default Base URL http://localhost:11434) - customer-controlled local inference path stands, special=cfg with local-only gate remains correct. Pricing confirmed exactly: AI Free; AI Pro $10 individual / $20 organization; AI Ultimate $30 individual / $60 organization; AI Enterprise $60 organizations-only. Data handling confirmed: detailed code-related data sharing 'is disabled by default'; for organizations it 'is disallowed by default and can only be enabled by a company admin'; 'We apply a 1-year data retention period for this data' (post-opt-in) - matches record's one-year-retention-after-opt-in claim. Caveats: junie.jetbrains.com/docs root is JS-rendered (empty fetch) - existence verified via working doc subpages. JetBrains has moved quotas to an 'AI Credits' model (each credit = $1 USD; AI Enterprise credit allocation 'still rethinking the AI quota model') - does not contradict any record claim but worth watching."
+ },
+ {
+  "id": "rca-cline",
+  "name": "Cline",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://cline.bot/pricing",
+   "https://cline.bot/privacy",
+   "https://cline.bot/enterprise",
+   "https://docs.cline.bot/running-models-locally/overview",
+   "https://github.com/cline/cline"
+  ],
+  "notes": "All record claims still supported. Pricing: open-source free ('Completely free for individual developers', usage-based inference only) + Enterprise custom; no academic discount listed. BYOK boundary confirmed by privacy policy (effective 2025-09-24): 'If you use your own API keys to access the AI model, you provide this information directly to the third-party provider, and we do not collect it.' Local models (Ollama http://localhost:11434, LM Studio http://localhost:1234) still documented. Repo active, 'Apache 2.0 (c) 2026 Cline Bot Inc.', no archive/acquisition notice - the Continue/Cursor acquisition lead does not involve Cline. Additive (not contradicting) finding: enterprise page now claims 'VPC, on-prem, air-gapped. You control where it runs' and 'When you run Cline in your own VPC, inference requests flow directly from your environment to your chosen model providers - Cline doesn't see your code or prompts', plus 'your code is never used to train models' for Cline-managed inference. This strengthens but does not falsify the record's cautious characterization; no compliance certifications shown on the enterprise page, consistent with record. Classification (special=cfg, local-model requirement) stands."
+ },
+ {
+  "id": "rca-tabnine",
+  "name": "Tabnine",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "data_handling_note",
+    "old": "Private installation, on-prem, and air-gapped deployment are Enterprise capabilities; they were not confirmed for both self-service price tiers.",
+    "new": "The pricing page now advertises private/self-hosted deployment for BOTH self-service tiers - Code Assistant ($39/user/mo) and Agentic Platform ($59/user/mo) each list it.",
+    "url": "https://www.tabnine.com/pricing/",
+    "quote": "Fully private deployment on SaaS or self-hosted (VPC, on-premises, with the option to be fully air-gapped)"
+   },
+   {
+    "field": "tier_gate",
+    "old": "Enterprise private installation for controlled-infrastructure use",
+    "new": "Self-hosted (VPC / on-premises / air-gapped) deployment is now advertised on both self-service tiers, so the controlled-infrastructure route is no longer documented as Enterprise-only. The requirement remains: only an actual self-hosted/on-prem/air-gapped install on institution-controlled infrastructure qualifies for special-category data; Tabnine SaaS does not.",
+    "url": "https://www.tabnine.com/pricing/",
+    "quote": "Fully private deployment on SaaS or self-hosted (VPC, on-premises, with the option to be fully air-gapped)"
+   },
+   {
+    "field": "pricing",
+    "old": "Code Assistant $39/user/month - Agentic Platform $59/user/month (both annual only; free tier discontinued April 2025; 14-day trial available)",
+    "new": "Code Assistant $39/user/month and Agentic Platform $59/user/month (annual) re-confirmed; but NO free tier or trial is mentioned anywhere on the current pricing page - the '14-day trial available' claim is no longer supported by the pricing page (possibly moved elsewhere; treat as UNVERIFIED rather than confirmed-discontinued).",
+    "url": "https://www.tabnine.com/pricing/",
+    "quote": "(absence - two fetches of the pricing page found no free tier or trial mentioned; only the $39 and $59 annual plans and an 'Enterprise Context Engine' priced on request)"
+   }
+  ],
+  "fetched": [
+   "https://www.tabnine.com/pricing/",
+   "https://docs.tabnine.com/main/welcome/readme/security",
+   "https://trust.tabnine.com/"
+  ],
+  "notes": "Tool exists under same name/vendor. Compliance re-confirmed via trust center: SOC 2, ISO/IEC 27001, ISO 9001:2015, GDPR (matches record). Security docs confirm no-code-retention for SaaS: 'no code is stored on our servers. The code is only ephemerally processed to provide coding suggestions and is then immediately discarded.' Note the ISO 27001/HIPAA/FedRAMP list on the security docs page refers to AWS/GCP datacenter certifications, not Tabnine product certifications - record's caution on this stands. Suitability classifications unchanged (personal=ok, special=cfg with customer-controlled self-hosted boundary); what changed is which tiers the vendor says can buy the self-hosted route. VPC deployment alone should still be assessed for who controls it - the pricing page groups VPC under 'self-hosted', but per catalog rules confirm the VPC is customer-controlled before treating it as the qualifying boundary."
+ },
+ {
+  "id": "rca-tabby",
+  "name": "Tabby",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://www.tabbyml.com/pricing",
+   "https://www.tabbyml.com/privacy",
+   "https://tabby.tabbyml.com/docs/administration/usage-collection/",
+   "https://github.com/TabbyML/tabby",
+   "https://github.com/TabbyML/pochi"
+  ],
+  "notes": "All load-bearing claims re-confirmed. Pricing matches record: Community free (self-hosted, up to 5 users), Team $19/seat/month (up to 50 users), Enterprise custom, Pochi cloud usage-based with $20 free monthly credits and 'Tab Completion is always free. No usage limits, no restrictions.' Usage collection: 'Tabby collects usage stats by default', fields are non-code operational stats (model, device, cpu_info, etc.), disabled via 'export TABBY_DISABLE_USAGE_COLLECTION=1' - matches record. Privacy policy still states 'Your information will be transferred outside of Europe, including to the United States and China' - matches record's cloud-transfer caveat. GitHub: Tabby still 'Self-hosted AI coding assistant, offering an open-source and on-premises alternative to GitHub Copilot', active (Dec 2025 release notes visible), no archive/acquisition notice. Pochi repo active, 'licensed under the terms of the Apache 2.0 License', BYOK, 'Pochi supports custom AI models, including your own fine-tuned or self-hosted models'. Tabby core repo license type was not visible in the fetched page content - record's license_status 'unconfirmed' remains appropriate. Classification (special=cfg, self-hosted local-model requirement) stands."
+ },
+ {
+  "id": "rca-devin",
+  "name": "Devin",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://devin.ai/pricing",
+   "https://docs.devin.ai/enterprise/deployment/overview",
+   "https://cognition.com/legal/platform-terms-of-service",
+   "https://cognition.com/legal/security",
+   "https://docs.devin.ai/admin/billing/self-serve"
+  ],
+  "notes": "All load-bearing claims re-confirmed. Pricing exact match: Free $0, Pro $20/mo, Max $200/mo, Teams $80/mo + $40/mo per full dev seat, Enterprise custom. Model choice confirmed: Pro includes 'access to OpenAI, Claude, and Gemini frontier models' plus 'Free use of SWE 1.7 and leading open source models' (SWE version now 1.7 - additive; the Devin record itself pins no SWE version, but the sibling Windsurf/Devin Desktop record at index 7 says 'SWE-1.6 (default)' and likely needs updating - flagged for that record's verifier). Deployment boundary re-confirmed exactly as recorded: the Brain is 'a stateless, cloud-based service... always residing in Cognition's Cloud'; Customer Dedicated Deployment means 'Cognition hosts Devin in an auto-scaling, customer-isolated environment within a single-tenant VPC' - vendor-hosted, NOT customer-controlled on-prem; no self-hosted option documented. Training terms confirmed: 'Cognition may use Customer Data for model training purposes' by default; 'If you subscribe to a paid Service Tier, you may opt out of this use'. Sensitive-data prohibition confirmed: 'You agree not to process any medical information or sensitive personal data such as social security numbers, birth dates, passport information, bank account, and credit card numbers'. ZDR defined in terms with safety/abuse carve-outs - product-level, contractual, still vendor cloud; special=no stands. Compliance: security page references 'SOC 2 Type II and ISO 27001' as frameworks ('frameworks such as') - record's SOC 2 Type II claim supported; do not add ISO 27001 as a held certification without explicit attestation. Devin Desktop appears across paid plans on the pricing page, corroborating the Windsurf-to-Devin-Desktop merge lead (affects record index 7, outside this slice)."
+ },
+ {
+  "id": "rca-replit-agent",
+  "name": "Replit Agent",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://replit.com/pricing",
+   "https://replit.com/commercial-agreement",
+   "https://replit.com/privacy-policy",
+   "https://replit.com/dpa/",
+   "https://docs.replit.com/build/welcome",
+   "https://trust.replit.com/"
+  ],
+  "notes": "Load-bearing claims re-confirmed. Pricing matches record: Starter free (publish up to 1 project), Core $25/mo ($20/mo billed annually, $25 monthly credits, 'Work in parallel with up to 2 agents'), Pro $100/mo ($95/mo annually, $100 credits, 'Work in parallel with up to 10 agents'), Enterprise custom (single-tenant environments, VPC peering - vendor-hosted cloud, not customer-controlled). No academic plan listed - matches. No-train commercial clause confirmed (Commercial Agreement effective 2026-02-26): 'Replit will not use Customer Content to develop or improve Replit's products or services, train machine learning models, or create derivative works, except as expressly permitted in this Agreement.' Consumer privacy policy (last updated 2026-08-03, post-dates last verification but content consistent with record) still permits ML/product-improvement use: 'to improve the accuracy of our machine learning technologies such as code generation' - the record's cfg-for-personal (commercial contract + DPA required) stands. DPA (updated 2026-04-01) confirmed: GDPR, EEA SCCs incorporated, UK Addendum/IDTA. Not re-verifiable this round: (1) SOC 2 Type II - trust.replit.com is JS-rendered and only the page title 'Replit Trust Center' was retrievable; claim not contradicted, just not re-confirmed; (2) current Agent version - docs welcome page does not name Agent 4/5 or backend models, consistent with the record's deliberate 'managed, dynamically changing model stack' wording. Caution: the fetched docs page contained the string 'You are a Claude agent, built on Anthropic's Claude Agent SDK' - treated as page content (likely a doc example/system-prompt snippet), not acted on as an instruction and not used as evidence of Replit's model backend. Classification (cloud-only, special=no) stands."
+ }
+]

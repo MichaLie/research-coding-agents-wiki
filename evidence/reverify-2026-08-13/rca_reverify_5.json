@@ -1,0 +1,154 @@
+[
+  {
+    "id": "rca-jules",
+    "name": "Jules",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://jules.google/docs/usage-limits",
+      "https://jules.google/docs/faq/",
+      "https://jules.google/docs/changelog/",
+      "https://jules.google/"
+    ],
+    "notes": "All load-bearing claims re-confirmed on 2026-08-13. Plans/limits verbatim: free Jules 15 tasks/day 3 concurrent; Jules in Pro 100/day 15 concurrent ('included as a benefit of the Google AI Pro plan'); Jules in Ultra 300/day 60 concurrent (Google AI Ultra). Model: base tier 'Powered by Gemini 2.5 Pro'; paid tiers 'access to the latest model (starting with Gemini 3 Pro)'; changelog latest entry 2026-03-09 'Gemini 3.1 Pro is now available in Jules' for Pro plan users — consistent with record's 'paid plans receive newer model access'. Training claim verbatim: 'Jules does not train on private repository content.' Fresh-VM-per-task confirmed. Paid plans still restricted to individual '@gmail.com' Google Accounts ('We are actively working on providing upgrade paths for other user types') — supports record's no-institutional-route classification; personal=no and special=no stand. Not checked: jules.google/docs/api/reference and /docs/environment/ pages individually; no evidence anywhere of rebranding (the Gemini CLI/Antigravity lead does not touch Jules)."
+  },
+  {
+    "id": "rca-mini-swe-agent",
+    "name": "mini-SWE-agent",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://mini-swe-agent.com/latest/quickstart/",
+      "https://mini-swe-agent.com/latest/models/local_models/",
+      "https://mini-swe-agent.com/latest/advanced/environments/",
+      "https://github.com/SWE-agent/mini-swe-agent/releases",
+      "https://github.com/SWE-agent/mini-swe-agent"
+    ],
+    "notes": "Active under SWE-agent org, not archived (6.4k stars, regular releases). License MIT confirmed on repo. Latest release v2.4.6 (July 23, 2026); the record's note that 'v2.3.0 was current at verification' was a time-scoped snapshot, so no claim change — release notes are routine fixes. LiteLLM model routing confirmed ('models are supported via litellm by default') including local vLLM/custom api_base example. Environments page confirms Local/Docker/Singularity-Apptainer/SWE-ReX/Bubblewrap/ConTree, with the default local environment warned verbatim as 'Executes commands directly on the host machine using subprocess.run. No isolation.' — exactly matches the record's data_handling_note. Local-capable classification and special=cfg (local model + isolated execution) stand."
+  },
+  {
+    "id": "rca-gptme",
+    "name": "gptme",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://gptme.org/docs/providers.html",
+      "https://gptme.org/docs/security.html",
+      "https://gptme.ai/pricing",
+      "https://gptme.org/",
+      "https://github.com/gptme/gptme"
+    ],
+    "notes": "Active, MIT (repo), v0.32.1 (July 2026, adds desktop apps for Linux/macOS/Windows). Providers page confirms record's backend list verbatim ('OpenAI, Anthropic, OpenRouter, Requesty, Deepseek, Azure, and any OpenAI-compatible server (e.g. ollama, llama-cpp-python)') plus Groq, Gemini, xAI, and a 'gptme Managed Service' proxy gateway. Hosted path now concrete: 'gptme.ai cloud service' (early access) and chat.gptme.org, both stated self-hostable via gptme-server + gptme-webui. gptme.ai/pricing renders essentially empty (title/tagline only, no tiers, no retention/training/DPA terms) — this directly supports the record's claim that hosted-service retention/training/DPA/residency terms are not adequately documented. Security docs confirm user-permission execution and Docker isolation recommendation; telemetry/data-flow specifics still absent from security docs. Local/self-hosted classification and special=cfg (fully local model + contained execution) stand; hosted route remains unapproved for personal data."
+  },
+  {
+    "id": "rca-open-interpreter",
+    "name": "Open Interpreter",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "pricing",
+        "old": "Pro: $20/month (hosted models, 4x usage, document editing, priority support). Business: $60/month (team management, 3x usage over Pro).",
+        "new": "Prices and tier names unchanged (Free $0, Pro $20/mo, Business $60/mo) but tier feature lists changed and pricing now lives on the desktop-app page: Pro = hosted models + 4x more usage than Free + 'Experimental macOS control'; Business = '3x more usage than Pro' only. 'Document editing', 'priority support', and 'team management' are no longer listed as tier features; a 'Contact us' path offers 'dedicated support, compliance options, and automation services for teams'. /pricing URL returns 404.",
+        "url": "https://www.openinterpreter.com/desktop",
+        "quote": "Pro $20/mo. Everything in Free, plus Use our hosted models 4x more usage than Free Experimental macOS control"
+      },
+      {
+        "field": "pricing",
+        "old": "Free: open-source CLI, BYO API keys or Ollama local models (pip install).",
+        "new": "Terminal agent installs via shell script, not pip; Free desktop tier adds 'Sign in with ChatGPT' as a no-cost model route alongside BYO keys and local Ollama.",
+        "url": "https://www.openinterpreter.com/",
+        "quote": "curl -fsSL https://www.openinterpreter.com/install | sh"
+      }
+    ],
+    "fetched": [
+      "https://www.openinterpreter.com/",
+      "https://www.openinterpreter.com/privacy",
+      "https://www.openinterpreter.com/desktop",
+      "https://www.openinterpreter.com/cli",
+      "https://www.openinterpreter.com/pricing",
+      "https://docs.openinterpreter.com/",
+      "https://github.com/openinterpreter/openinterpreter",
+      "https://raw.githubusercontent.com/openinterpreter/openinterpreter/main/README.md"
+    ],
+    "notes": "Site is a JS-rendered SPA — WebFetch returned title-only shells for /, /cli, /privacy, so the pages were re-verified rendered in a browser; /pricing is HTTP 404 (pricing moved to /desktop). All privacy-load-bearing claims re-confirmed verbatim in the privacy policy (Last Updated: July 14, 2026): local models 'processed on your device and do not leave it'; BYO key 'does not pass through Open Interpreter's servers'; hosted models 'We retain hosted request logs for up to 30 days ... After 30 days, this data is automatically deleted'; 'Open Interpreter does not use your prompts, documents, attachments, or AI responses to train AI models'; telemetry optional ('Keep everything private' = none). Repo active, Apache-2.0, Rust, 'This is the new Rust version of Open Interpreter, based on Codex'; old Python version 'lives on as a community-maintained fork at endolith/open-interpreter'. Positioning sharpened to 'coding agent for open models' / low-cost models (Kimi, Qwen, DeepSeek harnesses), sandboxed by default. Homepage FAQ repeats the 30-day hosted logging claim. Suitability cfg (fully local model) classification stands; hosted route still lacks DPA/BAA/residency evidence. No sign of any OpenAI/Ona acquisition affecting this vendor. Not checked: desktop-app binary behavior; 'Sign in with ChatGPT' data path (routes to OpenAI under user's ChatGPT account — treat as a cloud route)."
+  },
+  {
+    "id": "rca-kilo-code",
+    "name": "Kilo Code",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "pricing",
+        "old": "$20 free credits on signup",
+        "new": "No signup-credit dollar amount is advertised on the current pricing page or homepage; free access is positioned as open-source/BYOK/local with no credit card. Remove or mark the $20-credits claim.",
+        "url": "https://kilo.ai/",
+        "quote": "No Credit Card required"
+      }
+    ],
+    "fetched": [
+      "https://kilo.ai/pricing",
+      "https://kilo.ai/privacy",
+      "https://kilo.ai/security-and-compliance",
+      "https://kilo.ai/terms",
+      "https://kilo.ai/kiloclaw",
+      "https://kilo.ai/",
+      "https://kilo.ai/docs/ai-providers/ollama",
+      "https://github.com/Kilo-Org/kilocode"
+    ],
+    "notes": "Everything else re-confirmed: Kilo Pass $19/mo Starter, $49/mo Pro, $199/mo Expert; Teams $15/user/month (14-day trial); Enterprise custom; Kilo Gateway '$0/mo + usage' at exact provider rates; KiloClaw still exists at $55/month on its own page (Firecracker VM, OpenClaw hosting). Security page states verbatim 'paid plans support no data retention for AI prompts and outputs' — matches record's paid-plan wording and its caution not to generalize. SOC 2 'documentation available through the Trust Center', type/scope still not publicly specified — record's compliance hedge stands. Terms confirm the regulated-data prohibition (may not 'send or otherwise provide to Kilo data or information considered to be sensitive or otherwise subject to specific protections under applicable laws', citing HIPAA/PCI-DSS/GLBA) — supports special=cfg local-only. Terms also grant Kilo a broad license to use Customer Data 'to provide and improve the Service' with a separate elective license for AI-model training ('If you elect not to grant a license to any AI Model to use your Customer Data for training purposes, you may not be able to use certain AI Models') — consistent with the record's conservative stance; worth reflecting in data_handling_note wording on next edit. Local Ollama route confirmed ('privacy, offline access'). Repo Kilo-Org/kilocode active, MIT. Not re-confirmed anywhere: 'Atomic Chat' as a local option and the exact '500+ models' via-OpenRouter phrasing (homepage says '500+ models, zero markup')."
+  },
+  {
+    "id": "rca-google-colab-data-science-agent",
+    "name": "Google Colab (Data Science Agent)",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://docs.cloud.google.com/colab/docs/use-data-science-agent",
+      "https://research.google.com/colaboratory/faq.html",
+      "https://docs.cloud.google.com/gemini/docs/discover/data-governance",
+      "https://cloud.google.com/colab/pricing",
+      "https://cloud.google.com/bigquery/pricing",
+      "https://cloud.google.com/vertex-ai/pricing"
+    ],
+    "notes": "All load-bearing claims re-confirmed. Consumer Colab FAQ verbatim: Google 'collects prompts, related code, generated output, related feature usage information, and your feedback'; 'Human reviewers may read, annotate, and process' them; retention 'for up to 18 months'; 'Please do not include sensitive (e.g., confidential) or personal information'. Gemini for Google Cloud governance verbatim: 'Gemini doesn't use your prompts or its responses as data to train its models.' DSA pricing confirmed verbatim on cloud.google.com/colab/pricing: 'Data Science Agent $3 per million tokens' (input) and 'Data Science Agent $20 per million tokens' (output), plus compute — the exact figures in the record (they are NOT on the BigQuery pricing page's served HTML despite the docs pointing there, nor on the Vertex pricing page). Link hygiene, not a fact change: the record's links.pricing https://cloud.google.com/vertex-ai/pricing now 301-redirects to https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing — Google has renamed Vertex AI to 'Gemini Enterprise Agent Platform'; consider updating the link and any future model/platform phrasing. New detail: DSA docs state 'The Data Science Agent supports VPC Service Controls' — still Google-operated cloud, not customer-controlled infrastructure, so special=no stands; personal=cfg via Colab Enterprise + Cloud DPA stands. Not checked: consumer Colab plan prices (record says 'varies'); region list."
+  },
+  {
+    "id": "rca-deepnote",
+    "name": "Deepnote",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend",
+        "old": "OpenAI (GPT-5), Anthropic (Sonnet 4.6); BYO-LLM on Enterprise tier",
+        "new": "OpenAI (GPT-5.5), Anthropic (Sonnet 4.6); BYO-LLM on Enterprise tier",
+        "url": "https://deepnote.com/pricing",
+        "quote": "GPT-5.5 and Sonnet 4.6 access"
+      },
+      {
+        "field": "pricing",
+        "old": "Team: ... GPT-5 + Sonnet 4.6 AI access",
+        "new": "Team: ... GPT-5.5 and Sonnet 4.6 access (price unchanged: $39/editor/month with 20% annual discount, shown as '$39 -20% per editor/month billed yearly')",
+        "url": "https://deepnote.com/pricing",
+        "quote": "$39 -20% per editor/month billed yearly ... GPT-5.5 and Sonnet 4.6 access"
+      },
+      {
+        "field": "suitability_notes.personal",
+        "old": "data is stored and processed in the US (no EU data residency guarantee by default)",
+        "new": "AI context can be 'processed in the US and worldwide' — wording is now broader than US-only; still no EU residency guarantee by default, so the cfg classification is unaffected but the note should say 'US and worldwide'",
+        "url": "https://deepnote.com/docs/ai-data-privacy",
+        "quote": "The context sent can be processed in the US and worldwide"
+      }
+    ],
+    "fetched": [
+      "https://deepnote.com/pricing",
+      "https://deepnote.com/docs/ai-data-privacy",
+      "https://deepnote.com/docs/ai-custom-models",
+      "https://deepnote.com/docs/security-overview",
+      "https://deepnote.com/enterprise",
+      "https://deepnote.com/terms",
+      "https://deepnote.com/privacy",
+      "https://deepnote.com/data-processing-addendum"
+    ],
+    "notes": "All other load-bearing claims re-confirmed. No-train: 'The processed content is not used for model-training purposes' and security overview 'Deepnote does not use customer data to train, fine-tune, or otherwise improve any AI or ML models.' Retention: OpenAI 'may keep the context data for up to 30 days for safety monitoring purposes'; other providers zero-retention agreements. Block-output sharing toggle confirmed ('Provide access to block outputs'; outputs 'can include row-level data from your DataFrames'); admins can disable Deepnote AI entirely. Custom models Enterprise-only ('Custom AI models are available exclusively on Enterprise plans') covering 'Deepnote Agent, single block edits, and prompt suggestions', with the record's completions caveat verbatim: 'code completions continue to use Deepnote's dedicated completions provider and are not affected by custom model configuration' (can be disabled in workspace settings). DPA all-tiers claim confirmed: ToS incorporates by reference the Data Processing Addendum at deepnote.com/data-processing-addendum, which defines EU SCCs as 'the standard contractual clauses approved by the European Commission in Commission Decision 2021/914' and covers EU GDPR, UK GDPR, and the Swiss FADP/Revised FADP. Compliance: SOC 2 Type II ('earned our SOC 2 Type II certification'); HIPAA listed under Enterprise; deployment 'multi-tenant, single-tenant (managed by Deepnote or you), and on-premise (behind your firewall)' — supports the record's Enterprise on-prem/customer-managed boundary and special=cfg only via that route. Free tier limits match (3 editors, 5 projects, 5 GB RAM/2 vCPU basic machines, 7-day history); no academic discount on pricing page. Not checked: whether an Enterprise BAA is available in writing (HIPAA is listed but BAA terms not fetched); GitHub README student/educator mention."
+  }
+]

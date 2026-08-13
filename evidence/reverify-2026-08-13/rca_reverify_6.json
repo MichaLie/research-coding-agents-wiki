@@ -1,0 +1,185 @@
+[
+  {
+    "id": "rca-databricks-genie-code",
+    "name": "Databricks Genie Code",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://docs.databricks.com/aws/en/genie-code/",
+      "https://www.databricks.com/product/pricing/genie",
+      "https://docs.databricks.com/aws/en/databricks-ai/databricks-ai-trust"
+    ],
+    "notes": "All load-bearing claims re-confirmed on 2026-08-13. Product exists under this name ('the AI coding and data assistant for developers and technical practitioners in the Databricks workspace'). Billing since 2026-07-08 confirmed: 'Starting July 8, 2026 at 00:00 UTC, Genie Code is billed following a pay-as-you-go pricing model that includes a per-user free monthly allowance' (the per-user free monthly allowance is a confirming detail, not a contradiction). Pricing example confirmed: '150 DBUs = $10.50 in US East; the dollar equivalent varies by region' and 'Free usage applies to Genie LLM usage only; Genie compute (e.g., SQL Serverless) is billed separately.' Model backend confirmed: 'partner-powered AI features use models hosted by Azure OpenAI service, OpenAI on Databricks, or Anthropic on Databricks'; fallback confirmed: 'When partner-powered AI features are disabled, AI assistive features use Databricks-hosted models' using 'open-source models that are available for commercial use, such as OpenAI GPT OSS.' Product-level retention confirmed: 'Genie Agent responses and approved AI-generated comments are stored in the Databricks control plane database' (supports the record's point that partner ZDR is not end-to-end deletion). No-train confirmed: 'Databricks does not use data, prompts, or responses submitted to or output from these features to train generative foundation models.' Regulated data requires enabling the compliance security profile (PHI/PCI/IRAP/FedRAMP). Suitability personal=cfg / special=no remains correct under the canonical rule (pure vendor cloud). NOT checked: the HIPAA-specific docs page and exact DBU emission rates per region."
+  },
+  {
+    "id": "rca-posit-ai-posit-assistant",
+    "name": "Posit AI / Posit Assistant",
+    "verdict": "unchanged",
+    "changes": [],
+    "fetched": [
+      "https://docs.posit.co/posit-ai/user/faq/",
+      "https://posit.co/products/ai",
+      "https://posit.co/about/privacy-policy/"
+    ],
+    "notes": "All load-bearing claims re-confirmed on 2026-08-13. Naming confirmed: 'Posit Assistant' is the agent in RStudio/Positron, 'Posit AI' the model subscription. Backend confirmed: 'Posit Assistant supports large language models from Anthropic (Claude) and Google (Gemma 4, an open-weights model hosted by Posit).' ZDR confirmed but Anthropic-route-specific: 'We have a Zero Data Retention (ZDR) agreement in place with Anthropic.' Trace policy confirmed: opt-out retains 'basic operational data (not including your prompts or AI responses) for 30 days'; opt-in 'Posit may use your trace data for up to 5 years to train models and improve the service.' Pricing confirmed: 'The Pro plan costs $20/month and includes a monthly allotment of $15 worth of credits'; free trial provides '$5 in credits' (record did not state trial amount; not a contradiction). Academic: still none - 'we don't have an education discount at this time, we are actively exploring'. Transition statements still present on FAQ: 'Databot is deprecated in favor of Posit Assistant' and the Positron Assistant supersession in Q3 2026 is still described as planned (Q3 2026 is underway; watch this in the next cycle). DPF certification confirmed in privacy policy: 'We comply with the EU-U.S. Data Privacy Framework...' Suitability personal=cfg / special=no remains correct (no local model path; product-level trace/ops retention exists despite Anthropic ZDR)."
+  },
+  {
+    "id": "rca-marimo",
+    "name": "marimo",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "links.privacy / privacy policy ownership",
+        "old": "https://marimo.io/pages/legal/privacy served marimo's own privacy policy (record note said not to claim the privacy page redirects elsewhere)",
+        "new": "https://marimo.io/pages/legal/privacy now returns a 308 Permanent Redirect to CoreWeave's privacy policy at https://docs.coreweave.com/policies/terms-of-service/privacy-policy (policy of 'CoreWeave, Inc.', last updated 2026-02-24; marimo/molab are not mentioned in it by name). The marimo subprocessors page states marimo operates under CoreWeave infrastructure and is covered by CoreWeave's privacy policies.",
+        "url": "https://marimo.io/pages/legal/privacy",
+        "quote": "308 Permanent Redirect -> https://docs.coreweave.com/policies/terms-of-service/privacy-policy (HTTP-level observation; target page: CoreWeave, Inc., 'We do not sell personal data.')"
+      },
+      {
+        "field": "pricing / molab beta status",
+        "old": "molab cloud is free during beta; marimo cloud was listed as 'closed beta'",
+        "new": "molab is described simply as free; the word 'beta' does not appear anywhere on the current molab guide page",
+        "url": "https://docs.marimo.io/guides/molab/",
+        "quote": "molab is a free cloud-hosted marimo notebook environment"
+      }
+    ],
+    "fetched": [
+      "https://docs.marimo.io/guides/editor_features/ai_completion/",
+      "https://docs.marimo.io/guides/molab/",
+      "https://molab.marimo.io/pages/legal/terms",
+      "https://molab.marimo.io/notebooks",
+      "https://marimo.io/pages/legal/privacy",
+      "https://docs.coreweave.com/policies/terms-of-service/privacy-policy",
+      "https://marimo.io/pages/legal/subprocessors",
+      "https://api.github.com/repos/marimo-team/marimo"
+    ],
+    "notes": "Core classification claims re-confirmed: AI completion is local/BYOK ('You can configure the following providers: OpenAI, Anthropic, AWS Bedrock, Google AI, GitHub, Ollama, and any OpenAI-compatible provider'), molab offers 'free access to fast open-source models'. molab terms still prohibit special-category data: '...protected health information regulated by the Health Insurance Portability and Accountability Act' and 'special categories of data enumerated in European Union Regulation 2016/679, Article 9(1).' Apache-2.0 license confirmed via GitHub API (repo active, pushed 2026-08-12). Subprocessors page names CoreWeave ('Notebook execution, kernel runtime, and application hosting for molab'), Cloudflare, Vercel, Clerk, Weights & Biases ('AI-assisted code completion and notebook generation'), GitHub, Sentry, PostHog, Loops, Notion. Suitability (special=cfg via local/self-hosted-only route) remains valid: the local install path is unaffected; molab cloud remains prohibited for special-category data by its own terms. Vendor field may need updating pending a first-party ownership statement: the privacy redirect and subprocessor page indicate a CoreWeave relationship, but no fetched first-party page explicitly states an acquisition, so I do not assert one. molab compute specs re-confirmed (4 CPUs/32 GB RAM, RTX Pro 6000 GPU option, 12-hour sessions)."
+  },
+  {
+    "id": "rca-runcell",
+    "name": "Runcell",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "pricing (plan lineup)",
+        "old": "Hobby: 20 credits; Pro $20/500 credits; Pro+ $60/2,000; Ultra $200/10,000; Teams from $40/seat",
+        "new": "Plan lineup is now Free, Pro, Ultra, and Team ('Hobby' and 'Pro+' no longer appear anywhere in the pricing page source). Exact current prices and credit amounts could NOT be extracted: the pricing table renders client-side via JavaScript and the static HTML contains no dollar amounts for plans.",
+        "url": "https://www.runcell.dev/pricing",
+        "quote": "Compare Runcell's Free, Pro, Ultra, and Team plans for AI-powered Jupyter assistance, flexible billing, and collaboration features."
+      },
+      {
+        "field": "data_handling_note (tier naming for Privacy Mode / free-tier training)",
+        "old": "Paid plans enable Privacy Mode and state no training; Free/Hobby lacks Privacy Mode",
+        "new": "Privacy policy now frames Privacy Mode as enabled by default on Pro and Team paid plans ('we do not use your prompts, context, or model outputs to train or fine-tune models'), while the free plan explicitly permits training. Whether Ultra is covered by the Privacy Mode language was not explicit in the policy text retrieved; conservatively confirm per-tier before relying on it.",
+        "url": "https://www.runcell.dev/privacy",
+        "quote": "we may use your inputs/outputs to improve RunCell, including model training or fine-tuning."
+      }
+    ],
+    "fetched": [
+      "https://www.runcell.dev/pricing",
+      "https://www.runcell.dev/privacy",
+      "https://www.runcell.dev/docs/credits-consumption-by-feature",
+      "https://www.runcell.dev/sitemap.xml"
+    ],
+    "notes": "Tool still exists under this name (pricing page title: 'Pricing | Plans for AI-Powered Jupyter Assistance'; sitemap last updated 2026-08-11). Privacy policy confirms multi-provider cloud backend ('the LLM provider you select (e.g., OpenAI, Anthropic, Google, or others available in-product)'), conversation retention only when cloud sync is enabled, and 'Enterprise deployments may be governed by separate terms' with no public DPA - so personal=no / special=no classifications remain correct (cloud service, no verified DPA, no controlled-infrastructure route). Credits docs confirm token-based and fixed-cost credit consumption but list no plan prices. LIMITATION: exact new per-plan prices and credit allotments are unverifiable without JavaScript execution; the record's price figures should be treated as stale and replaced only with browser-verified values."
+  },
+  {
+    "id": "rca-jetbrains-datalore",
+    "name": "JetBrains Datalore",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend (On-Premises AI providers)",
+        "old": "On-Premises can use OpenAI, Azure OpenAI, or an OpenAI-compatible self-hosted model",
+        "new": "On-Premises AI assistance now lists OpenAI GPT-5.2, Anthropic Claude Opus 4.5, Anthropic Claude Sonnet 4.5, and Google Gemini 3.1 Pro, plus BYOK routes: OpenAI, Azure OpenAI, and providers with OpenAI-compatible APIs (e.g. via OpenRouter, incl. self-hosted). AI assistance is disabled by default and 'can only be enabled on instances with an active and paid Datalore On-Premises license.'",
+        "url": "https://www.jetbrains.com/help/datalore/configure-ai-assistance.html",
+        "quote": "In Datalore On-Premises, you can select whether AI assistance is enabled and what AI provider and model to use."
+      },
+      {
+        "field": "pricing (On-Premises)",
+        "old": "On-Premises pricing is custom and must be obtained from JetBrains",
+        "new": "The buy page's embedded shop payload now publicly lists fixed prices: 'Datalore On-Premises' (code DLE) commercial 46,800.00 Kc/year (CZ geo-localized; approx. USD 2,000/yr), 'Datalore Professional' (DLP) personal 479.00 Kc/month, and a third product DLT (9,100.00 Kc/year personal or commercial). Unit basis (per user/seat) is not labeled in the raw payload.",
+        "url": "https://www.jetbrains.com/datalore/buy/",
+        "quote": "\"name\": \"Datalore On-Premises\" ... \"prices\": {\"commercial\": {\"yearly\": [\"46,800.00 Kc\"]}} (from page's embedded shop JSON; prices geo-localized to CZK)"
+      }
+    ],
+    "fetched": [
+      "https://www.jetbrains.com/datalore/buy/",
+      "https://www.jetbrains.com/datalore/",
+      "https://www.jetbrains.com/help/datalore/configure-ai-assistance.html",
+      "https://www.jetbrains.com/help/datalore/datalore-on-premises.html",
+      "https://www.jetbrains.com/help/datalore/frequently-asked-questions.html",
+      "https://www.jetbrains.com/help/ai-assistant/how-we-handle-your-code-and-data.html"
+    ],
+    "notes": "Product active, no sunset/migration notices found (buy page title: 'Datalore Pricing: Choose Your Datalore plan'). On-Premises deployment docs confirmed live (Docker Compose and Kubernetes/Helm installation paths). JetBrains AI data-handling page confirms detailed code-related data collection is opt-in/'disabled by default'; note nuance: opted-in collected data 'can be used by JetBrains for product improvement and training AI models' though 'never shared with any external parties' - consistent with the record's consent framing but worth keeping precise. Suitability special=cfg remains valid ONLY via On-Premises + self-hosted/OpenAI-compatible local model (still documented via BYOK); note the on-prem defaults now include cloud providers (OpenAI/Anthropic/Google), so the special-category route must explicitly configure a self-hosted endpoint. NOT re-verified: existence of a perpetual Cloud Free tier (buy page is JS-rendered; only 'Try for free' registration visible in static HTML) and the exact DLT product name (payload shows prices but its name string was outside the extracted window; likely Datalore Team - UNVERIFIED). Prices shown were geo-localized to CZK by JetBrains' shop; USD figures were not directly observable."
+  },
+  {
+    "id": "rca-chatgpt-advanced-data-analysis",
+    "name": "ChatGPT Data Analysis",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "model_backend",
+        "old": "GPT-5.4 in current ChatGPT availability",
+        "new": "GPT-5.6 family: 'Unlimited text chats with GPT-5.6 Luna' (Free), 'Advanced reasoning models with GPT-5.6' (Plus), 'Pro reasoning with GPT-5.6 Sol Pro' (Pro); comparison table lists GPT-5.6 Sol / Sol Pro / Terra / Luna. (One FAQ answer on the same page still says 'access to GPT-5.5' - OpenAI's page is internally inconsistent.)",
+        "url": "https://openai.com/chatgpt/pricing/ (renders at chatgpt.com pricing page)",
+        "quote": "Pro reasoning with GPT-5.6 Sol Pro"
+      },
+      {
+        "field": "pricing / plan lineup",
+        "old": "Record and suitability notes reference plans including 'ChatGPT Team or Business tier'",
+        "new": "Current lineup: Free, Go, Plus, Pro, Business, Enterprise (plus ChatGPT Edu, ChatGPT for Teachers, ChatGPT for Healthcare). No 'Team' plan is offered; a new low-cost 'Go' tier exists and 'This plan may include ads.' Business plans 'available starting at 2 users.' Prices displayed geo-localized (CZK) on fetched page.",
+        "url": "https://openai.com/chatgpt/pricing/ (renders at chatgpt.com pricing page)",
+        "quote": "Paid plans (Go, Plus, Business, and Enterprise) are priced per user per month."
+      },
+      {
+        "field": "compliance / data_handling_note (new offering)",
+        "old": "No-train default documented for Business/Enterprise/Edu; BAA not part of record",
+        "new": "OpenAI now also offers 'ChatGPT for Healthcare' and 'ChatGPT for Teachers'; no-train default explicitly enumerated across all business surfaces, and a BAA is offered 'to ChatGPT for Healthcare and API healthcare customers.' Data residency at rest now in US, Europe, UK, Japan, Canada, South Korea, Singapore, Australia, India, UAE for eligible plans. This does NOT change the special-category classification: all routes are OpenAI cloud, not researcher/institution-controlled infrastructure, so special=no stands per catalog rules.",
+        "url": "https://openai.com/business-data/",
+        "quote": "By default, we do not use data from ChatGPT Enterprise, ChatGPT Business, ChatGPT Edu, ChatGPT for Healthcare, ChatGPT for Teachers, or our API platform—including inputs or outputs—for training or improving our models."
+      },
+      {
+        "field": "links.docs / feature article title",
+        "old": "Help article 'Advanced Data Analysis – ChatGPT' (current_name recorded as 'ChatGPT Data Analysis')",
+        "new": "Help article now titled 'Data analysis with ChatGPT' (same URL slug still works); pricing comparison table lists the feature as 'Data analysis' (Limited on Free). Feature intact: Python in 'a stateful Jupyter notebook environment', interactive charts for bar/line/pie/scatter, uploads from Google Drive, OneDrive, and SharePoint (SharePoint is new vs record's Drive/OneDrive list).",
+        "url": "https://help.openai.com/en/articles/8437071-advanced-data-analysis-chatgpt",
+        "quote": "ChatGPT writes and runs Python code in a stateful Jupyter notebook environment"
+      }
+    ],
+    "fetched": [
+      "https://openai.com/chatgpt/pricing/",
+      "https://openai.com/business-data/",
+      "https://help.openai.com/en/articles/8437071-advanced-data-analysis-chatgpt"
+    ],
+    "notes": "openai.com, chatgpt.com, and help.openai.com all return HTTP 403 to WebFetch/curl (bot protection); pages were retrieved via the sandboxed browser pane instead - quotes are from live page text on 2026-08-13. Consumer-tier training default re-confirmed: comparison table Privacy row says 'Content is used to train our models - Opt-out available' for Free/Go/Plus/Pro, supporting personal=no on consumer tiers and cfg only with Business/Enterprise/Edu + DPA + residency. Enterprise compliance rows re-confirmed: SOC 2 Type 2, ISO 27001/27017/27018/27701, Compliance API, IP allowlisting, EKM. Record's suitability classifications (personal=cfg, special=no) remain correct; suitability_notes text should be updated to drop the retired 'Team' tier reference. Exact consumer prices observed only in CZK (Go CZK 200, Plus CZK 499, Pro from CZK 2,490/month); USD figures not directly observable from this geo."
+  },
+  {
+    "id": "rca-ollama",
+    "name": "Ollama",
+    "verdict": "changed",
+    "changes": [
+      {
+        "field": "pricing (Team tier)",
+        "old": "Team: coming soon (SSO, MDM, centralised billing)",
+        "new": "Team tier is now live and priced at $25/seat/month with a 5-seat minimum, including shared billing/administration and priority support; SSO and model access controls are still 'coming soon'. A new Enterprise tier ('Custom terms and support for larger organizations', custom pricing) has been added.",
+        "url": "https://ollama.com/pricing",
+        "quote": "Bring open models to your whole team"
+      },
+      {
+        "field": "pricing (Max tier availability)",
+        "old": "Max: $100/month - 5x more than Pro, 10 concurrent cloud models, continuous agent tasks",
+        "new": "Max remains $100/month (5x more usage than Pro, 10 concurrent cloud models) but new signups are paused",
+        "url": "https://ollama.com/pricing",
+        "quote": "New Max subscriptions are temporarily paused while we add capacity"
+      }
+    ],
+    "fetched": [
+      "https://ollama.com/pricing",
+      "https://ollama.com/privacy",
+      "https://api.github.com/repos/ollama/ollama",
+      "https://api.github.com/repos/ollama/ollama/releases/latest"
+    ],
+    "notes": "All privacy/classification claims re-confirmed on 2026-08-13. Local: 'We do not collect, store, transmit, or have access to your prompts, responses, model interactions, or other content you process locally.' Cloud: 'we process this content transiently to provide the Service and this content is not stored beyond the time required to fulfill the request' and 'We do not use your inputs or outputs to train any AI models'. Still no SOC 2 / HIPAA / DPA mentions in the privacy policy - so personal=ok (local), special=cfg (local/on-prem/air-gapped only, cloud tiers excluded) remain correct. Free ($0, 1 concurrent cloud model) and Pro ($20/mo or $200/yr, 50x usage, 3 concurrent, private model sharing) unchanged. MIT license confirmed via GitHub API; repo active (pushed 2026-08-12); latest release v0.32.9 (2026-08-11) - the record's v0.31.2 version note is stale, per the record's own instruction not to preserve fixed versions."
+  }
+]

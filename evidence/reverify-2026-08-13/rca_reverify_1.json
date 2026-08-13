@@ -1,0 +1,188 @@
+[
+ {
+  "id": "rca-claude-code",
+  "name": "Claude Code",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "pricing",
+    "old": "Team Premium $150/seat/mo",
+    "new": "Team Premium seat $100/seat/month (annual) or $125/seat/month (monthly); Team Standard seat $20 (annual) / $25 (monthly)",
+    "url": "https://claude.com/pricing",
+    "quote": "Premium seat: \"$100\" per seat/month (annual) or \"$125\" (monthly)"
+   },
+   {
+    "field": "pricing",
+    "old": "Enterprise custom",
+    "new": "Enterprise: seat price + usage at API rates, starting at $20/seat; self-serve and sales-assisted options now shown",
+    "url": "https://claude.com/pricing",
+    "quote": "\"Seat price + usage at API rates\" starting at \"$20/seat\""
+   },
+   {
+    "field": "data_handling_note",
+    "old": "remote/web sessions and third-party integrations require separate scope review",
+    "new": "ZDR docs now state that Claude Code on the Web, Desktop cloud sessions, Artifacts, feedback submission (/feedback,/bug,/share), and Remote Control are automatically disabled backend-side under ZDR; third-party integrations/MCP remain uncovered by ZDR",
+    "url": "https://code.claude.com/docs/en/zero-data-retention",
+    "quote": "certain features that require storing prompts or completions are automatically disabled at the backend level"
+   }
+  ],
+  "fetched": [
+   "https://code.claude.com/docs/en/data-usage",
+   "https://code.claude.com/docs/en/zero-data-retention",
+   "https://claude.com/pricing",
+   "https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained"
+  ],
+  "notes": "Core claims re-confirmed: consumer retention 5 years with model-improvement on / 30 days off; commercial (Team/Enterprise/API) no-training default ('Anthropic does not train generative models using code or prompts sent to Claude Code under commercial terms'); local plaintext transcripts under ~/.claude/projects/ for 30 days default; ZDR gated to qualified Claude for Enterprise accounts enabled per-organization by the account team (matches tier_gate) and still exists for pay-as-you-go API keys. Certifications page confirms SOC 2 Type I & Type II, ISO 27001:2022, ISO/IEC 42001:2023, HIPAA-ready configuration (BAA available). New facts: Pro annual pricing is $17/mo ($200 up front, $20 monthly); the Claude Fable 5 model class is unavailable to ZDR organizations (requires data retention). Suitability classifications (personal=cfg, special=no, cloud boundary) remain correct. Not checked: legal-and-compliance page (not fetched; other sources covered its claims)."
+ },
+ {
+  "id": "rca-openai-codex",
+  "name": "OpenAI Codex",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "model_backend",
+    "old": "GPT-5.6 Codex family (availability changes over time; OpenAI proprietary)",
+    "new": "GPT-5.6 family — 5.6 Sol, 5.6 Terra, 5.6 Luna — plus 5.3 Codex Spark (recommended set); gpt-5.4 / gpt-5.4-mini deprecated, retiring 2026-08-31; Codex can also be pointed at any third-party model/provider supporting Chat Completions or Responses APIs (BYO model)",
+    "url": "https://learn.chatgpt.com/docs/models",
+    "quote": "point Codex at any model and provider that supports either the Chat Completions or Responses APIs"
+   }
+  ],
+  "fetched": [
+   "https://learn.chatgpt.com/docs/pricing",
+   "https://learn.chatgpt.com/docs",
+   "https://learn.chatgpt.com/docs/models",
+   "https://learn.chatgpt.com/docs/security",
+   "https://developers.openai.com/api/docs/guides/your-data",
+   "https://trust.openai.com/"
+  ],
+  "notes": "Confirmed: docs live at learn.chatgpt.com (developers.openai.com/codex 308-redirects there); ChatGPT Business $20/user/month annual, $25 monthly (matches record); surfaces CLI + IDE extension + cloud + ChatGPT web/desktop; API no-train default ('As of March 1, 2023, data sent to the OpenAI API is not used to train or improve OpenAI models'); API abuse-monitoring retention 'retained for up to 30 days'; ZDR is endpoint-eligibility-based; multi-region data residency. Trust portal lists SOC 2 Type 2, ISO/IEC 27001:2022, ISO/IEC 27701:2019, GDPR, CCPA (consistent with record's compliance subset; also 27017/27018/42001/CSA STAR/SOC 3). New consumer tier 'Go $8/month' now exists alongside Free/Plus/Pro. COULD NOT VERIFY (pages 403 on openai.com and help.openai.com — do not treat as changed): (1) Codex-only Business seats discontinued 2026-06-24 claim; (2) ChatGPT Business/Enterprise/Edu no-train default statement (learn.chatgpt.com/docs/security is about vulnerability scanning, not data policy; business-data page unreachable); (3) $100 student Codex credits offer status; (4) HIPAA BAA and FERPA claims (not visible on trust portal fetch, source page unreachable). Suitability classifications (personal=cfg gated to Business+/API, special=no cloud-only) remain correct on fetched evidence."
+ },
+ {
+  "id": "rca-gemini-cli",
+  "name": "Gemini CLI",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "model_backend",
+    "old": "consumer access is transitioning to the separate Antigravity CLI product",
+    "new": "transition COMPLETED: Gemini CLI (and Gemini Code Assist IDE extensions) stopped serving consumer 'Gemini Code Assist for individuals' free-tier and Google AI Pro/Ultra subscription requests on 2026-06-18; Antigravity CLI has been GA since 2026-05-19; Gemini Code Assist Standard/Enterprise license access unchanged",
+    "url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+    "quote": "Gemini CLI and Gemini Code Assist IDE extensions will stop serving requests for Google AI Pro and Ultra"
+   },
+   {
+    "field": "academic",
+    "old": "free tier (now Antigravity) available to any Google Account but carries training-data risk",
+    "new": "no free consumer route through Gemini CLI itself since 2026-06-18; free consumer access exists only via the separate Antigravity CLI product; GitHub integration new installs blocked and existing service terminated 2026-06-18",
+    "url": "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/",
+    "quote": "If your organization uses Gemini CLI or our IDE extensions via a Gemini Code Assist Standard or Enterprise license...your access remains unchanged"
+   }
+  ],
+  "fetched": [
+   "https://github.com/google-gemini/gemini-cli",
+   "https://google-gemini.github.io/gemini-cli/docs/tos-privacy.html",
+   "https://google-gemini.github.io/gemini-cli/docs/quota-and-pricing.html",
+   "https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/"
+  ],
+  "notes": "Repo remains active (6,362 commits, weekly releases), Apache-2.0, no deprecation/rename notice — record's 'keep separate from Antigravity' framing holds. No-train for paid routes re-confirmed verbatim: paid Gemini API key / Vertex AI / Code Assist Standard-Enterprise 'prompts, answers, and related code are not collected and are not used to train models'; consumer route (now defunct) trained by default with opt-out. INCONSISTENCY FLAG: the github.io docs (tos-privacy, quota-and-pricing) still describe the consumer free tier (1,000 req/day) with no mention of the 2026-06-18 shutdown — docs are stale relative to the first-party blog announcement; the blog is dated and explicit, so the shutdown is treated as authoritative. tier_gate 'paid API / Vertex' is now effectively the only individual route (plus enterprise Code Assist). Suitability classifications unchanged and still correct (cloud-only, special=no)."
+ },
+ {
+  "id": "rca-aider",
+  "name": "Aider",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://aider.chat/docs/legal/privacy.html",
+   "https://aider.chat/docs/more/analytics.html",
+   "https://github.com/Aider-AI/aider"
+  ],
+  "notes": "All load-bearing claims re-confirmed: analytics doc states verbatim 'Aider respects your privacy and never collects your code, chat messages, keys or personal info' and 'Analytics are only collected if you agree and opt-in' (consent asked of a random subset by default; --analytics-disable permanently opts out; anonymous UUID only). Repo active (13,138 commits, 48.2k stars), Apache-2.0, no acquisition/deprecation/read-only notice — the discovery-lane Continue/Cursor lead does not involve Aider. BYO-key local-capable architecture unchanged. Suitability (special=cfg only with fully local model on controlled infrastructure) remains the correct classification. Privacy policy page itself is vaguer than the analytics doc; the analytics doc carries the explicit never-collects commitment."
+ },
+ {
+  "id": "rca-goose",
+  "name": "Goose",
+  "verdict": "unchanged",
+  "changes": [],
+  "fetched": [
+   "https://goose-docs.ai/docs/guides/usage-data/",
+   "https://goose-docs.ai/docs/guides/environment-variables/",
+   "https://github.com/aaif-goose/goose"
+  ],
+  "notes": "All load-bearing claims re-confirmed: telemetry default documented as disabled (env table: 'GOOSE_TELEMETRY_ENABLED | Enable or disable anonymous usage data collection | true/false | false'); first-use consent prompt ('On first use, goose asks for permission to collect anonymous usage metrics'); collected data explicitly excludes content ('Collected usage data doesn't include your conversations, code, tool arguments, error messages, or any personal data'). Repo active (5,333 commits) at aaif-goose org, Apache-2.0, GOVERNANCE.md under Agentic AI Foundation / Linux Foundation. Providers: local Ollama plus Anthropic/OpenAI/Google/Azure/Bedrock/OpenRouter etc. (15+), MCP extensions. Free, no paid tiers observed. Suitability (special=cfg only with fully local model) remains correct. Not re-fetched: linuxfoundation.org AAIF press release (repo governance evidence considered sufficient)."
+ },
+ {
+  "id": "rca-cursor",
+  "name": "Cursor",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "pricing",
+    "old": "Students: 1 year of Pro free via SheerID verification.",
+    "new": "No active student offer; students page points to future campus/online-event promotions only",
+    "url": "https://cursor.com/students",
+    "quote": "To upgrade your access, look out for promotions at our on-campus and online events starting this fall."
+   },
+   {
+    "field": "pricing",
+    "old": "(no Cursor Start tier)",
+    "new": "New 'Cursor Start' individual tier launched 2026-07-28 for India, positioned between Free and Pro",
+    "url": "https://cursor.com/blog/cursor-start",
+    "quote": "₹649 per month, tax inclusive, billed monthly in INR with UPI or card."
+   }
+  ],
+  "fetched": [
+   "https://cursor.com/pricing",
+   "https://cursor.com/security",
+   "https://cursor.com/data-use",
+   "https://cursor.com/students",
+   "https://cursor.com/blog",
+   "https://cursor.com/blog/cursor-start"
+  ],
+  "notes": "Confirmed: Hobby 'Free', Pro '$20 / mo.', Teams '$40 / user / mo.', Enterprise 'Custom'; SOC 2 Type II ('A SOC 2 Type II attestation report is available on request at trust.cursor.com'); Privacy Mode no-training ('Customer Data will not be used for training by Cursor', with abuse-classifier retention caveat); BYOK still traverses Cursor backend — verbatim 'Even if you use your API key, your requests will still go through our backend!'; no self-hosted/on-prem option anywhere on security/data-use pages, so special=no classification stands. Team Privacy Mode: current wording is admin-enabled + 'New team members inherit the team's Privacy Mode settings' — supports the record but the strict 'enforced for teams' phrasing was not re-found verbatim. COULD NOT VERIFY: Pro+ $60/mo and Ultra $200/mo — the current pricing page renders Pro+/Ultra cards without distinct displayed prices in fetched content, and the Cursor Start post refers to 'our two other individual plans, Free and Pro', suggesting possible individual-plan restructuring; do not assert old Pro+/Ultra prices as current. Continue-acquisition lead: NO first-party evidence — cursor.com/blog Jun-Aug 2026 listing has no acquisition or Continue post; lead unconfirmed from Cursor's side. Cursor blog now features xAI Grok 4.5/4.6 posts (model partnership signal, not a record change)."
+ },
+ {
+  "id": "rca-github-copilot",
+  "name": "GitHub Copilot",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "academic",
+    "old": "new student signups were temporarily paused as of this audit",
+    "new": "Copilot Student plan is listed as available, free for verified students; verified teachers and popular open-source maintainers may be eligible for free Copilot Pro",
+    "url": "https://docs.github.com/en/copilot/get-started/plans",
+    "quote": "Copilot Student: Free for verified students"
+   }
+  ],
+  "fetched": [
+   "https://github.com/features/copilot/plans",
+   "https://docs.github.com/en/copilot/get-started/plans",
+   "https://github.blog/changelog/2026-04-13-copilot-data-residency-in-us-eu-and-fedramp-compliance-now-available/"
+  ],
+  "notes": "All other load-bearing claims re-confirmed: prices Free $0 / Pro $10 / Pro+ $39 / Max $100 / Business $19/seat / Enterprise $39/seat (exact match); training default for individual tiers — GitHub 'may use interactions from Free, Pro, and Pro+ subscribers to train and improve our AI models unless they have opted out'; Business and Enterprise data not used for training (DPA); AI-credits model confirmed ($15/$70/$200 monthly credits on Pro/Pro+/Max, completions unlimited on paid plans); EU/US data residency cost confirmed as 'Data-resident and FedRAMP requests carry a 10% increase in the model multiplier' (matches record note that it is a multiplier, not a flat surcharge), EU incl. EFTA from 2026-05-01, Japan/Australia planned; FedRAMP — 'the underlying model hosts and infrastructure are FedRAMP Moderate authorized' while Copilot itself is not yet fully authorized (matches record). Cloud-only, no self-hosting: nothing contradicting; special=no classification stands. Not re-checked this pass: manage-policies opt-out mechanics page, SOC 2 Type I / ISO 27001:2013 certification scope for Copilot specifically."
+ },
+ {
+  "id": "rca-windsurf",
+  "name": "Windsurf",
+  "verdict": "changed",
+  "changes": [
+   {
+    "field": "pricing",
+    "old": "Student discount ~50%+ off Pro with .edu email.",
+    "new": "No student discount shown on the current pricing page (plans: Free $0, Pro $20/mo, Max $200/mo, Teams $80/mo + $40/seat, Enterprise custom) — record's own academic field already said none confirmed; drop the student sentence from pricing",
+    "url": "https://devin.ai/pricing",
+    "quote": "Pro: \"$20 per month\" ... Max: \"$200 per month\" (page lists Free, Pro, Max, Teams, Enterprise; no student offer appears)"
+   }
+  ],
+  "fetched": [
+   "https://cognition.com/blog/introducing-devin-desktop",
+   "https://devin.ai/pricing",
+   "https://devin.ai/desktop",
+   "https://windsurf.com",
+   "https://cognition.com/legal/privacy-policy",
+   "https://cognition.com/legal/platform-terms-of-service",
+   "https://cognition.com/legal/security",
+   "https://docs.devin.ai/enterprise/deployment/overview",
+   "https://docs.devin.ai/desktop/getting-started"
+  ],
+  "notes": "DISCOVERY LEAD INDEPENDENTLY CONFIRMED: windsurf.com now 308-redirects to devin.ai/desktop, whose FAQ states 'Devin Desktop is the new name for Windsurf'; announcement blog dated 2026-06-02 ('We took the IDE foundation of Windsurf and built Devin Desktop'); plans/pricing/settings carry over via OTA update. Record's status=renamed / current_name='Devin Desktop' is correct as-is. Nuance: 'Windsurf for JetBrains (IntelliJ IDEA, PyCharm, WebStorm, and more) continues to be available for download' — the Windsurf name survives for the JetBrains plugin, keep alias. Training terms re-confirmed verbatim (Platform ToS 3.3.1): default 'Cognition may use Customer Data for model training purposes'; 'If you subscribe to a paid Service Tier, you may opt-out of this use', after which '(B) Zero Data Retention will be enabled with our model providers' (Teams: admin-only opt-out). ToS 4.2 prohibits processing 'any medical information or sensitive personal data' — supports special=no. Deployment boundary re-confirmed: both Enterprise Cloud and Customer Dedicated Deployment are Cognition-hosted; 'Devin's workspace operates under the control of its brain, which always resides within Cognition's Cloud' — NOT customer-controlled on-prem, matching record. Pricing exact match (Free/Pro $20/Max $200/Teams $80+$40/Enterprise). PARTIAL: SOC 2 Type II — cognition.com/legal/security uses hedged wording ('security program that is based on industry standard security frameworks such as SOC 2 Type II and ISO 27001'), an explicit current attestation was not re-confirmed on fetched pages; model_backend 'SWE-1.6 default' not re-confirmed on fetched pages (SWE-1.6 referenced only via related blog posts). This evidence also applies to the separate rca-devin record (not in this slice): Devin remains a distinct live product; Windsurf-the-IDE became Devin Desktop rather than merging both records."
+ }
+]
