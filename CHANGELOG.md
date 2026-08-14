@@ -2,6 +2,13 @@
 
 All notable public changes to this resource are documented here.
 
+## 2.1.1 — 2026-08-14
+
+- Added a visible version-and-date badge to the index header, generated from
+  `resource_metadata.json`, so the most recent published update is legible at
+  a glance and refreshes automatically with every release.
+- No tool records, suitability classifications, or data distributions changed.
+
 ## 2.1.0 — 2026-08-13
 
 - Re-verified all 43 retained records against current first-party vendor/project sources through six delegated review slices; 28 records were materially updated (pricing, model backends, data-handling terms, contractual gates, moved or dead vendor URLs) and every record carries a 2026-08-13 evidence-check date.
