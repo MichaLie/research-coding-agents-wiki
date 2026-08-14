@@ -164,6 +164,7 @@ header.top{position:relative;align-items:center;gap:24px;padding:23px 25px 22px 
 header.top::before{content:"Research coding & data tools index";display:block;position:absolute;top:15px;left:28px;color:#286d98;font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 .htext{padding-top:15px}h1{margin:0 0 7px;color:#172d3b;font-size:25px;line-height:1.12;font-weight:650;letter-spacing:-.025em}
 .sub{max-width:920px;color:#586d7b;font-size:14px;line-height:1.58}.sub b,.maxim{color:#314b5a;font-weight:650}
+.vbadge{display:inline-block;margin:1px 0 7px;padding:2.5px 11px;border:1px solid #d7dee3;border-radius:999px;background:#f0f5fa;font-size:11.5px;font-weight:650;letter-spacing:.045em;color:#586d7b;white-space:nowrap}.vbadge b{color:#185fa5;font-weight:700}
 .hright{gap:9px}.dedi{gap:10px}.elixir-logo svg{height:53px}.dedi-cap{color:#607482}.dedi-cap b{color:#203744}
 .draftbar{margin:12px 0 0;padding:8px 13px;border-color:#cfe0ea;border-radius:8px;background:#f1f7fb;color:#315e7b}
 .disclaimer{margin:9px 0 2px;padding:9px 13px;border-color:#ead9a9;border-radius:8px;background:#fff9e9;color:#685516}
@@ -189,6 +190,7 @@ footer{margin-top:26px;padding:17px 18px;border:1px solid #d8e3e9;border-radius:
 </style></head><body><div class="wrap">
 <header class="top"><div class="htext">
 <h1>AI Coding &amp; Data Agents for Researchers</h1>
+<div class="vbadge" title="Version and date of the most recent published catalog update"><b>v__CATVERSION__</b> · updated __CATMODIFIED__</div>
 <div class="sub">A privacy-first guide to AI coding and data-analysis tools for scientific work. Start from <b>your data</b>, see what's appropriate, and what it costs in capability.
 <span class="maxim">As open as possible, as closed as necessary.</span></div>
 </div>
@@ -356,7 +358,7 @@ out=(TPL
  .replace('__TYPEORDER__',json.dumps(TYPE_ORDER))
  .replace('__DHORDER__',json.dumps(DH_ORDER))
  .replace('__CAPORDER__',json.dumps(CAP_ORDER))
- .replace('__TODAY__',today).replace('__TOTAL__',str(total))
+ .replace('__TODAY__',today).replace('__CATVERSION__',str(resource_meta['resource_version'])).replace('__CATMODIFIED__',str(resource_meta['modified'])).replace('__TOTAL__',str(total))
  .replace('__NLOCAL__',str(n_local)).replace('__NOPEN__',str(n_open))
  .replace('__NSPECIALREADY__',str(n_special_ready)).replace('__NSPECIALCONFIG__',str(n_special_config)))
 
