@@ -1,0 +1,26 @@
+{
+  "displayed": 61,
+  "retained_reviewed": 59,
+  "added": 2,
+  "held": 1,
+  "verified_dates": {
+    "2026-09-11": 61
+  },
+  "confidence": {
+    "high": 47,
+    "medium": 13,
+    "low": 1
+  },
+  "special": {
+    "no": 28,
+    "cfg": 33
+  },
+  "data_handling": {
+    "zdr": 1,
+    "no-train": 28,
+    "local": 29,
+    "opt-out": 2,
+    "unknown": 1
+  },
+  "canonical_urls": 397
+}

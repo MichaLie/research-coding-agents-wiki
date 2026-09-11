@@ -1,0 +1,72 @@
+[
+  {
+    "id": "kiro-storage",
+    "url": "https://kiro.dev/docs/privacy-and-security/data-protection/",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "AWS regions where content is stored and processed",
+    "excerpt": "may be stored in the region where your profile is configured",
+    "paraphrase": "Enterprise no-improvement does not mean no operational storage.",
+    "source_sha256": "30a4787ee15c9e365fef95ac5c4d9392984509c1c85200f42144061243ec8456"
+  },
+  {
+    "id": "ante-unscrubbed",
+    "url": "https://docs.antigma.ai/configuration/preference",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "Telemetry / Identity",
+    "excerpt": "Log bodies are not scrubbed",
+    "paraphrase": "Export can expose content in application logs; explicit exporter disable is required.",
+    "source_sha256": "d4a81e597cf305ee6a645935b50a1b84d23b30390361ca74cad5b9f251e98db3"
+  },
+  {
+    "id": "ante-license",
+    "url": "https://raw.githubusercontent.com/AntigmaLabs/ante/main/README.md",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "License",
+    "excerpt": "The core harness is currently developed in a private repository",
+    "paraphrase": "Published Apache SDK/protocol does not license the complete core binary.",
+    "source_sha256": "f4b6393559531b365ffe79be3bb9fe9ec8920c7e8933b3ed1e2c2c2c621a6abc"
+  },
+  {
+    "id": "pi-install",
+    "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/docs/settings.md",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "Telemetry / Analytics",
+    "excerpt": "enableInstallTelemetry",
+    "paraphrase": "Install telemetry defaults on; analytics defaults off. Explicit disable and offline startup are documented.",
+    "source_sha256": "034c9ad9ef2dc9efa21258a91b10d20ce106601046d473b73bad1e1c136e430f"
+  },
+  {
+    "id": "zencoder-private",
+    "url": "https://docs.zencoder.ai/features/private-deployments",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "What Is a Private Deployment?",
+    "excerpt": "running agents, orchestration, and inference on infrastructure you operate",
+    "paraphrase": "Actual customer-operated inference is described, with managed provider catalog disabled.",
+    "source_sha256": "60f8097debc5f978a3fd4dc85ead97c4a1f526e532c5abbe7d3e73b4c78e6ab9"
+  },
+  {
+    "id": "zencoder-training",
+    "url": "https://zencoder.ai/legal/terms-of-service",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "4.1 Your Content",
+    "excerpt": "with Your further consent",
+    "paraphrase": "Paid/Trial model training requires further consent; Free permits it. Service improvement and provider retention remain separate.",
+    "source_sha256": "db5f513da47f4d399fc997f367aaa28474e5cfbe455a8fc08abff66c5b80b567"
+  },
+  {
+    "id": "zerve-provider",
+    "url": "https://www.zerve.ai/pricing",
+    "review_date": "2026-09-11",
+    "access_level": "full-text",
+    "locator": "FAQ / BYOK",
+    "excerpt": "OpenAI and Anthropic",
+    "paraphrase": "Documented BYOK is cloud-provider access; self-hosted model support is request-only.",
+    "source_sha256": "34d5a1e7e54ff3f75283f1681bd7b90f2fa8bdfe6ba46ac9fd1c46948d499223"
+  }
+]

@@ -27,7 +27,7 @@
       "license_status": {"enum": ["confirmed", "source-available", "proprietary", "unconfirmed"]},
       "deployment": {"type": "string", "minLength": 1},
       "model_backend": {"type": "string", "minLength": 1},
-      "data_handling": {"enum": ["local", "zdr", "no-train", "opt-out", "trains"]},
+      "data_handling": {"enum": ["local", "zdr", "no-train", "opt-out", "trains", "unknown"]},
       "data_handling_note": {"type": "string", "minLength": 1},
       "capability": {"enum": ["frontier", "strong", "capable", "basic"]},
       "backend_dependent": {"type": "boolean"},

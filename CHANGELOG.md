@@ -2,6 +2,23 @@
 
 All notable public changes to this resource are documented here.
 
+## 2.2.0 — 2026-09-11
+
+- Reviewed all 60 baseline entries against current first-party evidence. Updated
+  59 retained public summaries and added Pi and Zencoder, producing 61 displayed
+  tools. Nobie is held outside the catalog with its prior record and reconsideration
+  conditions preserved; this does not mark the company or product discontinued.
+- Corrected Kiro operational storage, Replit Enterprise-only agreement scope,
+  Amp retention terminology, Ante binary licensing and exported log contents,
+  and multiple plan, pricing and model-route changes. DataFoundry remains one
+  product after checking its parent/distribution relationship.
+- Added an explicit `unknown` data-handling value for unresolved training/retention
+  evidence. Zerve uses this value; Clusy's own-service no-training statement is
+  distinguished from non-uniform provider controls. Suitability policy is unchanged.
+- Clarified configuration-dependent Local/ZDR/No-train legends. Preserved stable
+  identifiers, recorded source access and dated decisions, and set the immutable
+  release reference after owner review and publication authorization.
+
 ## 2.1.1 — 2026-08-14
 
 - Added a visible version-and-date badge to the index header, generated from

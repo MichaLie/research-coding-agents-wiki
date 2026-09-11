@@ -22,7 +22,7 @@
       "dcat:accessURL": {
         "@id": "https://michalie.github.io/research-coding-agents-wiki/"
       },
-      "dcat:byteSize": 248785,
+      "dcat:byteSize": 242754,
       "dcat:downloadURL": {
         "@id": "https://michalie.github.io/research-coding-agents-wiki/tools.json"
       },
@@ -36,7 +36,7 @@
         "spdx:algorithm": {
           "@id": "http://spdx.org/rdf/terms#checksumAlgorithm_sha256"
         },
-        "spdx:checksumValue": "13c736f522e8df6acedbaea1e4acacff7fcbec270d7fbcd17e5a75078b19eb0a"
+        "spdx:checksumValue": "64abb01c46a60306336484050e4854ce62e5d13b0ed17d9bc67518b4dcb68b0d"
       }
     },
     {
@@ -48,7 +48,7 @@
       "dcat:accessURL": {
         "@id": "https://michalie.github.io/research-coding-agents-wiki/"
       },
-      "dcat:byteSize": 4325,
+      "dcat:byteSize": 4336,
       "dcat:downloadURL": {
         "@id": "https://michalie.github.io/research-coding-agents-wiki/schema.json"
       },
@@ -62,7 +62,7 @@
         "spdx:algorithm": {
           "@id": "http://spdx.org/rdf/terms#checksumAlgorithm_sha256"
         },
-        "spdx:checksumValue": "79a34a107787b8ebbfc1f0141d89593ad26dcd0f37c1044f2a56ee22a7b306d6"
+        "spdx:checksumValue": "32010e821f0e4e24fada60900c5f0c1c454496fac09f38158fded9ff77b999b4"
       }
     },
     {
@@ -134,7 +134,7 @@
   },
   "dct:modified": {
     "@type": "xsd:date",
-    "@value": "2026-08-14"
+    "@value": "2026-09-11"
   },
   "dct:provenance": "Curated from current first-party vendor documentation, privacy and trust material, pricing pages, and official repositories; generated from the canonical JSON source with a deterministic local build. Privacy classifications remain decision support, not legal advice.",
   "dct:publisher": {
@@ -154,22 +154,22 @@
   },
   "dct:title": "AI Coding and Data Agents for Researchers",
   "prov:wasDerivedFrom": {
-    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/commit/d9b68b9b84e8b91ae827232007446254427f8c14"
+    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/commit/4b2115d7304752d67ef2ef75c56ba9efb9a3f7e6"
   },
   "prov:wasGeneratedBy": {
-    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.1.1",
+    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.2.0",
     "@type": "prov:Activity",
     "dct:type": "Versioned release build",
     "prov:endedAtTime": {
       "@type": "xsd:date",
-      "@value": "2026-08-14"
+      "@value": "2026-09-11"
     },
     "prov:used": [
       {
         "@id": "https://github.com/MichaLie/research-coding-agents-wiki"
       },
       {
-        "@id": "https://github.com/MichaLie/research-coding-agents-wiki/commit/d9b68b9b84e8b91ae827232007446254427f8c14"
+        "@id": "https://github.com/MichaLie/research-coding-agents-wiki/commit/4b2115d7304752d67ef2ef75c56ba9efb9a3f7e6"
       }
     ]
   },
@@ -184,7 +184,7 @@
     "schema:email": "mailto:michaela.liegertova@img.cas.cz",
     "schema:name": "Michaela Liegertová"
   },
-  "schema:dateModified": "2026-08-14",
+  "schema:dateModified": "2026-09-11",
   "schema:description": "A curated, privacy-first decision-support catalog of AI coding and data-analysis tools for researchers, including deployment, data-handling, and data-sensitivity suitability information.",
   "schema:identifier": "https://michalie.github.io/research-coding-agents-wiki/",
   "schema:isAccessibleForFree": true,
@@ -192,12 +192,12 @@
     "@id": "https://creativecommons.org/licenses/by/4.0/"
   },
   "schema:name": "AI Coding and Data Agents for Researchers",
-  "schema:numberOfItems": 60,
+  "schema:numberOfItems": 61,
   "schema:sameAs": {
     "@id": "https://github.com/MichaLie/research-coding-agents-wiki"
   },
   "schema:url": {
     "@id": "https://michalie.github.io/research-coding-agents-wiki/"
   },
-  "schema:version": "2.1.1"
+  "schema:version": "2.2.0"
 }

@@ -19,7 +19,7 @@ resource_meta = load_resource_metadata()
 
 TYPE_LABELS = {'ide':'IDE / editor','cli':'Terminal / CLI','cloud':'Cloud / autonomous','data':'Data analysis / notebook'}
 TYPE_ORDER  = ['ide','cli','cloud','data']
-DH_ORDER    = ['local','zdr','no-train','opt-out','trains']
+DH_ORDER    = ['local','zdr','no-train','opt-out','trains','unknown']
 CAP_ORDER   = ['frontier','strong','capable','basic']
 OPEN_ORDER  = ['open-source','open-core','commercial']
 
@@ -133,6 +133,7 @@ tr.dim{opacity:.4}
 .dh-local{background:var(--dhlocalbg);color:var(--dhlocal)}.dh-zdr{background:var(--dhzdrbg);color:var(--dhzdr)}
 .dh-no-train{background:var(--dhnotrainbg);color:var(--dhnotrain)}.dh-opt-out{background:var(--dhoptoutbg);color:var(--dhoptout)}
 .dh-trains{background:var(--dhtrainsbg);color:var(--dhtrains)}
+.dh-unknown{background:var(--dhoptoutbg);color:var(--dhoptout)}
 .gate{font-size:10px;color:var(--cfg);margin-top:3px;line-height:1.25;max-width:155px}
 .cap{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--chip);color:var(--muted);font-weight:600;white-space:nowrap}
 .cap-frontier{background:#ece9fc;color:#5b21b6}.cap-strong{background:#e1f5ee;color:var(--dhlocal)}
@@ -190,7 +191,7 @@ footer{margin-top:26px;padding:17px 18px;border:1px solid #d8e3e9;border-radius:
 </style></head><body><div class="wrap">
 <header class="top"><div class="htext">
 <h1>AI Coding &amp; Data Agents for Researchers</h1>
-<div class="vbadge" title="Version and date of the most recent published catalog update"><b>v__CATVERSION__</b> · updated __CATMODIFIED__</div>
+<div class="vbadge" title="Catalog version and metadata modification date"><b>v__CATVERSION__</b> · updated __CATMODIFIED__</div>
 <div class="sub">A privacy-first guide to AI coding and data-analysis tools for scientific work. Start from <b>your data</b>, see what's appropriate, and what it costs in capability.
 <span class="maxim">As open as possible, as closed as necessary.</span></div>
 </div>
@@ -213,11 +214,12 @@ footer{margin-top:26px;padding:17px 18px;border:1px solid #d8e3e9;border-radius:
  <div class="dcexpl">Non-sensitive = public / anonymised / synthetic &nbsp;·&nbsp; Personal = pseudonymised (GDPR) &nbsp;·&nbsp; Special-category = health / genetic / clinical (GDPR Art.&nbsp;9)</div>
  <div class="dchint" id="dchint">Pick your data class to see what's suitable — or browse all below.</div>
  <div class="dhkey"><span class="dhkeylbl">What the data-handling labels mean —</span>
- <span><span class="pill dh-local">Local</span> runs on your own hardware; data never leaves</span>
- <span><span class="pill dh-zdr">Zero-retention</span> cloud, but nothing stored or trained on (usually enterprise/API)</span>
- <span><span class="pill dh-no-train">No-train</span> not used for training, but may be retained</span>
+ <span><span class="pill dh-local">Local</span> supports local/self-hosted inference; configure providers, telemetry and integrations</span>
+ <span><span class="pill dh-zdr">Zero-retention</span> documented content-retention limits for a qualifying route; exclusions and product storage can differ</span>
+ <span><span class="pill dh-no-train">No-train</span> documented no-training scope; plan, provider and storage exceptions can differ</span>
  <span><span class="pill dh-opt-out">Opt-out</span> trains on your data unless you turn it off</span>
  <span><span class="pill dh-trains">Trains by default</span> your inputs train the vendor's model</span>
+ <span><span class="pill dh-unknown">Unclear</span> training/retention not established for this route; verify current terms</span>
  </div>
 </div>
 
@@ -262,8 +264,8 @@ footer{margin-top:26px;padding:17px 18px;border:1px solid #d8e3e9;border-radius:
 <script>
 const DATA=__DATA__;
 const TYPE_LABELS=__TYPELABELS__,TYPE_ORDER=__TYPEORDER__;
-const DH_LABELS={'local':'Local / self-host','zdr':'Zero-retention','no-train':'No-train','opt-out':'Opt-out','trains':'Trains by default'};
-const DH_SHORT={'local':'Local','zdr':'ZDR','no-train':'No-train','opt-out':'Opt-out','trains':'Trains'};
+const DH_LABELS={'local':'Local / self-host','zdr':'Zero-retention','no-train':'No-train','opt-out':'Opt-out','trains':'Trains by default','unknown':'Unclear'};
+const DH_SHORT={'local':'Local','zdr':'ZDR','no-train':'No-train','opt-out':'Opt-out','trains':'Trains','unknown':'Unclear'};
 const TYPE_SHORT={'ide':'IDE','cli':'CLI','cloud':'Cloud','data':'Data'};
 const DH_ORDER=__DHORDER__;
 const CAP_LABELS={'frontier':'Frontier','strong':'Strong','capable':'Capable','basic':'Basic'},CAP_ORDER=__CAPORDER__;

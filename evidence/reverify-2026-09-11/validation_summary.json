@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-11",
+  "catalog_sha256": "64abb01c46a60306336484050e4854ce62e5d13b0ed17d9bc67518b4dcb68b0d",
+  "preview_validation": "pass",
+  "full_schema_dates_and_identities": "pass",
+  "deterministic_generated_artifacts": 7,
+  "canonical_immutability": "pass",
+  "migration_clean_baseline_replay": "exact-match",
+  "migration_second_run": "zero-changes",
+  "diff_check": "pass",
+  "url_audit": {
+    "unique_urls": 397,
+    "occurrences": 534,
+    "reachable": 373,
+    "restricted": 24,
+    "missing": 0,
+    "network_error": 0
+  },
+  "release_validation": {
+    "status": "expected-failure",
+    "only_error": "release_ref is null; publication not authorized"
+  },
+  "rendered_review": "coordinating agent owns final browser review",
+  "remote_writes": false,
+  "synthetic_fault_injection": "pass: baseline, valid addition, invalid vocabulary, alias collision, impossible date, stale output and release-governance cases; real catalog unchanged"
+}
