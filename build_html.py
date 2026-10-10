@@ -3,7 +3,7 @@
 Usage: python3 build_html.py [tools.json] [out.html]
 Privacy-first: data-sensitivity suitability matrix + capability/protection signals.
 """
-import json, sys, html
+import json, re, sys, html
 from collections import Counter
 from fair_metadata import (
     build_jsonld,
@@ -33,7 +33,8 @@ for t in tools:
                         TYPE_LABELS.get(t.get('type',''),'')]).lower()
     rec['runs_locally']=bool(t.get('runs_locally',False))
     acad=(t.get('academic','') or '').strip().lower()
-    rec['freeacad']= acad not in ('','-','—','none','no')
+    # Negative statements ("No academic or student program found") must not count as an offer.
+    rec['freeacad']= acad not in ('','-','—') and not re.match(r'(no|none|not)\b', acad)
     dep=(t.get('deployment','') or '').lower()
     rec['selfhost']= ('self-host' in dep) or ('on-prem' in dep) or rec['runs_locally']
     norm.append(rec)
@@ -45,7 +46,7 @@ def sort_key(m):
             m.get('_display_name','').lower())
 norm.sort(key=sort_key)
 
-today=resource_meta['modified']
+today=resource_meta.get('evidence_review_date', resource_meta['modified'])
 total=len(norm)
 n_local=sum(1 for m in norm if m['runs_locally'])
 n_open=sum(1 for m in norm if m.get('openness')=='open-source')
