@@ -2,6 +2,16 @@
 
 All notable public changes to this resource are documented here.
 
+## 2.3.0 — 2026-10-10
+
+- Re-verified all 61 retained tools against current first-party sources. A separate agent tried to refute every safety-relevant change, and a cross-tool pass made privacy judgments consistent. 70 of 71 records carry the new verification date.
+- Added 11 tools: Poolside Agent CLI, Snowflake Cortex Code, Notebook Intelligence, MLJAR Studio, JASP, IBM Bob, Coder Agents, Kimi Code CLI, Deep Agents Code, Oh My Pi and DeepSeek Harness. Moved DataFoundry to an evidence hold; Nobie stays held.
+- Documented special-category routes for six tools, each restricted to a fully local or institution-controlled configuration with explicit controls: Copilot CLI offline mode, Codex CLI with local models, the Antigravity SDK, Posit Assistant with local models, self-hosted Roomote and Zerve Self-Managed.
+- Removed vendor-hosted tiers from qualifying routes (Factory Private, GitLab Dedicated for Government). Required Ollama's local-only mode wherever a route names Ollama, and required disabling default web, update and telemetry egress.
+- Applied one data-handling rule to tiered products: Windsurf, Devin, Hex and Jules now read opt-out; Antigravity reads no-train.
+- Fixed the Free/academic filter, which listed tools whose academic note said no programme existed.
+- Recorded method, verdicts and limits in `evidence/LIVE_AUDIT_2026-10-10.md` and `evidence/reverify-2026-10-10/`.
+
 ## 2.2.0 — 2026-09-11
 
 - Reviewed all 60 baseline entries against current first-party evidence. Updated
