@@ -11,6 +11,7 @@ All notable public changes to this resource are documented here.
 - Applied one data-handling rule to tiered products: Windsurf, Devin, Hex and Jules now read opt-out; Antigravity reads no-train.
 - Fixed the Free/academic filter, which listed tools whose academic note said no programme existed.
 - Recorded method, verdicts and limits in `evidence/LIVE_AUDIT_2026-10-10.md` and `evidence/reverify-2026-10-10/`.
+- Set the immutable release reference after owner review and publication authorization.
 
 ## 2.2.0 — 2026-09-11
 

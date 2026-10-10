@@ -157,9 +157,9 @@
     "@id": "https://github.com/MichaLie/research-coding-agents-wiki/commit/5d7e7b8045b2ed0ca188724dee423337365057c3"
   },
   "prov:wasGeneratedBy": {
-    "@id": "https://michalie.github.io/research-coding-agents-wiki/#local-preview-build-2.3.0",
+    "@id": "https://github.com/MichaLie/research-coding-agents-wiki/releases/tag/v2.3.0",
     "@type": "prov:Activity",
-    "dct:type": "Working build without an immutable release reference",
+    "dct:type": "Versioned release build",
     "prov:endedAtTime": {
       "@type": "xsd:date",
       "@value": "2026-10-10"
