@@ -55,6 +55,9 @@ def load_resource_metadata(path: Path = CONFIG_PATH) -> dict:
     for key in ("issued", "modified"):
         if not DATE_RE.fullmatch(metadata[key]):
             raise ValueError(f"{path}: {key} must use YYYY-MM-DD")
+    review_date = metadata.get("evidence_review_date")
+    if review_date is not None and (not DATE_RE.fullmatch(str(review_date)) or review_date > metadata["modified"]):
+        raise ValueError(f"{path}: evidence_review_date must use YYYY-MM-DD and not follow modified")
     for field in ("creator", "publisher"):
         agent = metadata.get(field)
         if agent is None and field == "publisher":

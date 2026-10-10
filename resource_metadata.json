@@ -6,6 +6,7 @@
   "resource_version": "2.2.0",
   "issued": "2026-06-21",
   "modified": "2026-09-11",
+  "evidence_review_date": "2026-09-11",
   "data_file": "tools.json",
   "schema_file": "schema.json",
   "repository": "https://github.com/MichaLie/research-coding-agents-wiki",

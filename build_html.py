@@ -45,7 +45,7 @@ def sort_key(m):
             m.get('_display_name','').lower())
 norm.sort(key=sort_key)
 
-today=resource_meta['modified']
+today=resource_meta.get('evidence_review_date', resource_meta['modified'])
 total=len(norm)
 n_local=sum(1 for m in norm if m['runs_locally'])
 n_open=sum(1 for m in norm if m.get('openness')=='open-source')
