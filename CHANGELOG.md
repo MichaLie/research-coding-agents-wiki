@@ -10,6 +10,7 @@ All notable public changes to this resource are documented here.
 - Data-handling labels: Claude Code reads no-train (zero data retention needs Anthropic's per-organisation approval), Julius AI reads opt-out, Kimi Code CLI reads trains.
 - Corrected over-promising wording for several tools (Datalore, Amp, Devin EU, Posit Assistant, Codex) and kept Zerve's data handling as unknown after a proposed change was refuted.
 - Recorded method, verdicts and limits in `evidence/LIVE_AUDIT_2026-11-06.md` and `evidence/reverify-2026-11-06/`.
+- Set the immutable release reference after owner review and publication authorization.
 
 ## 2.3.0 — 2026-10-10
 
