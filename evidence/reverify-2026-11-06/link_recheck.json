@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-06",
+  "network_errors": [
+    {
+      "url": "https://jasp-stats.org/privacy/",
+      "record": "rca-jasp"
+    },
+    {
+      "url": "https://jasp-stats.org/2026/07/02/introducing-jasp-0-98-fully-integrated-ai-support/",
+      "record": "rca-jasp"
+    },
+    {
+      "url": "https://jasp-stats.org/2026/06/30/breakthrough-development-jasp-with-fully-integrated-ai/",
+      "record": "rca-jasp"
+    },
+    {
+      "url": "https://jasp-stats.org/2026/07/09/free-api-key-hunting/",
+      "record": "rca-jasp"
+    },
+    {
+      "url": "https://jasp-stats.org/jasp-services/",
+      "record": "rca-jasp"
+    },
+    {
+      "url": "https://jasp-stats.org/privacy/",
+      "record": "rca-jasp"
+    },
+    {
+      "url": "https://jasp-stats.org/release-notes/",
+      "record": "rca-jasp"
+    }
+  ],
+  "manual_recheck": "curl -A Mozilla/5.0: jasp-stats.org/privacy/ 200, /release-notes/ 200, /jasp-services/ 301 (2026-11-06). The blog-post URLs share the host and were not re-fetched individually."
+}

@@ -2,6 +2,16 @@
 
 All notable public changes to this resource are documented here.
 
+## 2.4.0 — 2026-11-06
+
+- Re-verified all 71 tools against current first-party sources. A separate agent tried to refute every safety-relevant change, and a cross-tool pass checked consistency. All 78 records carry the new verification date.
+- Removed Jules: Google is winding it down (read-only from 11 November 2026, shutdown on 31 December) and points users to Antigravity.
+- Added 8 tools: Open WebUI, Data Formulator, Amazon SageMaker Data Agent, Codewhale, MATLAB Copilot, KNIME K-AI, Claude for Excel and Freebuff. Open WebUI, Data Formulator and Codewhale document special-category routes on institution-controlled infrastructure.
+- Data-handling labels: Claude Code reads no-train (zero data retention needs Anthropic's per-organisation approval), Julius AI reads opt-out, Kimi Code CLI reads trains.
+- Corrected over-promising wording for several tools (Datalore, Amp, Devin EU, Posit Assistant, Codex) and kept Zerve's data handling as unknown after a proposed change was refuted.
+- Recorded method, verdicts and limits in `evidence/LIVE_AUDIT_2026-11-06.md` and `evidence/reverify-2026-11-06/`.
+- Set the immutable release reference after owner review and publication authorization.
+
 ## 2.3.0 — 2026-10-10
 
 - Re-verified all 61 retained tools against current first-party sources. A separate agent tried to refute every safety-relevant change, and a cross-tool pass made privacy judgments consistent. 70 of 71 records carry the new verification date.
